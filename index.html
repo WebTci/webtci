@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styleweb.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href=" https://fonts.googleapis.com/css?family=Pacifico&amp;display=swap "
+    />
+    <!-- font vazir -->
+    <link
+      href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <title>Bit Plus</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="blur"></div>
+      <header>
+        <span>Bit Plus</span>
+        <nav class="list">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="button">
+          <button id="theme-toggle" class="theme-toggle" aria-label="تغییر تم">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+          <div class="hamberger">
+            <i class="fa-solid fa-bars"></i>
+          </div>
+        </div>
+      </header>
+      <section class="hero">
+        <div class="logo">
+          <img src="./ph/bit2.png" alt="Bit Plus Logo" />
+        </div>
+        <div class="logo-name">
+          <h1>بیت پلاس</h1>
+          <p>آموزش و طراحی سایت</p>
+        </div>
+      </section>
+      <section class="about">
+        <p>
+          <span>طراحی سایت</span>
+
+          <span>آموزش کاربردی </span>
+          <span>پشتیبانی تخصصی</span>
+        </p>
+      </section>
+      <section class="portfolio" id="portfolio">
+        <h4>نمونه کار ها</h4>
+        <div class="banner">
+          <div class="slider" style="--quantity: 5">
+            <div class="item" style="--position: 1">
+              <img src="./ph/slide (1).jpg" />
+            </div>
+            <div class="item" style="--position: 2">
+              <img src="./ph/slide (2).jpg" />
+            </div>
+            <div class="item" style="--position: 3">
+              <img src="./ph/slide (3).jpg" />
+            </div>
+            <div class="item" style="--position: 4">
+              <img src="./ph/slide (3).jpg" />
+            </div>
+            <div class="item" style="--position: 5">
+              <img src="./ph/slide (3).jpg" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="course">
+        <h4>دوره‌های آموزشی</h4>
+        <div class="course-list">
+          <div class="cards">
+            <div class="lock">
+              <i class="fa-solid fa-hourglass-start"></i>
+              <p>بزودی</p>
+            </div>
+
+            <div class="card">
+              <img src="./ph/bit2.png" alt="" />
+              <h3>دوره طراحی وب</h3>
+            </div>
+            <div class="card">
+              <img src="./ph/bit2.png" alt="" />
+              <h3>دوره طراحی وب</h3>
+            </div>
+            <div class="card">
+              <img src="./ph/bit2.png" alt="" />
+              <h3>دوره طراحی وب</h3>
+            </div>
+            <div class="card">
+              <img src="./ph/bit2.png" alt="" />
+              <h3>دوره طراحی وب</h3>
+            </div>
+            <div class="card">
+              <img src="./ph/bit2.png" alt="" />
+              <h3>دوره طراحی وب</h3>
+            </div>
+            <div class="card">
+              <img src="./ph/bit2.png" alt="" />
+              <h3>دوره طراحی وب</h3>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer id="footer">
+        <div class="content-footer">
+          <div class="footer-logo">
+            <img src="./ph/bit2.png" alt="" />
+            <h4>بیت پلاس</h4>
+          </div>
+          <ul class="footer-item">
+            <li>
+              <a href="#">تماس با ما </a>
+              <i class="fa-solid fa-phone-volume"></i>
+            </li>
+            <li><a href="#">درباره ما</a><i class="fa-solid fa-users"></i></li>
+            <li>
+              <a href="#">سوالات متداول</a><i class="fa-solid fa-question"></i>
+            </li>
+          </ul>
+        </div>
+        <p class="copyright">&copy; 2024 Bit Plus. All rights reserved.</p>
+      </footer>
+      <div class="nav">
+        <a href="#footer"><i class="fa-solid fa-circle-user"></i></a>
+        <a href="#"><i class="fa-solid fa-house-chimney"></i></a>
+        <a href="#portfolio"><i class="fa-solid fa-compass-drafting"></i></a>
+      </div>
+    </div>
+    <script>
+      // انتخاب المان هدر
+      const header = document.querySelector("header");
+
+      // گوش دادن به رویداد اسکرول
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          // اگر اسکرول بیشتر از ۵۰ پیکسل شد
+          header.classList.add("scrolled");
+        } else {
+          // اگر برگشتیم به بالای صفحه
+          header.classList.remove("scrolled");
+        }
+      });
+      // theme toggle (light/dark) with localStorage
+      const themeToggle = document.getElementById("theme-toggle");
+      const rootEl = document.documentElement;
+
+      function applyTheme(theme) {
+        if (theme === "dark") {
+          document.body.setAttribute("data-theme", "dark");
+          themeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
+          localStorage.setItem("theme", "dark");
+        } else {
+          document.body.removeAttribute("data-theme");
+          themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+          localStorage.setItem("theme", "light");
+        }
+      }
+
+      // load saved theme
+      const saved = localStorage.getItem("theme") || "light";
+      applyTheme(saved);
+
+      themeToggle.addEventListener("click", () => {
+        const current = document.body.hasAttribute("data-theme")
+          ? "dark"
+          : "light";
+        applyTheme(current === "dark" ? "light" : "dark");
+      });
+    </script>
+  </body>
+</html>
