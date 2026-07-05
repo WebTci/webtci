@@ -673,7 +673,9 @@
             border-top: 1px solid var(--line);
             border-bottom: 1px solid var(--line);
             background: rgba(244, 242, 255, 0.02);
+            margin: 5rem auto;
         }
+
 
         .stats-inner {
             display: grid;
@@ -995,6 +997,59 @@
             gap: 14px;
             width: max-content;
             animation: trust-scroll 26s linear infinite;
+
+            &:has(:hover) {
+                animation-play-state: paused;
+            }
+
+            &:has(.trust-logo:hover) .trust-logo:not(:hover) {
+
+                filter: blur(3px);
+                transition: filter 0.3s ease;
+            }
+        }
+
+        .trustbar-row2 {
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            width: max-content;
+            animation: trust-scroll2 26s linear infinite;
+
+            &:has(:hover) or {
+                animation-play-state: paused;
+            }
+
+            &:has(.trust-logo:hover) .trust-logo:not(:hover) {
+
+                filter: blur(3px);
+                transition: filter 0.3s ease;
+            }
+
+            &:has(:active) or {
+                animation-play-state: paused;
+            }
+
+            &:has(.trust-logo:active) .trust-logo:not(:active) {
+
+                filter: blur(3px);
+                transition: filter 0.3s ease;
+            }
+        }
+
+        .trustbar-track {
+            &:hover .u {
+
+                animation-play-state: paused;
+            }
+
+            &:has(.trust-logo:hover) .trust-logo:not(:hover) {
+
+                filter: blur(3px);
+                transition: filter 0.3s ease;
+                animation-play-state: paused;
+            }
         }
 
         .trust-logo {
@@ -1013,8 +1068,10 @@
         }
 
         .trust-logo:hover {
-            color: var(--teal);
+            color: var(--panel);
             border-color: var(--line-strong);
+            background: var(--signal);
+
         }
 
         @keyframes trust-scroll {
@@ -1027,8 +1084,15 @@
             }
         }
 
+
+
+
         [dir="rtl"] .trustbar-row {
             animation-name: trust-scroll-rtl;
+        }
+
+        [dir="rtl"] .trustbar-row2 {
+            animation-name: trust-scroll-rtl2;
         }
 
         @keyframes trust-scroll-rtl {
@@ -1041,8 +1105,22 @@
             }
         }
 
+        @keyframes trust-scroll-rtl2 {
+            from {
+                transform: translateX(50%);
+            }
+
+            to {
+                transform: translateX(0%);
+            }
+        }
+
         @media (prefers-reduced-motion: reduce) {
             .trustbar-row {
+                animation: none;
+            }
+
+            .trustbar-row2 {
                 animation: none;
             }
         }
@@ -1240,48 +1318,8 @@
                 transform: translateX(-110%);
             }
 
-            .nav.is-open {
-                transform: translateX(0);
-            }
 
-            .nav-close {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: absolute;
-                top: 20px;
-                inset-inline-start: 20px;
-                width: 38px;
-                height: 38px;
-                border-radius: 10px;
-                border: 1px solid var(--line-strong);
-                background: transparent;
-                color: var(--text);
-                font-size: 18px;
-                cursor: pointer;
-            }
 
-            .nav-overlay {
-                display: block;
-                position: fixed;
-                inset: 0;
-                background: rgba(5, 4, 18, 0.55);
-                opacity: 0;
-                pointer-events: none;
-                transition: opacity .3s ease;
-                z-index: 55;
-            }
-
-            .nav-overlay.is-open {
-                opacity: 1;
-                pointer-events: auto;
-            }
-
-            .nav-toggle {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
 
             .stats-inner {
                 grid-template-columns: 1fr;
@@ -1363,7 +1401,10 @@
         }
 
         .phot-logo {
-            width: 100%;
+
+            /* width: 100%; */
+            max-height: 400px;
+
             /* height: 50%; */
             /* aspect-ratio: 1; */
         }
@@ -1375,25 +1416,39 @@
         .logo-flex {
             display: flex;
             flex-direction: column;
-            height: 400px;
+            /* height: 400px; */
 
             & .f {
                 /* background: #e9e0e0; */
 
-                height: 400px;
+                /* height: 400px; */
                 flex-grow: 3;
             }
 
             & .o {
+                flex-direction: column;
                 /* background: #c92020; */
-
-                height: 400px;
-                flex: 1 0 100px;
+                display: flex;
+                justify-items: center;
+                align-items: center;
+                /* height: 200px; */
+                /* flex: 1 0 100px; */
             }
         }
 
         .center {
             text-align: center;
+        }
+
+        .location-card {
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            max-width: 350px;
+            font-family: Tahoma, Arial, sans-serif;
         }
     </style>
 </head>
@@ -1494,7 +1549,9 @@
                 <div class="f">
                     <h2 class="center">ثبت لوکیشن <span class="badge-inline">برند شما</span> در نقشه های محلی و بین
                         المللی</h2>
-                    <h3 class="accent-text center" style="font-size: 2rem;">بلد , نشان , google map</h3>
+                    <h3 class=" center" style="font-size: 2rem;">
+                        <span class="accent-text"> بلد , نشان , google map</span>
+                    </h3>
 
                 </div>
 
@@ -1531,6 +1588,41 @@
                 <span class="trustbar-label ">آخرین کسب‌وکارهایی که به <span class="badge-inline">بایولینک اعتماد
                         کردند</span> </span>
                 <div class="trustbar-track">
+
+                    <div class="trustbar-row u">
+                        <span class="trust-logo">مجموعه تخصصی لوازم خانگی یمانی</span>
+                        <span class="trust-logo">ماساژ آسمان</span>
+                        <span class="trust-logo">مشاورین بازار</span>
+                        <span class="trust-logo">سیسمونی دنیای کودک</span>
+                        <span class="trust-logo">آکادمی کسب و کار وب</span>
+                        <span class="trust-logo">استودیو نرگس</span>
+                        <span class="trust-logo">مجموعه تخصصی لوازم خانگی یمانی</span>
+                        <span class="trust-logo">ماساژ آسمان</span>
+                        <span class="trust-logo">مشاورین بازار</span>
+                        <span class="trust-logo">سیسمونی دنیای کودک</span>
+                        <span class="trust-logo">آکادمی کسب و کار وب</span>
+                        <span class="trust-logo">استودیو نرگس</span>
+                    </div>
+
+
+                    <div class="trustbar-row2 u">
+                        <span class="trust-logo">مجموعه تخصصی لوازم خانگی یمانی</span>
+                        <span class="trust-logo">ماساژ آسمان</span>
+                        <span class="trust-logo">مشاورین بازار</span>
+                        <span class="trust-logo">سیسمونی دنیای کودک</span>
+                        <span class="trust-logo">آکادمی کسب و کار وب</span>
+                        <span class="trust-logo">استودیو نرگس</span>
+                        <span class="trust-logo">مجموعه تخصصی لوازم خانگی یمانی</span>
+                        <span class="trust-logo">ماساژ آسمان</span>
+                        <span class="trust-logo">مشاورین بازار</span>
+                        <span class="trust-logo">سیسمونی دنیای کودک</span>
+                        <span class="trust-logo">آکادمی کسب و کار وب</span>
+                        <span class="trust-logo">استودیو نرگس</span>
+                    </div>
+
+                </div>
+                <!-- <div class="trustbar-track">
+
                     <div class="trustbar-row">
                         <span class="trust-logo">مجموعه تخصصی لوازم خانگی یمانی</span>
                         <span class="trust-logo">ماساژ آسمان</span>
@@ -1546,7 +1638,25 @@
                         <span class="trust-logo">استودیو نرگس</span>
                     </div>
                 </div>
+                <div class="trustbar-track">
+                    <div class="trustbar-row2">
+                        <span class="trust-logo">مجموعه تخصصی لوازم خانگی یمانی</span>
+                        <span class="trust-logo">ماساژ آسمان</span>
+                        <span class="trust-logo">مشاورین بازار</span>
+                        <span class="trust-logo">سیسمونی دنیای کودک</span>
+                        <span class="trust-logo">آکادمی کسب و کار وب</span>
+                        <span class="trust-logo">استودیو نرگس</span>
+                        <span class="trust-logo">مجموعه تخصصی لوازم خانگی یمانی</span>
+                        <span class="trust-logo">ماساژ آسمان</span>
+                        <span class="trust-logo">مشاورین بازار</span>
+                        <span class="trust-logo">سیسمونی دنیای کودک</span>
+                        <span class="trust-logo">آکادمی کسب و کار وب</span>
+                        <span class="trust-logo">استودیو نرگس</span>
+                    </div>
+                </div> -->
             </div>
+
+
         </section>
         <section class="services" id="services">
             <div class="container">
