@@ -29,6 +29,8 @@
             --radius-md: 18px;
             --radius-sm: 12px;
             --maxw: 1180px;
+            --text2: #766c6c5b;
+            --text-2: rgb(232, 241, 232);
         }
 
         [data-theme="light"] {
@@ -44,6 +46,9 @@
             --signal-2: #5645D0;
             --amber: #E8960F;
             --teal: #0EAF92;
+            --text2: #ffffff;
+            --text-2: rgb(52, 53, 52);
+
         }
 
         [data-theme="light"] body {
@@ -92,6 +97,11 @@
 
         [data-theme="light"] .pulse-ring {
             opacity: 0.7;
+        }
+
+        [data-theme="dark"] .trust-logo {
+
+            color: var(--text);
         }
 
         * {
@@ -1086,9 +1096,17 @@
         }
 
         /* ---------- responsive ---------- */
+        @media (min-width:641px) {
+
+            .service-card {
+                background: var(--panel);
+            }
+        }
+
         @media (max-width:1000px) {
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
+
             }
 
             .footer-top {
@@ -1107,6 +1125,7 @@
                 font-size: 1.5rem;
                 margin-bottom: 1rem;
             }
+
 
         }
 
@@ -1347,9 +1366,19 @@
             width: 100%;
             height: 64px;
 
+            &::after {
+                z-index: 900;
+                content: '';
+                /* width: 5%; */
+                height: 100%;
+                position: absolute;
+                mask-image: linear-gradient(85deg, red 20%, transparent 71%) !important;
+            }
+
         }
 
         .trust-track {
+            z-index: 1;
             margin-top: 1rem;
             position: absolute;
 
@@ -1367,7 +1396,7 @@
         .trust-logo {
             background: var(--panel);
             flex: none;
-            color: var(--teal);
+            color: var(--signal);
             margin: 0 10px;
 
             padding: 12px 22px;
@@ -1396,6 +1425,302 @@
 
             transform: scale(1.08);
 
+        }
+
+
+
+        /* card prouduct */
+        /* ===================== Pricing Cards Component ===================== */
+
+
+
+        .pricing {
+            padding: 100px 0 90px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        .pricing-card {
+            position: relative;
+            overflow: hidden;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            padding: 36px 28px 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-6px);
+        }
+
+        /* رنگ نوار بالای هر کارت، متناسب با نوع پکیج */
+        .pricing-card::before {
+            content: "";
+            position: absolute;
+            inset-inline: 0;
+            top: 0;
+            height: 4px;
+        }
+
+        .pricing-card--silver::before {
+            background: linear-gradient(90deg, #DADFE6, #9AA1AE);
+        }
+
+        .pricing-card--gold::before {
+            background: linear-gradient(90deg, #FFE7A8, #D9A441);
+        }
+
+        .pricing-card--diamond::before {
+            background: linear-gradient(90deg, #7B6EF6, #45E6C4, #BFE9FF);
+        }
+
+        .pricing-top {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .pricing-top--flex {
+            display: flex;
+            gap: 25px;
+
+            align-items: center;
+        }
+
+        .pricing-tier-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #141225;
+        }
+
+        .pricing-card--silver {
+            background: linear-gradient(135deg, #e4e8ee2e, #9aa1ae6e);
+        }
+
+        .pricing-card--gold {
+            background: linear-gradient(135deg, #ffe9ae3d, #d9a44178);
+        }
+
+        .pricing-card--diamond {
+            background: linear-gradient(135deg, #bfefff50, #7c6ef64c 55%, #45e6c341);
+        }
+
+        .pricing-card--silver .pricing-tier-icon {
+            background: linear-gradient(135deg, #E4E8EE, #9AA1AE);
+        }
+
+        .pricing-card--silver .pricing-tier-name {
+            background-image: linear-gradient(135deg, #E4E8EE, #9AA1AE) !important;
+            background-clip: text;
+            color: transparent;
+            text-stroke: .5px black;
+            /* برای پشتیبانی بیشتر */
+            -webkit-text-stroke: .5px rgb(17, 3, 3);
+            /* ضخامت و رنگ خط دور */
+
+        }
+
+        .pricing-card--gold .pricing-tier-icon {
+            background: linear-gradient(135deg, #FFE9AE, #D9A441);
+        }
+
+        .pricing-card--gold .pricing-tier-name {
+            background: linear-gradient(135deg, #FFE9AE, #D9A441);
+            background-clip: text;
+            color: transparent;
+            text-stroke: .5px black;
+            /* برای پشتیبانی بیشتر */
+            -webkit-text-stroke: .5px rgb(17, 3, 3);
+            /* ضخامت و رنگ خط دور */
+
+        }
+
+        .pricing-card--diamond .pricing-tier-icon {
+            background: linear-gradient(135deg, #BFEFFF, #7B6EF6 55%, #45E6C4);
+        }
+
+        .pricing-card--diamond .pricing-tier-name {
+            background: linear-gradient(135deg, #BFEFFF, #7B6EF6 55%, #45E6C4);
+            background-clip: text;
+            color: transparent;
+            text-stroke: .5px black;
+            /* برای پشتیبانی بیشتر */
+            -webkit-text-stroke: .5px rgb(17, 3, 3);
+            /* ضخامت و رنگ خط دور */
+
+        }
+
+        .pricing-tier-name {
+            font-size: 2.5rem;
+
+            font-weight: 800;
+        }
+
+        .pricing-tier-desc {
+            font-size: 13.5px;
+            color: var(--text-muted);
+        }
+
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex: 1;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-muted);
+            color: var(--text-2);
+            background: rgba(red, green, blue, .5);
+            background: var(--text2);
+            padding: .5rem 0;
+            border-radius: 8px;
+
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+            margin-top: 1px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            background: rgba(123, 110, 246, 0.14);
+            color: var(--signal);
+        }
+
+        .pricing-card--gold .feature-list li::before {
+            background: rgba(255, 178, 56, 0.16);
+            color: var(--amber);
+        }
+
+        .pricing-card--diamond .feature-list li::before {
+            background: rgba(69, 230, 196, 0.16);
+            color: var(--teal);
+        }
+
+        .pricing-price {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            padding-top: 16px;
+            border-top: 1px solid var(--line);
+        }
+
+        .price-discount-badge {
+            align-self: flex-start;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--teal);
+            background: rgba(69, 230, 196, 0.12);
+            border: 1px solid rgba(69, 230, 196, 0.3);
+            padding: 3px 10px;
+            border-radius: 100px;
+        }
+
+        .price-row {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .price-old {
+            font-size: 14px;
+            color: var(--text-2);
+            text-decoration: line-through;
+        }
+
+        .price-new {
+            font-size: 27px;
+            font-weight: 800;
+        }
+
+        .pricing-card--diamond .price-new {
+            background: linear-gradient(95deg, var(--signal), var(--teal));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .price-unit {
+            font-size: 12.5px;
+            color: var(--text-muted);
+        }
+
+        .pricing-cta {
+            width: 100%;
+            justify-content: center;
+            margin-top: 2px;
+        }
+
+        /* کارت الماسی: برجسته و لوکس */
+        .pricing-card--diamond {
+            border-color: rgba(123, 110, 246, 0.5);
+            box-shadow: 0 30px 60px -24px rgba(123, 110, 246, 0.45);
+        }
+
+        .pricing-ribbon {
+            position: absolute;
+            top: 18px;
+            inset-inline-end: 18px;
+            font-size: 11.5px;
+            font-weight: 700;
+            color: #0E0C28;
+            background: linear-gradient(95deg, #7B6EF6, #45E6C4);
+            padding: 5px 12px;
+            border-radius: 100px;
+        }
+
+        @media (min-width:861px) {
+            .pricing-card--diamond {
+                transform: scale(1.045);
+                z-index: 2;
+            }
+
+            .pricing-card--diamond:hover {
+                transform: scale(1.045) translateY(-6px);
+            }
+        }
+
+        /* ---------- موبایل: سه کارت زیر هم، یک ستون ---------- */
+        @media (max-width:860px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                margin: 2rem;
+
+            }
+
+            .pricing-card--diamond {
+                transform: none;
+            }
+
+            .pricing-card--diamond:hover {
+                transform: translateY(-4px);
+            }
         }
     </style>
 </head>
@@ -1663,7 +1988,7 @@
             </div>
         </section>
 
-        <section class="feed" id="portfolio">
+        <section class="feed card-comp" id="portfolio">
             <div class="container">
                 <div class="feed-panel reveal">
                     <div class="feed-intro">
@@ -1705,7 +2030,140 @@
             </div>
         </section>
 
+        <!-- ===================== Pricing Cards Component ===================== -->
+        <!-- از فونت‌ها (Vazirmatn / Space Grotesk) و متغیرهای رنگی صفحه‌ی اصلی
+     (--panel, --line, --signal, --amber, --teal, --text, --text-muted, کلاس .btn)
+     استفاده می‌کند. کافیه این بلاک رو داخل <body> و pricing-cards.css رو
+     به فایل استایل اصلی اضافه کنید. -->
 
+        <section class="pricing" id="pricing">
+            <div class="container">
+
+                <div class="section-head reveal">
+                    <span class="section-tag">تعرفه‌ها</span>
+                    <h2>پکیج مناسب برندتون رو انتخاب کنید</h2>
+                    <p>از حضور پایه‌ی دیجیتال تا هویت کامل و لوکس؛ هر پکیج با پشتیبانی کامل تحویل داده می‌شود.</p>
+                </div>
+
+                <div class="pricing-grid">
+
+                    <!-- ================= نقره‌ای ================= -->
+                    <div class="pricing-card pricing-card--silver reveal">
+                        <div class="pricing-top">
+                            <div class="pricing-top--flex">
+                                <span class="pricing-tier-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M12 3 4 6v6c0 5 3.4 8.4 8 9 4.6-.6 8-4 8-9V6l-8-3Z" />
+                                        <path d="m9 12 2 2 4-4" />
+                                    </svg>
+                                </span>
+                                <h3 class="pricing-tier-name">نقره‌ای</h3>
+                            </div>
+                            <p class="pricing-tier-desc">شروع حرفه‌ای حضور دیجیتال</p>
+                        </div>
+
+                        <ul class="feature-list">
+                            <li>لندینگ پیج ساده</li>
+                            <li>ثبت لوکیشن در مسیریاب ها</li>
+                            <li>احراز تیک آبی کسب و کار</li>
+                            <li>QR و لینک صفحه</li>
+                            <li>پشتیبانی یک‌ساله</li>
+
+                        </ul>
+
+                        <div class="pricing-price">
+                            <span class="price-discount-badge">۲۰٪ تخفیف</span>
+                            <div class="price-row">
+                                <span class="price-old num">۲,۵۰۰,۰۰۰</span>
+                                <span class="price-new num">۲,۰۰۰,۰۰۰</span>
+                                <span class="price-unit">میلیون تومان</span>
+                            </div>
+                        </div>
+
+                        <a href="tel:+9019476548" class="btn btn-ghost btn-lg pricing-cta">سفارش پکیج نقره‌ای</a>
+                    </div>
+
+                    <!-- ================= طلایی ================= -->
+                    <div class="pricing-card pricing-card--gold reveal">
+                        <div class="pricing-top">
+                            <div class="pricing-top--flex">
+                                <span class="pricing-tier-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="m4 8 4 3 4-6 4 6 4-3-2 11H6L4 8Z" />
+                                    </svg>
+                                </span>
+                                <h3 class="pricing-tier-name">طلایی</h3>
+                            </div>
+                            <p class="pricing-tier-desc">حضور کامل‌تر و برندسازی‌شده</p>
+                        </div>
+
+                        <ul class="feature-list">
+                            <li>تمام امکانات پکیج نقره‌ای</li>
+
+                            <li>طراحی صفحه‌ی حرفه ای بایولینک</li>
+                            <li>استند QR مشتریان حضوری</li>
+                            <li>دامین اختصاصی IR</li>
+                            <li>هاست یکساله ایران</li>
+                        </ul>
+
+                        <div class="pricing-price">
+                            <span class="price-discount-badge">20٪ تخفیف</span>
+                            <div class="price-row">
+                                <span class="price-old num">۵,۰۰۰,۰۰۰</span>
+                                <span class="price-new num">۴,۰۰۰,۰۰۰</span>
+                                <span class="price-unit">میلیون تومان</span>
+                            </div>
+                        </div>
+
+                        <a href="tel:+9019476548" class="btn btn-ghost btn-lg pricing-cta">سفارش پکیج طلایی</a>
+                    </div>
+
+                    <!-- ================= الماسی ================= -->
+                    <div class="pricing-card pricing-card--diamond reveal">
+                        <span class="pricing-ribbon">پیشنهاد ویژه</span>
+                        <div class="pricing-top">
+                            <div class="pricing-top--flex">
+                                <span class="pricing-tier-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M3 9h18" />
+                                        <path d="m6 9 2.5-5h7L18 9" />
+                                        <path d="M3 9 12 21 21 9" />
+                                        <path d="m9.5 9 2.5 12 2.5-12" />
+                                    </svg>
+                                </span>
+                                <h3 class="pricing-tier-name">الماسی</h3>
+                            </div>
+                            <p class="pricing-tier-desc">هویت دیجیتال کامل و لوکس</p>
+                        </div>
+
+                        <ul class="feature-list">
+                            <li>تمام امکانات پکیج طلایی</li>
+                            <li>طراحی هویت بصری حرفه‌ای (لوگو، رنگ و لحن )</li>
+                            <li>استند هوشمند NFC اختصاصی</li>
+                            <li>قابل سرچ در گوگل</li>
+                            <li>همراه یک رپورتاژ رایگان </li>
+
+                        </ul>
+
+                        <div class="pricing-price">
+                            <span class="price-discount-badge">20٪ تخفیف</span>
+                            <div class="price-row">
+                                <span class="price-old num">۱۰,۰۰۰,۰۰۰</span>
+                                <span class="price-new num">۸,۰۰۰,۰۰۰</span>
+                                <span class="price-unit">میلیون تومان</span>
+                            </div>
+
+                        </div>
+
+                        <a href="tel:+9019476548" class="btn btn-primary btn-lg pricing-cta">سفارش پکیج الماسی</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
 
         <section class="cta" id="cta">
             <div class="container">
