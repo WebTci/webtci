@@ -1721,6 +1721,300 @@
             .pricing-card--diamond:hover {
                 transform: translateY(-4px);
             }
+h1 .accent-text{
+    display: inline-block;
+   padding-top: 1rem;
+    font-size: 3.25rem;
+
+
+}
+        }
+
+        /* ===================== "بایولینک چیست؟" Explainer Component ===================== */
+  
+        .explainer {
+            padding: 100px 0;
+        }
+
+        .explainer-inner {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .explainer-title {
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: 800;
+            margin: 14px 0 14px;
+            line-height: 1.45;
+        }
+
+        .explainer-lead {
+            color: var(--text-muted);
+            font-size: 15.5px;
+            max-width: 520px;
+            margin-bottom: 34px;
+        }
+
+        .explainer-features {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+
+        .explainer-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .ef-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 13px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(123, 110, 246, 0.14);
+            color: var(--signal);
+        }
+
+        .ef-icon svg {
+            width: 21px;
+            height: 21px;
+        }
+
+        .explainer-features li:nth-child(3n+2) .ef-icon {
+            background: rgba(69, 230, 196, 0.14);
+            color: var(--teal);
+        }
+
+        .explainer-features li:nth-child(3n+3) .ef-icon {
+            background: rgba(255, 178, 56, 0.14);
+            color: var(--amber);
+        }
+
+        .ef-text h4 {
+            font-size: 15.5px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .ef-text p {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* ---------- phone mockup ---------- */
+        .explainer-visual {
+            display: flex;
+            justify-content: center;
+        }
+
+        .phone-mock {
+            width: 272px;
+            padding: 14px 10px;
+            border-radius: 42px;
+            background: #131124;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.65);
+        }
+
+        .phone-notch {
+            width: 70px;
+            height: 18px;
+            border-radius: 100px;
+            background: #0A0918;
+            margin: 0 auto 12px;
+        }
+
+        .phone-screen {
+            background: linear-gradient(165deg, #211E4E 0%, #171540 55%, #100E2E 100%);
+            border-radius: 28px;
+            padding: 26px 16px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .pm-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--signal), var(--teal));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .pm-avatar svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        .pm-name {
+            color: #F4F2FF;
+            font-weight: 800;
+            font-size: 14.5px;
+        }
+
+        .pm-tag {
+            color: #A29DC7;
+            font-size: 11.5px;
+            margin-top: -8px;
+        }
+
+        .pm-contact-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 4px;
+        }
+
+        .pm-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(244, 242, 255, 0.08);
+            border: 1px solid rgba(244, 242, 255, 0.14);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #C9C5E6;
+            font-size: 13px;
+        }
+
+        .pm-icon svg {
+            width: 15px;
+            height: 15px;
+        }
+
+        .pm-banner {
+            width: 100%;
+            height: 64px;
+            border-radius: 14px;
+            background: linear-gradient(120deg, rgba(123, 110, 246, 0.35), rgba(69, 230, 196, 0.25));
+            border: 1px dashed rgba(244, 242, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #E7E4FA;
+            font-size: 11px;
+            font-weight: 600;
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        .pm-website-btn {
+            width: 100%;
+            text-align: center;
+            padding: 9px;
+            border-radius: 100px;
+            border: 1px solid rgba(244, 242, 255, 0.25);
+            color: #F4F2FF;
+            font-size: 11.5px;
+            font-weight: 600;
+        }
+
+        .pm-maps-row {
+            display: flex;
+            gap: 6px;
+            width: 100%;
+        }
+
+        .pm-map-btn {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            padding: 8px 4px;
+            border-radius: 100px;
+            background: rgba(244, 242, 255, 0.06);
+            border: 1px solid rgba(244, 242, 255, 0.12);
+            color: #E7E4FA;
+            font-size: 10px;
+            font-weight: 600;
+        }
+
+        .pm-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .pm-dot--gmap {
+            background: #4285F4;
+        }
+
+        .pm-dot--neshan {
+            background: #F2673D;
+        }
+
+        .pm-dot--balad {
+            background: #22C39C;
+        }
+
+        .pm-menu {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 2px;
+        }
+
+        .pm-menu-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed rgba(244, 242, 255, 0.14);
+            font-size: 11.5px;
+            color: #D9D5EF;
+        }
+
+        .pm-menu-item .num {
+            font-size: 11.5px;
+            color: #8FE9D4;
+            font-weight: 700;
+        }
+
+        /* ---------- responsive ---------- */
+        @media (max-width:900px) {
+            .explainer-inner {
+                grid-template-columns: 1fr;
+                gap: 44px;
+                text-align: center;
+            }
+
+            .explainer-lead {
+                margin-inline: auto;
+            }
+
+            .explainer-features {
+                text-align: right;
+            }
+
+            [dir="ltr"] .explainer-features {
+                text-align: left;
+            }
+        }
+
+        @media (max-width:560px) {
+            .explainer {
+                padding: 70px 0;
+            }
+
+            .phone-mock {
+                width: 250px;
+            }
         }
     </style>
 </head>
@@ -1761,50 +2055,63 @@
                         <a class="btn btn-ghost btn-lg" href="#services">دیدن خدمات ←</a>
                     </div>
                 </div>
-                <div class="hero-visual reveal">
-                    <div class="pulse-ring r1"></div>
-                    <div class="pulse-ring r2"></div>
-                    <div class="pulse-ring r3"></div>
-                    <div class="nfc-card-wrap" id="nfcCardWrap">
-                        <div class="nfc-card" id="nfcCard" role="button" tabindex="0" aria-label="نمایش پشت کارت">
-                            <div class="card-face card-front">
-                                <div class="card-top">
-                                    <div class="card-avatar">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <circle cx="12" cy="8" r="4" />
-                                            <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" />
-                                        </svg>
-                                    </div>
-                                    <span class="card-chip"></span>
-                                </div>
-                                <div class="card-ig-stats">
-                                    <div class="ig-stat"><span class="num">2.4M</span><span>دنبال‌کننده</span></div>
-                                    <div class="ig-stat"><span class="num">186</span><span>دنبال‌شونده</span></div>
-                                    <div class="ig-stat"><span class="num">342</span><span>پست</span></div>
-                                </div>
-                                <div class="card-mid">
-                                    <span class="card-name">نام کسب‌وکار شما</span>
-                                    <span class="card-tag">شعار برند شما، همین‌جا</span>
-                                </div>
+
+                <div class="explainer-visual reveal">
+                    <div class="phone-mock">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+
+                            <div class="pm-avatar">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="8" r="4" />
+                                    <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" />
+                                </svg>
                             </div>
-                            <div class="card-face card-back">
-                                <div class="barcode"></div>
-                                <div class="back-nfc">
-                                    <svg class="nfc-wave" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round">
-                                        <path d="M4 12a8 8 0 0 1 8-8" />
-                                        <path d="M4 12a8 8 0 0 0 8 8" opacity="0.4" />
-                                        <path d="M8 12a4 4 0 0 1 4-4" />
-                                        <circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none" />
+                            <div class="pm-name">نام کسب‌وکار شما</div>
+                            <div class="pm-tag">شعار برند شما، همین‌جا</div>
+
+                            <div class="pm-contact-row">
+                                <span class="pm-icon" title="تماس">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path
+                                            d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z" />
                                     </svg>
-                                    <span>با بایولینک دیده‌تر شوید</span>
-                                </div>
+                                </span>
+                                <span class="pm-icon" title="ایمیل">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <rect x="3" y="5" width="18" height="14" rx="2.5" />
+                                        <path d="m4 7 8 6 8-6" />
+                                    </svg>
+                                </span>
+                                <span class="pm-icon" title="اینستاگرام">◎</span>
+                                <span class="pm-icon" title="تلگرام">✈</span>
                             </div>
+
+                            <div class="pm-banner">بنر / پوستر تبلیغاتی</div>
+
+                            <div class="pm-website-btn">مشاهده وب‌سایت</div>
+
+                            <div class="pm-maps-row">
+                                <span class="pm-map-btn"><i class="pm-dot pm-dot--gmap"></i>گوگل‌مپ</span>
+                                <span class="pm-map-btn"><i class="pm-dot pm-dot--neshan"></i>نشان</span>
+                                <span class="pm-map-btn"><i class="pm-dot pm-dot--balad"></i>بلد</span>
+                            </div>
+
+                            <div class="pm-menu">
+                                <div class="pm-menu-item"><span>قهوه‌ی اسپرسو</span><span class="num">85,000</span>
+                                </div>
+                                <div class="pm-menu-item"><span>لاته</span><span class="num">95,000</span></div>
+                                <div class="pm-menu-item"><span>کیک شکلاتی</span><span class="num">120,000</span></div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
+
         </section>
         <section class="photo">
             <div class="container logo-flex ">
@@ -1987,7 +2294,154 @@
                 </div>
             </div>
         </section>
+        <!-- ===================== "بایولینک چیست؟" Explainer Component ===================== -->
 
+
+        <section class="explainer" id="what-is-biolink">
+            <div class="container explainer-inner">
+
+                <div class="explainer-copy reveal">
+                    <span class="section-tag">بایولینک چیست؟</span>
+                    <h2 class="explainer-title">یک صفحه، تمام مسیرهای ارتباطی با کسب‌وکار شما</h2>
+                    <p class="explainer-lead">
+                        بایولینک یک صفحه‌ی هوشمند و اختصاصی‌ست که با یک لینک یا اسکن، همه‌چیزِ کسب‌وکارتان
+                        رو جلوی چشم مخاطب می‌ذاره — بدون نیاز به وب‌سایت جداگانه یا نصب اپلیکیشن.
+                    </p>
+
+                    <ul class="explainer-features">
+                        <li>
+                            <span class="ef-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z" />
+                                </svg>
+                            </span>
+                            <div class="ef-text">
+                                <h4>اطلاعات تماس</h4>
+                                <p>شماره تماس، ایمیل و شبکه‌های اجتماعی، همه در یک‌جا و همیشه به‌روز.</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <span class="ef-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10" />
+                                    <path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20" />
+                                </svg>
+                            </span>
+                            <div class="ef-text">
+                                <h4>آدرس وب‌سایت</h4>
+                                <p>لینک مستقیم به سایت رسمی کسب‌وکارتان، اگر داشته باشید.</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <span class="ef-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="5" width="18" height="14" rx="2.5" />
+                                    <circle cx="9" cy="10.5" r="1.6" />
+                                    <path d="m5 17 4.5-4.5a2 2 0 0 1 2.8 0L17 17" />
+                                </svg>
+                            </span>
+                            <div class="ef-text">
+                                <h4>بنر و پوستر</h4>
+                                <p>نمایش بنر تبلیغاتی، پوستر رویداد یا تخفیف ویژه، درست بالای صفحه.</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <span class="ef-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s7-6.2 7-12A7 7 0 0 0 5 10c0 5.8 7 12 7 12Z" />
+                                    <circle cx="12" cy="10" r="2.4" />
+                                </svg>
+                            </span>
+                            <div class="ef-text">
+                                <h4>مسیریابی سه‌گانه</h4>
+                                <p>دکمه‌ی مسیریابی گوگل‌مپ، نشان و بلد؛ هرکدوم روی گوشی مخاطب نصب باشه، همون‌رو می‌زنه.
+                                </p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <span class="ef-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M4 6h16M4 12h16M4 18h10" />
+                                </svg>
+                            </span>
+                            <div class="ef-text">
+                                <h4>منو و قیمت خدمات</h4>
+                                <p>لیست محصولات یا خدمات به‌همراه قیمت، قابل ویرایش هر زمان که بخواهید.</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <span class="ef-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 5v14M5 12h14" />
+                                </svg>
+                            </span>
+                            <div class="ef-text">
+                                <h4>و هر بخش دلخواه دیگر</h4>
+                                <p>نظرات مشتریان، گالری تصاویر، فرم تماس، ساعت کاری و هر چیزی که کسب‌وکارتان نیاز دارد.
+                                </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="hero-visual reveal">
+                    <div class="pulse-ring r1"></div>
+                    <div class="pulse-ring r2"></div>
+                    <div class="pulse-ring r3"></div>
+                    <div class="nfc-card-wrap" id="nfcCardWrap">
+                        <div class="nfc-card" id="nfcCard" role="button" tabindex="0" aria-label="نمایش پشت کارت">
+                            <div class="card-face card-front">
+                                <div class="card-top">
+                                    <div class="card-avatar">
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="12" cy="8" r="4" />
+                                            <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" />
+                                        </svg>
+                                    </div>
+                                    <span class="card-chip"></span>
+                                </div>
+                                <div class="card-ig-stats">
+                                    <div class="ig-stat"><span class="num">2.4M</span><span>دنبال‌کننده</span></div>
+                                    <div class="ig-stat"><span class="num">186</span><span>دنبال‌شونده</span></div>
+                                    <div class="ig-stat"><span class="num">342</span><span>پست</span></div>
+                                </div>
+                                <div class="card-mid">
+                                    <span class="card-name">نام کسب‌وکار شما</span>
+                                    <span class="card-tag">شعار برند شما، همین‌جا</span>
+                                </div>
+                            </div>
+                            <div class="card-face card-back">
+                                <div class="barcode"></div>
+                                <div class="back-nfc">
+                                    <svg class="nfc-wave" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round">
+                                        <path d="M4 12a8 8 0 0 1 8-8" />
+                                        <path d="M4 12a8 8 0 0 0 8 8" opacity="0.4" />
+                                        <path d="M8 12a4 4 0 0 1 4-4" />
+                                        <circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none" />
+                                    </svg>
+                                    <span>با بایولینک دیده‌تر شوید</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section class="feed card-comp" id="portfolio">
             <div class="container">
                 <div class="feed-panel reveal">
@@ -2030,11 +2484,8 @@
             </div>
         </section>
 
-        <!-- ===================== Pricing Cards Component ===================== -->
-        <!-- از فونت‌ها (Vazirmatn / Space Grotesk) و متغیرهای رنگی صفحه‌ی اصلی
-     (--panel, --line, --signal, --amber, --teal, --text, --text-muted, کلاس .btn)
-     استفاده می‌کند. کافیه این بلاک رو داخل <body> و pricing-cards.css رو
-     به فایل استایل اصلی اضافه کنید. -->
+        <!-- ===================== Pricing Cards  ===================== -->
+
 
         <section class="pricing" id="pricing">
             <div class="container">
@@ -2075,8 +2526,8 @@
                         <div class="pricing-price">
                             <span class="price-discount-badge">۲۰٪ تخفیف</span>
                             <div class="price-row">
-                                <span class="price-old num">۲,۵۰۰,۰۰۰</span>
-                                <span class="price-new num">۲,۰۰۰,۰۰۰</span>
+                                <span class="price-old num">۳,۰۰۰,۰۰۰</span>
+                                <span class="price-new num">۲,۵۰۰,۰۰۰</span>
                                 <span class="price-unit">میلیون تومان</span>
                             </div>
                         </div>
@@ -2111,8 +2562,8 @@
                         <div class="pricing-price">
                             <span class="price-discount-badge">20٪ تخفیف</span>
                             <div class="price-row">
-                                <span class="price-old num">۵,۰۰۰,۰۰۰</span>
-                                <span class="price-new num">۴,۰۰۰,۰۰۰</span>
+                                <span class="price-old num">۶,۰۰۰,۰۰۰</span>
+                                <span class="price-new num">۵,۰۰۰,۰۰۰</span>
                                 <span class="price-unit">میلیون تومان</span>
                             </div>
                         </div>
@@ -2151,8 +2602,8 @@
                         <div class="pricing-price">
                             <span class="price-discount-badge">20٪ تخفیف</span>
                             <div class="price-row">
-                                <span class="price-old num">۱۰,۰۰۰,۰۰۰</span>
-                                <span class="price-new num">۸,۰۰۰,۰۰۰</span>
+                                <span class="price-old num">۱۵,۰۰۰,۰۰۰</span>
+                                <span class="price-new num">۱۲,۰۰۰,۰۰۰</span>
                                 <span class="price-unit">میلیون تومان</span>
                             </div>
 
@@ -2382,7 +2833,7 @@
         });
 
 
-        // ====== بقیه اسکریپت‌های قبلی شما ======
+
         // سال
         document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -2410,58 +2861,6 @@
         const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches && !isMobile;
 
-        function applyTilt(rotX, rotY) {
-            if (cardWrap) {
-                cardWrap.style.transform = `rotateX(${rotX.toFixed(2)}deg) rotateY(${rotY.toFixed(2)}deg)`;
-            }
-        }
-
-        if (cardWrap && heroVisual && !reduceMotion) {
-            // دسکتاپ - موس
-            if (matchMedia('(hover:hover)').matches) {
-                heroVisual.addEventListener('mousemove', (e) => {
-                    const rect = heroVisual.getBoundingClientRect();
-                    const x = (e.clientX - rect.left) / rect.width - 0.5;
-                    const y = (e.clientY - rect.top) / rect.height - 0.5;
-                    applyTilt(-y * 18 + 8, x * 22 - 10);
-                });
-                heroVisual.addEventListener('mouseleave', () => applyTilt(8, -10));
-            }
-
-            // موبایل - تاچ
-            if (isMobile || matchMedia('(hover:none)').matches) {
-                let touchX = 0, touchY = 0;
-                heroVisual.addEventListener('touchmove', (e) => {
-                    const rect = heroVisual.getBoundingClientRect();
-                    const touch = e.touches[0];
-                    const x = (touch.clientX - rect.left) / rect.width - 0.5;
-                    const y = (touch.clientY - rect.top) / rect.height - 0.5;
-                    applyTilt(-y * 18 + 8, x * 22 - 10);
-                }, { passive: true });
-                heroVisual.addEventListener('touchend', () => applyTilt(8, -10));
-
-                // ژیروسکوپ
-                if (window.DeviceOrientationEvent) {
-                    const startGyro = () => {
-                        window.addEventListener('deviceorientation', (e) => {
-                            const beta = Math.max(-45, Math.min(45, (e.beta || 0) - 45));
-                            const gamma = Math.max(-45, Math.min(45, e.gamma || 0));
-                            applyTilt(-beta * 0.4 + 8, gamma * 0.5 - 10);
-                        });
-                    };
-                    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-                        heroVisual.addEventListener('touchstart', function requestOnce() {
-                            DeviceOrientationEvent.requestPermission().then(state => {
-                                if (state === 'granted') startGyro();
-                            }).catch(() => { });
-                            heroVisual.removeEventListener('touchstart', requestOnce);
-                        }, { once: true });
-                    } else {
-                        startGyro();
-                    }
-                }
-            }
-        }
 
         // فلپ خودکار کارت
         let flipPaused = false;
