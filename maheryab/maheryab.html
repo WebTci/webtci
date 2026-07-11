@@ -861,12 +861,26 @@
         .float-card b {
             display: block;
             font-size: 15px;
-            color: #fff;
+            color: #faf9ff;
         }
 
         .float-card span {
             font-size: 11.5px;
             color: rgba(255, 255, 255, .7);
+
+        }
+
+        .float-card:last-child {
+            b {
+                color: rgba(16, 5, 38, 0.811);
+            }
+
+
+            span:last-of-type {
+                font-size: 11.5px;
+                color: rgba(16, 5, 38, 0.811);
+            }
+
         }
 
         .float-card--rating {
@@ -1166,7 +1180,7 @@
             padding-block: var(--section-pad);
             background: #fff;
             position: relative;
-            overflow: hidden;
+            /* overflow: hidden; */
         }
 
         .why-grid {
@@ -1845,14 +1859,14 @@
 
         @media (max-width:560px) {
             .footer-top {
-                grid-template-columns: repeat(2 , 1fr);
+                grid-template-columns: repeat(2, 1fr);
                 text-align: center;
 
             }
 
-            .footer-col:last-of-type{
+            .footer-col:last-of-type {
                 /* background: #000; */
-               grid-column: span 2;
+                grid-column: span 2;
                 /* display: inline-block; */
             }
 
@@ -1867,6 +1881,88 @@
             .footer-bottom {
                 justify-content: center;
                 text-align: center;
+            }
+        }
+
+        @media (max-width:640px) {
+
+
+
+            .feature-card {
+                background: rgba(255, 255, 255, 0.383);
+                backdrop-filter: blur(6px);
+                position: sticky;
+                top: 96px;
+                margin-bottom: 14px;
+                /* filter: grayscale(1) brightness(0.75); */
+                opacity: 0.55;
+                transform: scale(0.93) translateY(10px);
+                transition: filter .5s ease, opacity .5s ease, transform .5s ease, box-shadow .5s ease;
+                will-change: transform, filter, opacity;
+            }
+
+
+
+            .feature-card:nth-child(1) {
+                z-index: 1;
+            }
+
+            .feature-card:nth-child(2) {
+                z-index: 2;
+            }
+
+
+
+            .feature-card:nth-child(3) {
+                z-index: 3;
+            }
+
+            .feature-card:nth-child(4) {
+                z-index: 4;
+            }
+
+            .feature-card:nth-child(5) {
+                z-index: 4;
+            }
+
+            .feature-card:nth-child(6) {
+                z-index: 4;
+            }
+
+            .why-card {
+
+                /* اضافه کنید */
+                position: sticky;
+                top: 30px;
+                opacity: 0.55;
+                transform: scale(0.93) translateY(10px);
+                transition: filter .5s ease, opacity .5s ease, transform .5s ease, box-shadow .5s ease;
+                will-change: transform, filter, opacity;
+            }
+
+            /* برای ترتیب روی هم‌افتادن (مشابه feature-card) */
+            .why-card:nth-child(1) {
+                z-index: 1;
+            }
+
+            .why-card:nth-child(2) {
+                z-index: 2;
+            }
+
+            .why-card:nth-child(3) {
+                z-index: 3;
+            }
+
+            .why-card:nth-child(4) {
+                z-index: 4;
+            }
+
+            .why-card:nth-child(5) {
+                z-index: 4;
+            }
+
+            .why-card:nth-child(6) {
+                z-index: 4;
             }
         }
     </style>
