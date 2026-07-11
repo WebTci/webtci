@@ -1721,17 +1721,18 @@
             .pricing-card--diamond:hover {
                 transform: translateY(-4px);
             }
-h1 .accent-text{
-    display: inline-block;
-   padding-top: 1rem;
-    font-size: 3.25rem;
+
+            h1 .accent-text {
+                display: inline-block;
+                padding-top: 1rem;
+                font-size: 3.25rem;
 
 
-}
+            }
         }
 
         /* ===================== "بایولینک چیست؟" Explainer Component ===================== */
-  
+
         .explainer {
             padding: 100px 0;
         }
@@ -2016,6 +2017,95 @@ h1 .accent-text{
                 width: 250px;
             }
         }
+
+        /* اسلایدر فقط زیر ۹۰۰px فعال می‌شه؛ دسکتاپ همون گرید ۳ستونه‌ی فعلی می‌مونه */
+        @media (max-width:900px) {
+            .pricing-grid {
+                display: flex;
+                flex-wrap: nowrap;
+                gap: 16px;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                padding-bottom: 6px;
+                scrollbar-width: none;
+            }
+
+            .pricing-grid::-webkit-scrollbar {
+                display: none;
+            }
+
+            .pricing-grid .pricing-card {
+                flex: 0 0 86%;
+                scroll-snap-align: center;
+            }
+
+            .pricing-card--diamond {
+                transform: none !important;
+            }
+        }
+
+        .pricing-slider-nav {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        @media (max-width:900px) {
+            .pricing-slider-nav {
+                display: flex;
+            }
+        }
+
+        .pricing-arrow {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--line-strong);
+            background: var(--panel);
+            color: var(--text);
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: border-color .2s ease, background .2s ease, transform .2s ease, opacity .2s ease;
+        }
+
+        .pricing-arrow:hover {
+            border-color: var(--signal);
+            background: rgba(123, 110, 246, 0.1);
+            transform: translateY(-1px);
+        }
+
+        .pricing-arrow:active {
+            transform: translateY(0) scale(.94);
+        }
+
+        .pricing-dots {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pricing-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--line-strong);
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            transition: background .25s ease, width .25s ease;
+        }
+
+        .pricing-dot.is-active {
+            background: var(--signal);
+            width: 22px;
+            border-radius: 100px;
+        }
     </style>
 </head>
 
@@ -2156,7 +2246,6 @@ h1 .accent-text{
 
             </div>
         </section>
-
         <section class="stats-strip">
             <div class="container stats-inner">
                 <div class="stat-item reveal">
@@ -2294,9 +2383,6 @@ h1 .accent-text{
                 </div>
             </div>
         </section>
-        <!-- ===================== "بایولینک چیست؟" Explainer Component ===================== -->
-
-
         <section class="explainer" id="what-is-biolink">
             <div class="container explainer-inner">
 
@@ -2483,10 +2569,6 @@ h1 .accent-text{
                 </div>
             </div>
         </section>
-
-        <!-- ===================== Pricing Cards  ===================== -->
-
-
         <section class="pricing" id="pricing">
             <div class="container">
 
@@ -2496,7 +2578,7 @@ h1 .accent-text{
                     <p>از حضور پایه‌ی دیجیتال تا هویت کامل و لوکس؛ هر پکیج با پشتیبانی کامل تحویل داده می‌شود.</p>
                 </div>
 
-                <div class="pricing-grid">
+                <div class="pricing-grid" id="pricingGrid">
 
                     <!-- ================= نقره‌ای ================= -->
                     <div class="pricing-card pricing-card--silver reveal">
@@ -2613,9 +2695,13 @@ h1 .accent-text{
                     </div>
 
                 </div>
+                <div class="pricing-slider-nav">
+                    <button class="pricing-arrow pricing-arrow--prev" id="pricingPrev" aria-label="پکیج قبلی">‹</button>
+                    <div class="pricing-dots" id="pricingDots"></div>
+                    <button class="pricing-arrow pricing-arrow--next" id="pricingNext" aria-label="پکیج بعدی">›</button>
+                </div>
             </div>
         </section>
-
         <section class="cta" id="cta">
             <div class="container">
                 <div class="cta-inner reveal">
@@ -2887,7 +2973,8 @@ h1 .accent-text{
                 if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleFlipPause(); }
             });
         }
-        // ====== اسکرول ریویل ====
+
+        // ====== اسکرول ریویل ======
         const revealEls = document.querySelectorAll('.reveal');
         const io = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -2907,6 +2994,63 @@ h1 .accent-text{
             });
         }, { threshold: isMobile ? 0.3 : 0.5 });
         serviceCards.forEach(el => cardIO.observe(el));
+
+        // ====== اسلایدر پکیج‌های قیمت (موبایل/تبلت) ======
+        (function () {
+            const grid = document.getElementById('pricingGrid');
+            const dotsWrap = document.getElementById('pricingDots');
+            const prevBtn = document.getElementById('pricingPrev');
+            const nextBtn = document.getElementById('pricingNext');
+            if (!grid || !dotsWrap || !prevBtn || !nextBtn) return;
+
+            const cards = Array.from(grid.querySelectorAll('.pricing-card'));
+
+            cards.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.className = 'pricing-dot' + (i === 0 ? ' is-active' : '');
+                dot.setAttribute('aria-label', `پکیج ${i + 1}`);
+                dot.addEventListener('click', () => goTo(i));
+                dotsWrap.appendChild(dot);
+            });
+            const dots = Array.from(dotsWrap.children);
+
+            function activeIndex() {
+                const gridRect = grid.getBoundingClientRect();
+                const centerX = gridRect.left + gridRect.width / 2;
+                let closest = 0, minDist = Infinity;
+                cards.forEach((card, i) => {
+                    const r = card.getBoundingClientRect();
+                    const dist = Math.abs((r.left + r.width / 2) - centerX);
+                    if (dist < minDist) { minDist = dist; closest = i; }
+                });
+                return closest;
+            }
+
+            function goTo(index) {
+                index = Math.max(0, Math.min(cards.length - 1, index));
+                cards[index].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+            }
+
+            function updateUI() {
+                const idx = activeIndex();
+                dots.forEach((d, i) => d.classList.toggle('is-active', i === idx));
+                prevBtn.style.opacity = idx === 0 ? '0.35' : '1';
+                prevBtn.style.pointerEvents = idx === 0 ? 'none' : 'auto';
+                nextBtn.style.opacity = idx === cards.length - 1 ? '0.35' : '1';
+                nextBtn.style.pointerEvents = idx === cards.length - 1 ? 'none' : 'auto';
+            }
+
+            let scrollTimer;
+            grid.addEventListener('scroll', () => {
+                clearTimeout(scrollTimer);
+                scrollTimer = setTimeout(updateUI, 80);
+            }, { passive: true });
+
+            prevBtn.addEventListener('click', () => goTo(activeIndex() - 1));
+            nextBtn.addEventListener('click', () => goTo(activeIndex() + 1));
+
+            updateUI();
+        })();
     </script>
 
 </body>
