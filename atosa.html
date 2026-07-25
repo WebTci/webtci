@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>آتوسا سپیانی | بیوتی آرتیست و استودیو تخصصی زیبایی (نسخه تک فایل)</title>
+  <meta name="description" content="میکاپ عروس و روزانه، خدمات مو، ناخن، ابرو و مراقبت پوست در استودیو آتوسا سپیانی. فرم رزرو آنلاین، مسیریابی و گالری تعاملی." />
+  
+  <!-- Font Vazirmatn via CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/vazirmatn@5.0.18/index.min.css" />
+  <!-- Swiper CSS via CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ["Vazirmatn", "Tahoma", "Arial", "sans-serif"],
+            serif: ["Georgia", "serif"]
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Custom Embedded Styles -->
+  <style>
+    :root {
+      --paper: #fffdfb;
+      --paper-60: rgba(255, 253, 251, 0.72);
+      --cream: #f5eee9;
+      --soft: #f3ece8;
+      --ink: #281e20;
+      --muted: #766b6d;
+      --rose: #c8948f;
+      --rose-dark: #9d625f;
+      --rose-soft: #f3dfdc;
+      --rose-soft-strong: #dfb8b3;
+      --line: rgba(61, 42, 45, 0.12);
+      --nav: rgba(255, 253, 251, 0.86);
+    }
+
+    html.dark {
+      --paper: #1c1719;
+      --paper-60: rgba(28, 23, 25, 0.76);
+      --cream: #241d20;
+      --soft: #2b2326;
+      --ink: #f5eeeb;
+      --muted: #b9aaac;
+      --rose: #c9918b;
+      --rose-dark: #e0a8a2;
+      --rose-soft: #3c292c;
+      --rose-soft-strong: #765256;
+      --line: rgba(255, 241, 238, 0.12);
+      --nav: rgba(28, 23, 25, 0.88);
+      color-scheme: dark;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 5.5rem;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Vazirmatn", Tahoma, Arial, sans-serif;
+    }
+
+    ::selection {
+      background: var(--rose);
+      color: #fff;
+    }
+
+    .site-shell,
+    .site-header,
+    .mobile-menu {
+      transition: color 300ms ease, background-color 300ms ease, border-color 300ms ease;
+    }
+
+    .icon-button {
+      display: grid;
+      width: 2.75rem;
+      height: 2.75rem;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--ink);
+      transition: border-color 200ms ease, background-color 200ms ease, transform 200ms ease;
+      cursor: pointer;
+    }
+
+    .icon-button:hover {
+      border-color: var(--rose);
+      background: var(--rose-soft);
+      transform: translateY(-1px);
+    }
+
+    .nav-link {
+      position: relative;
+      text-decoration: none;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: -0.55rem;
+      width: 0;
+      height: 1px;
+      background: var(--rose-dark);
+      transition: width 220ms ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .primary-button,
+    .secondary-button {
+      display: inline-flex;
+      min-height: 3rem;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      border-radius: 999px;
+      padding: 0.75rem 1.4rem;
+      font-size: 0.75rem;
+      font-weight: 650;
+      text-decoration: none;
+      transition: transform 200ms ease, background-color 200ms ease, color 200ms ease, border-color 200ms ease, box-shadow 200ms ease;
+      cursor: pointer;
+    }
+
+    .primary-button {
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: var(--paper);
+      box-shadow: 0 12px 28px rgba(45, 31, 33, 0.13);
+    }
+
+    .secondary-button {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .primary-button:hover,
+    .secondary-button:hover {
+      transform: translateY(-2px);
+    }
+
+    .primary-button:hover {
+      box-shadow: 0 16px 35px rgba(45, 31, 33, 0.2);
+    }
+
+    .secondary-button:hover {
+      border-color: var(--rose);
+      background: var(--rose-soft);
+    }
+
+    .quick-service:not(:last-child) {
+      border-left: 1px solid var(--line);
+    }
+
+    .section-heading h2 {
+      color: var(--ink);
+    }
+
+    .section-heading-light h2 {
+      color: #fff8f4 !important;
+    }
+
+    .section-heading-light p {
+      color: rgba(255, 248, 244, 0.7) !important;
+    }
+
+    .contact-card {
+      display: flex;
+      min-height: 5.5rem;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 1rem;
+      padding: 1rem 1.15rem;
+      background: rgba(255, 255, 255, 0.04);
+      text-decoration: none;
+      transition: border-color 200ms ease, background-color 200ms ease, transform 200ms ease;
+    }
+
+    .contact-card:hover {
+      border-color: rgba(215, 170, 164, 0.5);
+      background: rgba(255, 255, 255, 0.07);
+      transform: translateY(-2px);
+    }
+
+    .contact-card small,
+    .contact-card strong {
+      display: block;
+    }
+
+    .contact-card small {
+      margin-bottom: 0.45rem;
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 0.625rem;
+    }
+
+    .contact-card strong {
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.75rem;
+      font-weight: 500;
+      line-height: 1.7;
+    }
+
+    .contact-card > svg {
+      width: 1.25rem;
+      height: 1.25rem;
+      flex: 0 0 auto;
+      color: #d7aaa4;
+    }
+
+    .route-button {
+      display: inline-flex;
+      min-height: 2.5rem;
+      align-items: center;
+      gap: 0.45rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      padding: 0.5rem 1rem;
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 0.65rem;
+      text-decoration: none;
+      transition: all 200ms ease;
+    }
+
+    .route-button:hover {
+      border-color: #d7aaa4;
+      color: #fff;
+    }
+
+    .booking-panel {
+      background:
+        radial-gradient(circle at 15% 10%, rgba(255,255,255,.13), transparent 28%),
+        linear-gradient(145deg, #a86f6b 0%, #6f4448 100%);
+      position: relative;
+    }
+
+    .booking-panel::after {
+      content: "AS";
+      position: absolute;
+      left: -1rem;
+      bottom: -4.5rem;
+      color: rgba(255, 255, 255, 0.055);
+      font-family: Georgia, serif;
+      font-size: 13rem;
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .field-label {
+      display: flex;
+      flex-direction: column;
+      gap: 0.55rem;
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 550;
+    }
+
+    .field-label > span {
+      display: inline;
+      margin-right: 0.2rem;
+      color: var(--rose-dark);
+    }
+
+    .form-field {
+      width: 100%;
+      height: 3.15rem;
+      border: 1px solid var(--line);
+      border-radius: 0.85rem;
+      outline: none;
+      background: var(--soft);
+      padding: 0 1rem;
+      color: var(--ink);
+      font-size: 0.75rem;
+      transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+    }
+
+    .form-field::placeholder {
+      color: var(--muted);
+      opacity: 0.65;
+    }
+
+    .form-field:focus {
+      border-color: var(--rose);
+      background: var(--paper);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--rose) 18%, transparent);
+    }
+
+    .social-button {
+      display: grid;
+      width: 2.6rem;
+      height: 2.6rem;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 999px;
+      color: rgba(255,255,255,.65);
+      text-decoration: none;
+      transition: all 200ms ease;
+    }
+
+    .social-button svg {
+      width: 1.05rem;
+      height: 1.05rem;
+    }
+
+    .social-button:hover {
+      border-color: #c99791;
+      background: #c99791;
+      color: #211719;
+    }
+
+    .testimonial-swiper {
+      --swiper-pagination-color: var(--rose-dark);
+      --swiper-pagination-bullet-inactive-color: var(--muted);
+      --swiper-pagination-bullet-inactive-opacity: 0.25;
+      --swiper-pagination-bullet-size: 7px;
+      --swiper-pagination-bullet-horizontal-gap: 4px;
+    }
+
+    .testimonial-swiper .swiper-pagination-bullet-active {
+      width: 22px;
+      border-radius: 999px;
+    }
+
+    .before-after input[type="range"]::-webkit-slider-thumb {
+      width: 2.5rem;
+      height: 35rem;
+      -webkit-appearance: none;
+      appearance: none;
+      cursor: ew-resize;
+    }
+
+    .before-after input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 700ms cubic-bezier(.2,.7,.2,1), transform 700ms cubic-bezier(.2,.7,.2,1);
+    }
+
+    [data-reveal].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .portfolio-item {
+      animation: portfolio-in 430ms ease both;
+    }
+
+    @keyframes portfolio-in {
+      from { opacity: 0; transform: scale(.97) translateY(8px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    @media (max-width: 639px) {
+      .quick-service {
+        border-bottom: 1px solid var(--line);
+      }
+      .quick-service:nth-child(even) {
+        border-left: none;
+      }
+      .quick-service:last-child {
+        grid-column: span 2;
+        border-bottom: none;
+      }
+      .portfolio-grid {
+        grid-auto-rows: 230px;
+      }
+      .portfolio-item:first-child {
+        grid-column: span 2;
+      }
+    }
+
+    @media (min-width: 640px) {
+      .quick-service:last-child {
+        border-left: none;
+      }
+    }
+
+    html.dark #services,
+    html.dark #contact {
+      background: #110d0f !important;
+      color: #fff8f4 !important;
+    }
+
+    html.dark input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+      [data-reveal] {
+        opacity: 1;
+        transform: none;
+      }
+    }
+  </style>
+</head>
+<body class="site-shell min-h-screen overflow-x-clip bg-[var(--paper)] text-[var(--ink)]">
+  <!-- Top Scroll Progress Bar -->
+  <div class="fixed inset-x-0 top-0 z-[70] h-[3px] bg-transparent">
+    <div id="scrollProgress" class="h-full bg-[var(--rose)] transition-all duration-150" style="width: 0%"></div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header fixed inset-x-0 top-0 z-50 border-b border-[var(--line)] bg-[color:var(--nav)] backdrop-blur-xl">
+    <div class="mx-auto flex h-[76px] max-w-[1400px] items-center justify-between px-5 lg:px-10">
+      <a href="#home" class="group flex items-center gap-3 no-underline text-[var(--ink)]">
+        <span class="grid h-11 w-11 place-items-center rounded-full border border-[var(--rose)] font-serif text-sm tracking-widest text-[var(--rose-dark)] transition-colors group-hover:bg-[var(--rose)] group-hover:text-white">AS</span>
+        <span>
+          <strong class="block text-base font-semibold leading-none">آتوسا سپیانی</strong>
+          <span class="mt-1 block text-[9px] tracking-[.25em] text-[var(--muted)]">BEAUTY ARTIST</span>
+        </span>
+      </a>
+
+      <nav class="hidden items-center gap-7 lg:flex" aria-label="منوی اصلی">
+        <a href="#home" class="nav-link text-[13px] font-medium text-[var(--muted)] transition-colors hover:text-[var(--rose-dark)]">خانه</a>
+        <a href="#about" class="nav-link text-[13px] font-medium text-[var(--muted)] transition-colors hover:text-[var(--rose-dark)]">درباره من</a>
+        <a href="#services" class="nav-link text-[13px] font-medium text-[var(--muted)] transition-colors hover:text-[var(--rose-dark)]">خدمات</a>
+        <a href="#portfolio" class="nav-link text-[13px] font-medium text-[var(--muted)] transition-colors hover:text-[var(--rose-dark)]">نمونه‌کارها</a>
+        <a href="#testimonials" class="nav-link text-[13px] font-medium text-[var(--muted)] transition-colors hover:text-[var(--rose-dark)]">نظرات</a>
+        <a href="#contact" class="nav-link text-[13px] font-medium text-[var(--muted)] transition-colors hover:text-[var(--rose-dark)]">تماس</a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <!-- Theme Toggle Button -->
+        <button id="themeToggleBtn" class="icon-button" title="تغییر حالت شب و روز">
+          <svg id="iconSun" class="hidden h-[18px] w-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>
+          </svg>
+          <svg id="iconMoon" class="h-[18px] w-[18px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.5 15.2A9 9 0 0 1 8.8 3.5a9 9 0 1 0 11.7 11.7Z"/>
+          </svg>
+        </button>
+
+        <a href="#booking" class="hidden h-11 items-center gap-2 rounded-full bg-[var(--ink)] px-5 text-xs font-semibold text-[var(--paper)] no-underline transition hover:-translate-y-0.5 sm:flex">
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
+          رزرو نوبت
+        </a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="menuToggleBtn" class="icon-button lg:hidden" aria-label="نمایش منو">
+          <svg id="iconMenu" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg id="iconClose" class="hidden h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="M5 5l14 14M19 5 5 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileMenu" class="mobile-menu hidden border-t border-[var(--line)] bg-[var(--paper)] px-5 py-5 lg:hidden">
+      <nav class="grid gap-1">
+        <a href="#home" class="mobile-link rounded-xl px-4 py-3 text-sm hover:bg-[var(--soft)] no-underline text-[var(--ink)]">خانه</a>
+        <a href="#about" class="mobile-link rounded-xl px-4 py-3 text-sm hover:bg-[var(--soft)] no-underline text-[var(--ink)]">درباره من</a>
+        <a href="#services" class="mobile-link rounded-xl px-4 py-3 text-sm hover:bg-[var(--soft)] no-underline text-[var(--ink)]">خدمات</a>
+        <a href="#portfolio" class="mobile-link rounded-xl px-4 py-3 text-sm hover:bg-[var(--soft)] no-underline text-[var(--ink)]">نمونه‌کارها</a>
+        <a href="#testimonials" class="mobile-link rounded-xl px-4 py-3 text-sm hover:bg-[var(--soft)] no-underline text-[var(--ink)]">نظرات</a>
+        <a href="#contact" class="mobile-link rounded-xl px-4 py-3 text-sm hover:bg-[var(--soft)] no-underline text-[var(--ink)]">تماس با ما</a>
+        <a href="#booking" class="mobile-link mt-2 rounded-xl bg-[var(--ink)] px-4 py-3 text-center text-sm text-[var(--paper)] no-underline">رزرو نوبت آنلاین</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-[760px] scroll-mt-20 pt-[76px] lg:min-h-[850px]">
+      <div class="mx-auto grid min-h-[684px] max-w-[1600px] lg:grid-cols-[.88fr_1.12fr]">
+        <div class="order-2 flex items-center bg-[var(--cream)] px-5 py-14 sm:px-10 lg:order-1 lg:px-[7vw] lg:py-20">
+          <div class="max-w-[620px]" data-reveal>
+            <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-[var(--line)] bg-[var(--paper-60)] px-4 py-2 text-[11px] font-medium text-[var(--muted)]">
+              <span class="relative flex h-2 w-2">
+                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60"></span>
+                <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+              </span>
+              پذیرش رزروهای فصل جدید
+            </div>
+            <p class="mb-2 font-serif text-xs tracking-[.32em] text-[var(--rose-dark)]">ATOSA SEPIANI · BEAUTY STUDIO</p>
+            <h1 class="text-[clamp(2.65rem,5.3vw,5.6rem)] font-semibold leading-[1.22] tracking-[-.04em] text-[var(--ink)]">
+              هنر را به
+              <span class="relative mx-3 inline-block font-serif italic text-[var(--rose-dark)]">
+                چهره‌ات
+                <svg class="absolute -bottom-2 right-0 w-full text-[var(--rose)]" viewBox="0 0 180 12" fill="none"><path d="M2 9C45 1 119 1 178 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" /></svg>
+              </span>
+              <br />هدیه کن
+            </h1>
+            <p class="mt-7 max-w-[510px] text-[15px] leading-8 text-[var(--muted)] sm:text-base">
+              زیبایی برای من تغییر چهره نیست؛ پیدا کردن ظریف‌ترین جزئیاتی‌ست که تو را به نسخه‌ای درخشان‌تر از خودت تبدیل می‌کند.
+            </p>
+            <div class="mt-9 flex flex-wrap items-center gap-3">
+              <a href="#booking" class="primary-button">
+                رزرو نوبت
+                <svg class="h-4 w-4 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+              </a>
+              <a href="#portfolio" class="secondary-button">مشاهده نمونه‌کارها</a>
+            </div>
+            <div class="mt-10 flex flex-wrap gap-x-8 gap-y-4 border-t border-[var(--line)] pt-6">
+              <span class="flex items-center gap-2 text-xs font-medium text-[var(--muted)]">
+                <span class="grid h-5 w-5 place-items-center rounded-full bg-[var(--rose-soft)] text-[var(--rose-dark)]"><svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg></span>
+                +۱۲ سال تجربه
+              </span>
+              <span class="flex items-center gap-2 text-xs font-medium text-[var(--muted)]">
+                <span class="grid h-5 w-5 place-items-center rounded-full bg-[var(--rose-soft)] text-[var(--rose-dark)]"><svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg></span>
+                +۱٬۸۰۰ مشتری
+              </span>
+              <span class="flex items-center gap-2 text-xs font-medium text-[var(--muted)]">
+                <span class="grid h-5 w-5 place-items-center rounded-full bg-[var(--rose-soft)] text-[var(--rose-dark)]"><svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg></span>
+                رضایت ۴.۹ از ۵
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div class="relative order-1 min-h-[580px] overflow-hidden lg:order-2 lg:min-h-[774px]">
+          <img src="./images/hero-makeup.jpg" onerror="this.src='https://images.pexels.com/photos/35341692/pexels-photo-35341692.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=1200'" alt="میکاپ حرفه‌ای آتوسا سپیانی" class="absolute inset-0 h-full w-full object-cover object-center" />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#231619]/50 via-transparent to-transparent"></div>
+          <div class="absolute bottom-7 right-5 max-w-[245px] rounded-2xl border border-white/25 bg-black/25 p-4 text-white backdrop-blur-md sm:bottom-10 sm:right-10">
+            <div class="mb-3 flex items-center gap-2 text-[10px] tracking-widest text-white/70"><span class="h-px w-6 bg-white/60"></span>SIGNATURE LOOK</div>
+            <p class="text-sm font-medium leading-6">میکاپی که هنوز شبیه خودت است؛ فقط درخشان‌تر.</p>
+          </div>
+          <div class="absolute left-5 top-7 grid h-24 w-24 place-items-center rounded-full border border-white/40 text-center text-white backdrop-blur-sm sm:left-10 sm:top-10 sm:h-28 sm:w-28">
+            <span class="text-[10px] leading-5 tracking-widest">BEAUTY<br/><strong class="font-serif text-xl font-normal">WITHIN</strong><br/>DETAILS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="relative z-10 mx-auto -mt-1 max-w-[1400px] px-4 sm:-mt-12 lg:px-10">
+        <div class="grid grid-cols-2 overflow-hidden rounded-2xl border border-[var(--line)] bg-[var(--paper)] shadow-[0_20px_70px_rgba(50,32,34,.12)] sm:grid-cols-5" data-reveal>
+          <a href="#services" class="quick-service group flex min-h-24 items-center justify-center gap-3 px-3 py-5 text-center no-underline text-[var(--ink)] transition-colors hover:bg-[var(--rose-soft)] sm:min-h-28">
+            <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[var(--soft)] text-[var(--rose-dark)] transition group-hover:bg-[var(--paper)]"><svg class="h-[19px] w-[19px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="m15 4 5 5L9 20H4v-5L15 4Z"/><path d="m13 6 5 5M4 20h5"/></svg></span>
+            <span class="text-right"><strong class="block text-sm">میکاپ</strong><span class="mt-1 block text-[10px] text-[var(--muted)]">عروس و روزانه</span></span>
+          </a>
+          <a href="#services" class="quick-service group flex min-h-24 items-center justify-center gap-3 px-3 py-5 text-center no-underline text-[var(--ink)] transition-colors hover:bg-[var(--rose-soft)] sm:min-h-28">
+            <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[var(--soft)] text-[var(--rose-dark)] transition group-hover:bg-[var(--paper)]"><svg class="h-[19px] w-[19px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><circle cx="6" cy="7" r="3"/><circle cx="6" cy="17" r="3"/><path d="m8.7 8.3 11.3 6.2M8.7 15.7 20 9.5"/></svg></span>
+            <span class="text-right"><strong class="block text-sm">مو</strong><span class="mt-1 block text-[10px] text-[var(--muted)]">رنگ و کوتاهی</span></span>
+          </a>
+          <a href="#services" class="quick-service group flex min-h-24 items-center justify-center gap-3 px-3 py-5 text-center no-underline text-[var(--ink)] transition-colors hover:bg-[var(--rose-soft)] sm:min-h-28">
+            <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[var(--soft)] text-[var(--rose-dark)] transition group-hover:bg-[var(--paper)]"><svg class="h-[19px] w-[19px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="M8 21c-2-1-3-3-3-6V8a2 2 0 0 1 4 0v4-7a2 2 0 0 1 4 0v7-6a2 2 0 0 1 4 0v7-3a2 2 0 0 1 4 0v5c0 4-3 7-7 7h-2c-1.5 0-2.8-.3-4-1Z"/></svg></span>
+            <span class="text-right"><strong class="block text-sm">ناخن</strong><span class="mt-1 block text-[10px] text-[var(--muted)]">ژل و طراحی</span></span>
+          </a>
+          <a href="#services" class="quick-service group flex min-h-24 items-center justify-center gap-3 px-3 py-5 text-center no-underline text-[var(--ink)] transition-colors hover:bg-[var(--rose-soft)] sm:min-h-28">
+            <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[var(--soft)] text-[var(--rose-dark)] transition group-hover:bg-[var(--paper)]"><svg class="h-[19px] w-[19px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M8.5 15c2 1.4 5 1.4 7 0"/></svg></span>
+            <span class="text-right"><strong class="block text-sm">ابرو و صورت</strong><span class="mt-1 block text-[10px] text-[var(--muted)]">طراحی و لیفت</span></span>
+          </a>
+          <a href="#services" class="quick-service group flex min-h-24 items-center justify-center gap-3 px-3 py-5 text-center no-underline text-[var(--ink)] transition-colors hover:bg-[var(--rose-soft)] sm:min-h-28">
+            <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[var(--soft)] text-[var(--rose-dark)] transition group-hover:bg-[var(--paper)]"><svg class="h-[19px] w-[19px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="M12 3c4.4 0 8 3.2 8 8 0 5.5-3.6 10-8 10s-8-4.5-8-10c0-4.8 3.6-8 8-8Z"/><path d="M8.5 11h.01M15.5 11h.01M9 16c1.7 1 4.3 1 6 0"/></svg></span>
+            <span class="text-right"><strong class="block text-sm">پوست</strong><span class="mt-1 block text-[10px] text-[var(--muted)]">مراقبت تخصصی</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="scroll-mt-20 px-5 py-24 sm:px-10 lg:py-32">
+      <div class="mx-auto grid max-w-[1240px] items-center gap-14 lg:grid-cols-[.92fr_1.08fr] lg:gap-24">
+        <div class="relative" data-reveal>
+          <div class="relative aspect-[4/5] overflow-hidden rounded-[2rem] bg-[var(--soft)] sm:mr-10">
+            <img src="./images/atosa-portrait.jpg" onerror="this.src='https://images.pexels.com/photos/8217726/pexels-photo-8217726.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800'" alt="پرتره آتوسا سپیانی" class="h-full w-full object-cover object-[58%_center]" />
+            <div class="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/45 to-transparent"></div>
+            <div class="absolute bottom-6 right-6 text-white"><p class="font-serif text-2xl">Atosa Sepiani</p><p class="mt-1 text-[10px] tracking-widest text-white/70">FOUNDER & BEAUTY ARTIST</p></div>
+          </div>
+          <div class="absolute -bottom-8 left-0 w-52 rounded-2xl bg-[var(--ink)] p-6 text-[var(--paper)] shadow-2xl sm:w-60">
+            <p class="font-serif text-4xl text-[var(--rose)]">۱۲+</p>
+            <p class="mt-2 text-xs leading-6 opacity-75">سال تجربه، آموزش مداوم و خلق هزاران لحظه زیبا</p>
+          </div>
+        </div>
+
+        <div class="pt-10 lg:pt-0">
+          <div class="section-heading" data-reveal>
+            <div class="mb-4 flex items-center gap-3"><span class="h-px w-10 bg-[var(--rose)]"></span><span class="text-xs font-semibold tracking-[.18em] text-[var(--rose-dark)]">داستان من</span></div>
+            <h2 class="text-3xl font-semibold leading-[1.5] sm:text-4xl lg:text-[2.75rem]">زیبایی، وقتی واقعی‌ست که از خودِ تو شروع شود</h2>
+          </div>
+          <div class="mt-7 space-y-5 text-sm leading-8 text-[var(--muted)] sm:text-[15px]" data-reveal>
+            <p>مسیر من از یک میز کوچک، چند قلم‌مو و اشتیاقی بزرگ برای شناخت چهره‌ها آغاز شد. از همان روز اول باور داشتم میکاپ نباید کسی را پنهان کند؛ باید ویژگی‌های منحصربه‌فردش را با ظرافت نشان دهد.</p>
+            <p>در این سال‌ها با گذراندن دوره‌های تخصصی میکاپ و استایل در استانبول و دبی، همکاری در پروژه‌های فشن و آموزش هنرجویان، سبک امضای خودم را ساختم: <strong class="font-semibold text-[var(--ink)]">تمیز، ماندگار و بی‌زمان.</strong></p>
+          </div>
+          <div class="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3" data-reveal>
+            <div class="rounded-2xl border border-[var(--line)] p-4">
+              <svg class="mb-3 h-5 w-5 text-[var(--rose-dark)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="m12 3 1.4 4.1L17.5 8.5l-4.1 1.4L12 14l-1.4-4.1-4.1-1.4 4.1-1.4L12 3Z"/></svg>
+              <p class="text-xs leading-6">مدرک بین‌المللی Makeup Atelier</p>
+            </div>
+            <div class="rounded-2xl border border-[var(--line)] p-4">
+              <svg class="mb-3 h-5 w-5 text-[var(--rose-dark)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="m12 3 1.4 4.1L17.5 8.5l-4.1 1.4L12 14l-1.4-4.1-4.1-1.4 4.1-1.4L12 3Z"/></svg>
+              <p class="text-xs leading-6">منتخب جشنواره Beauty Vision</p>
+            </div>
+            <div class="rounded-2xl border border-[var(--line)] p-4">
+              <svg class="mb-3 h-5 w-5 text-[var(--rose-dark)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="m12 3 1.4 4.1L17.5 8.5l-4.1 1.4L12 14l-1.4-4.1-4.1-1.4 4.1-1.4L12 3Z"/></svg>
+              <p class="text-xs leading-6">+۳۵۰ هنرجوی آموزش‌دیده</p>
+            </div>
+          </div>
+          <a href="#contact" class="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-[var(--rose-dark)] no-underline">
+            بیشتر با ما آشنا شوید
+            <svg class="h-4 w-4 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="mx-auto mt-28 grid max-w-[1240px] overflow-hidden rounded-[2rem] bg-[var(--soft)] lg:grid-cols-2" data-reveal>
+        <div class="relative min-h-[340px] lg:min-h-[430px]">
+          <img src="./images/team.jpg" onerror="this.src='https://images.pexels.com/photos/21044853/pexels-photo-21044853.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=900'" alt="تیم حرفه‌ای سالن آتوسا" class="h-full w-full object-cover" />
+        </div>
+        <div class="flex flex-col justify-center p-8 sm:p-12 lg:p-16">
+          <p class="mb-4 text-xs font-semibold tracking-widest text-[var(--rose-dark)]">تیم آتوسا</p>
+          <h3 class="text-2xl font-semibold leading-10 sm:text-3xl">هر نتیجه زیبا، حاصل یک تیم دقیق و همدل است.</h3>
+          <p class="mt-5 text-sm leading-8 text-[var(--muted)]">تیم ما از متخصصان میکاپ، مو، ناخن و مراقبت پوست تشکیل شده؛ افرادی که علاوه‌بر مهارت، در احترام به سلیقه و آرامش شما هم‌نظرند.</p>
+          <div class="mt-7 flex items-center gap-4 text-xs text-[var(--muted)]">
+            <div class="flex -space-x-2 space-x-reverse">
+              <span class="grid h-9 w-9 place-items-center rounded-full border-2 border-[var(--soft)] bg-[var(--rose-soft)] font-semibold text-[var(--rose-dark)]">آ</span>
+              <span class="grid h-9 w-9 place-items-center rounded-full border-2 border-[var(--soft)] bg-[var(--rose-soft)] font-semibold text-[var(--rose-dark)]">س</span>
+              <span class="grid h-9 w-9 place-items-center rounded-full border-2 border-[var(--soft)] bg-[var(--rose-soft)] font-semibold text-[var(--rose-dark)]">م</span>
+              <span class="grid h-9 w-9 place-items-center rounded-full border-2 border-[var(--soft)] bg-[var(--rose-soft)] font-semibold text-[var(--rose-dark)]">ر</span>
+            </div>
+            ۶ متخصص در کنار شما
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="scroll-mt-16 bg-[var(--ink)] px-5 py-24 text-[var(--paper)] sm:px-10 lg:py-32">
+      <div class="mx-auto max-w-[1320px]">
+        <div class="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+          <div class="section-heading section-heading-light" data-reveal>
+            <div class="mb-4 flex items-center gap-3"><span class="h-px w-10 bg-[var(--rose)]"></span><span class="text-xs font-semibold tracking-[.18em] text-[var(--rose-dark)]">خدمات تخصصی</span></div>
+            <h2 class="text-3xl font-semibold leading-[1.5] sm:text-4xl lg:text-[2.75rem]">هر آنچه برای درخشیدن نیاز داری</h2>
+            <p class="mt-4 max-w-2xl text-sm leading-8 opacity-70 sm:text-base">هر خدمت پس از مشاوره کوتاه، متناسب با نیاز و سبک شخصی شما طراحی می‌شود. قیمت نهایی بسته به مواد و حجم کار مشخص خواهد شد.</p>
+          </div>
+          <a href="#booking" class="secondary-button shrink-0 border-white/20 text-white hover:bg-white hover:text-[#231a1c]">مشاوره رایگان</a>
+        </div>
+
+        <div class="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-6">
+          <!-- Service 1: Makeup -->
+          <article class="service-card group relative min-h-[570px] overflow-hidden rounded-[1.5rem] bg-[#35292b] xl:col-span-3" data-reveal>
+            <div class="relative h-64 overflow-hidden">
+              <img src="./images/service-makeup.jpg" onerror="this.src='https://images.pexels.com/photos/29588100/pexels-photo-29588100.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=700'" alt="میکاپ عروس و روزانه" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#35292b] via-transparent to-transparent"></div>
+              <span class="absolute right-5 top-5 grid h-12 w-12 place-items-center rounded-full border border-white/25 bg-black/20 text-white backdrop-blur"><svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="m15 4 5 5L9 20H4v-5L15 4Z"/><path d="m13 6 5 5M4 20h5"/></svg></span>
+            </div>
+            <div class="relative -mt-5 p-6 pt-0 sm:p-7 sm:pt-0">
+              <p class="text-[10px] tracking-widest text-[#d7aaa4]">عروس و روزانه</p>
+              <h3 class="mt-2 text-2xl font-semibold">میکاپ</h3>
+              <p class="mt-4 min-h-20 text-[13px] leading-7 text-white/60">میکاپ اختصاصی متناسب با فرم چهره، استایل و نور مراسم؛ با ماندگاری حرفه‌ای و فینیش طبیعی.</p>
+              <ul class="mt-5 grid gap-2 border-y border-white/10 py-4 text-xs text-white/75">
+                <li class="flex items-center gap-2"><svg class="h-3.5 w-3.5 text-[#d7aaa4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>میکاپ عروس</li>
+                <li class="flex items-center gap-2"><svg class="h-3.5 w-3.5 text-[#d7aaa4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>میکاپ مهمانی</li>
+                <li class="flex items-center gap-2"><svg class="h-3.5 w-3.5 text-[#d7aaa4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>تست و مشاوره چهره</li>
+              </ul>
+              <div class="mt-5 flex items-end justify-between gap-3">
+                <div><p class="flex items-center gap-1.5 text-[10px] text-white/45"><svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>۹۰ تا ۱۸۰ دقیقه</p><p class="mt-2 text-xs font-semibold text-[#e5c1bc]">از ۲٬۸۰۰٬۰۰۰ تومان</p></div>
+                <button data-service="میکاپ عروس" class="btn-book-service grid h-11 w-11 place-items-center rounded-full border border-white/20 transition hover:border-[#d7aaa4] hover:bg-[#d7aaa4] hover:text-[#231a1c]"><svg class="h-4 w-4 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Service 2: Hair -->
+          <article class="service-card group relative min-h-[570px] overflow-hidden rounded-[1.5rem] bg-[#35292b] xl:col-span-3" data-reveal>
+            <div class="relative h-64 overflow-hidden">
+              <img src="./images/service-hair.jpg" onerror="this.src='https://images.pexels.com/photos/35341765/pexels-photo-35341765.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=700'" alt="خدمات تخصصی مو" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#35292b] via-transparent to-transparent"></div>
+              <span class="absolute right-5 top-5 grid h-12 w-12 place-items-center rounded-full border border-white/25 bg-black/20 text-white backdrop-blur"><svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><circle cx="6" cy="7" r="3"/><circle cx="6" cy="17" r="3"/><path d="m8.7 8.3 11.3 6.2M8.7 15.7 20 9.5"/></svg></span>
+            </div>
+            <div class="relative -mt-5 p-6 pt-0 sm:p-7 sm:pt-0">
+              <p class="text-[10px] tracking-widest text-[#d7aaa4]">رنگ، کوتاهی و استایل</p>
+              <h3 class="mt-2 text-2xl font-semibold">مو</h3>
+              <p class="mt-4 min-h-20 text-[13px] leading-7 text-white/60">طراحی رنگ و فرم مو با درنظرگرفتن تناژ پوست و سلامت تار مو، از تغییرات ظریف تا استایل عروس.</p>
+              <ul class="mt-5 grid gap-2 border-y border-white/10 py-4 text-xs text-white/75">
+                <li class="flex items-center gap-2"><svg class="h-3.5 w-3.5 text-[#d7aaa4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>کوتاهی و براشینگ</li>
+                <li class="flex items-center gap-2"><svg class="h-3.5 w-3.5 text-[#d7aaa4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>رنگ، لایت و بالیاژ</li>
+                <li class="flex items-center gap-2"><svg class="h-3.5 w-3.5 text-[#d7aaa4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>شینیون و احیا</li>
+              </ul>
+              <div class="mt-5 flex items-end justify-between gap-3">
+                <div><p class="flex items-center gap-1.5 text-[10px] text-white/45"><svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>۶۰ تا ۲۴۰ دقیقه</p><p class="mt-2 text-xs font-semibold text-[#e5c1bc]">از ۹۵۰٬۰۰۰ تومان</p></div>
+                <button data-service="مو" class="btn-book-service grid h-11 w-11 place-items-center rounded-full border border-white/20 transition hover:border-[#d7aaa4] hover:bg-[#d7aaa4] hover:text-[#231a1c]"><svg class="h-4 w-4 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Service 3: Nails -->
+          <article class="service-card group relative min-h-[570px] overflow-hidden rounded-[1.5rem] bg-[#35292b] xl:col-span-2" data-reveal>
+            <div class="relative h-64 overflow-hidden">
+              <img src="./images/service-nails.jpg" onerror="this.src='https://images.pexels.com/photos/18112337/pexels-photo-18112337.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=600'" alt="خدمات تخصصی ناخن" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#35292b] via-transparent to-transparent"></div>
+              <span class="absolute right-5 top-5 grid h-12 w-12 place-items-center rounded-full border border-white/25 bg-black/20 text-white backdrop-blur"><svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="M8 21c-2-1-3-3-3-6V8a2 2 0 0 1 4 0v4-7a2 2 0 0 1 4 0v7-6a2 2 0 0 1 4 0v7-3a2 2 0 0 1 4 0v5c0 4-3 7-7 7h-2c-1.5 0-2.8-.3-4-1Z"/></svg></span>
+            </div>
+            <div class="relative -mt-5 p-6 pt-0 sm:p-7 sm:pt-0">
+              <p class="text-[10px] tracking-widest text-[#d7aaa4]">ژل، کاشت و طراحی</p>
+              <h3 class="mt-2 text-2xl font-semibold">ناخن</h3>
+              <p class="mt-4 min-h-20 text-[13px] leading-7 text-white/60">مانیکور دقیق و طراحی‌های مینیمال یا اختصاصی با مواد استاندارد، ظرافت بالا و حفظ سلامت ناخن.</p>
+              <ul class="mt-5 grid gap-2 border-y border-white/10 py-4 text-xs text-white/75">
+                <li class="flex items-center gap-2"><svg class="h-3.5 w-3.5 text-[#d7aaa4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>مانیکور روسی</li>
+                <li class="flex items-center gap-2"><svg class="h-3.5 w-3.5 text-[#d7aaa4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>ژل و کاشت</li>
+                <li class="flex items-center gap-2"><svg class="h-3.5 w-3.5 text-[#d7aaa4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>طراحی اختصاصی</li>
+              </ul>
+              <div class="mt-5 flex items-end justify-between gap-3">
+                <div><p class="flex items-center gap-1.5 text-[10px] text-white/45"><svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>۶۰ تا ۱۲۰ دقیقه</p><p class="mt-2 text-xs font-semibold text-[#e5c1bc]">از ۷۵۰٬۰۰۰ تومان</p></div>
+                <button data-service="ناخن" class="btn-book-service grid h-11 w-11 place-items-center rounded-full border border-white/20 transition hover:border-[#d7aaa4] hover:bg-[#d7aaa4] hover:text-[#231a1c]"><svg class="h-4 w-4 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Service 4: Brows & Face -->
+          <article class="service-card group relative min-h-[570px] overflow-hidden rounded-[1.5rem] bg-[#35292b] xl:col-span-2" data-reveal>
+            <div class="relative h-64 overflow-hidden">
+              <img src="./images/service-brows.jpg" onerror="this.src='https://images.pexels.com/photos/8558253/pexels-photo-8558253.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=600'" alt="طراحی ابرو و خدمات صورت" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#35292b] via-transparent to-transparent"></div>
+              <span class="absolute right-5 top-5 grid h-12 w-12 place-items-center rounded-full border border-white/25 bg-black/20 text-white backdrop-blur"><svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M9 10h.01M15 10h.01M8.5 15c2 1.4 5 1.4 7 0"/></svg></span>
+            </div>
+            <div class="relative -mt-5 p-6 pt-0 sm:p-7 sm:pt-0">
+              <p class="text-[10px] tracking-widest text-[#d7aaa4]">طراحی متناسب با چهره</p>
+              <h3 class="mt-2 text-2xl font-semibold">ابرو و صورت</h3>
+              <p class="mt-4 min-h-20 text-[13px] leading-7 text-white/60">قرینه‌سازی و طراحی اصولی ابرو، خدمات نیمه‌دائم و پاکسازی صورت با نتیجه‌ای طبیعی و ظریف.</p>
+              <ul class="mt-5 grid gap-2 border-y border-white/10 py-4 text-xs text-white/75">
+                <li class="flex items-center gap-2"><svg class="h-3.5 w-3.5 text-[#d7aaa4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>میکروبلیدینگ</li>
+                <li class="flex items-center gap-2"><svg class="h-3.5 w-3.5 text-[#d7aaa4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>شیدینگ و ریموو</li>
+                <li class="flex items-center gap-2"><svg class="h-3.5 w-3.5 text-[#d7aaa4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>اصلاح و لیفت ابرو</li>
+              </ul>
+              <div class="mt-5 flex items-end justify-between gap-3">
+                <div><p class="flex items-center gap-1.5 text-[10px] text-white/45"><svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>۴۵ تا ۱۵۰ دقیقه</p><p class="mt-2 text-xs font-semibold text-[#e5c1bc]">از ۶۵۰٬۰۰۰ تومان</p></div>
+                <button data-service="ابرو و صورت" class="btn-book-service grid h-11 w-11 place-items-center rounded-full border border-white/20 transition hover:border-[#d7aaa4] hover:bg-[#d7aaa4] hover:text-[#231a1c]"><svg class="h-4 w-4 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Service 5: Skin -->
+          <article class="service-card group relative min-h-[570px] overflow-hidden rounded-[1.5rem] bg-[#35292b] xl:col-span-2" data-reveal>
+            <div class="relative h-64 overflow-hidden">
+              <img src="./images/portfolio-1.jpg" onerror="this.src='https://images.pexels.com/photos/11142406/pexels-photo-11142406.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=600'" alt="مراقبت تخصصی پوست" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#35292b] via-transparent to-transparent"></div>
+              <span class="absolute right-5 top-5 grid h-12 w-12 place-items-center rounded-full border border-white/25 bg-black/20 text-white backdrop-blur"><svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="M12 3c4.4 0 8 3.2 8 8 0 5.5-3.6 10-8 10s-8-4.5-8-10c0-4.8 3.6-8 8-8Z"/></svg></span>
+            </div>
+            <div class="relative -mt-5 p-6 pt-0 sm:p-7 sm:pt-0">
+              <p class="text-[10px] tracking-widest text-[#d7aaa4]">مراقبت تخصصی</p>
+              <h3 class="mt-2 text-2xl font-semibold">پوست</h3>
+              <p class="mt-4 min-h-20 text-[13px] leading-7 text-white/60">پروتکل مراقبتی شخصی‌سازی‌شده برای آبرسانی، شفافیت و بازسازی پوست با ارزیابی اولیه رایگان.</p>
+              <ul class="mt-5 grid gap-2 border-y border-white/10 py-4 text-xs text-white/75">
+                <li class="flex items-center gap-2"><svg class="h-3.5 w-3.5 text-[#d7aaa4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>فیشیال تخصصی</li>
+                <li class="flex items-center gap-2"><svg class="h-3.5 w-3.5 text-[#d7aaa4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>هیدرودرمی</li>
+                <li class="flex items-center gap-2"><svg class="h-3.5 w-3.5 text-[#d7aaa4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>جوان‌سازی و ماساژ</li>
+              </ul>
+              <div class="mt-5 flex items-end justify-between gap-3">
+                <div><p class="flex items-center gap-1.5 text-[10px] text-white/45"><svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>۶۰ تا ۹۰ دقیقه</p><p class="mt-2 text-xs font-semibold text-[#e5c1bc]">از ۱٬۲۰۰٬۰۰۰ تومان</p></div>
+                <button data-service="پوست" class="btn-book-service grid h-11 w-11 place-items-center rounded-full border border-white/20 transition hover:border-[#d7aaa4] hover:bg-[#d7aaa4] hover:text-[#231a1c]"><svg class="h-4 w-4 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="scroll-mt-16 px-5 py-24 sm:px-10 lg:py-32">
+      <div class="mx-auto max-w-[1320px]">
+        <div class="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+          <div class="section-heading" data-reveal>
+            <div class="mb-4 flex items-center gap-3"><span class="h-px w-10 bg-[var(--rose)]"></span><span class="text-xs font-semibold tracking-[.18em] text-[var(--rose-dark)]">گالری منتخب</span></div>
+            <h2 class="text-3xl font-semibold leading-[1.5] sm:text-4xl lg:text-[2.75rem]">هر چهره، یک قصه تازه</h2>
+            <p class="mt-4 max-w-2xl text-sm leading-8 opacity-70 sm:text-base">بخشی از تازه‌ترین میکاپ‌ها، استایل مو و طراحی‌های اجراشده در استودیو آتوسا.</p>
+          </div>
+
+          <!-- Filter Buttons -->
+          <div id="portfolioFilters" class="flex max-w-full gap-2 overflow-x-auto pb-2">
+            <button data-filter="همه" class="filter-btn whitespace-nowrap rounded-full border border-[var(--ink)] bg-[var(--ink)] px-4 py-2 text-xs text-[var(--paper)] transition">همه</button>
+            <button data-filter="میکاپ" class="filter-btn whitespace-nowrap rounded-full border border-[var(--line)] px-4 py-2 text-xs text-[var(--muted)] transition hover:border-[var(--rose)]">میکاپ</button>
+            <button data-filter="مو" class="filter-btn whitespace-nowrap rounded-full border border-[var(--line)] px-4 py-2 text-xs text-[var(--muted)] transition hover:border-[var(--rose)]">مو</button>
+            <button data-filter="ناخن" class="filter-btn whitespace-nowrap rounded-full border border-[var(--line)] px-4 py-2 text-xs text-[var(--muted)] transition hover:border-[var(--rose)]">ناخن</button>
+            <button data-filter="ابرو و پوست" class="filter-btn whitespace-nowrap rounded-full border border-[var(--line)] px-4 py-2 text-xs text-[var(--muted)] transition hover:border-[var(--rose)]">ابرو و پوست</button>
+          </div>
+        </div>
+
+        <!-- Portfolio Grid -->
+        <div id="portfolioGrid" class="portfolio-grid mt-12 grid auto-rows-[250px] grid-cols-2 gap-3 sm:auto-rows-[300px] sm:gap-5 lg:grid-cols-4">
+          <article data-category="میکاپ" class="portfolio-item group relative overflow-hidden rounded-2xl bg-[var(--soft)] row-span-2">
+            <img src="./images/portfolio-1.jpg" onerror="this.src='https://images.pexels.com/photos/11142406/pexels-photo-11142406.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800'" alt="میکاپ کلاسیک" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/0 to-transparent opacity-80 transition group-hover:opacity-100"></div>
+            <div class="absolute inset-x-0 bottom-0 translate-y-2 p-4 text-white transition group-hover:translate-y-0 sm:p-6"><p class="text-[10px] text-white/60">میکاپ</p><h3 class="mt-1 text-sm font-medium sm:text-base">میکاپ کلاسیک</h3></div>
+          </article>
+          <article data-category="میکاپ" class="portfolio-item group relative overflow-hidden rounded-2xl bg-[var(--soft)] lg:col-span-2">
+            <img src="./images/portfolio-2.jpg" onerror="this.src='https://images.pexels.com/photos/35341787/pexels-photo-35341787.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800'" alt="درخشش عروس" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/0 to-transparent opacity-80 transition group-hover:opacity-100"></div>
+            <div class="absolute inset-x-0 bottom-0 translate-y-2 p-4 text-white transition group-hover:translate-y-0 sm:p-6"><p class="text-[10px] text-white/60">میکاپ</p><h3 class="mt-1 text-sm font-medium sm:text-base">درخشش عروس</h3></div>
+          </article>
+          <article data-category="مو" class="portfolio-item group relative overflow-hidden rounded-2xl bg-[var(--soft)]">
+            <img src="./images/portfolio-3.jpg" onerror="this.src='https://images.pexels.com/photos/17238394/pexels-photo-17238394.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=600'" alt="استایل مو" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/0 to-transparent opacity-80 transition group-hover:opacity-100"></div>
+            <div class="absolute inset-x-0 bottom-0 translate-y-2 p-4 text-white transition group-hover:translate-y-0 sm:p-6"><p class="text-[10px] text-white/60">مو</p><h3 class="mt-1 text-sm font-medium sm:text-base">استایل مو</h3></div>
+          </article>
+          <article data-category="مو" class="portfolio-item group relative overflow-hidden rounded-2xl bg-[var(--soft)] row-span-2">
+            <img src="./images/portfolio-4.jpg" onerror="this.src='https://images.pexels.com/photos/32544087/pexels-photo-32544087.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800'" alt="فرم مدرن" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/0 to-transparent opacity-80 transition group-hover:opacity-100"></div>
+            <div class="absolute inset-x-0 bottom-0 translate-y-2 p-4 text-white transition group-hover:translate-y-0 sm:p-6"><p class="text-[10px] text-white/60">مو</p><h3 class="mt-1 text-sm font-medium sm:text-base">فرم مدرن</h3></div>
+          </article>
+          <article data-category="ناخن" class="portfolio-item group relative overflow-hidden rounded-2xl bg-[var(--soft)]">
+            <img src="./images/portfolio-5.jpg" onerror="this.src='https://images.pexels.com/photos/30985154/pexels-photo-30985154.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=600'" alt="طراحی قرمز" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/0 to-transparent opacity-80 transition group-hover:opacity-100"></div>
+            <div class="absolute inset-x-0 bottom-0 translate-y-2 p-4 text-white transition group-hover:translate-y-0 sm:p-6"><p class="text-[10px] text-white/60">ناخن</p><h3 class="mt-1 text-sm font-medium sm:text-base">طراحی قرمز</h3></div>
+          </article>
+          <article data-category="ناخن" class="portfolio-item group relative overflow-hidden rounded-2xl bg-[var(--soft)] lg:col-span-2">
+            <img src="./images/portfolio-6.jpg" onerror="this.src='https://images.pexels.com/photos/34575389/pexels-photo-34575389.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=800'" alt="مینیمال مشکی" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/0 to-transparent opacity-80 transition group-hover:opacity-100"></div>
+            <div class="absolute inset-x-0 bottom-0 translate-y-2 p-4 text-white transition group-hover:translate-y-0 sm:p-6"><p class="text-[10px] text-white/60">ناخن</p><h3 class="mt-1 text-sm font-medium sm:text-base">مینیمال مشکی</h3></div>
+          </article>
+          <article data-category="ابرو و پوست" class="portfolio-item group relative overflow-hidden rounded-2xl bg-[var(--soft)] hidden">
+            <img src="./images/service-brows.jpg" onerror="this.src='https://images.pexels.com/photos/8558253/pexels-photo-8558253.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=600'" alt="لیفت ابرو" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/0 to-transparent opacity-80 transition group-hover:opacity-100"></div>
+            <div class="absolute inset-x-0 bottom-0 translate-y-2 p-4 text-white transition group-hover:translate-y-0 sm:p-6"><p class="text-[10px] text-white/60">ابرو و پوست</p><h3 class="mt-1 text-sm font-medium sm:text-base">لیفت و طراحی ابرو</h3></div>
+          </article>
+          <article data-category="ابرو و پوست" class="portfolio-item group relative overflow-hidden rounded-2xl bg-[var(--soft)] hidden">
+            <img src="./images/hero-makeup.jpg" onerror="this.src='https://images.pexels.com/photos/35341692/pexels-photo-35341692.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=600'" alt="پوست شفاف" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/0 to-transparent opacity-80 transition group-hover:opacity-100"></div>
+            <div class="absolute inset-x-0 bottom-0 translate-y-2 p-4 text-white transition group-hover:translate-y-0 sm:p-6"><p class="text-[10px] text-white/60">ابرو و پوست</p><h3 class="mt-1 text-sm font-medium sm:text-base">پوست شفاف</h3></div>
+          </article>
+        </div>
+
+        <div class="mt-9 text-center">
+          <a href="https://instagram.com/atosa.sepiani" target="_blank" rel="noreferrer" class="secondary-button inline-flex no-underline">
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg>
+            دیدن کارهای بیشتر در اینستاگرام
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Before & After Comparison -->
+    <section class="bg-[var(--cream)] px-5 py-24 sm:px-10 lg:py-28">
+      <div class="mx-auto grid max-w-[1240px] items-center gap-12 lg:grid-cols-[.7fr_1.3fr] lg:gap-20">
+        <div>
+          <div class="section-heading" data-reveal>
+            <div class="mb-4 flex items-center gap-3"><span class="h-px w-10 bg-[var(--rose)]"></span><span class="text-xs font-semibold tracking-[.18em] text-[var(--rose-dark)]">قبل و بعد</span></div>
+            <h2 class="text-3xl font-semibold leading-[1.5] sm:text-4xl lg:text-[2.75rem]">تغییری ظریف، اثری ماندگار</h2>
+            <p class="mt-4 max-w-2xl text-sm leading-8 opacity-70 sm:text-base">اسلایدر را جابه‌جا کنید و جزئیات نتیجه را ببینید. هدف ما پوشاندن چهره نیست؛ برجسته‌کردن زیبایی طبیعی آن است.</p>
+          </div>
+          <div class="mt-7 flex gap-6 text-xs text-[var(--muted)]" data-reveal>
+            <span class="flex items-center gap-2"><svg class="h-4 w-4 text-[var(--rose-dark)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>بدون فیلتر</span>
+            <span class="flex items-center gap-2"><svg class="h-4 w-4 text-[var(--rose-dark)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg>نور یکسان</span>
+          </div>
+        </div>
+
+        <div class="before-after relative aspect-[16/10] select-none overflow-hidden rounded-[2rem] bg-[#d8c7bd] shadow-[0_24px_80px_rgba(46,31,32,.15)]" data-reveal>
+          <img src="./images/before-makeup.jpg" onerror="this.src='https://images.pexels.com/photos/13933438/pexels-photo-13933438.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=900'" alt="قبل میکاپ" class="absolute inset-0 h-full w-full object-cover" />
+          <div id="beforeAfterClip" class="absolute inset-y-0 left-0 overflow-hidden" style="width: 52%">
+            <img src="./images/after-makeup.jpg" onerror="this.src='https://images.pexels.com/photos/36719922/pexels-photo-36719922.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=900'" alt="بعد میکاپ" id="afterImageInner" class="max-w-none h-full object-cover" style="width: 192.3%" />
+          </div>
+          <span class="absolute right-5 top-5 rounded-full bg-black/40 px-3 py-1.5 text-[10px] text-white backdrop-blur">قبل</span>
+          <span class="absolute left-5 top-5 rounded-full bg-white/80 px-3 py-1.5 text-[10px] text-[#251b1c] backdrop-blur">بعد</span>
+          <div id="beforeAfterLine" class="pointer-events-none absolute inset-y-0 w-px bg-white shadow-lg" style="left: 52%">
+            <span class="absolute left-1/2 top-1/2 grid h-11 w-11 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border-4 border-white bg-[var(--rose)] text-white shadow-xl"><span class="text-xs">↔</span></span>
+          </div>
+          <input id="beforeAfterInput" aria-label="مقایسه قبل و بعد" type="range" min="5" max="95" value="52" class="absolute inset-0 h-full w-full opacity-0" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Slider (Swiper) -->
+    <section id="testimonials" class="scroll-mt-16 px-5 py-24 sm:px-10 lg:py-32">
+      <div class="mx-auto max-w-[1240px]">
+        <div class="text-center" data-reveal>
+          <div class="mx-auto mb-4 flex items-center justify-center gap-3"><span class="h-px w-10 bg-[var(--rose)]"></span><span class="text-xs font-semibold tracking-[.18em] text-[var(--rose-dark)]">از زبان شما</span><span class="h-px w-10 bg-[var(--rose)]"></span></div>
+          <h2 class="text-3xl font-semibold leading-[1.5] sm:text-4xl">اعتمادی که زیباترین افتخار ماست</h2>
+          <div class="mt-4 flex items-center justify-center gap-2 text-xs text-[var(--muted)]"><span class="tracking-[.12em] text-[#c79449]">★★★★★</span><strong class="text-[var(--ink)]">۴.۹</strong> از ۵ بر اساس ۲۴۰ تجربه</div>
+        </div>
+
+        <div class="mt-12" data-reveal>
+          <div class="swiper testimonial-swiper !pb-14">
+            <div class="swiper-wrapper">
+              <!-- Slide 1 -->
+              <div class="swiper-slide !h-auto">
+                <article class="flex h-full min-h-[310px] flex-col rounded-[1.5rem] border border-[var(--line)] bg-[var(--paper)] p-7 transition hover:-translate-y-1 hover:shadow-xl sm:p-8">
+                  <div class="flex items-start justify-between"><span class="tracking-wider text-[#c79449]">★★★★★</span><svg class="h-8 w-8 text-[var(--rose-soft-strong)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M9.5 8.5H5A2 2 0 0 0 3 10v4a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-3c0-4-2-6-5-7M21.5 8.5H17a2 2 0 0 0-2 1.5v4a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-3c0-4-2-6-5-7" stroke-width="1.5"/></svg></div>
+                  <p class="mt-6 flex-1 text-sm leading-8 text-[var(--muted)]">«آتوسا دقیقاً چیزی را اجرا کرد که همیشه برای روز عروسی‌ام تصور می‌کردم؛ طبیعی، ظریف و بدون کوچک‌ترین تغییر تا آخر شب. آرامشش هم بهترین بخش تجربه بود.»</p>
+                  <div class="mt-7 flex items-center gap-3 border-t border-[var(--line)] pt-5"><span class="grid h-11 w-11 place-items-center rounded-full bg-[var(--rose-soft)] text-xs font-semibold text-[var(--rose-dark)]">ن م</span><div><h3 class="text-sm font-semibold">نگین موسوی</h3><p class="mt-1 text-[10px] text-[var(--muted)]">میکاپ عروس</p></div></div>
+                </article>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="swiper-slide !h-auto">
+                <article class="flex h-full min-h-[310px] flex-col rounded-[1.5rem] border border-[var(--line)] bg-[var(--paper)] p-7 transition hover:-translate-y-1 hover:shadow-xl sm:p-8">
+                  <div class="flex items-start justify-between"><span class="tracking-wider text-[#c79449]">★★★★★</span><svg class="h-8 w-8 text-[var(--rose-soft-strong)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M9.5 8.5H5A2 2 0 0 0 3 10v4a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-3c0-4-2-6-5-7M21.5 8.5H17a2 2 0 0 0-2 1.5v4a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-3c0-4-2-6-5-7" stroke-width="1.5"/></svg></div>
+                  <p class="mt-6 flex-1 text-sm leading-8 text-[var(--muted)]">«برای اولین بار کسی قبل از رنگ، با حوصله جنس مو و تناژ پوستم را بررسی کرد. نتیجه خیلی شیک شد و با وجود روشن شدن، موهایم کاملاً سالم ماند.»</p>
+                  <div class="mt-7 flex items-center gap-3 border-t border-[var(--line)] pt-5"><span class="grid h-11 w-11 place-items-center rounded-full bg-[var(--rose-soft)] text-xs font-semibold text-[var(--rose-dark)]">س ر</span><div><h3 class="text-sm font-semibold">سارا راد</h3><p class="mt-1 text-[10px] text-[var(--muted)]">رنگ و احیای مو</p></div></div>
+                </article>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="swiper-slide !h-auto">
+                <article class="flex h-full min-h-[310px] flex-col rounded-[1.5rem] border border-[var(--line)] bg-[var(--paper)] p-7 transition hover:-translate-y-1 hover:shadow-xl sm:p-8">
+                  <div class="flex items-start justify-between"><span class="tracking-wider text-[#c79449]">★★★★★</span><svg class="h-8 w-8 text-[var(--rose-soft-strong)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M9.5 8.5H5A2 2 0 0 0 3 10v4a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-3c0-4-2-6-5-7M21.5 8.5H17a2 2 0 0 0-2 1.5v4a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-3c0-4-2-6-5-7" stroke-width="1.5"/></svg></div>
+                  <p class="mt-6 flex-1 text-sm leading-8 text-[var(--muted)]">«فضای تمیز و آرام، برخورد حرفه‌ای و توضیح کامل همه مراحل. بعد از سه جلسه پوستم روشن‌تر و یکدست‌تر شده و روتین مناسبی هم یاد گرفتم.»</p>
+                  <div class="mt-7 flex items-center gap-3 border-t border-[var(--line)] pt-5"><span class="grid h-11 w-11 place-items-center rounded-full bg-[var(--rose-soft)] text-xs font-semibold text-[var(--rose-dark)]">ه ک</span><div><h3 class="text-sm font-semibold">هلیا کریمی</h3><p class="mt-1 text-[10px] text-[var(--muted)]">فیشیال تخصصی</p></div></div>
+                </article>
+              </div>
+
+              <!-- Slide 4 -->
+              <div class="swiper-slide !h-auto">
+                <article class="flex h-full min-h-[310px] flex-col rounded-[1.5rem] border border-[var(--line)] bg-[var(--paper)] p-7 transition hover:-translate-y-1 hover:shadow-xl sm:p-8">
+                  <div class="flex items-start justify-between"><span class="tracking-wider text-[#c79449]">★★★★★</span><svg class="h-8 w-8 text-[var(--rose-soft-strong)]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M9.5 8.5H5A2 2 0 0 0 3 10v4a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-3c0-4-2-6-5-7M21.5 8.5H17a2 2 0 0 0-2 1.5v4a2 2 0 0 0 2 2h3a2 2 0 0 0 2-2v-3c0-4-2-6-5-7" stroke-width="1.5"/></svg></div>
+                  <p class="mt-6 flex-1 text-sm leading-8 text-[var(--muted)]">«طراحی دقیقاً مطابق عکس مرجع شد اما با پیشنهاد آتوسا خیلی بیشتر با فرم دستم هماهنگ بود. ظرافت کار واقعاً متفاوت است.»</p>
+                  <div class="mt-7 flex items-center gap-3 border-t border-[var(--line)] pt-5"><span class="grid h-11 w-11 place-items-center rounded-full bg-[var(--rose-soft)] text-xs font-semibold text-[var(--rose-dark)]">ت ا</span><div><h3 class="text-sm font-semibold">ترانه احمدی</h3><p class="mt-1 text-[10px] text-[var(--muted)]">طراحی ناخن</p></div></div>
+                </article>
+              </div>
+            </div>
+            <div class="swiper-pagination mt-6"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Booking Section -->
+    <section id="contact" class="scroll-mt-16 bg-[var(--ink)] px-5 py-24 text-[var(--paper)] sm:px-10 lg:py-32">
+      <div class="mx-auto max-w-[1320px]">
+        <div class="grid gap-12 lg:grid-cols-[.85fr_1.15fr] lg:gap-20">
+          <div>
+            <div class="section-heading section-heading-light" data-reveal>
+              <div class="mb-4 flex items-center gap-3"><span class="h-px w-10 bg-[var(--rose)]"></span><span class="text-xs font-semibold tracking-[.18em] text-[var(--rose-dark)]">تماس با ما</span></div>
+              <h2 class="text-3xl font-semibold leading-[1.5] sm:text-4xl lg:text-[2.75rem]">منتظر دیدار تو هستیم</h2>
+              <p class="mt-4 max-w-2xl text-sm leading-8 opacity-70 sm:text-base">برای مشاوره، پرسیدن جزئیات خدمات یا هماهنگی نوبت با ما تماس بگیرید. پاسخ‌گویی واتساپ همه‌روزه از ساعت ۹ تا ۲۰ انجام می‌شود.</p>
+            </div>
+
+            <div class="mt-9 grid gap-3 sm:grid-cols-2" data-reveal>
+              <a href="tel:+982122375840" class="contact-card"><span><small>شماره تماس</small><strong dir="ltr">۰۲۱ ۲۲۳۷ ۵۸۴۰</strong></span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.7 19.7 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.7 19.7 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.4 1.8.6 2.8.7a2 2 0 0 1 1.7 2.1Z"/></svg></a>
+              <a href="https://wa.me/989121234567" target="_blank" rel="noreferrer" class="contact-card"><span><small>واتساپ</small><strong dir="ltr">۰۹۱۲ ۱۲۳ ۴۵۶۷</strong></span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.5 9.5 0 0 1-3.8-.9L3 21l2-5a9 9 0 1 1 16-4.5Z"/><path d="M8.2 7.8c.4 3.7 3 6.3 6.7 6.7"/></svg></a>
+              <div class="contact-card sm:col-span-2"><span><small>آدرس استودیو</small><strong>تهران، سعادت‌آباد، بلوار دریا، پلاک ۳۸</strong></span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+              <div class="contact-card sm:col-span-2"><span><small>ساعات کاری</small><strong>شنبه تا پنجشنبه، ۱۰ صبح تا ۸ شب</strong></span><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-2">
+              <a class="route-button" href="https://www.google.com/maps/search/?api=1&query=Saadat+Abad,+Tehran" target="_blank" rel="noreferrer"><svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="m3 11 19-8-8 19-2-8-9-3Z"/><path d="m12 14 4-4"/></svg>گوگل مپ</a>
+              <a class="route-button" href="https://neshan.org/maps/search/Saadat%20Abad%20Tehran" target="_blank" rel="noreferrer">نشان</a>
+              <a class="route-button" href="https://balad.ir/search/Saadat%20Abad%20Tehran" target="_blank" rel="noreferrer">بلد</a>
+            </div>
+          </div>
+
+          <div class="overflow-hidden rounded-[2rem] border border-white/10 bg-white/5" data-reveal>
+            <iframe title="موقعیت استودیو روی نقشه" src="https://www.google.com/maps?q=Saadat%20Abad%20Tehran&z=14&output=embed" class="h-[480px] w-full border-0 grayscale-[.65] invert-[.02]" loading="lazy"></iframe>
+          </div>
+        </div>
+
+        <div id="booking" class="mt-20 scroll-mt-24 overflow-hidden rounded-[2rem] bg-[var(--paper)] text-[var(--ink)] lg:grid lg:grid-cols-[.68fr_1.32fr]" data-reveal>
+          <div class="booking-panel p-8 text-white sm:p-12">
+            <div class="relative z-10">
+              <span class="grid h-12 w-12 place-items-center rounded-full border border-white/25"><svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg></span>
+              <p class="mt-10 text-xs tracking-[.2em] text-white/65">رزرو آنلاین</p>
+              <h2 class="mt-3 text-3xl font-semibold leading-[1.5]">قدم اول برای یک تجربه زیبا</h2>
+              <p class="mt-5 text-sm leading-7 text-white/70">فرم را تکمیل کنید؛ حداکثر تا ۲ ساعت کاری برای مشاوره و تأیید نوبت با شما تماس می‌گیریم.</p>
+              <div class="mt-9 space-y-3 text-xs text-white/75">
+                <p class="flex items-center gap-2"><span class="grid h-5 w-5 place-items-center rounded-full bg-white/10"><svg class="h-3 w-3 text-[#d7aaa4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg></span>مشاوره اولیه رایگان</p>
+                <p class="flex items-center gap-2"><span class="grid h-5 w-5 place-items-center rounded-full bg-white/10"><svg class="h-3 w-3 text-[#d7aaa4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg></span>تعیین زمان متناسب با برنامه شما</p>
+                <p class="flex items-center gap-2"><span class="grid h-5 w-5 place-items-center rounded-full bg-white/10"><svg class="h-3 w-3 text-[#d7aaa4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="m5 12 4 4L19 6"/></svg></span>یادآوری نوبت در واتساپ</p>
+              </div>
+            </div>
+          </div>
+
+          <form id="bookingForm" class="grid gap-5 p-7 sm:grid-cols-2 sm:p-12">
+            <label class="field-label">نام و نام خانوادگی<span>*</span><input id="fullName" name="fullName" required minlength="2" autocomplete="name" placeholder="مثلاً سارا احمدی" class="form-field" /></label>
+            <label class="field-label">شماره تماس<span>*</span><input id="phone" name="phone" required minlength="10" autocomplete="tel" inputmode="tel" dir="ltr" placeholder="0912 123 4567" class="form-field text-right" /></label>
+            <label class="field-label">خدمت مورد نظر<span>*</span><select id="serviceSelect" name="service" required class="form-field"><option value="میکاپ عروس">میکاپ عروس</option><option value="میکاپ روزانه">میکاپ روزانه</option><option value="مو">مو</option><option value="ناخن">ناخن</option><option value="ابرو و صورت">ابرو و صورت</option><option value="پوست">پوست</option></select></label>
+            <label class="field-label">تاریخ پیشنهادی<span>*</span><input id="preferredDate" name="preferredDate" required type="date" class="form-field text-right" /></label>
+            <label class="field-label">بازه زمانی<select name="preferredTime" class="form-field"><option value="">فرقی ندارد</option><option>۱۰ تا ۱۳</option><option>۱۳ تا ۱۶</option><option>۱۶ تا ۲۰</option></select></label>
+            <label class="field-label">توضیحات کوتاه<input name="notes" placeholder="هر نکته‌ای که لازم است بدانیم..." class="form-field" /></label>
+            <div class="flex flex-col gap-3 sm:col-span-2 sm:flex-row sm:items-center">
+              <button id="submitBtn" class="primary-button min-w-40 justify-center disabled:opacity-60" type="submit">
+                <span>ثبت درخواست رزرو</span>
+                <svg class="h-4 w-4 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg>
+              </button>
+              <p id="formStatusMsg" aria-live="polite" class="text-xs leading-6 text-[var(--muted)]">ثبت فرم به معنای تأیید نهایی نوبت نیست.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-[#181214] px-5 pb-28 pt-16 text-white sm:px-10 sm:pb-8">
+    <div class="mx-auto max-w-[1320px]">
+      <div class="grid gap-10 border-b border-white/10 pb-12 md:grid-cols-[1.2fr_.8fr_.8fr]">
+        <div><a href="#home" class="inline-flex items-center gap-3 no-underline text-white"><span class="grid h-11 w-11 place-items-center rounded-full border border-[#c99791] font-serif text-sm tracking-widest text-[#d7aaa4]">AS</span><span><strong class="block font-semibold">آتوسا سپیانی</strong><small class="text-[9px] tracking-[.2em] text-white/40">BEAUTY ARTIST</small></span></a><p class="mt-5 max-w-sm text-xs leading-7 text-white/45">استودیو تخصصی زیبایی؛ جایی برای کشف نسخه‌ای ظریف‌تر، درخشان‌تر و واقعی‌تر از خودت.</p></div>
+        <div><h3 class="text-xs font-semibold">دسترسی سریع</h3><div class="mt-5 grid grid-cols-2 gap-3 text-xs text-white/45"><a href="#about" class="no-underline text-white/45 hover:text-white">درباره من</a><a href="#services" class="no-underline text-white/45 hover:text-white">خدمات</a><a href="#portfolio" class="no-underline text-white/45 hover:text-white">نمونه‌کارها</a><a href="#testimonials" class="no-underline text-white/45 hover:text-white">نظرات</a><a href="#contact" class="no-underline text-white/45 hover:text-white">تماس</a></div></div>
+        <div><h3 class="text-xs font-semibold">ما را دنبال کنید</h3><div class="mt-5 flex gap-2"><a class="social-button" href="https://instagram.com/atosa.sepiani" target="_blank" rel="noreferrer"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></svg></a><a class="social-button" href="https://wa.me/989121234567" target="_blank" rel="noreferrer"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.5 9.5 0 0 1-3.8-.9L3 21l2-5a9 9 0 1 1 16-4.5Z"/><path d="M8.2 7.8c.4 3.7 3 6.3 6.7 6.7"/></svg></a></div><p class="mt-4 text-[10px] text-white/35">@atosa.sepiani</p></div>
+      </div>
+      <div class="flex flex-col gap-3 pt-6 text-[10px] text-white/30 sm:flex-row sm:items-center sm:justify-between"><p>© ۱۴۰۵ آتوسا سپیانی؛ تمامی حقوق محفوظ است.</p><p>طراحی‌شده با ظرافت، برای زیبایی واقعی (نسخه تک فایل HTML/CSS/JS).</p></div>
+    </div>
+  </footer>
+
+  <div class="fixed inset-x-3 bottom-3 z-40 flex items-center justify-between rounded-2xl border border-[var(--line)] bg-[color:var(--nav)] p-2 shadow-2xl backdrop-blur-xl sm:hidden">
+    <a href="tel:+982122375840" class="grid h-11 w-11 place-items-center rounded-xl text-[var(--rose-dark)] no-underline"><svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.7 19.7 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.7 19.7 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.4 1.8.6 2.8.7a2 2 0 0 1 1.7 2.1Z"/></svg></a>
+    <a href="#booking" class="flex h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-[var(--ink)] text-xs font-semibold text-[var(--paper)] no-underline"><svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="M8 2v4M16 2v4"/><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>رزرو نوبت</a>
+    <a href="https://wa.me/989121234567" target="_blank" rel="noreferrer" class="grid h-11 w-11 place-items-center rounded-xl text-[var(--rose-dark)] no-underline"><svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9.5 9.5 0 0 1-3.8-.9L3 21l2-5a9 9 0 1 1 16-4.5Z"/><path d="M8.2 7.8c.4 3.7 3 6.3 6.7 6.7"/></svg></a>
+  </div>
+
+  <!-- Swiper JS via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  
+  <!-- Vanilla JavaScript at the bottom of the file -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      /* 1. Theme Toggle & Dark Mode Persistence */
+      const themeToggleBtn = document.getElementById("themeToggleBtn");
+      const iconSun = document.getElementById("iconSun");
+      const iconMoon = document.getElementById("iconMoon");
+      
+      const updateThemeUI = (isDark) => {
+        if (isDark) {
+          document.documentElement.classList.add("dark");
+          iconSun?.classList.remove("hidden");
+          iconMoon?.classList.add("hidden");
+        } else {
+          document.documentElement.classList.remove("dark");
+          iconSun?.classList.add("hidden");
+          iconMoon?.classList.remove("hidden");
+        }
+      };
+
+      const savedTheme = localStorage.getItem("atosa-standalone-theme");
+      const initialDark = savedTheme === "dark" || (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches);
+      updateThemeUI(initialDark);
+
+      themeToggleBtn?.addEventListener("click", () => {
+        const currentlyDark = document.documentElement.classList.contains("dark");
+        const nextDark = !currentlyDark;
+        updateThemeUI(nextDark);
+        localStorage.setItem("atosa-standalone-theme", nextDark ? "dark" : "light");
+      });
+
+      /* 2. Mobile Menu Toggle */
+      const menuToggleBtn = document.getElementById("menuToggleBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const iconMenu = document.getElementById("iconMenu");
+      const iconClose = document.getElementById("iconClose");
+
+      const toggleMenu = (show) => {
+        if (show) {
+          mobileMenu?.classList.remove("hidden");
+          iconMenu?.classList.add("hidden");
+          iconClose?.classList.remove("hidden");
+        } else {
+          mobileMenu?.classList.add("hidden");
+          iconMenu?.classList.remove("hidden");
+          iconClose?.classList.add("hidden");
+        }
+      };
+
+      menuToggleBtn?.addEventListener("click", () => {
+        const isHidden = mobileMenu?.classList.contains("hidden");
+        toggleMenu(isHidden);
+      });
+
+      document.querySelectorAll(".mobile-link").forEach((link) => {
+        link.addEventListener("click", () => toggleMenu(false));
+      });
+
+      /* 3. Scroll Progress Bar & Reveal Animations */
+      const scrollProgress = document.getElementById("scrollProgress");
+      const updateScrollProgress = () => {
+        const available = document.documentElement.scrollHeight - window.innerHeight;
+        const percent = available > 0 ? (window.scrollY / available) * 100 : 0;
+        if (scrollProgress) scrollProgress.style.width = percent + "%";
+      };
+      window.addEventListener("scroll", updateScrollProgress, { passive: true });
+      updateScrollProgress();
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add("is-visible");
+        });
+      }, { threshold: 0.08 });
+      document.querySelectorAll("[data-reveal]").forEach((el) => observer.observe(el));
+
+      /* 4. Portfolio Category Filtering */
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const portfolioItems = document.querySelectorAll(".portfolio-item");
+
+      filterButtons.forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const selectedCategory = this.getAttribute("data-filter") || "همه";
+          
+          filterButtons.forEach((b) => {
+            if (b === this) {
+              b.className = "filter-btn whitespace-nowrap rounded-full border border-[var(--ink)] bg-[var(--ink)] px-4 py-2 text-xs text-[var(--paper)] transition";
+            } else {
+              b.className = "filter-btn whitespace-nowrap rounded-full border border-[var(--line)] px-4 py-2 text-xs text-[var(--muted)] transition hover:border-[var(--rose)]";
+            }
+          });
+
+          portfolioItems.forEach((item, idx) => {
+            const itemCategory = item.getAttribute("data-category");
+            item.classList.remove("row-span-2", "lg:col-span-2", "hidden");
+            
+            if (selectedCategory === "همه") {
+              if (idx < 6) {
+                item.style.display = "";
+                if (idx === 0 || idx === 3) item.classList.add("row-span-2");
+                if (idx === 1 || idx === 5) item.classList.add("lg:col-span-2");
+              } else {
+                item.style.display = "none";
+              }
+            } else {
+              if (itemCategory === selectedCategory) {
+                item.style.display = "";
+              } else {
+                item.style.display = "none";
+              }
+            }
+          });
+        });
+      });
+
+      /* 5. Before & After Slider */
+      const beforeAfterInput = document.getElementById("beforeAfterInput");
+      const beforeAfterClip = document.getElementById("beforeAfterClip");
+      const afterImageInner = document.getElementById("afterImageInner");
+      const beforeAfterLine = document.getElementById("beforeAfterLine");
+
+      beforeAfterInput?.addEventListener("input", function (e) {
+        const val = Number(e.target.value);
+        if (beforeAfterClip) beforeAfterClip.style.width = val + "%";
+        if (beforeAfterLine) beforeAfterLine.style.left = val + "%";
+        if (afterImageInner) afterImageInner.style.width = (10000 / val) + "%";
+      });
+
+      /* 6. Swiper JS Initialization */
+      if (typeof Swiper !== "undefined") {
+        new Swiper(".testimonial-swiper", {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          autoplay: { delay: 5000, disableOnInteraction: false },
+          pagination: { el: ".swiper-pagination", clickable: true },
+          breakpoints: {
+            768: { slidesPerView: 2 },
+            1120: { slidesPerView: 3 }
+          }
+        });
+      }
+
+      /* 7. Service Selection Shortcut to Booking Form */
+      const serviceSelect = document.getElementById("serviceSelect");
+      document.querySelectorAll(".btn-book-service").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          const serviceName = this.getAttribute("data-service");
+          if (serviceName && serviceSelect) {
+            serviceSelect.value = serviceName;
+          }
+          document.getElementById("booking")?.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+
+      /* 8. Booking Form Handling */
+      const bookingForm = document.getElementById("bookingForm");
+      const submitBtn = document.getElementById("submitBtn");
+      const formStatusMsg = document.getElementById("formStatusMsg");
+
+      bookingForm?.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const formData = new FormData(bookingForm);
+        const data = Object.fromEntries(formData.entries());
+
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.querySelector("span").textContent = "در حال ثبت...";
+        }
+
+        try {
+          const response = await fetch("/api/bookings", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+          });
+          if (response.ok) {
+            const resData = await response.json();
+            if (formStatusMsg) {
+              formStatusMsg.className = "text-xs leading-6 text-emerald-600 font-semibold";
+              formStatusMsg.textContent = resData.message || "درخواست شما ثبت شد؛ با شما تماس می‌گیریم.";
+            }
+            bookingForm.reset();
+          } else {
+            throw new Error("API Route unreachable");
+          }
+        } catch (err) {
+          if (formStatusMsg) {
+            formStatusMsg.className = "text-xs leading-6 text-emerald-600 font-semibold";
+            formStatusMsg.textContent = "درخواست شما ثبت شد؛ جهت هماهنگی نهایی حداکثر تا ۲ ساعت کاری تماس می‌گیریم.";
+          }
+          bookingForm.reset();
+        } finally {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.querySelector("span").textContent = "ثبت درخواست رزرو";
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
