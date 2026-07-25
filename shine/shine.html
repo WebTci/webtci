@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>آتوسا سپیانی | هنر زیبایی در ساده‌ترین جزئیات</title>
+    <meta name="description" content="سالن تخصصی زیبایی آتوسا سپیانی - میکاپ عروس، مو، ناخن، ابرو و مراقبت پوست. رزرو آنلاین نوبت." />
+    <meta name="keywords" content="آتوسا سپیانی,میکاپ عروس,سالن زیبایی,میکروبلیدینگ,کاشت ناخن,رنگ مو" />
+
+    <!-- Vazirmatn font -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" />
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com">
+    </script>
+
+    <style>
+        /* ===== CUSTOM VARIABLES ===== */
+        :root {
+            --bg-0: #0d0a10;
+            --bg-1: #17111c;
+            --bg-2: #211826;
+            --rose: #f8c8dc;
+            --rose-2: #e8a5c1;
+            --gold: #d4a373;
+            --gold-2: #b98756;
+            --text: #f5eef2;
+            --muted: #b8a9b5;
+        }
+
+        /* ===== BASE ===== */
+        html,
+        body {
+            background: var(--bg-0);
+            color: var(--text);
+            font-family: "Vazirmatn", system-ui, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* ===== ELEGANT BG ===== */
+        .bg-elegant {
+            background:
+                radial-gradient(1200px 600px at 90% -10%, rgba(232, 165, 193, 0.18), transparent 60%),
+                radial-gradient(900px 500px at -10% 30%, rgba(212, 163, 115, 0.15), transparent 60%),
+                linear-gradient(180deg, #0d0a10 0%, #140f18 100%);
+        }
+
+        /* ===== GLASS ===== */
+        .glass {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(12px);
+        }
+
+        /* ===== GRADIENT TEXT ===== */
+        .gold-text {
+            background: linear-gradient(90deg, #f5d7b0 0%, #d4a373 50%, #b98756 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .rose-text {
+            background: linear-gradient(90deg, #f8c8dc 0%, #e8a5c1 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn-primary {
+            background: linear-gradient(90deg, #e8a5c1 0%, #d4a373 100%);
+            color: #1a0f16;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px -10px rgba(232, 165, 193, 0.5);
+            filter: brightness(1.05);
+        }
+
+        .btn-outline {
+            border: 1px solid rgba(232, 165, 193, 0.35);
+            color: #f5eef2;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background: rgba(232, 165, 193, 0.08);
+            border-color: rgba(232, 165, 193, 0.7);
+        }
+
+        /* ===== CARDS ===== */
+        .card-lux {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+            border: 1px solid rgba(232, 165, 193, 0.12);
+            border-radius: 20px;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-lux:hover {
+            transform: translateY(-4px);
+            border-color: rgba(232, 165, 193, 0.35);
+            box-shadow: 0 20px 40px -20px rgba(232, 165, 193, 0.25);
+        }
+
+        /* ===== SECTION TITLE ===== */
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            margin: 12px auto 0;
+            background: linear-gradient(90deg, #e8a5c1, #d4a373);
+            border-radius: 3px;
+        }
+
+        /* ===== SWIPER OVERRIDES ===== */
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #e8a5c1 !important;
+        }
+        .swiper-pagination-bullet {
+            background: #e8a5c1 !important;
+        }
+        .swiper-pagination-bullet-active {
+            background: #d4a373 !important;
+        }
+
+        /* ===== REVEAL ON SCROLL ===== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== BEFORE / AFTER SLIDER ===== */
+        .ba-slider {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            user-select: none;
+        }
+        .ba-slider img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .ba-slider .after {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+        .ba-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #f8c8dc;
+            cursor: ew-resize;
+        }
+        .ba-handle::after {
+            content: "⇆";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(90deg, #e8a5c1, #d4a373);
+            color: #1a0f16;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d0a10;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #e8a5c1, #d4a373);
+            border-radius: 10px;
+        }
+
+        /* ===== ADDITIONAL UTILITY HELPER ===== */
+        .bg-\\[\\#0d0a10\\] {
+            background-color: #0d0a10;
+        }
+        .bg-\\[\\#100b14\\] {
+            background-color: #100b14;
+        }
+        .bg-\\[\\#0a070d\\] {
+            background-color: #0a070d;
+        }
+        .border-pink-200\\/10 {
+            border-color: rgba(248, 200, 220, 0.1);
+        }
+        .border-pink-200\\/15 {
+            border-color: rgba(248, 200, 220, 0.15);
+        }
+        .border-pink-200\\/20 {
+            border-color: rgba(248, 200, 220, 0.2);
+        }
+        .border-pink-200\\/30 {
+            border-color: rgba(248, 200, 220, 0.3);
+        }
+        .text-pink-50 {
+            color: #fdf2f8;
+        }
+        .text-pink-50\\/85 {
+            color: rgba(253, 242, 248, 0.85);
+        }
+        .text-pink-100\\/50 {
+            color: rgba(252, 231, 243, 0.5);
+        }
+        .text-pink-100\\/60 {
+            color: rgba(252, 231, 243, 0.6);
+        }
+        .text-pink-100\\/65 {
+            color: rgba(252, 231, 243, 0.65);
+        }
+        .text-pink-100\\/70 {
+            color: rgba(252, 231, 243, 0.7);
+        }
+        .text-pink-100\\/80 {
+            color: rgba(252, 231, 243, 0.8);
+        }
+        .text-pink-200\\/60 {
+            color: rgba(248, 200, 220, 0.6);
+        }
+        .text-pink-300\\/50 {
+            color: rgba(248, 200, 220, 0.5);
+        }
+        .border-pink-300\\/40 {
+            border-color: rgba(248, 200, 220, 0.4);
+        }
+        .border-pink-300\\/50 {
+            border-color: rgba(248, 200, 220, 0.5);
+        }
+        .bg-pink-500\\/10 {
+            background-color: rgba(236, 72, 153, 0.1);
+        }
+        .border-green-400\\/20 {
+            border-color: rgba(74, 222, 128, 0.2);
+        }
+        .border-red-400\\/20 {
+            border-color: rgba(248, 113, 113, 0.2);
+        }
+        .bg-\\[\\#0d0a10\\]\\/85 {
+            background-color: rgba(13, 10, 16, 0.85);
+        }
+        .bg-\\[\\#0d0a10\\]\\/95 {
+            background-color: rgba(13, 10, 16, 0.95);
+        }
+        .from-\\[\\#0d0a10\\]\\/90 {
+            --tw-gradient-from: rgba(13, 10, 16, 0.9);
+        }
+        .via-\\[\\#0d0a10\\]\\/20 {
+            --tw-gradient-via: rgba(13, 10, 16, 0.2);
+        }
+        .to-transparent {
+            --tw-gradient-to: transparent;
+        }
+        .from-\\[\\#0d0a10\\]\\/70 {
+            --tw-gradient-from: rgba(13, 10, 16, 0.7);
+        }
+        .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .shadow-xl {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .min-h-\\[70px\\] {
+            min-height: 70px;
+        }
+        .min-h-\\[130px\\] {
+            min-height: 130px;
+        }
+        .placeholder-pink-100\\/30::placeholder {
+            color: rgba(252, 231, 243, 0.3);
+        }
+        .border-pink-200\\/5 {
+            border-color: rgba(248, 200, 220, 0.05);
+        }
+        .gap-7 {
+            gap: 1.75rem;
+        }
+        .tracking-\\[4px\\] {
+            letter-spacing: 4px;
+        }
+        .max-w-7xl {
+            max-width: 80rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================================ -->
+    <!-- NAVBAR -->
+    <!-- ============================================================ -->
+    <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all bg-transparent">
+        <div class="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
+            <a href="#home" class="flex items-center gap-2">
+                <span class="w-9 h-9 rounded-full flex items-center justify-center text-lg font-bold" style="background:linear-gradient(135deg,#e8a5c1,#d4a373);color:#1a0f16;">
+                    آ
+                </span>
+                <div class="leading-tight">
+                    <div class="gold-text text-lg font-extrabold tracking-tight">آتوسا سپیانی</div>
+                    <div class="text-[11px] text-pink-100/60">Beauty Studio</div>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-7 text-sm">
+                <a href="#home" class="text-pink-50/80 hover:text-pink-200 transition-colors">خانه</a>
+                <a href="#about" class="text-pink-50/80 hover:text-pink-200 transition-colors">درباره من</a>
+                <a href="#services" class="text-pink-50/80 hover:text-pink-200 transition-colors">خدمات</a>
+                <a href="#portfolio" class="text-pink-50/80 hover:text-pink-200 transition-colors">گالری</a>
+                <a href="#testimonials" class="text-pink-50/80 hover:text-pink-200 transition-colors">نظرات</a>
+                <a href="#contact" class="text-pink-50/80 hover:text-pink-200 transition-colors">تماس</a>
+            </nav>
+
+            <a href="#booking" class="hidden md:inline-block px-5 py-2 rounded-full btn-primary text-sm">
+                رزرو نوبت
+            </a>
+
+            <button id="menuBtn" class="md:hidden w-10 h-10 rounded-lg glass flex items-center justify-center">
+                <span id="menuIcon" class="text-xl">☰</span>
+            </button>
+        </div>
+
+        <div id="mobileMenu" class="hidden md:hidden bg-[#0d0a10]/95 backdrop-blur-md border-t border-pink-200/10">
+            <div class="px-5 py-4 flex flex-col gap-3">
+                <a href="#home" class="text-pink-50/85 py-2 border-b border-pink-200/5">خانه</a>
+                <a href="#about" class="text-pink-50/85 py-2 border-b border-pink-200/5">درباره من</a>
+                <a href="#services" class="text-pink-50/85 py-2 border-b border-pink-200/5">خدمات</a>
+                <a href="#portfolio" class="text-pink-50/85 py-2 border-b border-pink-200/5">گالری</a>
+                <a href="#testimonials" class="text-pink-50/85 py-2 border-b border-pink-200/5">نظرات</a>
+                <a href="#contact" class="text-pink-50/85 py-2 border-b border-pink-200/5">تماس</a>
+                <a href="#booking" class="px-5 py-3 rounded-full btn-primary text-center mt-2">رزرو نوبت</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================================ -->
+    <!-- HERO -->
+    <!-- ============================================================ -->
+    <section id="home" class="relative bg-elegant pt-28 md:pt-32 pb-16 overflow-hidden">
+        <div class="absolute -top-32 -left-40 w-[500px] h-[500px] rounded-full blur-3xl opacity-30" style="background:radial-gradient(circle,#e8a5c1 0%,transparent 70%);"></div>
+        <div class="absolute -bottom-32 -right-40 w-[500px] h-[500px] rounded-full blur-3xl opacity-25" style="background:radial-gradient(circle,#d4a373 0%,transparent 70%);"></div>
+
+        <div class="relative max-w-7xl mx-auto px-5 grid md:grid-cols-2 gap-10 items-center">
+            <div class="order-2 md:order-1 text-center md:text-right">
+                <span class="inline-block glass rounded-full px-4 py-1.5 text-xs text-pink-200 mb-5">
+                    ✨ استودیو تخصصی زیبایی
+                </span>
+                <h1 class="text-4xl md:text-6xl font-black leading-tight mb-5">
+                    <span class="rose-text">زیبایی</span>
+                    <span class="text-pink-50">در ساده‌ترین</span>
+                    <span class="gold-text">جزئیات</span>
+                </h1>
+                <p class="text-pink-100/70 text-base md:text-lg leading-relaxed max-w-xl mx-auto md:mx-0 mb-8">
+                    با آتوسا سپیانی، هنر را به چهره‌ات هدیه کن. بیش از یک دهه تجربه در میکاپ عروس، مراقبت مو،
+                    ناخن و پوست با استانداردهای جهانی.
+                </p>
+
+                <div class="flex flex-wrap gap-3 justify-center md:justify-start mb-8">
+                    <a href="#booking" class="px-6 py-3 rounded-full btn-primary text-sm">رزرو نوبت آنلاین</a>
+                    <a href="#portfolio" class="px-6 py-3 rounded-full btn-outline text-sm">مشاهده نمونه‌کارها</a>
+                </div>
+
+                <div class="flex flex-wrap gap-2 justify-center md:justify-start">
+                    <a href="#services" class="glass rounded-full px-4 py-2 text-xs md:text-sm text-pink-100 hover:border-pink-300/40 transition-colors"><span class="ml-1">💄</span>میکاپ</a>
+                    <a href="#services" class="glass rounded-full px-4 py-2 text-xs md:text-sm text-pink-100 hover:border-pink-300/40 transition-colors"><span class="ml-1">💇‍♀️</span>مو</a>
+                    <a href="#services" class="glass rounded-full px-4 py-2 text-xs md:text-sm text-pink-100 hover:border-pink-300/40 transition-colors"><span class="ml-1">💅</span>ناخن</a>
+                    <a href="#services" class="glass rounded-full px-4 py-2 text-xs md:text-sm text-pink-100 hover:border-pink-300/40 transition-colors"><span class="ml-1">✨</span>ابرو</a>
+                    <a href="#services" class="glass rounded-full px-4 py-2 text-xs md:text-sm text-pink-100 hover:border-pink-300/40 transition-colors"><span class="ml-1">🌸</span>پوست</a>
+                </div>
+
+                <div class="mt-10 grid grid-cols-3 gap-4 max-w-md mx-auto md:mx-0">
+                    <div class="text-center glass rounded-2xl py-3">
+                        <div class="gold-text text-xl font-extrabold">+۱۲</div>
+                        <div class="text-[11px] text-pink-100/60 mt-1">سال تجربه</div>
+                    </div>
+                    <div class="text-center glass rounded-2xl py-3">
+                        <div class="gold-text text-xl font-extrabold">+۳۵۰۰</div>
+                        <div class="text-[11px] text-pink-100/60 mt-1">عروس راضی</div>
+                    </div>
+                    <div class="text-center glass rounded-2xl py-3">
+                        <div class="gold-text text-xl font-extrabold">+۲۰</div>
+                        <div class="text-[11px] text-pink-100/60 mt-1">دوره تخصصی</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-1 md:order-2 relative">
+                <div class="relative aspect-[4/5] max-w-md mx-auto rounded-[2rem] overflow-hidden border-2 border-pink-200/20" style="box-shadow:0 30px 80px -20px rgba(232,165,193,0.35);">
+                    <img src="https://images.pexels.com/photos/35538643/pexels-photo-35538643.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=1400&w=1000" alt="آتوسا سپیانی در حال کار" class="w-full h-full object-cover" loading="eager" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0d0a10]/70 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-5 right-5 left-5 glass rounded-2xl p-4">
+                        <div class="text-xs text-pink-100/60">آتوسا سپیانی</div>
+                        <div class="gold-text text-lg font-bold">Makeup &amp; Beauty Artist</div>
+                    </div>
+                </div>
+                <div class="hidden md:block absolute -top-6 -left-6 glass rounded-2xl p-4 w-44">
+                    <div class="flex items-center gap-2 mb-1">
+                        <span class="text-yellow-400 text-lg">★★★★★</span>
+                    </div>
+                    <div class="text-xs text-pink-100/80">۴.۹ از ۵ در گوگل</div>
+                    <div class="text-[10px] text-pink-100/50 mt-1">بر اساس +۸۰۰ نظر</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- ABOUT -->
+    <!-- ============================================================ -->
+    <section id="about" class="py-20 md:py-28 bg-[#100b14]">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="text-center mb-14">
+                <div class="text-xs tracking-[4px] text-pink-200/60 mb-3">ABOUT ME</div>
+                <h2 class="text-3xl md:text-4xl font-extrabold section-title">
+                    <span class="gold-text">درباره آتوسا</span>
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-5 gap-10 items-center">
+                <div class="md:col-span-2 grid grid-cols-2 gap-4">
+                    <div class="relative aspect-[3/4] rounded-2xl overflow-hidden border border-pink-200/10">
+                        <img src="https://images.pexels.com/photos/12562393/pexels-photo-12562393.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700" alt="آتوسا در حال کار" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                    <div class="relative aspect-[3/4] rounded-2xl overflow-hidden border border-pink-200/10 mt-8">
+                        <img src="https://images.pexels.com/photos/13666610/pexels-photo-13666610.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700" alt="پشت صحنه" class="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                </div>
+
+                <div class="md:col-span-3 text-pink-50/85 leading-loose">
+                    <p class="text-lg mb-5">
+                        سلام، من <span class="gold-text font-bold">آتوسا سپیانی</span> هستم؛ بیش از یک دهه است
+                        که در دنیای زیبایی و آرایش زندگی می‌کنم. سفرم از یک علاقه شخصی به هنر و رنگ شروع شد و امروز
+                        به یک استودیوی حرفه‌ای با تیمی متخصص رسیده است.
+                    </p>
+                    <p class="text-pink-100/70 mb-8">
+                        فلسفه من ساده است: هر چهره یک بوم منحصربه‌فرد است. من با احترام به زیبایی طبیعی هر مشتری،
+                        تلاش می‌کنم بهترین نسخه از خودش را به او هدیه دهم. کیفیت، بهداشت و به‌روز بودن، سه اصل غیرقابل‌مذاکره‌ی کار من است.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="glass rounded-xl p-4">
+                            <div class="rose-text font-bold text-sm mb-1">دوره‌های بین‌المللی</div>
+                            <div class="text-xs text-pink-100/60">میلان، پاریس، استانبول</div>
+                        </div>
+                        <div class="glass rounded-xl p-4">
+                            <div class="rose-text font-bold text-sm mb-1">جوایز</div>
+                            <div class="text-xs text-pink-100/60">برنده‌ی جشنواره سراسری آرایش ۱۴۰۱</div>
+                        </div>
+                        <div class="glass rounded-xl p-4">
+                            <div class="rose-text font-bold text-sm mb-1">تخصص</div>
+                            <div class="text-xs text-pink-100/60">میکاپ عروس، میکروبلیدینگ، رنگ مو</div>
+                        </div>
+                        <div class="glass rounded-xl p-4">
+                            <div class="rose-text font-bold text-sm mb-1">تیم</div>
+                            <div class="text-xs text-pink-100/60">۵ متخصص با گواهی بین‌المللی</div>
+                        </div>
+                    </div>
+
+                    <a href="#booking" class="inline-block px-6 py-3 rounded-full btn-primary text-sm">
+                        مشاوره رایگان بگیرید
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- SERVICES -->
+    <!-- ============================================================ -->
+    <section id="services" class="py-20 md:py-28 bg-elegant">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="text-center mb-14">
+                <div class="text-xs tracking-[4px] text-pink-200/60 mb-3">SERVICES</div>
+                <h2 class="text-3xl md:text-4xl font-extrabold section-title">
+                    <span class="rose-text">خدمات تخصصی</span>
+                </h2>
+                <p class="text-pink-100/60 max-w-xl mx-auto mt-4 text-sm">
+                    هر خدمت با استاندارد بین‌المللی، متریال درجه یک و رعایت کامل بهداشت انجام می‌شود.
+                </p>
+            </div>
+
+            <div id="servicesGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- PORTFOLIO -->
+    <!-- ============================================================ -->
+    <section id="portfolio" class="py-20 md:py-28 bg-[#100b14]">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="text-center mb-10">
+                <div class="text-xs tracking-[4px] text-pink-200/60 mb-3">PORTFOLIO</div>
+                <h2 class="text-3xl md:text-4xl font-extrabold section-title">
+                    <span class="gold-text">گالری نمونه‌کارها</span>
+                </h2>
+            </div>
+
+            <div id="filterButtons" class="flex flex-wrap justify-center gap-2 mb-10">
+                <!-- injected by JS -->
+            </div>
+
+            <div id="galleryGrid" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-16">
+                <!-- injected by JS -->
+            </div>
+
+            <!-- Before / After -->
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold rose-text">قبل و بعد</h3>
+                <p class="text-pink-100/60 text-sm mt-2">اسلایدر را جابجا کنید تا نتیجه را ببینید</p>
+            </div>
+            <div id="beforeAfterGrid" class="grid md:grid-cols-3 gap-6">
+                <!-- injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- TESTIMONIALS -->
+    <!-- ============================================================ -->
+    <section id="testimonials" class="py-20 md:py-28 bg-elegant">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="text-center mb-14">
+                <div class="text-xs tracking-[4px] text-pink-200/60 mb-3">TESTIMONIALS</div>
+                <h2 class="text-3xl md:text-4xl font-extrabold section-title">
+                    <span class="rose-text">نظرات مشتریان</span>
+                </h2>
+            </div>
+
+            <div class="relative">
+                <div id="testimonialSwiper" class="swiper !pb-14">
+                    <div class="swiper-wrapper" id="testimonialWrapper">
+                        <!-- injected by JS -->
+                    </div>
+                    <div id="testimonialPagination" class="swiper-pagination !bottom-0"></div>
+                </div>
+                <button id="prevTestimonial" class="hidden md:flex absolute top-1/2 -translate-y-1/2 -right-4 z-10 w-11 h-11 rounded-full glass items-center justify-center text-pink-200 hover:text-pink-100">›</button>
+                <button id="nextTestimonial" class="hidden md:flex absolute top-1/2 -translate-y-1/2 -left-4 z-10 w-11 h-11 rounded-full glass items-center justify-center text-pink-200 hover:text-pink-100">‹</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- CONTACT -->
+    <!-- ============================================================ -->
+    <section id="contact" class="py-20 md:py-28 bg-[#100b14]">
+        <div class="max-w-7xl mx-auto px-5">
+            <div class="text-center mb-14">
+                <div class="text-xs tracking-[4px] text-pink-200/60 mb-3">CONTACT</div>
+                <h2 class="text-3xl md:text-4xl font-extrabold section-title">
+                    <span class="gold-text">تماس و رزرو نوبت</span>
+                </h2>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Info -->
+                <div class="space-y-5">
+                    <div class="card-lux p-6">
+                        <h3 class="text-lg font-bold rose-text mb-4">راه‌های ارتباطی</h3>
+                        <div class="space-y-4 text-sm">
+                            <a href="tel:+982188123456" target="_blank" rel="noreferrer" class="block hover:opacity-80">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 rounded-full glass flex items-center justify-center text-lg shrink-0">📞</div>
+                                    <div><div class="text-pink-100/50 text-[11px]">تلفن سالن</div><div class="text-pink-50">۰۲۱-۸۸۱۲۳۴۵۶</div></div>
+                                </div>
+                            </a>
+                            <a href="https://wa.me/989121234567" target="_blank" rel="noreferrer" class="block hover:opacity-80">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 rounded-full glass flex items-center justify-center text-lg shrink-0">💬</div>
+                                    <div><div class="text-pink-100/50 text-[11px]">واتساپ</div><div class="text-pink-50">۰۹۱۲-۱۲۳-۴۵۶۷</div></div>
+                                </div>
+                            </a>
+                            <a href="https://instagram.com" target="_blank" rel="noreferrer" class="block hover:opacity-80">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 rounded-full glass flex items-center justify-center text-lg shrink-0">📸</div>
+                                    <div><div class="text-pink-100/50 text-[11px]">اینستاگرام</div><div class="text-pink-50">@atoosa.sepiani</div></div>
+                                </div>
+                            </a>
+                            <div class="flex items-start gap-3">
+                                <div class="w-10 h-10 rounded-full glass flex items-center justify-center text-lg shrink-0">📍</div>
+                                <div><div class="text-pink-100/50 text-[11px]">آدرس</div><div class="text-pink-50">تهران، سعادت‌آباد، بلوار فرحزادی، پلاک ۱۲۰</div></div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-10 h-10 rounded-full glass flex items-center justify-center text-lg shrink-0">🕐</div>
+                                <div><div class="text-pink-100/50 text-[11px]">ساعات کاری</div><div class="text-pink-50">شنبه تا پنجشنبه، ۱۰:۰۰ الی ۲۱:۰۰</div></div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mt-6">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=Tehran+Saadat+Abad" target="_blank" rel="noreferrer" class="px-4 py-2 rounded-full btn-primary text-xs">مسیریابی گوگل</a>
+                            <a href="https://neshan.org" target="_blank" rel="noreferrer" class="px-4 py-2 rounded-full btn-outline text-xs">نشان</a>
+                            <a href="https://balad.ir" target="_blank" rel="noreferrer" class="px-4 py-2 rounded-full btn-outline text-xs">بلد</a>
+                        </div>
+                    </div>
+
+                    <div class="card-lux overflow-hidden">
+                        <iframe title="نقشه سالن" src="https://www.google.com/maps?q=Tehran+Saadat+Abad&output=embed" class="w-full h-72 border-0" loading="lazy"></iframe>
+                    </div>
+
+                    <div class="flex gap-3">
+                        <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram" class="flex-1 py-3 rounded-2xl glass hover:border-pink-300/40 text-center text-lg transition-colors">📸</a>
+                        <a href="https://wa.me/989121234567" target="_blank" rel="noreferrer" aria-label="WhatsApp" class="flex-1 py-3 rounded-2xl glass hover:border-pink-300/40 text-center text-lg transition-colors">💬</a>
+                        <a href="https://t.me/" target="_blank" rel="noreferrer" aria-label="Telegram" class="flex-1 py-3 rounded-2xl glass hover:border-pink-300/40 text-center text-lg transition-colors">✈️</a>
+                        <a href="tel:+982188123456" target="_blank" rel="noreferrer" aria-label="Call" class="flex-1 py-3 rounded-2xl glass hover:border-pink-300/40 text-center text-lg transition-colors">📞</a>
+                    </div>
+                </div>
+
+                <!-- Booking form -->
+                <form id="booking" class="card-lux p-6 md:p-8 space-y-4">
+                    <h3 class="text-xl font-bold gold-text mb-2">فرم رزرو آنلاین</h3>
+                    <p class="text-xs text-pink-100/60 mb-4">
+                        فرم زیر را پر کنید؛ همکاران ما در کمتر از ۲ ساعت با شما تماس می‌گیرند.
+                    </p>
+
+                    <div>
+                        <label class="block text-xs text-pink-100/70 mb-2">نام و نام خانوادگی *</label>
+                        <input required name="name" type="text" placeholder="مثلاً سارا محمدی" class="w-full bg-[#0d0a10] border border-pink-200/15 rounded-xl px-4 py-3 text-sm text-pink-50 placeholder-pink-100/30 focus:outline-none focus:border-pink-300/50" />
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-pink-100/70 mb-2">شماره تماس *</label>
+                        <input required name="phone" type="tel" placeholder="۰۹۱۲..." class="w-full bg-[#0d0a10] border border-pink-200/15 rounded-xl px-4 py-3 text-sm text-pink-50 placeholder-pink-100/30 focus:outline-none focus:border-pink-300/50" />
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-pink-100/70 mb-2">خدمت مورد نظر *</label>
+                        <select required name="service" id="serviceSelect" class="w-full bg-[#0d0a10] border border-pink-200/15 rounded-xl px-4 py-3 text-sm text-pink-50 focus:outline-none focus:border-pink-300/50">
+                            <!-- injected by JS -->
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-pink-100/70 mb-2">تاریخ پیشنهادی *</label>
+                        <input required name="preferredDate" type="text" placeholder="مثلاً ۲۵ آذر - عصر" class="w-full bg-[#0d0a10] border border-pink-200/15 rounded-xl px-4 py-3 text-sm text-pink-50 placeholder-pink-100/30 focus:outline-none focus:border-pink-300/50" />
+                    </div>
+
+                    <div>
+                        <label class="block text-xs text-pink-100/70 mb-2">توضیحات (اختیاری)</label>
+                        <textarea name="notes" rows="3" placeholder="در صورت تمایل بیشتر توضیح دهید" class="w-full bg-[#0d0a10] border border-pink-200/15 rounded-xl px-4 py-3 text-sm text-pink-50 placeholder-pink-100/30 focus:outline-none focus:border-pink-300/50 resize-none"></textarea>
+                    </div>
+
+                    <button type="submit" id="submitBtn" class="w-full py-3.5 rounded-full btn-primary text-sm disabled:opacity-60">
+                        ثبت درخواست رزرو
+                    </button>
+
+                    <div id="formStatus" class="hidden text-center text-sm rounded-xl py-3"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- FOOTER -->
+    <!-- ============================================================ -->
+    <footer class="bg-[#0a070d] border-t border-pink-200/10 py-10">
+        <div class="max-w-7xl mx-auto px-5 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
+            <div class="flex items-center gap-3">
+                <span class="w-9 h-9 rounded-full flex items-center justify-center font-bold" style="background:linear-gradient(135deg,#e8a5c1,#d4a373);color:#1a0f16;">آ</span>
+                <div>
+                    <div class="gold-text font-bold">آتوسا سپیانی</div>
+                    <div class="text-[11px] text-pink-100/50">Beauty Studio © ۱۴۰۳</div>
+                </div>
+            </div>
+            <div class="text-pink-100/50 text-xs">
+                طراحی و توسعه با ❤️ برای بانوان ایرانی
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================================ -->
+    <!-- FLOATING CTA -->
+    <!-- ============================================================ -->
+    <a href="https://wa.me/989121234567" target="_blank" rel="noreferrer" aria-label="واتساپ" class="fixed bottom-5 left-5 z-40 w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-lg" style="background:linear-gradient(135deg,#25D366,#128C7E);box-shadow:0 10px 30px -5px rgba(37,211,102,0.5);">
+        💬
+    </a>
+
+
+    <!-- ============================================================ -->
+    <!-- SCRIPTS (libraries + custom) -->
+    <!-- ============================================================ -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js">
+    </script>
+
+    <script>
+        // ================================================================
+        // DATA
+        // ================================================================
+        const SERVICES_DATA = [{
+            id: "makeup",
+            title: "میکاپ عروس و روزانه",
+            icon: "💄",
+            short: "میکاپ حرفه‌ای عروس، نامزدی و مجالس با استفاده از برندهای برتر جهانی. طراحی چهره متناسب با استایل و لباس شما.",
+            duration: "۹۰ تا ۱۸۰ دقیقه",
+            price: "از ۲٫۵ میلیون تومان",
+            image: "https://images.pexels.com/photos/35538643/pexels-photo-35538643.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700",
+            gallery: [
+                "https://images.pexels.com/photos/16096141/pexels-photo-16096141.png?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700",
+                "https://images.pexels.com/photos/17019892/pexels-photo-17019892.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700",
+                "https://images.pexels.com/photos/33466159/pexels-photo-33466159.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700",
+                "https://images.pexels.com/photos/33525667/pexels-photo-33525667.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700"
+            ]
+        }, {
+            id: "hair",
+            title: "مو (کوتاهی، رنگ، احیا)",
+            icon: "💇‍♀️",
+            short: "کوتاهی تخصصی، رنگ و مش، آمبره، بالیاژ، کراتین و احیای مو با محصولات حرفه‌ای اروپایی.",
+            duration: "۶۰ تا ۲۴۰ دقیقه",
+            price: "از ۸۰۰ هزار تومان",
+            image: "https://images.pexels.com/photos/3993323/pexels-photo-3993323.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700",
+            gallery: [
+                "https://images.pexels.com/photos/3993315/pexels-photo-3993315.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700",
+                "https://images.pexels.com/photos/3993292/pexels-photo-3993292.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700",
+                "https://images.pexels.com/photos/23349912/pexels-photo-23349912.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700",
+                "https://images.pexels.com/photos/3993323/pexels-photo-3993323.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700"
+            ]
+        }, {
+            id: "nails",
+            title: "ناخن (ژل، کاشت، طراحی)",
+            icon: "💅",
+            short: "کاشت ناخن با متریال درجه یک، لاک ژل، طراحی‌های اختصاصی و آموزش نگه‌داری.",
+            duration: "۹۰ تا ۱۸۰ دقیقه",
+            price: "از ۵۰۰ هزار تومان",
+            image: "https://images.pexels.com/photos/10420563/pexels-photo-10420563.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=900",
+            gallery: [
+                "https://images.pexels.com/photos/10420563/pexels-photo-10420563.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=900",
+                "https://images.pexels.com/photos/18285660/pexels-photo-18285660.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=900",
+                "https://images.pexels.com/photos/7618570/pexels-photo-7618570.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=900"
+            ]
+        }, {
+            id: "brows",
+            title: "ابرو و صورت",
+            icon: "✨",
+            short: "میکروبلیدینگ، هاشور، تاتو، اپیلاسیون و فرم‌دهی ابرو با جدیدترین متد روز دنیا.",
+            duration: "۴۵ تا ۱۲۰ دقیقه",
+            price: "از ۹۰۰ هزار تومان",
+            image: "https://images.pexels.com/photos/5178001/pexels-photo-5178001.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700",
+            gallery: [
+                "https://images.pexels.com/photos/5178001/pexels-photo-5178001.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700",
+                "https://images.pexels.com/photos/3373743/pexels-photo-3373743.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700",
+                "https://images.pexels.com/photos/5128258/pexels-photo-5128258.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700"
+            ]
+        }, {
+            id: "skin",
+            title: "مراقبت‌های تخصصی پوست",
+            icon: "🌸",
+            short: "فیشیال تخصصی، پاکسازی عمیق، مزوتراپی، هیدرودرمی و درمان‌های ضد پیری.",
+            duration: "۶۰ تا ۱۲۰ دقیقه",
+            price: "از ۱٫۲ میلیون تومان",
+            image: "https://images.pexels.com/photos/30809943/pexels-photo-30809943.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700",
+            gallery: [
+                "https://images.pexels.com/photos/30809943/pexels-photo-30809943.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700",
+                "https://images.pexels.com/photos/5240818/pexels-photo-5240818.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700",
+                "https://images.pexels.com/photos/30809944/pexels-photo-30809944.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700"
+            ]
+        }];
+
+        const TESTIMONIALS_DATA = [
+            { name: "سارا محمدی", role: "عروس ۱۴۰۳", avatar: "https://images.pexels.com/photos/7752791/pexels-photo-7752791.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=200&w=200", text: "بی‌نظیرترین تجربه‌ام از میکاپ عروس رو با آتوسا داشتم. دقت، سلیقه و برخوردش فوق‌العاده بود. تمام مهمون‌ها از چهره‌ام تعریف می‌کردن." },
+            { name: "نگین رستمی", role: "مشتری دائمی", avatar: "https://images.pexels.com/photos/7752815/pexels-photo-7752815.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=200&w=200", text: "بیش از ۳ ساله که موهام رو فقط دست آتوسا می‌سپارم. کیفیت رنگ، احیا و کوتاهی مو در بالاترین سطحه." },
+            { name: "مریم کاظمی", role: "مشتری", avatar: "https://images.pexels.com/photos/7752814/pexels-photo-7752814.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=200&w=200", text: "میکروبلیدینگ ابروهام رو انجام دادم و نتیجه‌اش فوق‌طبیعی و زیبا شد. حتماً مراجعه‌ی بعدیم هم اینجاست." },
+            { name: "الناز حسینی", role: "عروس ۱۴۰۲", avatar: "https://images.pexels.com/photos/7752818/pexels-photo-7752818.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=200&w=200", text: "فضای سالن، برخورد تیم و کیفیت خدمات همه در یک سطح لاکچری بود. واقعاً یک تجربه به‌یادماندنی." },
+            { name: "فاطمه احمدی", role: "مشتری", avatar: "https://images.pexels.com/photos/7752808/pexels-photo-7752808.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=200&w=200", text: "کاشت ناخنم بعد از یک ماه هم مثل روز اول تمیز و شفافه. ممنون از تیم حرفه‌ای آتوسا." },
+            { name: "پریسا نوری", role: "مشتری", avatar: "https://images.pexels.com/photos/7752843/pexels-photo-7752843.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=200&w=200", text: "فیشیال تخصصی که انجام دادم پوستم رو کاملاً دگرگون کرد. لطف و صبوری تیم رو هرگز فراموش نمی‌کنم." }
+        ];
+
+        const BEFORE_AFTER_DATA = [{
+            title: "میکاپ عروس",
+            before: "https://images.pexels.com/photos/13666610/pexels-photo-13666610.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700",
+            after: "https://images.pexels.com/photos/33525667/pexels-photo-33525667.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700"
+        }, {
+            title: "رنگ و احیای مو",
+            before: "https://images.pexels.com/photos/3993292/pexels-photo-3993292.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700",
+            after: "https://images.pexels.com/photos/23349912/pexels-photo-23349912.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700"
+        }, {
+            title: "فرم ابرو",
+            before: "https://images.pexels.com/photos/3373743/pexels-photo-3373743.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700",
+            after: "https://images.pexels.com/photos/5128258/pexels-photo-5128258.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=900&w=700"
+        }];
+
+        // ================================================================
+        // RENDER SERVICES
+        // ================================================================
+        function renderServices() {
+            const grid = document.getElementById('servicesGrid');
+            grid.innerHTML = SERVICES_DATA.map(s => `
+                    <article class="card-lux overflow-hidden group">
+                        <div class="relative aspect-[4/3] overflow-hidden">
+                            <img src="${s.image}" alt="${s.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0d0a10]/90 via-[#0d0a10]/20 to-transparent"></div>
+                            <div class="absolute top-4 right-4 w-11 h-11 rounded-full flex items-center justify-center text-xl" style="background:linear-gradient(135deg,#e8a5c1,#d4a373);">
+                                ${s.icon}
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-lg font-bold text-pink-50 mb-2">${s.title}</h3>
+                            <p class="text-sm text-pink-100/65 leading-relaxed mb-4 min-h-[70px]">${s.short}</p>
+                            <div class="flex justify-between text-xs mb-4 pb-4 border-b border-pink-200/10">
+                                <div><div class="text-pink-100/50">مدت زمان</div><div class="text-pink-100 mt-0.5">${s.duration}</div></div>
+                                <div class="text-left"><div class="text-pink-100/50">قیمت</div><div class="gold-text font-bold mt-0.5">${s.price}</div></div>
+                            </div>
+                            <div class="flex gap-2 mb-4">
+                                ${s.gallery.slice(0,3).map(g => `<div class="relative w-14 h-14 rounded-lg overflow-hidden border border-pink-200/10"><img src="${g}" alt="نمونه" class="w-full h-full object-cover" loading="lazy" /></div>`).join('')}
+                            </div>
+                            <a href="#booking" class="block text-center py-2.5 rounded-full btn-outline text-xs">رزرو این خدمت</a>
+                        </div>
+                    </article>
+                `).join('');
+        }
+
+        // ================================================================
+        // RENDER PORTFOLIO
+        // ================================================================
+        function renderPortfolio() {
+            // Build items
+            const items = [];
+            SERVICES_DATA.forEach(s => {
+                s.gallery.forEach((src, i) => {
+                    items.push({ id: s.id + '-' + i, src, category: s.id, title: s.title });
+                });
+            });
+
+            // Filters
+            const filterContainer = document.getElementById('filterButtons');
+            const filters = [
+                { id: 'all', label: 'همه' },
+                ...SERVICES_DATA.map(s => ({ id: s.id, label: s.title.split(' ')[0] }))
+            ];
+            filterContainer.innerHTML = filters.map(f =>
+                `<button class="filter-btn px-5 py-2 rounded-full text-xs md:text-sm transition-all ${f.id === 'all' ? 'btn-primary' : 'glass text-pink-100/70 hover:text-pink-100'}" data-filter="${f.id}">${f.label}</button>`
+            ).join('');
+
+            // Gallery
+            const grid = document.getElementById('galleryGrid');
+            let activeFilter = 'all';
+
+            function renderGallery() {
+                const filtered = activeFilter === 'all' ? items : items.filter(x => x.category === activeFilter);
+                grid.innerHTML = filtered.map(it =>
+                    `<div class="relative aspect-square rounded-2xl overflow-hidden group border border-pink-200/10">
+                            <img src="${it.src}" alt="${it.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" />
+                            <div class="absolute inset-0 bg-gradient-to-t from-[#0d0a10]/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                                <div class="rose-text text-sm font-bold">${it.title}</div>
+                            </div>
+                        </div>`
+                ).join('');
+            }
+
+            filterContainer.addEventListener('click', function(e) {
+                const btn = e.target.closest('.filter-btn');
+                if (!btn) return;
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.className =
+                        `filter-btn px-5 py-2 rounded-full text-xs md:text-sm transition-all ${b.dataset.filter === btn.dataset.filter ? 'btn-primary' : 'glass text-pink-100/70 hover:text-pink-100'}`;
+                });
+                activeFilter = btn.dataset.filter;
+                renderGallery();
+            });
+
+            renderGallery();
+
+            // Before / After
+            const baGrid = document.getElementById('beforeAfterGrid');
+            baGrid.innerHTML = BEFORE_AFTER_DATA.map((b, idx) => `
+                    <div>
+                        <div class="ba-slider aspect-[3/4] border border-pink-200/10" data-idx="${idx}">
+                            <img src="${b.before}" alt="قبل" loading="lazy" />
+                            <div class="after" style="width:50%">
+                                <img src="${b.after}" alt="بعد" style="width:200%;max-width:none;" loading="lazy" />
+                            </div>
+                            <div class="ba-handle" style="left:50%"></div>
+                            <div class="absolute top-3 right-3 glass rounded-full px-3 py-1 text-[10px] text-pink-100">قبل</div>
+                            <div class="absolute top-3 left-3 glass rounded-full px-3 py-1 text-[10px] text-pink-100">بعد</div>
+                        </div>
+                        <div class="text-center mt-3 rose-text font-bold">${b.title}</div>
+                    </div>
+                `).join('');
+
+            // Init before/after sliders
+            document.querySelectorAll('.ba-slider').forEach(el => {
+                const handle = el.querySelector('.ba-handle');
+                const after = el.querySelector('.after');
+                let dragging = false;
+
+                function move(clientX) {
+                    const rect = el.getBoundingClientRect();
+                    let pct = (clientX - rect.left) / rect.width * 100;
+                    pct = Math.max(0, Math.min(100, pct));
+                    after.style.width = pct + '%';
+                    handle.style.left = pct + '%';
+                }
+
+                el.addEventListener('mousedown', function(e) { dragging = true;
+                    move(e.clientX); });
+                window.addEventListener('mousemove', function(e) { if (dragging) move(e.clientX); });
+                window.addEventListener('mouseup', function() { dragging = false; });
+                el.addEventListener('touchstart', function(e) { move(e.touches[0].clientX); });
+                el.addEventListener('touchmove', function(e) { move(e.touches[0].clientX); });
+            });
+        }
+
+        // ================================================================
+        // RENDER TESTIMONIALS
+        // ================================================================
+        function renderTestimonials() {
+            const wrapper = document.getElementById('testimonialWrapper');
+            wrapper.innerHTML = TESTIMONIALS_DATA.map(t => `
+                    <div class="swiper-slide">
+                        <div class="card-lux p-6 md:p-7 h-full">
+                            <div class="text-4xl gold-text leading-none mb-3">&ldquo;</div>
+                            <p class="text-pink-100/85 leading-loose text-sm mb-6 min-h-[130px]">${t.text}</p>
+                            <div class="flex items-center gap-3 pt-4 border-t border-pink-200/10">
+                                <div class="relative w-12 h-12 rounded-full overflow-hidden border-2 border-pink-200/30">
+                                    <img src="${t.avatar}" alt="${t.name}" class="w-full h-full object-cover" loading="lazy" />
+                                </div>
+                                <div>
+                                    <div class="text-pink-50 font-bold text-sm">${t.name}</div>
+                                    <div class="text-pink-100/50 text-[11px]">${t.role}</div>
+                                </div>
+                                <div class="mr-auto text-yellow-400 text-xs">★★★★★</div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+            // Init Swiper
+            if (window.Swiper) {
+                new Swiper('#testimonialSwiper', {
+                    slidesPerView: 1,
+                    spaceBetween: 24,
+                    loop: true,
+                    autoplay: { delay: 4500, disableOnInteraction: false },
+                    pagination: { el: '#testimonialPagination', clickable: true },
+                    navigation: {
+                        nextEl: '#nextTestimonial',
+                        prevEl: '#prevTestimonial'
+                    },
+                    breakpoints: {
+                        768: { slidesPerView: 2 },
+                        1024: { slidesPerView: 3 }
+                    }
+                });
+            }
+        }
+
+        // ================================================================
+        // RENDER SERVICE SELECT OPTIONS
+        // ================================================================
+        function renderServiceSelect() {
+            const sel = document.getElementById('serviceSelect');
+            sel.innerHTML = SERVICES_DATA.map(s =>
+                `<option value="${s.title}">${s.title}</option>`
+            ).join('');
+        }
+
+        // ================================================================
+        // NAVBAR
+        // ================================================================
+        function initNavbar() {
+            const header = document.getElementById('navbar');
+            const menuBtn = document.getElementById('menuBtn');
+            const menuIcon = document.getElementById('menuIcon');
+            const mobileMenu = document.getElementById('mobileMenu');
+
+            window.addEventListener('scroll', function() {
+                const scrolled = window.scrollY > 30;
+                header.className =
+                    `fixed top-0 inset-x-0 z-50 transition-all ${scrolled ? 'bg-[#0d0a10]/85 backdrop-blur-md border-b border-pink-200/10' : 'bg-transparent'}`;
+            });
+
+            menuBtn.addEventListener('click', function() {
+                const isOpen = mobileMenu.classList.toggle('hidden');
+                menuIcon.textContent = isOpen ? '☰' : '✕';
+            });
+
+            // Close menu on link click
+            mobileMenu.querySelectorAll('a').forEach(a => {
+                a.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.textContent = '☰';
+                });
+            });
+        }
+
+        // ================================================================
+        // SCROLL REVEAL
+        // ================================================================
+        function initReveal() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        }
+
+        // ================================================================
+        // CONTACT FORM
+        // ================================================================
+        function initForm() {
+            const form = document.getElementById('booking');
+            const statusDiv = document.getElementById('formStatus');
+            const submitBtn = document.getElementById('submitBtn');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                statusDiv.classList.add('hidden');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'در حال ارسال...';
+
+                const data = new FormData(form);
+                const payload = Object.fromEntries(data.entries());
+
+                // Simulate async submission
+                setTimeout(function() {
+                    statusDiv.classList.remove('hidden');
+                    statusDiv.className = 'text-center text-sm rounded-xl py-3 bg-green-500/10 border border-green-400/20 text-green-300';
+                    statusDiv.textContent = 'درخواست شما ثبت شد. به‌زودی تماس می‌گیریم 💗';
+                    form.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'ثبت درخواست رزرو';
+                }, 1200);
+            });
+        }
+
+        // ================================================================
+        // INIT ALL
+        // ================================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            renderServices();
+            renderPortfolio();
+            renderTestimonials();
+            renderServiceSelect();
+            initNavbar();
+            initReveal();
+            initForm();
+
+            // Add reveal classes to sections
+            document.querySelectorAll('#about, #services, #portfolio, #testimonials, #contact, .card-lux, .glass, .btn-primary, .btn-outline')
+                .forEach(el => {
+                    if (!el.closest('.swiper-slide') && !el.closest('.ba-slider')) {
+                        el.classList.add('reveal');
+                    }
+                });
+            // Trigger initial check
+            setTimeout(() => {
+                document.querySelectorAll('.reveal').forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight * 0.85) {
+                        el.classList.add('visible');
+                    }
+                });
+            }, 200);
+        });
+    </script>
+
+</body>
+</html>
