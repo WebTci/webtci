@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خط‌زمان تعاملی تاریخچه‌ی هوش مصنوعی</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: var(--ink);
+        }
+
+        .tl-header {
+            padding: 18px clamp(16px, 4vw, 48px);
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border-bottom: 1px solid var(--line-soft);
+            position: sticky;
+            top: 0;
+            background: color-mix(in srgb, var(--ink) 88%, transparent);
+            backdrop-filter: blur(10px);
+            z-index: 30;
+        }
+
+        .tl-header a.back {
+            font-family: var(--font-mono);
+            font-size: 12.5px;
+            color: var(--text-dim);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 12px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+        }
+
+        .tl-header a.back:hover {
+            color: var(--text);
+            border-color: var(--cyan);
+        }
+
+        .tl-header .title {
+            font-weight: 800;
+            font-size: 14.5px;
+            margin-left: auto;
+        }
+
+        .tl-hero {
+            max-width: 720px;
+            margin: 54px auto 10px;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .tl-hero .eyebrow {
+            font-family: var(--font-mono);
+            font-size: 11.5px;
+            letter-spacing: .14em;
+            color: var(--cyan);
+            text-transform: uppercase;
+        }
+
+        .tl-hero h1 {
+            font-size: clamp(26px, 4vw, 38px);
+            font-weight: 900;
+            margin: 14px 0 10px;
+            letter-spacing: -.02em;
+        }
+
+        .tl-hero p {
+            color: var(--text-dim);
+            font-size: 14.5px;
+        }
+
+        .tl-filters {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 26px auto 10px;
+            padding: 0 20px;
+        }
+
+        .tl-filters button {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            background: var(--surface);
+            color: var(--text-dim);
+            border: 1px solid var(--line);
+            padding: 7px 14px;
+            border-radius: 999px;
+            transition: .18s ease;
+        }
+
+        .tl-filters button:hover {
+            color: var(--text);
+            border-color: var(--text-faint);
+        }
+
+        .tl-filters button.active {
+            background: var(--amber);
+            color: #171000;
+            border-color: var(--amber);
+            font-weight: 700;
+        }
+
+        /* ------------ خط زمان ------------ */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 50px auto 100px;
+            padding: 0 20px 0;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+            width: 2px;
+            background: repeating-linear-gradient(to bottom, var(--line) 0 6px, transparent 6px 12px);
+        }
+
+        .tl-item {
+            position: relative;
+            width: 50%;
+            padding: 0 40px 64px 0;
+        }
+
+        .tl-item:nth-child(even) {
+            margin-right: 50%;
+            padding: 0 0 64px 40px;
+            text-align: left;
+        }
+
+        .tl-item.hidden {
+            display: none;
+        }
+
+        .tl-node {
+            position: absolute;
+            top: 2px;
+            right: -7px;
+            width: 15px;
+            height: 15px;
+            border-radius: 4px;
+            background: var(--surface-2);
+            border: 2px solid var(--dot, var(--cyan));
+            transform: rotate(45deg);
+            box-shadow: 0 0 0 5px var(--ink);
+            z-index: 2;
+        }
+
+        .tl-item:nth-child(even) .tl-node {
+            right: auto;
+            left: -7px;
+        }
+
+        .tl-year {
+            font-family: var(--font-mono);
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--dot, var(--cyan));
+            line-height: 1;
+        }
+
+        .tl-card {
+            margin-top: 10px;
+            background: var(--surface);
+            border: 1px solid var(--line-soft);
+            border-radius: var(--radius-m);
+            padding: 16px 18px;
+            cursor: pointer;
+            transition: border-color .2s ease, transform .2s ease;
+        }
+
+        .tl-card:hover {
+            border-color: var(--line);
+            transform: translateY(-2px);
+        }
+
+        .tl-card h3 {
+            margin: 0 0 6px;
+            font-size: 15px;
+            font-weight: 800;
+        }
+
+        .tl-card .tag {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 10.5px;
+            color: var(--dot, var(--cyan));
+            margin-bottom: 8px;
+            letter-spacing: .04em;
+        }
+
+        .tl-card p.summary {
+            margin: 0;
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+
+        .tl-card .detail {
+            display: grid;
+            grid-template-rows: 0fr;
+            opacity: 0;
+            transition: grid-template-rows .3s ease, opacity .25s ease;
+        }
+
+        .tl-card.open .detail {
+            grid-template-rows: 1fr;
+            opacity: 1;
+        }
+
+        .tl-card .detail>div {
+            overflow: hidden;
+        }
+
+        .tl-card .detail p {
+            margin: 12px 0 0;
+            font-size: 13px;
+            color: var(--text-dim);
+            padding-top: 12px;
+            border-top: 1px dashed var(--line-soft);
+            line-height: 1.85;
+        }
+
+        .tl-card .more {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-faint);
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tl-item:nth-child(even) .more {
+            flex-direction: row-reverse;
+        }
+
+        .tl-card .more .chev {
+            transition: transform .25s ease;
+        }
+
+        .tl-card.open .more .chev {
+            transform: rotate(180deg);
+        }
+
+        @media (max-width: 720px) {
+            .timeline::before {
+                right: 14px;
+                transform: none;
+            }
+
+            .tl-item,
+            .tl-item:nth-child(even) {
+                width: 100%;
+                margin-right: 0;
+                padding: 0 0 44px 34px;
+                text-align: right;
+            }
+
+            .tl-item .tl-node,
+            .tl-item:nth-child(even) .tl-node {
+                right: auto;
+                left: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header class="tl-header">
+        <div class="title">خط‌زمان تاریخچه‌ی هوش مصنوعی</div>
+        <a class="back" href="index.html">← بازگشت به مجله</a>
+    </header>
+
+    <section class="tl-hero">
+        <div class="eyebrow">۱۹۵۰ — امروز</div>
+        <h1>هفتاد سال هوش مصنوعی، روی یک خط</h1>
+        <p>روی هر رویداد کلیک کنید تا توضیح کامل‌تر باز شود.</p>
+    </section>
+
+    <div class="tl-filters" id="filters">
+        <button class="active" data-era="all">همه</button>
+        <button data-era="foundations">بنیان‌گذاری</button>
+        <button data-era="neural">شبکه‌های عصبی</button>
+        <button data-era="modern">دوران مدرن</button>
+    </div>
+
+    <div class="timeline" id="timeline">
+
+        <article class="tl-item" data-era="foundations">
+            <div class="tl-node" style="--dot:var(--amber)"></div>
+            <div class="tl-year"><bdi class="num">1950</bdi></div>
+            <div class="tl-card">
+                <span class="tag">آزمون تورینگ</span>
+                <h3>آلن تورینگ پرسش «آیا ماشین‌ها می‌توانند فکر کنند؟» را مطرح می‌کند</h3>
+                <p class="summary">مقاله‌ی «Computing Machinery and Intelligence» چارچوب فلسفی هوش مصنوعی را بنا نهاد.
+                </p>
+                <div class="detail">
+                    <div>
+                        <p>تورینگ به‌جای تعریف مستقیم «فکر کردن»، آزمونی رفتاری پیشنهاد داد: اگر انسانی نتواند مکالمه‌ی
+                            ماشین را از انسان تشخیص دهد، ماشین رفتاری هوشمندانه دارد. این ایده هنوز مبنای بسیاری از
+                            بحث‌های امروزی درباره‌ی هوش مصنوعی است.</p>
+                    </div>
+                </div>
+                <div class="more"><span class="chev">▾</span><span>جزئیات بیشتر</span></div>
+            </div>
+        </article>
+
+        <article class="tl-item" data-era="foundations">
+            <div class="tl-node" style="--dot:var(--amber)"></div>
+            <div class="tl-year"><bdi class="num">1956</bdi></div>
+            <div class="tl-card">
+                <span class="tag">تولد یک رشته</span>
+                <h3>کارگاه دارتموث؛ عبارت «هوش مصنوعی» رسماً متولد می‌شود</h3>
+                <p class="summary">جان مک‌کارتی و همکارانش یک تابستان کاری برگزار کردند که نام رشته را تعیین کرد.</p>
+                <div class="detail">
+                    <div>
+                        <p>در این کارگاه هشت‌هفته‌ای در دانشگاه دارتموث، پژوهشگرانی مثل ماروین مینسکی و کلود شنون گرد هم
+                            آمدند تا فرضیه‌ای جسورانه را بررسی کنند: هر جنبه از یادگیری یا هوش را می‌توان چنان دقیق
+                            توصیف کرد که ماشینی بتواند آن را شبیه‌سازی کند.</p>
+                    </div>
+                </div>
+                <div class="more"><span class="chev">▾</span><span>جزئیات بیشتر</span></div>
+            </div>
+        </article>
+
+        <article class="tl-item" data-era="neural">
+            <div class="tl-node" style="--dot:var(--violet)"></div>
+            <div class="tl-year"><bdi class="num">1986</bdi></div>
+            <div class="tl-card">
+                <span class="tag">پس‌انتشار خطا</span>
+                <h3>الگوریتم Backpropagation شبکه‌های عصبی را عملی می‌کند</h3>
+                <p class="summary">راملهارت، هینتون و ویلیامز روشی کارآمد برای آموزش شبکه‌های چندلایه معرفی کردند.</p>
+                <div class="detail">
+                    <div>
+                        <p>این روش خطای خروجی را به‌صورت زنجیره‌ای به لایه‌های قبلی برمی‌گرداند و وزن‌ها را متناسب با
+                            سهم‌شان در خطا تنظیم می‌کند؛ همان مکانیزمی که امروز هم قلب آموزش شبکه‌های عصبی است.</p>
+                    </div>
+                </div>
+                <div class="more"><span class="chev">▾</span><span>جزئیات بیشتر</span></div>
+            </div>
+        </article>
+
+        <article class="tl-item" data-era="foundations">
+            <div class="tl-node" style="--dot:var(--amber)"></div>
+            <div class="tl-year"><bdi class="num">1997</bdi></div>
+            <div class="tl-card">
+                <span class="tag">پیروزی نمادین</span>
+                <h3>دیپ‌بلو، گری کاسپاروف را در شطرنج شکست می‌دهد</h3>
+                <p class="summary">اولین باری بود که یک ماشین قهرمان جهان شطرنج را در یک مسابقه‌ی رسمی برد.</p>
+                <div class="detail">
+                    <div>
+                        <p>دیپ‌بلو مبتنی بر جست‌وجوی درخت و قدرت محاسباتی بود، نه یادگیری ماشین به معنای امروزی؛ اما این
+                            رویداد برای عموم مردم نماد ورود هوش مصنوعی به دنیای واقعی شد.</p>
+                    </div>
+                </div>
+                <div class="more"><span class="chev">▾</span><span>جزئیات بیشتر</span></div>
+            </div>
+        </article>
+
+        <article class="tl-item" data-era="neural">
+            <div class="tl-node" style="--dot:var(--violet)"></div>
+            <div class="tl-year"><bdi class="num">2012</bdi></div>
+            <div class="tl-card">
+                <span class="tag">انقلاب یادگیری عمیق</span>
+                <h3>AlexNet مسابقه‌ی ImageNet را با اختلاف چشمگیر می‌برد</h3>
+                <p class="summary">شبکه‌ی عصبی کانولوشنی عمیق ثابت کرد یادگیری عمیق می‌تواند بینایی ماشین را متحول کند.
+                </p>
+                <div class="detail">
+                    <div>
+                        <p>این پیروزی که با استفاده از پردازنده‌های گرافیکی (GPU) به دست آمد، نقطه‌ی عطفی بود که
+                            سرمایه‌گذاری و پژوهش در یادگیری عمیق را به‌شدت افزایش داد.</p>
+                    </div>
+                </div>
+                <div class="more"><span class="chev">▾</span><span>جزئیات بیشتر</span></div>
+            </div>
+        </article>
+
+        <article class="tl-item" data-era="modern">
+            <div class="tl-node" style="--dot:var(--cyan)"></div>
+            <div class="tl-year"><bdi class="num">2017</bdi></div>
+            <div class="tl-card">
+                <span class="tag">Attention Is All You Need</span>
+                <h3>ترنسفورمر معرفی می‌شود</h3>
+                <p class="summary">پژوهشگران گوگل معماری‌ای مبتنی بر مکانیزم توجه ارائه دادند که پایه‌ی مدل‌های زبانی
+                    امروز شد.</p>
+                <div class="detail">
+                    <div>
+                        <p>ترنسفورمر با کنار گذاشتن پردازش ترتیبی و استفاده از self-attention، امکان موازی‌سازی گسترده‌ی
+                            آموزش را فراهم کرد و راه را برای مدل‌هایی مثل GPT و BERT باز کرد.</p>
+                    </div>
+                </div>
+                <div class="more"><span class="chev">▾</span><span>جزئیات بیشتر</span></div>
+            </div>
+        </article>
+
+        <article class="tl-item" data-era="modern">
+            <div class="tl-node" style="--dot:var(--cyan)"></div>
+            <div class="tl-year"><bdi class="num">2020</bdi></div>
+            <div class="tl-card">
+                <span class="tag">مقیاس‌پذیری</span>
+                <h3>GPT-3 نشان می‌دهد مقیاس چه توانایی‌هایی می‌آفریند</h3>
+                <p class="summary">مدلی با ۱۷۵ میلیارد پارامتر که بدون آموزش اختصاصی، طیف وسیعی از وظایف زبانی را انجام
+                    می‌داد.</p>
+                <div class="detail">
+                    <div>
+                        <p>GPT-3 نشان داد بسیاری از توانایی‌ها (مثل استدلال ساده یا ترجمه) با افزایش داده و اندازه‌ی
+                            مدل، بدون معماری جدید، به‌طور نوظهور ظاهر می‌شوند.</p>
+                    </div>
+                </div>
+                <div class="more"><span class="chev">▾</span><span>جزئیات بیشتر</span></div>
+            </div>
+        </article>
+
+        <article class="tl-item" data-era="modern">
+            <div class="tl-node" style="--dot:var(--cyan)"></div>
+            <div class="tl-year"><bdi class="num">2022</bdi></div>
+            <div class="tl-card">
+                <span class="tag">ورود به زندگی روزمره</span>
+                <h3>ChatGPT هوش مصنوعی را به عموم مردم می‌رساند</h3>
+                <p class="summary">در کمتر از یک هفته میلیون‌ها کاربر یافت و گفت‌وگو با هوش مصنوعی را به یک تجربه‌ی
+                    روزمره بدل کرد.</p>
+                <div class="detail">
+                    <div>
+                        <p>ChatGPT نشان داد رابط کاربری گفت‌وگومحور می‌تواند فناوری پیچیده‌ی مدل‌های زبانی بزرگ را برای
+                            هر کاربر عادی قابل دسترس کند و موجی از رقابت و سرمایه‌گذاری در صنعت راه انداخت.</p>
+                    </div>
+                </div>
+                <div class="more"><span class="chev">▾</span><span>جزئیات بیشتر</span></div>
+            </div>
+        </article>
+
+    </div>
+
+    <script>
+        // باز و بسته کردن جزئیات هر رویداد
+        document.querySelectorAll('.tl-card').forEach(card => {
+            card.addEventListener('click', () => card.classList.toggle('open'));
+        });
+
+        // فیلتر بر اساس دوره
+        const filterButtons = document.querySelectorAll('.tl-filters button');
+        const items = document.querySelectorAll('.tl-item');
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const era = btn.dataset.era;
+                items.forEach(item => {
+                    item.classList.toggle('hidden', era !== 'all' && item.dataset.era !== era);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

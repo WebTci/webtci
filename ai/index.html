@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مجله‌ی هوش مصنوعی — Magazine AI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./main.css">
+    <!-- cdn swiper js  برای اسلایدر ها کتابخانه -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.1.14/swiper-bundle.min.css">
+    <link rel="shortcut icon" href="./photo/logo-favicon.png" type="image/x-icon">
+    <style>
+        /* ===================== توکن‌های اختصاصی حالت روشن ===================== */
+        [data-theme="light"] {
+            --ink: var(--paper);
+            --surface: #ffffff;
+            --surface-2: var(--paper-2);
+            --surface-3: #dfe4de;
+            --line: #cdd3cc;
+            --line-soft: #dde2dc;
+            --text: var(--text-ink);
+            --text-dim: var(--text-ink-dim);
+            --text-faint: #8a9089;
+        }
+
+        body {
+            transition: background .3s ease, color .3s ease;
+        }
+
+        .container {
+            max-width: 1180px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0 auto;
+        }
+
+        /* ===================== هدر ===================== */
+        .mag-header {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+
+
+            /* gap: 20px; */
+            padding: 14px clamp(16px, 4vw, 48px);
+            background: color-mix(in srgb, var(--ink) 88%, transparent);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--line-soft);
+        }
+
+        .mag-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            /* margin-left: auto; */
+            max-width: 300px;
+            max-height: 50px;
+
+        }
+
+        .mag-logo .mark {
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            background: conic-gradient(from 140deg, var(--amber), var(--cyan), var(--amber));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-mono);
+            font-weight: 700;
+            color: #14171c;
+            font-size: 13px;
+        }
+
+        .mag-logo .titles {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.25;
+        }
+
+        .mag-logo .titles b {
+            font-size: 15px;
+            font-weight: 800;
+            letter-spacing: -.01em;
+        }
+
+        .mag-logo .titles span {
+            font-size: 11px;
+            color: var(--text-faint);
+            font-family: var(--font-mono);
+        }
+
+        .hero-top {
+            margin-bottom: 5rem;
+        }
+
+        .mag-search {
+            position: relative;
+            flex: 1;
+            max-width: 420px;
+        }
+
+        .mag-search input {
+            width: 100%;
+            background: var(--surface-2);
+            border: 1px solid var(--line);
+            color: var(--text);
+            border-radius: 999px;
+            padding: 22px 42px 22px 16px;
+            font-size: 13.5px;
+            transition: border-color .2s ease, background .2s ease;
+        }
+
+        .mag-search input::placeholder {
+            color: var(--text-faint);
+        }
+
+        .mag-search input:focus {
+            outline: none;
+            border-color: var(--amber);
+            background: var(--surface);
+        }
+
+        .mag-search svg {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            stroke: var(--text-faint);
+            pointer-events: none;
+        }
+
+        .mag-header .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        /* ===================== هیرو ===================== */
+        .mag-hero {
+            padding: 56px clamp(16px, 4vw, 48px) 20px;
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .mag-hero .eyebrow {
+            font-family: var(--font-mono);
+            font-size: 16px;
+            letter-spacing: .1em;
+            color: var(--text);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mag-hero .eyebrow::before {
+            content: "";
+            width: 22px;
+            height: 1px;
+            background: var(--cyan);
+        }
+
+        .mag-hero h1 {
+            font-size: clamp(28px, 9.4vw, 60px);
+            font-weight: 900;
+            letter-spacing: -.02em;
+            margin: 14px 0 12px;
+            max-width: 15ch;
+            line-height: 1.28;
+        }
+
+        .mag-hero h1 em {
+            font-style: normal;
+            background: linear-gradient(90deg, var(--amber), var(--cyan));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+
+        .hero-history-strip {
+            margin-top: 5rem;
+        }
+
+        .mag-bento {
+            margin-top: 7rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 150px;
+            grid-auto-flow: dense;
+            gap: 12px;
+        }
+
+        .fig-tile {
+            position: relative;
+            border-radius: var(--radius-m);
+            overflow: hidden;
+            border: 1px solid var(--line-soft);
+            box-shadow: var(--shadow-1);
+            isolation: isolate;
+        }
+
+        .fig-tile.span-2x2 {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .fig-tile.span-1x2 {
+            grid-row: span 2;
+        }
+
+        .fig-tile.span-3x1 {
+            grid-column: span 3;
+            /* height: 250px; */
+
+            img {
+                aspect-ratio: 10/2;
+            }
+        }
+
+        .fig-tile.span-2x1 {
+            grid-column: span 2;
+        }
+
+        .fig-tile .bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 18% 20%, color-mix(in srgb, var(--tint) 55%, transparent), transparent 60%),
+                repeating-radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--tint) 70%, transparent) 0 1.5px, transparent 1.5px 9px),
+                linear-gradient(160deg, var(--surface-2), var(--surface-3));
+            transition: transform .5s cubic-bezier(.2, .7, .2, 1);
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .fig-tile:hover .bg {
+            transform: scale(1.06);
+        }
+
+        .fig-tile .info {
+            position: absolute;
+            inset: auto 0 0 0;
+            padding: 10px 12px;
+            background: linear-gradient(to top, rgba(10, 11, 14, .85), transparent);
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .fig-tile .info b {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: #f2f1ec;
+        }
+
+        .fig-tile .info span {
+            font-size: 11px;
+            color: #c9cbd2;
+            font-family: var(--font-mono);
+        }
+
+        .fig-tile.span-2x2 .info b {
+            font-size: 17px;
+        }
+
+        .fig-tile.span-2x2 .info span {
+            font-size: 12px;
+        }
+
+        /* ===================== بدنه: سایدبار + مقالات ===================== */
+        .mag-body {
+            max-width: 1180px;
+            margin: 40px auto 80px;
+            padding: 0 clamp(16px, 4vw, 48px);
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 34px;
+            align-items: start;
+        }
+
+        .mag-sidebar {
+            position: sticky;
+            top: 90px;
+            border: 1px solid var(--line-soft);
+            border-radius: var(--radius-m);
+            background: var(--surface);
+            padding: 6px;
+        }
+
+        .mag-sidebar h2 {
+            font-size: 11px;
+            font-family: var(--font-mono);
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--text-faint);
+            padding: 12px 14px 8px;
+        }
+
+        .cat {
+            border-bottom: 1px solid var(--line-soft);
+        }
+
+        .cat:last-child {
+            border-bottom: none;
+        }
+
+        .cat summary {
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 11px 12px;
+            font-size: 13.5px;
+            font-weight: 600;
+            border-radius: var(--radius-s);
+        }
+
+        .cat summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .cat summary::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 2px;
+            background: var(--dot, var(--cyan));
+            flex-shrink: 0;
+        }
+
+        .cat summary .chev {
+            margin-right: auto;
+            color: var(--text-faint);
+            transition: transform .2s ease;
+            font-size: 11px;
+        }
+
+        .cat[open] summary .chev {
+            transform: rotate(90deg);
+        }
+
+        .cat summary:hover {
+            background: var(--surface-2);
+        }
+
+        .cat ul {
+            list-style: none;
+            margin: 0;
+            padding: 0 12px 10px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .cat ul li a {
+            display: block;
+            padding: 7px 10px 7px 22px;
+            border-radius: var(--radius-s);
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+
+        .cat ul li a:hover {
+            background: var(--surface-2);
+            color: var(--text);
+        }
+
+        .cat ul li a.is-match {
+            color: var(--amber);
+        }
+
+        .mag-sidebar .tools-link {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 6px;
+            padding: 12px;
+            border-top: 1px solid var(--line-soft);
+        }
+
+        .mag-sidebar .tools-link a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 12.5px;
+            padding: 8px 10px;
+            border-radius: var(--radius-s);
+            background: var(--surface-2);
+            color: var(--text-dim);
+        }
+
+        .mag-sidebar .tools-link a:hover {
+            color: var(--text);
+            background: var(--surface-3);
+        }
+
+        .mag-sidebar .tools-link a .arrow {
+            font-family: var(--font-mono);
+            color: var(--cyan);
+        }
+
+        /* ===================== کارت‌های مقاله ===================== */
+        .mag-main .toolbar {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--line-soft);
+        }
+
+        .mag-main .toolbar h2 {
+            font-size: 16px;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        .mag-main .toolbar .count {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-faint);
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .article-card {
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--line-soft);
+            border-radius: var(--radius-m);
+            overflow: hidden;
+            background: var(--surface);
+            transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+        }
+
+        .article-card:hover {
+            border-color: var(--line);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-2);
+        }
+
+        .article-card .thumb {
+            height: 150px;
+            position: relative;
+            background:
+                repeating-linear-gradient(115deg, color-mix(in srgb, var(--accent) 22%, transparent) 0 2px, transparent 2px 14px),
+                linear-gradient(155deg, var(--surface-3), var(--surface-2));
+        }
+
+        .article-card .thumb .tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-family: var(--font-mono);
+            font-size: 10.5px;
+            padding: 4px 9px;
+            border-radius: 999px;
+            background: color-mix(in srgb, var(--accent) 88%, black 10%);
+            color: #0d0d0d;
+            font-weight: 700;
+            letter-spacing: .03em;
+        }
+
+        .article-card .thumb .glyph {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 38px;
+            color: color-mix(in srgb, var(--accent) 60%, var(--text) 10%);
+            opacity: .5;
+        }
+
+        .article-card .body {
+            padding: 16px 16px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 9px;
+            flex: 1;
+        }
+
+        .article-card h3 {
+            font-size: 15.5px;
+            font-weight: 800;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .article-card p {
+            font-size: 13px;
+            color: var(--text-dim);
+            margin: 0;
+            line-height: 1.75;
+        }
+
+        .article-card .meta {
+            margin-top: auto;
+            padding-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            color: var(--text-faint);
+        }
+
+        .article-card .meta .sep {
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: var(--text-faint);
+        }
+
+        .article-card.placeholder {
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 8px;
+            border-style: dashed;
+            color: var(--text-faint);
+            padding: 30px 16px;
+        }
+
+        .article-card.placeholder b {
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+
+        .article-card.placeholder span {
+            font-size: 11.5px;
+            font-family: var(--font-mono);
+        }
+
+        .no-results {
+            display: none;
+            padding: 60px 0;
+            text-align: center;
+            color: var(--text-faint);
+        }
+
+        .no-results.show {
+            display: block;
+        }
+
+        .no-results b {
+            display: block;
+            font-size: 15px;
+            color: var(--text-dim);
+            margin-bottom: 6px;
+        }
+
+        @media (max-width: 900px) {
+            .mag-body {
+                grid-template-columns: 1fr;
+            }
+
+            .mag-sidebar {
+                position: static;
+            }
+
+            .article-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mag-bento {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 96px;
+            }
+
+            .fig-tile.span-3x1 {
+                grid-column: span 2;
+            }
+
+        }
+
+        /* ================slider */
+        .banner-swiper {
+            width: 100%;
+            max-width: 1180px;
+            margin: 0 auto;
+            aspect-ratio: 21 / 7;
+            border-radius: var(--radius-l);
+            overflow: hidden;
+            border: 1px solid var(--line-soft);
+            box-shadow: var(--shadow-2);
+        }
+
+        .banner-swiper .swiper-slide {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .banner-swiper .swiper-slide img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .banner-swiper .slide-caption {
+            position: relative;
+            z-index: 2;
+            padding: 28px 34px;
+            background: linear-gradient(to top, rgba(8, 9, 12, .85), transparent);
+            width: 100%;
+        }
+
+        .banner-swiper .slide-caption b {
+            font-size: 20px;
+            color: #f4f2ec;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .banner-swiper .slide-caption span {
+            font-size: 13px;
+            color: #cfd1d8;
+            font-family: var(--font-mono);
+        }
+
+        .banner-swiper .swiper-pagination {
+            bottom: 16px !important;
+        }
+
+        .banner-swiper .swiper-pagination-bullet {
+            width: 9px;
+            height: 9px;
+            background: #fff;
+            opacity: .5;
+        }
+
+        .banner-swiper .swiper-pagination-bullet-active {
+            opacity: 1;
+            background: var(--amber);
+        }
+
+        @media screen and (min-width: 1400px) {
+            .mag-hero {
+                max-width: 1400px;
+            }
+
+            .mag-body {
+                max-width: 1400px;
+
+            }
+
+            .article-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .mag-bento {
+                grid-auto-rows: 180px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="mag-header">
+        <div class="container">
+            <div class="header-actions">
+                <button class="hamburger" id="hamburgerBtn" aria-label="باز کردن منوی سرفصل‌ها" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <button class="theme-switch" id="themeSwitch" aria-label="تغییر تم روشن/تاریک" aria-pressed="false">
+                    <span class="ts-icon"><span>☀</span><span>☾</span></span>
+                </button>
+            </div>
+            <nav class="mag-navbar">
+                <div class="nav-item">
+                    <button>تاریخچه <span class="chev">›</span></button>
+                    <div class="nav-dropdown">
+                        <a href="ai-timeline.html">خط‌زمان تعاملی هوش مصنوعی ↗</a>
+                        <a href="#">کنفرانس دارتموث ۱۹۵۶</a>
+                        <a href="#">زمستان‌های هوش مصنوعی</a>
+                        <a href="#">دیپ بلو و شکست کاسپاروف</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <button>مفاهیم پایه <span class="chev">›</span></button>
+                    <div class="nav-dropdown">
+                        <a href="#">گرادیان نزولی چیست؟</a>
+                        <a href="#">تابع فعال‌سازی و بایاس</a>
+                        <a href="#">یادگیری نظارت‌شده در برابر بدون‌نظارت</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <button>شبکه‌های عصبی <span class="chev">›</span></button>
+                    <div class="nav-dropdown">
+                        <a href="#">شبیه‌ساز نورون مصنوعی ↗</a>
+                        <a href="#">شبیه‌ساز شبکه‌ی چندلایه ↗</a>
+                        <a href="#">پرسپترون چندلایه</a>
+                        <a href="#">پس‌انتشار خطا به زبان ساده</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <button>ترنسفورمرها <span class="chev">›</span></button>
+                    <div class="nav-dropdown">
+                        <a href="#">مکانیزم توجه (Attention)</a>
+                        <a href="#">معماری ترنسفورمر گام‌به‌گام</a>
+                        <a href="#">مدل‌های زبانی بزرگ چگونه کار می‌کنند</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <button>آینده <span class="chev">›</span></button>
+                    <div class="nav-dropdown">
+                        <a href="#">هوش مصنوعی عمومی (AGI)</a>
+                        <a href="#">همسوسازی و ایمنی مدل‌ها</a>
+                    </div>
+                </div>
+            </nav>
+            <div class="mag-logo">
+                <img src="./photo/logo-header.png" alt="">
+                <!-- <div class="titles">
+                    <b>مجله‌ی هوش مصنوعی</b>
+                    <span>AI // دانش‌نامه و وبلاگ تخصصی</span>
+                </div>
+                <div class="mark">AI</div> -->
+            </div>
+        </div>
+    </header>
+    <section class="mag-hero">
+        <div class="hero-top">
+            <div class="hero-top-text">
+                <div class="eyebrow">از صفر تا صد هوش مصنوعی </div>
+                <h1> مجله <em>هوش مصنوعی</em> </h1>
+            </div>
+
+            <div class="hero-media">
+                <img src="./photo/logo-hero.png" alt="logo">
+
+            </div>
+        </div>
+
+
+
+        <div class="hero-search">
+            <div class="hero-search-glow"></div>
+            <div class="mag-search">
+                <input type="text" id="searchInput" placeholder="جست‌وجو در مقالات… مثلاً «ترنسفورمر» یا «گرادیان»"
+                    autocomplete="off">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+                    <circle cx="11" cy="11" r="7" />
+                    <path d="M21 21l-4.3-4.3" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="hero-history-strip">
+            <div class="swiper strip-swiper">
+                <div class="swiper-wrapper">
+                    <a href="ai-timeline.html" class="swiper-slide strip-point">
+                        <span class="y"><bdi class="num">1950</bdi></span>
+                        <span class="dot"></span>
+                        <span class="lbl">آزمون تورینگ</span>
+                    </a>
+                    <a href="ai-timeline.html" class="swiper-slide strip-point">
+                        <span class="y"><bdi class="num">1956</bdi></span>
+                        <span class="dot"></span>
+                        <span class="lbl">کارگاه دارتموث</span>
+                    </a>
+                    <a href="ai-timeline.html" class="swiper-slide strip-point">
+                        <span class="y"><bdi class="num">1970</bdi></span>
+                        <span class="dot"></span>
+                        <span class="lbl">SHRDLU</span>
+                    </a>
+                    <a href="ai-timeline.html" class="swiper-slide strip-point">
+                        <span class="y"><bdi class="num">1986</bdi></span>
+                        <span class="dot"></span>
+                        <span class="lbl">پس‌انتشار خطا</span>
+                    </a>
+                    <a href="ai-timeline.html" class="swiper-slide strip-point">
+                        <span class="y"><bdi class="num">1997</bdi></span>
+                        <span class="dot"></span>
+                        <span class="lbl">دیپ‌بلو</span>
+                    </a>
+                    <a href="ai-timeline.html" class="swiper-slide strip-point">
+                        <span class="y"><bdi class="num">2012</bdi></span>
+                        <span class="dot"></span>
+                        <span class="lbl">AlexNet</span>
+                    </a>
+                    <a href="ai-timeline.html" class="swiper-slide strip-point">
+                        <span class="y"><bdi class="num">2017</bdi></span>
+                        <span class="dot"></span>
+                        <span class="lbl">ترنسفورمر</span>
+                    </a>
+                    <a href="ai-timeline.html" class="swiper-slide strip-point">
+                        <span class="y"><bdi class="num">2022</bdi></span>
+                        <span class="dot"></span>
+                        <span class="lbl">ChatGPT</span>
+                    </a>
+                </div>
+            </div>
+            <a href="ai-timeline.html" class="strip-continue">ادامه</a>
+        </div>
+
+        <div class="mag-bento">
+            <a href="#" class="fig-tile span-2x2" style="--tint:#f2a93b">
+                <div class="bg">
+                    <img src="./photo/آلن تورینگ.jpg" alt="عکس الن تورینگ">
+                </div>
+                <div class="info"><b>آلن تورینگ</b><span>Alan Turing · بنیان‌گذار نظری</span></div>
+            </a>
+            <a href="#" class="fig-tile span-1x2" style="--tint:#46d6c6">
+                <div class="bg">
+                    <img src="./photo/Geoffrey Hinton.jpg" alt="Geoffrey Hinton photo">
+                </div>
+                <div class="info"><b>جفری هینتون</b><span>Geoffrey Hinton</span></div>
+            </a>
+            <a href="#" class="fig-tile" style="--tint:#8b7cf6">
+                <div class="bg">
+                    <img src="./photo/آیدالاولس.jpg" alt="Ada Lovelace photo">
+                </div>
+                <div class="info"><b>ادا لاولیس</b><span>Ada Lovelace</span></div>
+            </a>
+            <a href="#" class="fig-tile" style="--tint:#e4574c">
+                <div class="bg">
+                    <img src="./photo/Yann LeCun.jpg" alt="Yann LeCun photo">
+                </div>
+                <div class="info"><b>یان لکون</b><span>Yann LeCun</span></div>
+            </a>
+            <a href="#" class="fig-tile span-3x1" style="--tint:#46d6c6">
+                <div class="bg">
+                    <img src="./photo/Fei-Fei Li.webp" alt="Fei-Fei Li">
+                </div>
+                <div class="info"><b>فی‌فی لی</b><span>Fei-Fei Li · پایه‌گذار ImageNet</span></div>
+            </a>
+            <a href="#" class="fig-tile" style="--tint:#f2a93b">
+                <div class="bg">
+                    <img src="./photo/Yoshua Bengio.jpg" alt="Yoshua Bengio photo" srcset="">
+                </div>
+                <div class="info"><b>یوشوا بنجیو</b><span>Yoshua Bengio</span></div>
+            </a>
+        </div>
+    </section>
+    <div class="mag-body">
+        <aside class="mag-sidebar">
+            <h2>سرفصل‌ها</h2>
+
+            <details class="cat" open style="--dot:var(--amber)">
+                <summary>تاریخچه <span class="chev">›</span></summary>
+                <ul>
+                    <li><a href="ai-timeline.html">خط‌زمان تعاملی هوش مصنوعی ↗</a></li>
+                    <li><a href="#" data-title="کنفرانس دارتموث ۱۹۵۶">کنفرانس دارتموث ۱۹۵۶</a></li>
+                    <li><a href="#">زمستان‌های هوش مصنوعی</a></li>
+                    <li><a href="#">دیپ بلو و شکست کاسپاروف</a></li>
+                </ul>
+            </details>
+
+            <details class="cat" open style="--dot:var(--cyan)">
+                <summary>مفاهیم پایه <span class="chev">›</span></summary>
+                <ul>
+                    <li><a href="#" data-title="گرادیان نزولی چیست">گرادیان نزولی چیست؟</a></li>
+                    <li><a href="#">تابع فعال‌سازی و بایاس</a></li>
+                    <li><a href="#">یادگیری نظارت‌شده در برابر بدون‌نظارت</a></li>
+                </ul>
+            </details>
+
+            <details class="cat" style="--dot:var(--violet)">
+                <summary>شبکه‌های عصبی <span class="chev">›</span></summary>
+                <ul>
+                    <li><a href="#">شبیه‌ساز نورون مصنوعی ↗</a></li>
+                    <li><a href="#">شبیه‌ساز شبکه‌ی چندلایه ↗</a></li>
+                    <li><a href="#">پرسپترون چندلایه</a></li>
+                    <li><a href="#">پس‌انتشار خطا به زبان ساده</a></li>
+                </ul>
+            </details>
+
+            <details class="cat" style="--dot:var(--red)">
+                <summary>ترنسفورمرها <span class="chev">›</span></summary>
+                <ul>
+                    <li><a href="#" data-title="Attention Is All You Need">مکانیزم توجه (Attention)</a></li>
+                    <li><a href="#">معماری ترنسفورمر گام‌به‌گام</a></li>
+                    <li><a href="#">مدل‌های زبانی بزرگ چگونه کار می‌کنند</a></li>
+                </ul>
+            </details>
+
+            <details class="cat" style="--dot:var(--amber)">
+                <summary>آینده‌ی هوش مصنوعی <span class="chev">›</span></summary>
+                <ul>
+                    <li><a href="#">هوش مصنوعی عمومی (AGI)</a></li>
+                    <li><a href="#">همسوسازی و ایمنی مدل‌ها</a></li>
+                </ul>
+            </details>
+
+            <div class="tools-link">
+                <a href="ai-timeline.html"><span>خط‌زمان تاریخچه</span><span class="arrow">←</span></a>
+                <a href="#"><span>شبیه‌ساز نورون</span><span class="arrow">←</span></a>
+                <a href="#"><span>شبیه‌ساز شبکه</span><span class="arrow">←</span></a>
+            </div>
+        </aside>
+
+        <main class="mag-main">
+            <div class="toolbar">
+                <h2>تازه‌ترین مقاله‌ها</h2>
+                <span class="count"><bdi class="num" id="resultCount">100</bdi> مقاله</span>
+            </div>
+
+            <div class="article-grid" id="articleGrid">
+                <a href="./articles/turing.html" class="article-card"
+                    data-title="کنفرانس دارتموث ۱۹۵۶: لحظه‌ای که هوش مصنوعی نام گرفت" data-tags="تاریخچه دارتموث">
+                    <div class="thumb" style="--accent:#f2a93b">
+                        <span class="tag">تاریخچه</span>
+                        <span class="glyph">🏛</span>
+                    </div>
+                    <div class="body">
+                        <h3>آلن تورینگ؛ پدر هوش مصنوعی و رمزگشای جنگ</h3>
+                        <p>آلن تورینگ (۱۹۱۲–۱۹۵۴) ریاضی‌دان، منطق‌دان و رمزگشای بریتانیایی بود که با ارائهٔ مفهوم «ماشین
+                            تورینگ» و «آزمون تورینگ» پایه‌های نظری علم کامپیوتر و هوش مصنوعی را بنا نهاد. به همین دلیل
+                            او را پدر هوش مصنوعی می‌شناسند.</p>
+                        <div class="meta">
+                            <span>تحریریه</span><span class="sep"></span><span><bdi class="num">3</bdi>
+                                دقیقه</span><span class="sep"></span><span><bdi class="num">۱۴۰۳/۰۴/۳۰</bdi></span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="./articles/Attention_Is_All_You_Need.html" class="article-card"
+                    data-title="Attention Is All You Need توضیح مکانیزم توجه" data-tags="ترنسفورمر توجه attention">
+                    <div class="thumb" style="--accent:#e4574c">
+                        <span class="tag">ترنسفورمرها</span>
+                        <span class="glyph">◈</span>
+                    </div>
+                    <div class="body">
+                        <h3>Attention Is All You Need: مکانیزم توجه به زبان ساده</h3>
+                        <p>مقاله‌ای که معماری ترنسفورمر را معرفی کرد و مسیر مدل‌های زبانی بزرگ را تغییر داد.</p>
+                        <div class="meta">
+                            <span>تحریریه</span><span class="sep"></span><span><bdi class="num">۹</bdi>
+                                دقیقه</span><span class="sep"></span><span><bdi class="num">۱۴۰۳/۰۵/۱۲</bdi></span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="./articles/gradian.html" class="article-card" data-title="گرادیان نزولی چیست و چرا شبکه‌ها یاد می‌گیرند"
+                    data-tags="گرادیان یادگیری شبکه عصبی">
+                    <div class="thumb" style="--accent:#46d6c6">
+                        <span class="tag">مفاهیم پایه</span>
+                        <span class="glyph">∇</span>
+                    </div>
+                    <div class="body">
+                        <h3>گرادیان نزولی چیست و چرا شبکه‌ها یاد می‌گیرند؟</h3>
+                        <p>نگاهی ساده و تصویری به الگوریتمی که پشت یادگیری تقریباً هر مدل هوش مصنوعی است.</p>
+                        <div class="meta">
+                            <span>تحریریه</span><span class="sep"></span><span><bdi class="num">۷</bdi>
+                                دقیقه</span><span class="sep"></span><span><bdi class="num">۱۴۰۳/۰۶/۰۲</bdi></span>
+                        </div>
+                    </div>
+                </a>
+
+                <div class="article-card placeholder">
+                    <b>+ ۹۷ مقاله‌ی دیگر</b>
+                    <span>از نوار بالا سرچ کنید</span>
+                </div>
+            </div>
+
+            <div class="no-results" id="noResults">
+                <b>نتیجه‌ای پیدا نشد</b>
+                <span>عبارت دیگری را امتحان کنید</span>
+            </div>
+        </main>
+    </div>
+    <section class="slider">
+        <div class="swiper banner-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide" style="background:linear-gradient(135deg,#2a2f3b,#21252f)">
+                    <div class="slide-caption"><b>مقاله‌ی ویژه: ترنسفورمرها</b><span>Attention Is All You Need</span>
+                    </div>
+                </div>
+                <a class="swiper-slide" style="background:linear-gradient(135deg,#21252f,#2a2f3b)" href="#">
+                    <div class="slide-caption"><b>خط‌زمان تعاملی هوش مصنوعی</b><span>۱۹۵۰ تا امروز</span></div>
+                </a>
+                <div class="swiper-slide" style="background:linear-gradient(135deg,#2a2f3b,#191c24)">
+                    <div class="slide-caption"><b>شبیه‌ساز نورون مصنوعی</b><span>یاد بگیرید چطور کار می‌کند</span></div>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <!-- لود js -->
+    <script src="./js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.1.14/swiper-bundle.min.js"></script>
+    <script>
+        new Swiper('.banner-swiper', {
+            loop: true,
+            // grabCursor: true,
+            slidesPerView: 1,          // یا تعداد دلخواه
+            speed: 2000,               // سرعت انتقال بین اسلایدها (میلی‌ثانیه)
+            autoplay: {
+                delay: 3000,           // ۳ ثانیه تاخیر
+                disableOnInteraction: false,
+                pauseOnMouseEnter: false,
+            },
+            spaceBetween: 0,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+    </script>
+    <script>
+        new Swiper('.strip-swiper', {
+            loop: true,
+            slidesPerView: 2, // مقدار پیش‌فرض
+            spaceBetween: 36,
+            speed: 6000,
+            autoplay: { delay: 1, disableOnInteraction: false },
+            breakpoints: {
+                768: { slidesPerView: 5 }, // در تبلت
+                1024: { slidesPerView: 5 }, // در دسکتاپ (تعداد را کمتر از کل اسلایدها بگذارید)
+            }
+        });
+    </script>
+</body>
+
+</html>
