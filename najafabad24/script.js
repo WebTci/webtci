@@ -6,6 +6,17 @@ const BANNER_LINKS = [
 ];
 
 document.addEventListener('DOMContentLoaded', () => {
+  // ===== Theme toggle (light / dark) =====
+  const root = document.documentElement;
+  const toggleBtn = document.getElementById('themeToggle');
+  const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+  root.setAttribute('data-theme', prefersLight ? 'light' : 'dark');
+
+  toggleBtn.addEventListener('click', () => {
+    const current = root.getAttribute('data-theme');
+    root.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+  });
+
   // Attach click-through links to each banner slide
   const slides = document.querySelectorAll('.banner-slide');
   slides.forEach((slide, i) => {
