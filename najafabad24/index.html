@@ -1,281 +1,318 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl" data-theme="dark">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>نجف‌آباد۲۴ | رسانه شهر نجف‌آباد</title>
-<meta name="description" content="نجف‌آباد۲۴؛ رسانه‌ی ۲۴ ساعته‌ی شهر نجف‌آباد. اخبار، تبلیغات و ارتباط با مردم شهر از طریق ایتا، بله، روبیکا، اینستاگرام و تلگرام.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نجف‌آباد۲۴ | رسانه شهر نجف‌آباد</title>
+    <meta name="description"
+        content="نجف‌آباد۲۴؛ رسانه‌ی ۲۴ ساعته‌ی شهر نجف‌آباد. اخبار، تبلیغات و ارتباط با مردم شهر از طریق ایتا، بله، روبیکا، اینستاگرام و تلگرام.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <!-- نوار ثابت بالای صفحه -->
-  <div class="topbar">
-    <div class="topbar__inner">
-      <div class="topbar__brand">
-        <span class="topbar__pulse"></span>
-        <span class="topbar__name">نجف‌آباد<em>۲۴</em></span>
-      </div>
-      <div class="topbar__ticker-wrap">
-        <div class="topbar__ticker">
-          <span>نجف‌آباد در یک نگاه</span>
-          <span>•</span>
-          <span>برای شهر، ۲۴ ساعته با شما آنلاینیم</span>
-          <span>•</span>
-          <span>هماهنگی تبلیغات: ایتا @najafabad_admin</span>
-          <span>•</span>
-          <span>نجف‌آباد در یک نگاه</span>
-          <span>•</span>
-          <span>برای شهر، ۲۴ ساعته با شما آنلاینیم</span>
-          <span>•</span>
-          <span>هماهنگی تبلیغات: ایتا @najafabad_admin</span>
-        </div>
-      </div>
-      <button type="button" class="theme-toggle" id="themeToggle" aria-label="تغییر تم روشن و تاریک" title="تغییر تم">
-        <svg class="theme-toggle__sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.6" fill="currentColor"/><g stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 2.5v2.4M12 19.1v2.4M21.5 12h-2.4M4.9 12H2.5M18.4 5.6l-1.7 1.7M7.3 16.7l-1.7 1.7M18.4 18.4l-1.7-1.7M7.3 7.3 5.6 5.6"/></g></svg>
-        <svg class="theme-toggle__moon" viewBox="0 0 24 24"><path fill="currentColor" d="M20.7 14.9A8.6 8.6 0 0 1 9.1 3.3a.7.7 0 0 0-.9-.9 10 10 0 1 0 13.4 13.4.7.7 0 0 0-.9-.9Z"/></svg>
-      </button>
-      <a href="#channels" class="topbar__cta">دنبال کنید</a>
-    </div>
-  </div>
-
-  <!-- هدر / هیرو -->
-  <header class="hero" id="top">
-    <div class="hero__grid"></div>
-    <div class="hero__content">
-      <p class="hero__eyebrow">رسانه‌ی مردمیِ شهر نجف‌آباد</p>
-      <h1 class="hero__title">
-        برای شهر،<br>
-        <span class="hero__title-accent">۲۴ ساعته</span> با شما آنلاینیم
-      </h1>
-      <p class="hero__desc">
-        نجف‌آباد۲۴ چشم و گوش شهر است؛ از اتفاقات محله تا خبرهای رسمی، از تبلیغ کسب‌وکار شما تا صدای مردم. همین حالا از هر پلتفرمی که دوست دارید، همراه ما باشید.
-      </p>
-      <div class="hero__actions">
-        <a href="https://eitaa.com/Najafabad24" target="_blank" rel="noopener" class="btn btn--primary">
-          <svg viewBox="0 0 24 24" class="btn__icon"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.71 7.29-1.4 6.6c-.1.47-.39.58-.79.36l-2.18-1.61-1.05 1.01c-.12.12-.22.22-.44.22l.16-2.24 4.08-3.69c.18-.16-.04-.24-.27-.09l-5.04 3.17-2.17-.68c-.47-.15-.48-.47.1-.7l8.48-3.27c.39-.14.73.09.52.92z"/></svg>
-          عضویت در ایتا
-        </a>
-        <a href="#channels" class="btn btn--ghost">همه‌ی کانال‌ها</a>
-      </div>
-      <div class="hero__stats">
-        <div class="stat"><span class="stat__num">۲۴/۷</span><span class="stat__label">پوشش خبری</span></div>
-        <div class="stat"><span class="stat__num">۵</span><span class="stat__label">پلتفرم فعال</span></div>
-        <div class="stat"><span class="stat__num">۱</span><span class="stat__label">شهر، یک صدا</span></div>
-      </div>
-    </div>
-  </header>
-
-  <!-- اسلایدر بنر تبلیغاتی -->
-  <section class="banner-section">
-    <div class="section-inner">
-      <div class="swiper banner-swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide banner-slide banner-slide--a">
-            <div class="banner-slide__text">
-              <span class="banner-slide__tag">تبلیغ کسب‌وکار</span>
-              <h3>کسب‌وکار شما، دیده‌ی شهر</h3>
-              <p>با تبلیغ در نجف‌آباد۲۴ به هزاران مخاطب واقعی شهر برسید.</p>
+    <!-- نوار ثابت بالای صفحه -->
+    <div class="topbar">
+        <div class="topbar__inner">
+            <div class="topbar__brand">
+                <span class="topbar__pulse"></span>
+                <span class="topbar__name">نجف‌آباد<em>۲۴</em></span>
             </div>
-          </div>
-          <div class="swiper-slide banner-slide banner-slide--b">
-            <div class="banner-slide__text">
-              <span class="banner-slide__tag">همکاری رسانه‌ای</span>
-              <h3>ماهریاب، همراه نجف‌آباد۲۴</h3>
-              <p>معرفی کسب‌وکارهای محلی در کنار هم، قوی‌تر دیده می‌شویم.</p>
+            <div class="topbar__ticker-wrap">
+                <div class="topbar__ticker">
+                    <span>نجف‌آباد در یک نگاه</span>
+                    <span>•</span>
+                    <span>برای شهر، ۲۴ ساعته با شما آنلاینیم</span>
+                    <span>•</span>
+                    <span>هماهنگی تبلیغات: ایتا @najafabad_admin</span>
+                    <span>•</span>
+                    <span>نجف‌آباد در یک نگاه</span>
+                    <span>•</span>
+                    <span>برای شهر، ۲۴ ساعته با شما آنلاینیم</span>
+                    <span>•</span>
+                    <span>هماهنگی تبلیغات: ایتا @najafabad_admin</span>
+                </div>
             </div>
-          </div>
-          <div class="swiper-slide banner-slide banner-slide--c">
-            <div class="banner-slide__text">
-              <span class="banner-slide__tag">ارتباط مستقیم</span>
-              <h3>خبر شهر شما را می‌شنویم</h3>
-              <p>مطلب، عکس یا خبر محله‌تان را برای ما بفرستید.</p>
+            <button type="button" class="theme-toggle" id="themeToggle" aria-label="تغییر تم روشن و تاریک"
+                title="تغییر تم">
+                <svg class="theme-toggle__sun" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="4.6" fill="currentColor" />
+                    <g stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                        <path
+                            d="M12 2.5v2.4M12 19.1v2.4M21.5 12h-2.4M4.9 12H2.5M18.4 5.6l-1.7 1.7M7.3 16.7l-1.7 1.7M18.4 18.4l-1.7-1.7M7.3 7.3 5.6 5.6" />
+                    </g>
+                </svg>
+                <svg class="theme-toggle__moon" viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M20.7 14.9A8.6 8.6 0 0 1 9.1 3.3a.7.7 0 0 0-.9-.9 10 10 0 1 0 13.4 13.4.7.7 0 0 0-.9-.9Z" />
+                </svg>
+            </button>
+            <a href="#channels" class="topbar__cta">دنبال کنید</a>
+        </div>
+    </div>
+
+
+    <header class="hero" id="top">
+        <div class="hero__grid"></div>
+        <div class="hero__content">
+            <p class="hero__eyebrow">رسانه‌ی مردمیِ شهر نجف‌آباد</p>
+            <h1 class="hero__title">
+                برای شهر،<br>
+                <span class="hero__title-accent">۲۴ ساعته</span> با شما آنلاینیم
+            </h1>
+            <p class="hero__desc">
+                <span>نجف‌آباد۲۴
+
+                </span> چشم و گوش شهر است؛ از اتفاقات محله تا خبرهای رسمی، از تبلیغ کسب‌وکار شما تا صدای
+                مردم. همین حالا از هر پلتفرمی که دوست دارید، همراه ما باشید.
+            </p>
+            <div class="hero__actions">
+                <a href="https://eitaa.com/Najafabad24" target="_blank" rel="noopener" class="btn btn--primary">
+                    <svg viewBox="0 0 24 24" class="btn__icon">
+                        <path fill="currentColor"
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.71 7.29-1.4 6.6c-.1.47-.39.58-.79.36l-2.18-1.61-1.05 1.01c-.12.12-.22.22-.44.22l.16-2.24 4.08-3.69c.18-.16-.04-.24-.27-.09l-5.04 3.17-2.17-.68c-.47-.15-.48-.47.1-.7l8.48-3.27c.39-.14.73.09.52.92z" />
+                    </svg>
+                    عضویت در ایتا
+                </a>
+                <a href="#channels" class="btn btn--ghost">همه‌ی رسانه ها</a>
             </div>
-          </div>
+            <div class="hero__stats">
+                <div class="stat"><span class="stat__num">۲۴/۷</span><span class="stat__label">پوشش خبری</span></div>
+                <div class="stat"><span class="stat__num">۵</span><span class="stat__label">پلتفرم فعال</span></div>
+                <div class="stat"><span class="stat__num">۱</span><span class="stat__label">شهر، یک صدا</span></div>
+            </div>
         </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- کانال‌ها -->
-  <section class="channels" id="channels">
-    <div class="section-inner">
-      <p class="section-eyebrow">همه‌جا کنار شما</p>
-      <h2 class="section-title">نجف‌آباد۲۴ در فضای مجازی</h2>
-      <p class="section-desc">هر جا که هستید، یکی از این پلتفرم‌ها را انتخاب کنید و عضو خانواده‌ی نجف‌آباد۲۴ شوید.</p>
 
-      <div class="channel-grid">
-        <a class="channel-card channel-card--eitaa" href="https://eitaa.com/Najafabad24" target="_blank" rel="noopener">
-          <div class="channel-card__icon">
-            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.71 7.29-1.4 6.6c-.1.47-.39.58-.79.36l-2.18-1.61-1.05 1.01c-.12.12-.22.22-.44.22l.16-2.24 4.08-3.69c.18-.16-.04-.24-.27-.09l-5.04 3.17-2.17-.68c-.47-.15-.48-.47.1-.7l8.48-3.27c.39-.14.73.09.52.92z"/></svg>
-          </div>
-          <div class="channel-card__body">
-            <h3>ایتا</h3>
-            <span dir="ltr">eitaa.com/Najafabad24</span>
-          </div>
-          <span class="channel-card__arrow">‹</span>
-        </a>
+    <section class="banner-section">
+        <div class="section-inner">
+            <div class="swiper banner-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide banner-slide banner-slide--a">
 
-        <a class="channel-card channel-card--bale" href="https://ble.ir/najafabad24" target="_blank" rel="noopener">
-          <div class="channel-card__icon">
-            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12c0 5.52 4.48 10 10 10s10-4.48 10-10C22 6.48 17.52 2 12 2Zm5.2 7.6-1.7 8.03c-.13.57-.47.71-.95.44l-2.63-1.94-1.27 1.22c-.14.14-.26.26-.53.26l.19-2.7 4.92-4.45c.21-.19-.05-.3-.33-.11l-6.08 3.83-2.62-.82c-.57-.18-.58-.57.12-.85l10.24-3.94c.47-.17.88.11.63 1.13Z"/></svg>
-          </div>
-          <div class="channel-card__body">
-            <h3>بله</h3>
-            <span dir="ltr">ble.ir/najafabad24</span>
-          </div>
-          <span class="channel-card__arrow">‹</span>
-        </a>
+                    </div>
+                    <div class="swiper-slide banner-slide banner-slide--b">
 
-        <a class="channel-card channel-card--rubika" href="https://rubika.ir/page/najafabad24" target="_blank" rel="noopener">
-          <div class="channel-card__icon">
-            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2 2 7v10l10 5 10-5V7L12 2Zm0 2.24 7 3.53v8.46l-7 3.53-7-3.53V7.77l7-3.53ZM8 9v6l4 2 4-2V9l-4-2-4 2Z"/></svg>
-          </div>
-          <div class="channel-card__body">
-            <h3>روبیکا</h3>
-            <span dir="ltr">rubika.ir/page/najafabad24</span>
-          </div>
-          <span class="channel-card__arrow">‹</span>
-        </a>
 
-        <a class="channel-card channel-card--telegram" href="https://t.me/najafabad24i" target="_blank" rel="noopener">
-          <div class="channel-card__icon">
-            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M21.5 3.5 2.7 10.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.9 5.7c.2.6.4.9.9.9.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.9.5 1.5.2 1.7-.8L23 4.8c.3-1.2-.5-1.8-1.5-1.3Z"/></svg>
-          </div>
-          <div class="channel-card__body">
-            <h3>کانال تلگرام</h3>
-            <span dir="ltr">t.me/najafabad24i</span>
-          </div>
-          <span class="channel-card__arrow">‹</span>
-        </a>
+                    </div>
 
-        <a class="channel-card channel-card--instagram" href="https://instagram.com/najafabad24" target="_blank" rel="noopener">
-          <div class="channel-card__icon">
-            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2c-2.72 0-3.06.01-4.13.06-1.06.05-1.79.22-2.43.47a4.9 4.9 0 0 0-1.77 1.15A4.9 4.9 0 0 0 2.53 5.44c-.25.64-.42 1.37-.47 2.43C2 8.94 2 9.28 2 12s.01 3.06.06 4.13c.05 1.06.22 1.79.47 2.43a4.9 4.9 0 0 0 1.15 1.77 4.9 4.9 0 0 0 1.77 1.15c.64.25 1.37.42 2.43.47C8.94 22 9.28 22 12 22s3.06-.01 4.13-.06c1.06-.05 1.79-.22 2.43-.47a4.9 4.9 0 0 0 1.77-1.15 4.9 4.9 0 0 0 1.15-1.77c.25-.64.42-1.37.47-2.43.05-1.07.06-1.41.06-4.13s-.01-3.06-.06-4.13c-.05-1.06-.22-1.79-.47-2.43a4.9 4.9 0 0 0-1.15-1.77 4.9 4.9 0 0 0-1.77-1.15c-.64-.25-1.37-.42-2.43-.47C15.06 2.01 14.72 2 12 2Zm0 1.8c2.67 0 2.99.01 4.04.06.98.04 1.5.2 1.86.34.47.18.8.4 1.15.75.35.35.57.68.75 1.15.14.36.3.88.34 1.86.05 1.05.06 1.37.06 4.04s-.01 2.99-.06 4.04c-.04.98-.2 1.5-.34 1.86-.18.47-.4.8-.75 1.15-.35.35-.68.57-1.15.75-.36.14-.88.3-1.86.34-1.05.05-1.37.06-4.04.06s-2.99-.01-4.04-.06c-.98-.04-1.5-.2-1.86-.34a3.1 3.1 0 0 1-1.15-.75 3.1 3.1 0 0 1-.75-1.15c-.14-.36-.3-.88-.34-1.86C3.81 14.99 3.8 14.67 3.8 12s.01-2.99.06-4.04c.04-.98.2-1.5.34-1.86.18-.47.4-.8.75-1.15.35-.35.68-.57 1.15-.75.36-.14.88-.3 1.86-.34C9.01 3.81 9.33 3.8 12 3.8Zm0 3.05a5.15 5.15 0 1 0 0 10.3 5.15 5.15 0 0 0 0-10.3Zm0 8.5a3.35 3.35 0 1 1 0-6.7 3.35 3.35 0 0 1 0 6.7Zm5.35-8.7a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg>
-          </div>
-          <div class="channel-card__body">
-            <h3>اینستاگرام</h3>
-            <span dir="ltr">instagram.com/najafabad24</span>
-          </div>
-          <span class="channel-card__arrow">‹</span>
-        </a>
-
-        <a class="channel-card channel-card--admin" href="https://eitaa.com/Najafabad_admin" target="_blank" rel="noopener">
-          <div class="channel-card__icon">
-            <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5Zm0 2c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5Z"/></svg>
-          </div>
-          <div class="channel-card__body">
-            <h3>ارسال مطلب و ارتباط با ادمین</h3>
-            <span dir="ltr">@Najafabad_admin</span>
-          </div>
-          <span class="channel-card__arrow">‹</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ارتباط با پشتیبانی و تبلیغات -->
-  <section class="support">
-    <div class="section-inner support__inner">
-      <div class="support__card">
-        <span class="support__icon">✎</span>
-        <h3>ارسال مطلب و خبر</h3>
-        <p>محله‌تان خبری دارد؟ عکس، ویدیو یا گزارش خود را برای ادمین ایتا بفرستید.</p>
-        <a href="https://eitaa.com/Najafabad_admin" target="_blank" rel="noopener" class="support__link" dir="ltr">@Najafabad_admin</a>
-      </div>
-      <div class="support__card support__card--highlight">
-        <span class="support__icon">◆</span>
-        <h3>هماهنگی تبلیغات</h3>
-        <p>می‌خواهید کسب‌وکارتان دیده شود؟ برای هماهنگی تبلیغات پیام دهید.</p>
-        <a href="https://eitaa.com/najafabad_admin" target="_blank" rel="noopener" class="support__link" dir="ltr">@najafabad_admin</a>
-      </div>
-      <div class="support__card">
-        <span class="support__icon">✆</span>
-        <h3>پشتیبانی سریع</h3>
-        <p>سوالی درباره‌ی همکاری یا انتشار محتوا دارید؟ همین‌جا در ارتباط باشید.</p>
-        <a href="https://eitaa.com/Najafabad_admin" target="_blank" rel="noopener" class="support__link">پیام در ایتا</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- همکاری ماهریاب -->
-  <section class="maheryab">
-    <div class="section-inner maheryab__inner">
-      <div class="maheryab__logo-wrap">
-        <div class="maheryab__logo">
-          <svg viewBox="0 0 120 120" class="maheryab__logo-svg">
-            <circle cx="60" cy="60" r="56" class="maheryab__ring"/>
-            <path class="maheryab__fish" d="M28 62c14-18 40-24 58-10-8 18-38 26-58 10Zm58-10c4-4 8-4 10 0-2 4-6 4-10 0Z"/>
-            <circle cx="42" cy="58" r="2.4" class="maheryab__eye"/>
-          </svg>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
         </div>
-      </div>
-      <div class="maheryab__content">
-        <p class="section-eyebrow section-eyebrow--light">همکار رسانه‌ای ما</p>
-        <h2 class="section-title section-title--light">ماهریاب</h2>
-        <p class="maheryab__desc">
-          ماهریاب یکی از همکاران رسانه‌ای نجف‌آباد۲۴ است که در معرفی و دیده‌شدن کسب‌وکارهای محلی همراه ماست. صفحه‌ی معرفی کامل ماهریاب و لیست خدمات آن را از لینک زیر ببینید.
-        </p>
-        <a href="https://bioolink.ir/maheryab" target="_blank" rel="noopener" class="btn btn--light">
-          مشاهده‌ی صفحه‌ی ماهریاب
-          <span class="btn__icon-left">›</span>
+    </section>
+
+    <!-- کانال‌ها -->
+    <section class="channels" id="channels">
+        <div class="section-inner">
+            <p class="section-eyebrow">همه‌جا کنار شما</p>
+            <h2 class="section-title">نجف‌آباد۲۴ در فضای مجازی</h2>
+            <p class="section-desc">هر جا که هستید، یکی از این پلتفرم‌ها را انتخاب کنید و عضو خانواده‌ی نجف‌آباد۲۴ شوید.
+            </p>
+
+            <div class="channel-grid">
+                <a class="channel-card channel-card--eitaa" href="https://eitaa.com/Najafabad24" target="_blank"
+                    rel="noopener">
+                    <div class="channel-card__icon">
+                        <img src="./ph/Eitaa_logo.png">
+                    </div>
+                    <div class="channel-card__body">
+                        <h3>ایتا</h3>
+                        <span dir="ltr">eitaa.com/Najafabad24</span>
+                    </div>
+                    <span class="channel-card__arrow">‹</span>
+                </a>
+
+                <a class="channel-card channel-card--bale" href="https://ble.ir/najafabad24" target="_blank"
+                    rel="noopener">
+                    <div class="channel-card__icon">
+                        <img src="./ph/Bale-Logo-1030x1030.png">
+                    </div>
+                    <div class="channel-card__body">
+                        <h3>بله</h3>
+                        <span dir="ltr">ble.ir/najafabad24</span>
+                    </div>
+                    <span class="channel-card__arrow">‹</span>
+                </a>
+
+                <a class="channel-card channel-card--rubika" href="https://rubika.ir/page/najafabad24" target="_blank"
+                    rel="noopener">
+                    <div class="channel-card__icon">
+                        <img src="./ph/minimal.png">
+                    </div>
+                    <div class="channel-card__body">
+                        <h3>روبیکا</h3>
+                        <span dir="ltr">rubika.ir/page/najafabad24</span>
+                    </div>
+                    <span class="channel-card__arrow">‹</span>
+                </a>
+
+                <a class="channel-card channel-card--telegram" href="https://t.me/najafabad24i" target="_blank"
+                    rel="noopener">
+                    <div class="channel-card__icon">
+                        <svg viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M21.5 3.5 2.7 10.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.9 5.7c.2.6.4.9.9.9.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.9.5 1.5.2 1.7-.8L23 4.8c.3-1.2-.5-1.8-1.5-1.3Z" />
+                        </svg>
+                    </div>
+                    <div class="channel-card__body">
+                        <h3>کانال تلگرام</h3>
+                        <span dir="ltr">t.me/najafabad24i</span>
+                    </div>
+                    <span class="channel-card__arrow">‹</span>
+                </a>
+
+                <a class="channel-card channel-card--instagram" href="https://instagram.com/najafabad24" target="_blank"
+                    rel="noopener">
+                    <div class="channel-card__icon">
+                        <svg viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M12 2c-2.72 0-3.06.01-4.13.06-1.06.05-1.79.22-2.43.47a4.9 4.9 0 0 0-1.77 1.15A4.9 4.9 0 0 0 2.53 5.44c-.25.64-.42 1.37-.47 2.43C2 8.94 2 9.28 2 12s.01 3.06.06 4.13c.05 1.06.22 1.79.47 2.43a4.9 4.9 0 0 0 1.15 1.77 4.9 4.9 0 0 0 1.77 1.15c.64.25 1.37.42 2.43.47C8.94 22 9.28 22 12 22s3.06-.01 4.13-.06c1.06-.05 1.79-.22 2.43-.47a4.9 4.9 0 0 0 1.77-1.15 4.9 4.9 0 0 0 1.15-1.77c.25-.64.42-1.37.47-2.43.05-1.07.06-1.41.06-4.13s-.01-3.06-.06-4.13c-.05-1.06-.22-1.79-.47-2.43a4.9 4.9 0 0 0-1.15-1.77 4.9 4.9 0 0 0-1.77-1.15c-.64-.25-1.37-.42-2.43-.47C15.06 2.01 14.72 2 12 2Zm0 1.8c2.67 0 2.99.01 4.04.06.98.04 1.5.2 1.86.34.47.18.8.4 1.15.75.35.35.57.68.75 1.15.14.36.3.88.34 1.86.05 1.05.06 1.37.06 4.04s-.01 2.99-.06 4.04c-.04.98-.2 1.5-.34 1.86-.18.47-.4.8-.75 1.15-.35.35-.68.57-1.15.75-.36.14-.88.3-1.86.34-1.05.05-1.37.06-4.04.06s-2.99-.01-4.04-.06c-.98-.04-1.5-.2-1.86-.34a3.1 3.1 0 0 1-1.15-.75 3.1 3.1 0 0 1-.75-1.15c-.14-.36-.3-.88-.34-1.86C3.81 14.99 3.8 14.67 3.8 12s.01-2.99.06-4.04c.04-.98.2-1.5.34-1.86.18-.47.4-.8.75-1.15.35-.35.68-.57 1.15-.75.36-.14.88-.3 1.86-.34C9.01 3.81 9.33 3.8 12 3.8Zm0 3.05a5.15 5.15 0 1 0 0 10.3 5.15 5.15 0 0 0 0-10.3Zm0 8.5a3.35 3.35 0 1 1 0-6.7 3.35 3.35 0 0 1 0 6.7Zm5.35-8.7a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z" />
+                        </svg>
+                    </div>
+                    <div class="channel-card__body">
+                        <h3>اینستاگرام</h3>
+                        <span dir="ltr">instagram.com/najafabad24</span>
+                    </div>
+                    <span class="channel-card__arrow">‹</span>
+                </a>
+
+                <a class="channel-card channel-card--admin" href="https://eitaa.com/Najafabad_admin" target="_blank"
+                    rel="noopener">
+                    <div class="channel-card__icon">
+                        <svg viewBox="0 0 24 24">
+                            <path fill="currentColor"
+                                d="M12 12c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5Zm0 2c-3.33 0-10 1.67-10 5v3h20v-3c0-3.33-6.67-5-10-5Z" />
+                        </svg>
+                    </div>
+                    <div class="channel-card__body">
+                        <h3>ارسال مطلب و ارتباط با ادمین</h3>
+                        <span dir="ltr">@Najafabad_admin</span>
+                    </div>
+                    <span class="channel-card__arrow">‹</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ارتباط با پشتیبانی و تبلیغات -->
+    <section class="support">
+        <div class="section-inner support__inner">
+            <div class="support__card">
+                <span class="support__icon">✎</span>
+                <h3>ارسال مطلب و خبر</h3>
+                <p>محله‌تان خبری دارد؟ عکس، ویدیو یا گزارش خود را برای ادمین ایتا بفرستید.</p>
+                <a href="https://eitaa.com/Najafabad_admin" target="_blank" rel="noopener" class="support__link"
+                    dir="ltr">@Najafabad_admin</a>
+            </div>
+            <div class="support__card support__card--highlight">
+                <span class="support__icon">◆</span>
+                <h3>هماهنگی تبلیغات</h3>
+                <p>می‌خواهید کسب‌وکارتان دیده شود؟ برای هماهنگی تبلیغات پیام دهید.</p>
+                <a href="https://eitaa.com/najafabad_admin" target="_blank" rel="noopener" class="support__link"
+                    dir="ltr">@najafabad_admin</a>
+            </div>
+            <div class="support__card">
+                <span class="support__icon">✆</span>
+                <h3>پشتیبانی سریع</h3>
+                <p>سوالی درباره‌ی همکاری یا انتشار محتوا دارید؟ همین‌جا در ارتباط باشید.</p>
+                <a href="https://eitaa.com/Najafabad_admin" target="_blank" rel="noopener" class="support__link">پیام در
+                    ایتا</a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="maheryab" id="maheryab">
+        <div class="section-inner maheryab__inner">
+            <div class="maheryab__logo-wrap">
+                <div class="maheryab__logo">
+                    <!-- <svg viewBox="0 0 120 120" class="maheryab__logo-svg">
+                        <circle cx="60" cy="60" r="56" class="maheryab__ring" />
+                        <path class="maheryab__fish"
+                            d="M28 62c14-18 40-24 58-10-8 18-38 26-58 10Zm58-10c4-4 8-4 10 0-2 4-6 4-10 0Z" />
+                        <circle cx="42" cy="58" r="2.4" class="maheryab__eye" />
+                    </svg> -->
+                    <img src="./ph/ماهریاب.webp" alt="" srcset="">
+                </div>
+            </div>
+            <div class="maheryab__content">
+                <p class="section-eyebrow section-eyebrow--light">معرفی متخصصین نجف آباد </p>
+                <h2 class="section-title section-title--light">ماهریاب</h2>
+                <p class="maheryab__desc">
+                    ماهریاب رسانه‌ تخخصی معرفی افراد ساختمانی نجف‌آباد است که در معرفی و دیده‌شدن کسب‌وکارهای محلی همراه
+                    ماست.
+                    صفحه‌ی معرفی کامل ماهریاب و لیست خدمات آن را از لینک زیر ببینید.
+                </p>
+                <a href="https://bioolink.ir/maheryab" target="_blank" rel="noopener" class="btn btn--light">
+                    مشاهده‌ی صفحه‌ی ماهریاب
+                    <span class="btn__icon-left">›</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="section-inner footer__inner">
+            <div class="footer__brand">
+                <span class="topbar__name">نجف‌آباد<em>۲۴</em></span>
+                <p>رسانه‌ی مستقل شهر نجف‌آباد؛ برای شهر، ۲۴ ساعته با شما آنلاینیم.</p>
+            </div>
+
+            <div class="footer__admin">
+                <span>هماهنگی تبلیغات و ارسال مطلب</span>
+                <a href="https://eitaa.com/Najafabad_admin" target="_blank" rel="noopener"
+                    dir="ltr">@Najafabad_admin</a>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <span>طراحی شده توسط تیم بایولینک <a href="bioolink.ir" style="color: blue;"> bioolink.ir</a></span>
+        </div>
+    </footer>
+
+
+    <nav class="mobilebar" aria-label="دسترسی سریع">
+        <a href="https://eitaa.com/Najafabad24" target="_blank" rel="noopener"
+            class="mobilebar__item mobilebar__item--eitaa">
+            <svg viewBox="0 0 24 24">
+                <path fill="currentColor"
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.71 7.29-1.4 6.6c-.1.47-.39.58-.79.36l-2.18-1.61-1.05 1.01c-.12.12-.22.22-.44.22l.16-2.24 4.08-3.69c.18-.16-.04-.24-.27-.09l-5.04 3.17-2.17-.68c-.47-.15-.48-.47.1-.7l8.48-3.27c.39-.14.73.09.52.92z" />
+            </svg>
+            <span>ایتا</span>
         </a>
-      </div>
-    </div>
-  </section>
+        <a href="#maheryab" class="mobilebar__item mobilebar__item--telegram">
+            <img src="./ph/ماهریاب۳.webp" class="img">
+            <span>ماهریاب</span>
+        </a>
+        <a href="#channels" class="mobilebar__item mobilebar__item--main">
+            <svg viewBox="0 0 24 24">
+                <path fill="currentColor"
+                    d="M12 2 2 7v10l10 5 10-5V7L12 2Zm0 2.24 7 3.53v8.46l-7 3.53-7-3.53V7.77l7-3.53ZM8 9v6l4 2 4-2V9l-4-2-4 2Z" />
+            </svg>
+            <span>لیست همه کانال‌ها</span>
+        </a>
+        <a href="https://instagram.com/najafabad24" target="_blank" rel="noopener"
+            class="mobilebar__item mobilebar__item--instagram">
+            <svg viewBox="0 0 24 24">
+                <path fill="currentColor"
+                    d="M12 2c-2.72 0-3.06.01-4.13.06-1.06.05-1.79.22-2.43.47a4.9 4.9 0 0 0-1.77 1.15A4.9 4.9 0 0 0 2.53 5.44c-.25.64-.42 1.37-.47 2.43C2 8.94 2 9.28 2 12s.01 3.06.06 4.13c.05 1.06.22 1.79.47 2.43a4.9 4.9 0 0 0 1.15 1.77 4.9 4.9 0 0 0 1.77 1.15c.64.25 1.37.42 2.43.47C8.94 22 9.28 22 12 22s3.06-.01 4.13-.06c1.06-.05 1.79-.22 2.43-.47a4.9 4.9 0 0 0 1.77-1.15 4.9 4.9 0 0 0 1.15-1.77c.25-.64.42-1.37.47-2.43.05-1.07.06-1.41.06-4.13s-.01-3.06-.06-4.13c-.05-1.06-.22-1.79-.47-2.43a4.9 4.9 0 0 0-1.15-1.77 4.9 4.9 0 0 0-1.77-1.15c-.64-.25-1.37-.42-2.43-.47C15.06 2.01 14.72 2 12 2Zm0 1.8c2.67 0 2.99.01 4.04.06.98.04 1.5.2 1.86.34.47.18.8.4 1.15.75.35.35.57.68.75 1.15.14.36.3.88.34 1.86.05 1.05.06 1.37.06 4.04s-.01 2.99-.06 4.04c-.04.98-.2 1.5-.34 1.86-.18.47-.4.8-.75 1.15-.35.35-.68.57-1.15.75-.36.14-.88.3-1.86.34-1.05.05-1.37.06-4.04.06s-2.99-.01-4.04-.06c-.98-.04-1.5-.2-1.86-.34a3.1 3.1 0 0 1-1.15-.75 3.1 3.1 0 0 1-.75-1.15c-.14-.36-.3-.88-.34-1.86C3.81 14.99 3.8 14.67 3.8 12s.01-2.99.06-4.04c.04-.98.2-1.5.34-1.86.18-.47.4-.8.75-1.15.35-.35.68-.57 1.15-.75.36-.14.88-.3 1.86-.34C9.01 3.81 9.33 3.8 12 3.8Zm0 3.05a5.15 5.15 0 1 0 0 10.3 5.15 5.15 0 0 0 0-10.3Zm0 8.5a3.35 3.35 0 1 1 0-6.7 3.35 3.35 0 0 1 0 6.7Zm5.35-8.7a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z" />
+            </svg>
+            <span>اینستاگرام</span>
+        </a>
+    </nav>
 
-  <!-- فوتر -->
-  <footer class="footer">
-    <div class="section-inner footer__inner">
-      <div class="footer__brand">
-        <span class="topbar__name">نجف‌آباد<em>۲۴</em></span>
-        <p>رسانه‌ی مستقل شهر نجف‌آباد؛ برای شهر، ۲۴ ساعته با شما آنلاینیم.</p>
-      </div>
-      <div class="footer__links">
-        <a href="https://eitaa.com/Najafabad24" target="_blank" rel="noopener">ایتا</a>
-        <a href="https://ble.ir/najafabad24" target="_blank" rel="noopener">بله</a>
-        <a href="https://rubika.ir/page/najafabad24" target="_blank" rel="noopener">روبیکا</a>
-        <a href="https://t.me/najafabad24i" target="_blank" rel="noopener">تلگرام</a>
-        <a href="https://instagram.com/najafabad24" target="_blank" rel="noopener">اینستاگرام</a>
-      </div>
-      <div class="footer__admin">
-        <span>هماهنگی تبلیغات و ارسال مطلب</span>
-        <a href="https://eitaa.com/Najafabad_admin" target="_blank" rel="noopener" dir="ltr">@Najafabad_admin</a>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      <span>© نجف‌آباد۲۴ — تمامی حقوق محفوظ است.</span>
-    </div>
-  </footer>
-
-  <!-- نوار پایین ویژه موبایل -->
-  <nav class="mobilebar" aria-label="دسترسی سریع">
-    <a href="https://eitaa.com/Najafabad24" target="_blank" rel="noopener" class="mobilebar__item mobilebar__item--eitaa">
-      <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.71 7.29-1.4 6.6c-.1.47-.39.58-.79.36l-2.18-1.61-1.05 1.01c-.12.12-.22.22-.44.22l.16-2.24 4.08-3.69c.18-.16-.04-.24-.27-.09l-5.04 3.17-2.17-.68c-.47-.15-.48-.47.1-.7l8.48-3.27c.39-.14.73.09.52.92z"/></svg>
-      <span>ایتا</span>
-    </a>
-    <a href="https://t.me/najafabad24i" target="_blank" rel="noopener" class="mobilebar__item mobilebar__item--telegram">
-      <svg viewBox="0 0 24 24"><path fill="currentColor" d="M21.5 3.5 2.7 10.9c-1.2.5-1.2 1.2-.2 1.5l4.8 1.5 1.9 5.7c.2.6.4.9.9.9.4 0 .6-.2.9-.5l2.2-2.1 4.6 3.4c.9.5 1.5.2 1.7-.8L23 4.8c.3-1.2-.5-1.8-1.5-1.3Z"/></svg>
-      <span>تلگرام</span>
-    </a>
-    <a href="#channels" class="mobilebar__item mobilebar__item--main">
-      <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2 2 7v10l10 5 10-5V7L12 2Zm0 2.24 7 3.53v8.46l-7 3.53-7-3.53V7.77l7-3.53ZM8 9v6l4 2 4-2V9l-4-2-4 2Z"/></svg>
-      <span>همه کانال‌ها</span>
-    </a>
-    <a href="https://instagram.com/najafabad24" target="_blank" rel="noopener" class="mobilebar__item mobilebar__item--instagram">
-      <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2c-2.72 0-3.06.01-4.13.06-1.06.05-1.79.22-2.43.47a4.9 4.9 0 0 0-1.77 1.15A4.9 4.9 0 0 0 2.53 5.44c-.25.64-.42 1.37-.47 2.43C2 8.94 2 9.28 2 12s.01 3.06.06 4.13c.05 1.06.22 1.79.47 2.43a4.9 4.9 0 0 0 1.15 1.77 4.9 4.9 0 0 0 1.77 1.15c.64.25 1.37.42 2.43.47C8.94 22 9.28 22 12 22s3.06-.01 4.13-.06c1.06-.05 1.79-.22 2.43-.47a4.9 4.9 0 0 0 1.77-1.15 4.9 4.9 0 0 0 1.15-1.77c.25-.64.42-1.37.47-2.43.05-1.07.06-1.41.06-4.13s-.01-3.06-.06-4.13c-.05-1.06-.22-1.79-.47-2.43a4.9 4.9 0 0 0-1.15-1.77 4.9 4.9 0 0 0-1.77-1.15c-.64-.25-1.37-.42-2.43-.47C15.06 2.01 14.72 2 12 2Zm0 1.8c2.67 0 2.99.01 4.04.06.98.04 1.5.2 1.86.34.47.18.8.4 1.15.75.35.35.57.68.75 1.15.14.36.3.88.34 1.86.05 1.05.06 1.37.06 4.04s-.01 2.99-.06 4.04c-.04.98-.2 1.5-.34 1.86-.18.47-.4.8-.75 1.15-.35.35-.68.57-1.15.75-.36.14-.88.3-1.86.34-1.05.05-1.37.06-4.04.06s-2.99-.01-4.04-.06c-.98-.04-1.5-.2-1.86-.34a3.1 3.1 0 0 1-1.15-.75 3.1 3.1 0 0 1-.75-1.15c-.14-.36-.3-.88-.34-1.86C3.81 14.99 3.8 14.67 3.8 12s.01-2.99.06-4.04c.04-.98.2-1.5.34-1.86.18-.47.4-.8.75-1.15.35-.35.68-.57 1.15-.75.36-.14.88-.3 1.86-.34C9.01 3.81 9.33 3.8 12 3.8Zm0 3.05a5.15 5.15 0 1 0 0 10.3 5.15 5.15 0 0 0 0-10.3Zm0 8.5a3.35 3.35 0 1 1 0-6.7 3.35 3.35 0 0 1 0 6.7Zm5.35-8.7a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg>
-      <span>اینستاگرام</span>
-    </a>
-  </nav>
-
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
