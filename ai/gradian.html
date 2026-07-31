@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+    <title>گرادیان نزولی چیست و چرا شبکه‌ها یاد می‌گیرند؟ | مجله‌ی هوش مصنوعی</title>
+
+    <meta name="description"
+        content="نگاهی ساده و تصویری به الگوریتمی که پشت یادگیری تقریباً هر مدل هوش مصنوعی است؛ گرادیان نزولی چطور خطای مدل را کم‌کم کاهش می‌دهد و شبکه‌های عصبی را یاد می‌دهد.">
+    <meta name="keywords"
+        content="گرادیان نزولی, Gradient Descent, یادگیری ماشین, شبکه عصبی, نرخ یادگیری, پس‌انتشار خطا, بهینه‌سازی, یادگیری عمیق">
+    <meta name="author" content="تحریریه‌ی مجله‌ی هوش مصنوعی">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="مجله‌ی هوش مصنوعی">
+    <meta property="og:title" content="گرادیان نزولی چیست و چرا شبکه‌ها یاد می‌گیرند؟">
+    <meta property="og:description"
+        content="نگاهی ساده و تصویری به الگوریتمی که پشت یادگیری تقریباً هر مدل هوش مصنوعی است.">
+    <meta property="og:image:alt" content="گرادیان نزولی">
+    <meta property="og:locale" content="fa_IR">
+
+    <meta property="article:section" content="مفاهیم پایه">
+    <meta property="article:tag" content="گرادیان نزولی">
+    <meta property="article:tag" content="یادگیری ماشین">
+    <meta property="article:tag" content="شبکه عصبی">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="گرادیان نزولی چیست و چرا شبکه‌ها یاد می‌گیرند؟">
+    <meta name="twitter:description"
+        content="نگاهی ساده و تصویری به الگوریتمی که پشت یادگیری تقریباً هر مدل هوش مصنوعی است.">
+
+
+
+
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "مقاله‌ی Attention Is All You Need چیست؟",
+      "acceptedAnswer": { "@type": "Answer", "text": "این مقاله در سال ۲۰۱۷ توسط پژوهشگران گوگل منتشر شد و معماری ترنسفورمر را معرفی کرد؛ معماری‌ای که به‌جای شبکه‌های بازگشتی، صرفاً بر مکانیزم توجه تکیه دارد." }
+    },
+    {
+      "@type": "Question",
+      "name": "مکانیزم توجه (Attention) چه کاری انجام می‌دهد؟",
+      "acceptedAnswer": { "@type": "Answer", "text": "مکانیزم توجه به مدل اجازه می‌دهد در پردازش هر بخش از ورودی، میزان اهمیت سایر بخش‌ها را بسنجد و بر اساس آن، ارتباط میان کلمات را در هر فاصله‌ای درک کند." }
+    },
+    {
+      "@type": "Question",
+      "name": "چرا ترنسفورمر جایگزین شبکه‌های بازگشتی (RNN) شد؟",
+      "acceptedAnswer": { "@type": "Answer", "text": "ترنسفورمر برخلاف RNN می‌تواند تمام بخش‌های ورودی را به‌صورت موازی پردازش کند، که هم آموزش را سریع‌تر می‌کند و هم وابستگی‌های طولانی‌مدت را بهتر یاد می‌گیرد." }
+    },
+    {
+      "@type": "Question",
+      "name": "ارتباط این مقاله با مدل‌های زبانی بزرگ مانند GPT چیست؟",
+      "acceptedAnswer": { "@type": "Answer", "text": "معماری ترنسفورمر معرفی‌شده در این مقاله، پایه‌ی اصلی مدل‌های زبانی بزرگ امروزی از جمله خانواده‌ی GPT، BERT و بسیاری مدل‌های دیگر است." }
+    }
+  ]
+}
+</script>
+
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        html[data-theme="light"] {
+            --ink: #faf3e2;
+            --surface: #fffbf1;
+            --surface-2: #f5ecd6;
+            --surface-3: #ecdec0;
+            --line: #e1d1a8;
+            --line-soft: #eee1c2;
+            --text: #2b2013;
+            --text-dim: #5c4f36;
+            --text-faint: #8a7a56;
+            --amber: #c17d15;
+            --amber-dim: #8a5c10;
+            --cyan: #0f8f80;
+            --cyan-dim: #0b6a5e;
+            --violet: #6a5cd1;
+            --red: #c94a3d;
+        }
+
+        body.hc-mode {
+            --line: #666;
+            --line-soft: #444;
+        }
+
+        body.hc-mode[data-theme-root="dark"],
+        html[data-theme="dark"] body.hc-mode {
+            --ink: #000;
+            --surface: #0a0a0a;
+            --surface-2: #161616;
+            --surface-3: #202020;
+            --text: #ffffff;
+            --text-dim: #f0f0f0;
+            --text-faint: #cfcfcf;
+            --amber: #ffcc55;
+            --cyan: #5be6d6;
+        }
+
+        html[data-theme="light"] body.hc-mode {
+            --ink: #ffffff;
+            --surface: #ffffff;
+            --surface-2: #f0f0f0;
+            --surface-3: #e6e6e6;
+            --text: #000000;
+            --text-dim: #101010;
+            --text-faint: #333333;
+            --amber: #8a5200;
+            --cyan: #046058;
+        }
+
+        body {
+            transition: background .25s ease, color .25s ease;
+            position: relative;
+        }
+
+
+
+        .page-container {
+            position: relative;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 clamp(16px, 4vw, 48px);
+        }
+
+
+        .read-progress {
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 3px;
+            z-index: 80;
+            background: transparent;
+        }
+
+        .read-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--amber), var(--cyan));
+            transition: width .1s linear;
+        }
+
+
+        .art-header {
+            position: sticky;
+            top: 0;
+            z-index: 60;
+            border-bottom: 1px solid var(--line-soft);
+            background: color-mix(in srgb, var(--ink) 88%, transparent);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 14px clamp(16px, 4vw, 48px);
+        }
+
+        .art-header a.back {
+
+            font-size: 12.5px;
+            color: var(--text-dim);
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 7px 12px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+        }
+
+        .art-header a.back:hover {
+            color: var(--text);
+            border-color: var(--cyan);
+        }
+
+        .art-header .cat-badge {
+            margin-left: auto;
+
+            font-size: 16px;
+            color: var(--cyan);
+            flex-shrink: 0;
+        }
+
+        .art-header .theme-switch {
+            flex-shrink: 0;
+        }
+
+        [data-theme="light"] .theme-switch::before {
+            transform: translateX(-22px);
+            background: linear-gradient(155deg, #2a2f3b, #12141a);
+        }
+
+        .theme-switch[aria-pressed="true"]::before {
+            transform: translateX(-22px);
+            background: linear-gradient(155deg, #2a2f3b, #12141a);
+        }
+
+        #hcToggle::before {
+            transform: translateX(-22px);
+            background: linear-gradient(155deg, var(--text-faint), #4a4f5c);
+        }
+
+        #hcToggle[aria-pressed="true"] {
+            background: #1f7a4d;
+            border-color: #1f7a4d;
+        }
+
+        #hcToggle[aria-pressed="true"]::before {
+            transform: translateX(0);
+            background: #ffffff;
+            box-shadow: 0 0 0 1px #1f7a4d;
+        }
+
+        .art-banner {
+            margin-top: 24px;
+            border-radius: var(--radius-l);
+            overflow: hidden;
+            border: 1px solid var(--line-soft);
+            box-shadow: var(--shadow-2);
+        }
+
+        .art-banner img {
+            width: 100%;
+            max-height: 420px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .art-layout {
+            display: grid;
+            grid-template-columns: 1fr 260px;
+            gap: 44px;
+            align-items: start;
+            margin-top: 34px;
+            padding-bottom: 80px;
+        }
+
+        .art-main {
+            min-width: 0;
+            font-size: calc(16px * var(--reader-scale, 1));
+        }
+
+        .art-main,
+        .art-main p,
+        .art-main li {
+            color: var(--reader-text, var(--text-dim));
+        }
+
+        .art-title {
+            color: var(--text) !important;
+        }
+
+        .art-title {
+            font-size: clamp(24px, calc(3vw * var(--reader-scale, 1)), 36px);
+            font-weight: 900;
+            line-height: 1.45;
+            margin: 0 0 16px;
+        }
+
+        .ai-sum-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+            background: var(--surface);
+            border: 1px solid var(--line-soft);
+            border-radius: var(--radius-m);
+            padding: 12px 14px;
+        }
+
+        .ai-sum-row .lbl {
+
+            font-size: 16px;
+            color: var(--text-dim);
+            margin-left: 4px;
+        }
+
+        .ai-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: var(--surface-2);
+            color: var(--text-dim);
+
+            font-size: 11.5px;
+            font-weight: 700;
+            transition: .15s ease;
+
+            img {
+                width: 32px;
+                aspect-ratio: 1;
+                border-radius: 50%;
+            }
+        }
+
+        .ai-btn:hover {
+            border-color: var(--cyan);
+            color: var(--text);
+        }
+
+        .art-meta {
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 16px;
+            color: var(--text-dim);
+            margin-bottom: 26px;
+            flex-direction: row;
+
+            img {
+                max-width: 24px;
+                aspect-ratio: 1;
+
+            }
+        }
+
+        html[data-theme="dark"] {
+            .art-meta img {
+                filter: brightness(7) contrast(0.9);
+            }
+
+            .share-Btn img {
+                filter: brightness(1.4) contrast(0.9) !important;
+
+            }
+        }
+
+        .art-meta .sep {
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: var(--text-faint);
+        }
+
+        .art-toc-side {
+            position: sticky;
+            top: 86px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .art-toc {
+            background: var(--surface);
+            border: 1px solid var(--line-soft);
+            border-radius: var(--radius-m);
+        }
+
+        .art-toc summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 13px 15px;
+            font-weight: 700;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+        }
+
+        .art-toc summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .art-toc summary .chev {
+            margin-right: auto;
+            color: var(--text-faint);
+            transition: transform .2s ease;
+            font-size: 12px;
+        }
+
+        .art-toc[open] summary .chev {
+            transform: rotate(90deg);
+        }
+
+        .art-toc ul {
+            list-style: none;
+            margin: 0;
+            padding: 0 15px 13px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .art-toc ul a {
+            display: block;
+            padding: 6px 8px;
+            border-radius: 6px;
+            font-size: 12.5px;
+            color: var(--text-dim);
+        }
+
+        .art-toc ul a:hover {
+            background: var(--surface-2);
+            color: var(--text);
+        }
+
+        .art-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .art-tags a {
+            display: inline-flex;
+            align-items: center;
+
+            font-size: 11.5px;
+            font-weight: 600;
+            color: var(--text);
+            background: var(--surface-2);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 6px 12px;
+        }
+
+        .art-tags a:hover {
+            border-color: var(--amber);
+            color: var(--amber);
+        }
+
+        .art-body p {
+            line-height: 1.95;
+            margin: 0 0 16px;
+        }
+
+        .art-section {
+            border-top: 1px solid var(--line-soft);
+            padding: 22px 0;
+        }
+
+        .art-section:first-child {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .sec-toggle {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: flex-start;
+            background: var(--surface);
+            border: 1px solid var(--line-soft);
+            border-radius: var(--radius-m);
+            text-align: right;
+            padding: 13px 16px;
+            margin-bottom: 14px;
+            transition: background .2s ease, border-color .2s ease;
+        }
+
+        .sec-toggle:hover {
+            border-color: var(--line);
+        }
+
+        .sec-toggle[aria-expanded="false"] {
+            background: var(--surface-2);
+        }
+
+        .sec-toggle h2 {
+            font-size: calc(17px * var(--reader-scale, 1));
+            font-weight: 800;
+            margin: 0;
+            color: var(--text);
+        }
+
+        .sec-toggle .chev {
+            order: -1;
+            font-size: 16px;
+            color: var(--text-faint);
+            transition: transform .25s ease;
+            flex-shrink: 0;
+        }
+
+        .sec-toggle[aria-expanded="false"] .chev {
+            transform: rotate(-90deg);
+        }
+
+        .sec-content {
+            display: grid;
+            grid-template-rows: 1fr;
+            overflow: hidden;
+            transition: grid-template-rows .3s ease;
+        }
+
+        .sec-content>div {
+            overflow: hidden;
+        }
+
+        .art-section:has(.sec-toggle[aria-expanded="false"]) .sec-content {
+            grid-template-rows: 0fr;
+        }
+
+        .art-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 18px 0;
+            font-size: 13.5px;
+        }
+
+        .art-table th,
+        .art-table td {
+            padding: 10px 12px;
+            border: 1px solid var(--line-soft);
+            text-align: right;
+        }
+
+        .art-table th {
+            background: var(--surface-2);
+
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+
+        .art-table tr:nth-child(even) td {
+            background: color-mix(in srgb, var(--surface) 60%, transparent);
+        }
+
+        .art-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px;
+            margin: 34px 0 16px;
+            background: var(--surface);
+            border: 1px solid var(--line-soft);
+            border-radius: var(--radius-m);
+        }
+
+        .art-author .avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            background: conic-gradient(from 140deg, var(--amber), var(--cyan));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-weight: 700;
+            color: #14171c;
+        }
+
+        .art-author b {
+            display: block;
+            font-size: 14px;
+            color: var(--text);
+        }
+
+        .art-author span {
+            font-size: 12px;
+            color: var(--text-faint);
+        }
+
+        .art-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 0 0 30px;
+
+            img {
+                max-width: 32px;
+                aspect-ratio: 1;
+            }
+        }
+
+        .art-actions button,
+        .art-actions a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-family: var(--font-body);
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            color: var(--text-dim);
+            background: var(--surface);
+            transition: border-color .2s ease, color .2s ease;
+        }
+
+        .art-actions button:hover,
+        .art-actions a:hover {
+            color: var(--text);
+            border-color: var(--text-faint);
+        }
+
+        .art-actions button.liked {
+            color: #ff6b6b;
+            border-color: #ff6b6b;
+        }
+
+        .art-faq {
+            margin: 36px 0;
+        }
+
+        .art-faq h2 {
+            font-size: 19px;
+            font-weight: 800;
+            margin-bottom: 14px;
+            color: var(--text);
+        }
+
+        .art-faq details {
+            border-top: 1px solid var(--line-soft);
+            padding: 14px 0;
+        }
+
+        .art-faq summary {
+            list-style: none;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--text);
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .art-faq summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .art-faq summary::after {
+            content: "+";
+            color: var(--amber);
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .art-faq details[open] summary::after {
+            content: "−";
+        }
+
+        .art-faq p {
+            color: var(--text-dim);
+            font-size: 13.5px;
+            margin-top: 10px;
+            line-height: 1.9;
+        }
+
+        .art-pager {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin: 32px 0;
+        }
+
+        .art-pager a {
+            background: var(--surface);
+            border: 1px solid var(--line-soft);
+            border-radius: var(--radius-m);
+            padding: 14px 16px;
+        }
+
+        .art-pager span {
+            display: block;
+
+            font-size: 11px;
+            color: var(--text-faint);
+            margin-bottom: 6px;
+        }
+
+        .art-pager b {
+            font-size: 13.5px;
+            color: var(--text);
+        }
+
+        .art-pager .next {
+            text-align: left;
+        }
+
+        .art-related h2 {
+            font-size: 19px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .related-grid a {
+            background: var(--surface);
+            border: 1px solid var(--line-soft);
+            border-radius: var(--radius-m);
+            overflow: hidden;
+            display: block;
+        }
+
+        .related-grid a:hover {
+            border-color: var(--line);
+        }
+
+        .related-grid .thumb {
+            height: 110px;
+            position: relative;
+            background: repeating-linear-gradient(115deg, color-mix(in srgb, var(--accent) 22%, transparent) 0 2px, transparent 2px 14px),
+                linear-gradient(155deg, var(--surface-3), var(--surface-2));
+        }
+
+        .related-grid .thumb .glyph {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            opacity: .55;
+            color: var(--accent);
+        }
+
+        .related-grid .info {
+            padding: 12px 14px;
+        }
+
+        .related-grid .tag {
+
+            font-size: 10.5px;
+            color: var(--cyan);
+        }
+
+        .related-grid b {
+            display: block;
+            font-size: 13px;
+            margin-top: 6px;
+            line-height: 1.6;
+            color: var(--text);
+        }
+
+        .art-comments {
+            margin: 40px 0 0;
+        }
+
+        .art-comments h2 {
+            font-size: 19px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .art-comments textarea {
+            width: 100%;
+            min-height: 90px;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-m);
+            color: var(--text);
+            padding: 12px;
+            font-family: inherit;
+            font-size: 13.5px;
+            resize: vertical;
+        }
+
+        .art-comments textarea:focus {
+            outline: none;
+            border-color: var(--amber);
+        }
+
+        .art-comments button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            background: var(--amber);
+            color: #1a1200;
+        }
+
+        .comment-list {
+            margin-top: 26px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .comment-item {
+            display: flex;
+            gap: 12px;
+        }
+
+        .comment-item .avatar {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--surface-3);
+            flex-shrink: 0;
+        }
+
+        .comment-item .bubble {
+            background: var(--surface);
+            border: 1px solid var(--line-soft);
+            border-radius: var(--radius-m);
+            padding: 10px 14px;
+            flex: 1;
+        }
+
+        .comment-item b {
+            font-size: 12.5px;
+            color: var(--text);
+        }
+
+        .comment-item p {
+            font-size: 13px;
+            color: var(--text-dim);
+            margin: 4px 0 0;
+        }
+
+        @media (max-width:980px) {
+            .art-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .art-toc-side {
+                position: static;
+                order: -1;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .a11y-fab {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 70;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: var(--amber);
+            color: #1a1200;
+            border: none;
+            box-shadow: var(--shadow-2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .a11y-fab svg {
+            width: 26px;
+            height: 26px;
+        }
+
+        .a11y-panel {
+            display: none;
+            position: fixed;
+            bottom: 82px;
+            left: 20px;
+            z-index: 7000;
+            width: 300px;
+            max-height: min(76vh, 560px);
+            overflow-y: auto;
+            background: var(--surface);
+            border: 1px solid var(--line-soft);
+            border-radius: var(--radius-l);
+            padding: 18px;
+            box-shadow: var(--shadow-2);
+
+            flex-direction: column;
+            gap: 16px;
+
+
+        }
+
+        .a11y-panel.open {
+            display: block !important;
+        }
+
+        .a11y-panel h3 {
+            font-size: 13.5px;
+            margin: 0;
+            color: var(--text);
+        }
+
+        .a11y-row {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .a11y-row .row-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .a11y-row label {
+            font-size: 12.5px;
+            color: var(--text-dim);
+        }
+
+        .a11y-row .value {
+
+            font-size: 12px;
+            color: var(--amber);
+            background: var(--surface-2);
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+
+        .a11y-row input[type="range"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 100%;
+            height: 5px;
+            border-radius: 3px;
+            background: var(--surface-3);
+            outline: none;
+        }
+
+        .a11y-row input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            background: var(--amber);
+            border: 3px solid var(--ink);
+            box-shadow: 0 0 0 1px var(--amber);
+            cursor: pointer;
+        }
+
+        .a11y-row select {
+            background: var(--surface-2);
+            border: 1px solid var(--line);
+            color: var(--text);
+            border-radius: 8px;
+            padding: 8px 10px;
+            font-size: 12.5px;
+        }
+
+        .a11y-color-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .a11y-color-row input[type="color"] {
+            width: 38px;
+            height: 32px;
+            border-radius: 8px;
+            border: 1px solid var(--line);
+            background: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .a11y-color-row button {
+            font-size: 11.5px;
+            color: var(--text-faint);
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 6px 12px;
+            background: var(--surface-2);
+        }
+
+        .a11y-hc-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .a11y-reset {
+            text-align: center;
+            font-size: 12px;
+            color: #000;
+
+            padding-top: 12px;
+        }
+
+        .a11y-reset:hover {
+            color: var(--text-dim);
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 70;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 1px solid var(--line);
+            color: var(--text);
+            font-size: 18px;
+            box-shadow: var(--shadow-1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: opacity .2s ease, transform .2s ease, visibility .2s;
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        body.reader-bg-custom {
+            background: var(--reader-bg-custom) !important;
+        }
+    </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "گرادیان نزولی چیست؟",
+      "acceptedAnswer": { "@type": "Answer", "text": "گرادیان نزولی الگوریتمی برای کمینه‌کردن تابع خطا با حرکت گام‌به‌گام در جهت مخالف شیب تابع است." }
+    },
+    {
+      "@type": "Question",
+      "name": "چرا شبکه‌های عصبی به گرادیان نزولی نیاز دارند؟",
+      "acceptedAnswer": { "@type": "Answer", "text": "این الگوریتم به شبکه اجازه می‌دهد وزن‌ها را طوری تنظیم کند که خطای پیش‌بینی در طول آموزش کاهش یابد." }
+    },
+    {
+      "@type": "Question",
+      "name": "تفاوت نرخ یادگیری بالا و پایین چیست؟",
+      "acceptedAnswer": { "@type": "Answer", "text": "نرخ یادگیری بالا می‌تواند باعث ناپایداری آموزش شود و نرخ پایین باعث کند شدن بیش‌ازحد همگرایی می‌شود." }
+    },
+    {
+      "@type": "Question",
+      "name": "آیا گرادیان نزولی همیشه به جواب بهینه می‌رسد؟",
+      "acceptedAnswer": { "@type": "Answer", "text": "نه لزوماً؛ در توابع غیرمحدب ممکن است در یک کمینه‌ی محلی گیر کند، هرچند در عمل برای شبکه‌های عمیق معمولاً نتایج خوبی می‌دهد." }
+    }
+  ]
+}
+</script>
+
+</head>
+
+<body data-reader-font="default">
+
+    <div class="read-progress">
+        <div class="read-progress-bar" id="progressBar"></div>
+    </div>
+
+    <header class="art-header">
+        <div class="header-inner page-container">
+            <a class="back" href="index.html">→ بازگشت به مجله</a>
+            <span class="cat-badge">مفاهیم پایه</span>
+            <button class="theme-switch" id="themeSwitch" aria-label="تغییر تم روشن/تاریک" aria-pressed="false">
+                <span class="ts-icon"><span>☀</span><span>☾</span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="page-container">
+        <div class="art-banner">
+            <img src="./photo/logo-header.png" alt="گرادیان نزولی">
+        </div>
+
+        <div class="art-layout">
+            <main class="art-main">
+                <h1 class="art-title">گرادیان نزولی چیست و چرا شبکه‌ها یاد می‌گیرند؟</h1>
+
+                <div class="ai-sum-row">
+                    <span class="lbl">خلاصه این مقاله با هوش مصنوعی:</span>
+                    <button class="ai-btn" data-ai="deepseek">
+                        <img src="./photo/deepseek-logo.webp" alt="deepseek logo">
+                        <p>deepseek</p>
+                    </button>
+                    <button class="ai-btn" data-ai="chatgpt">
+                        <img src="./photo/chatgpt-logo.webp" alt="ChatGPT logo">
+                        <p>ChatGPT</p>
+                    </button>
+                    <button class="ai-btn" data-ai="grok">
+                        <img src="./photo/grok-logo.webp" alt="Grok logo">
+                        <p>Grok</p>
+                    </button>
+                    <button class="ai-btn" data-ai="gemini">
+                        <img src="./photo/gemeni-logo.webp" alt="Gemini logo">
+                        <p>Gemini</p>
+                    </button>
+                </div>
+
+                <div class="art-meta">
+                    <p>مطالعه کامل این مقاله:</p>
+                    <img src="./photo/timer-svgrepo-com.svg" alt="timer logo" srcset="">
+                    <span> <bdi class="num" id="readTime"></bdi> دقیقه </span>
+                </div>
+
+                <div class="art-body" id="articleContent">
+                    <section class="art-section" id="sec1">
+                        <button class="sec-toggle" aria-expanded="true">
+                            <h2>گرادیان نزولی چیست؟</h2><span class="chev">⌄</span>
+                        </button>
+                        <div class="sec-content">
+                            <div>
+                                <p>تصور کنید در دل مه، روی یک تپه ایستاده‌اید و می‌خواهید به پایین‌ترین نقطه‌ی دره
+                                    برسید، اما فقط می‌توانید شیب زیر پای خودتان را حس کنید. منطقی‌ترین کار این است که در
+                                    هر قدم، در جهتی حرکت کنید که بیشترین سرازیری را دارد. گرادیان نزولی دقیقاً همین کار
+                                    را برای یک مدل هوش مصنوعی انجام می‌دهد.</p>
+
+                                <p>در یادگیری ماشین، «دره» همان تابع خطا (Loss Function) است؛ یعنی معیاری که نشان می‌دهد
+                                    پیش‌بینی‌های مدل چقدر با پاسخ درست فاصله دارد. گرادیان نزولی الگوریتمی است که در هر
+                                    گام، جهت بیشترین کاهش این خطا را محاسبه می‌کند و پارامترهای مدل (وزن‌ها) را کمی در
+                                    همان جهت جابه‌جا می‌کند تا خطا کم‌وکم کوچک‌تر شود.</p>
+
+                                <table class="art-table">
+                                    <thead>
+                                        <tr>
+                                            <th>مفهوم</th>
+                                            <th>نماد</th>
+                                            <th>توضیح کوتاه</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>وزن</td>
+                                            <td>w</td>
+                                            <td>پارامتر قابل یادگیری</td>
+                                        </tr>
+                                        <tr>
+                                            <td>گرادیان</td>
+                                            <td>∇</td>
+                                            <td>جهت بیشترین افزایش خطا</td>
+                                        </tr>
+                                        <tr>
+                                            <td>نرخ یادگیری</td>
+                                            <td>η</td>
+                                            <td>اندازه‌ی هر گام به‌روزرسانی</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="art-section" id="sec2">
+                        <button class="sec-toggle" aria-expanded="true">
+                            <h2>نرخ یادگیری و اهمیت آن</h2><span class="chev">⌄</span>
+                        </button>
+                        <div class="sec-content">
+                            <div>
+                                <p>اندازه‌ی هر قدمی که مدل در جهت کاهش خطا برمی‌دارد، با پارامتری به نام «نرخ یادگیری»
+                                    (Learning Rate) کنترل می‌شود. اگر این نرخ خیلی بزرگ باشد، مدل ممکن است از کنار
+                                    کمینه‌ی مطلوب رد شود و هرگز به آن نرسد؛ درست مثل کسی که قدم‌های بلند برمی‌دارد و از
+                                    روی پایین‌ترین نقطه‌ی دره می‌پرد.</p>
+
+                                <p>در مقابل، اگر نرخ یادگیری خیلی کوچک باشد، مدل با قدم‌های بسیار ریز حرکت می‌کند و
+                                    آموزش آن به‌شدت کند می‌شود؛ حتی ممکن است پیش از رسیدن به جواب خوب، زمان یا منابع
+                                    محاسباتی تمام شود. به همین دلیل، انتخاب نرخ یادگیری مناسب یکی از مهم‌ترین تنظیمات در
+                                    آموزش هر مدل یادگیری عمیق است.</p>
+
+                                <table class="art-table">
+                                    <thead>
+                                        <tr>
+                                            <th>نرخ یادگیری</th>
+                                            <th>رفتار آموزش</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>خیلی بزرگ</td>
+                                            <td>ناپایداری و نوسان شدید خطا</td>
+                                        </tr>
+                                        <tr>
+                                            <td>مناسب</td>
+                                            <td>کاهش تدریجی و پایدار خطا</td>
+                                        </tr>
+                                        <tr>
+                                            <td>خیلی کوچک</td>
+                                            <td>همگرایی بسیار کند</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="art-section" id="sec3">
+                        <button class="sec-toggle" aria-expanded="true">
+                            <h2>انواع گرادیان نزولی</h2><span class="chev">⌄</span>
+                        </button>
+                        <div class="sec-content">
+                            <div>
+                                <p>در عمل، گرادیان نزولی به چند شکل مختلف پیاده‌سازی می‌شود که تفاوت اصلی آن‌ها در میزان
+                                    داده‌ای است که در هر گام برای محاسبه‌ی خطا استفاده می‌شود. نسخه‌ی «دسته‌ای» (Batch)
+                                    از کل داده‌های آموزشی در هر گام استفاده می‌کند که دقیق اما کند است.</p>
+
+                                <p>نسخه‌ی «تصادفی» (Stochastic) در هر گام فقط یک نمونه را بررسی می‌کند که سرعت بالایی
+                                    دارد اما نوسان بیشتری در مسیر آموزش ایجاد می‌کند. نسخه‌ی «مینی‌بچ» (Mini-batch) که
+                                    امروزه رایج‌ترین روش است، حد وسطی از این دو را ارائه می‌دهد: در هر گام یک
+                                    زیرمجموعه‌ی
+                                    کوچک از داده‌ها را پردازش می‌کند.</p>
+
+                                <table class="art-table">
+                                    <thead>
+                                        <tr>
+                                            <th>نوع</th>
+                                            <th>سرعت</th>
+                                            <th>پایداری</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Batch</td>
+                                            <td>کند</td>
+                                            <td>بالا</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Stochastic</td>
+                                            <td>سریع</td>
+                                            <td>پایین</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Mini-batch</td>
+                                            <td>متعادل</td>
+                                            <td>متعادل</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <a href="#" class="art-author">
+                    <div class="avatar">تح</div>
+                    <div class="author-info"><b>تحریریه‌ی مجله‌ی هوش مصنوعی</b><span>مشاهده‌ی پروفایل نویسنده ↗</span>
+                    </div>
+                </a>
+
+                <div class="art-actions">
+                    <button id="likeBtn">🤍 <span id="likeCount">۱۲۸</span></button>
+                    <button id="shareBtn" class="share-Btn">
+                        <img src="./photo/share-svgrepo-com.svg" alt="share logo"> اشتراک‌گذاری</button>
+                    <a id="telegramBtn" href="#" target="_blank" rel="noopener">
+                        <img src="./photo/telegram-svgrepo-com.svg" alt="telegram logo" srcset=""> ارسال در تلگرام</a>
+                </div>
+
+                <section class="art-faq">
+                    <h2>سوالات متداول</h2>
+                    <details open>
+                        <summary>گرادیان نزولی چیست؟</summary>
+                        <p>گرادیان نزولی الگوریتمی برای کمینه‌کردن تابع خطا با حرکت گام‌به‌گام در جهت مخالف شیب تابع
+                            است.</p>
+                    </details>
+                    <details>
+                        <summary>چرا شبکه‌های عصبی به گرادیان نزولی نیاز دارند؟</summary>
+                        <p>این الگوریتم به شبکه اجازه می‌دهد وزن‌ها را طوری تنظیم کند که خطای پیش‌بینی در طول آموزش کاهش
+                            یابد.</p>
+                    </details>
+                    <details>
+                        <summary>تفاوت نرخ یادگیری بالا و پایین چیست؟</summary>
+                        <p>نرخ یادگیری بالا می‌تواند باعث ناپایداری آموزش شود و نرخ پایین باعث کند شدن بیش‌ازحد همگرایی
+                            می‌شود.</p>
+                    </details>
+                    <details>
+                        <summary>آیا گرادیان نزولی همیشه به جواب بهینه می‌رسد؟</summary>
+                        <p>نه لزوماً؛ در توابع غیرمحدب ممکن است در یک کمینه‌ی محلی گیر کند، هرچند در عمل نتایج خوبی
+                            می‌دهد.</p>
+                    </details>
+                </section>
+
+                <div class="art-pager">
+                    <a class="prev" href="#"><span>مقاله‌ی قبلی</span><b>← کنفرانس دارتموث ۱۹۵۶</b></a>
+                    <a class="next" href="#"><span>مقاله‌ی بعدی</span><b>مکانیزم توجه (Attention) →</b></a>
+                </div>
+
+                <section class="art-related">
+                    <h2>مقاله‌های مرتبط</h2>
+                    <div class="related-grid">
+                        <a href="#" style="--accent:#8b7cf6">
+                            <div class="thumb"><span class="glyph">🧠</span></div>
+                            <div class="info"><span class="tag">شبکه‌های عصبی</span><b>پرسپترون چندلایه چیست؟</b></div>
+                        </a>
+                        <a href="#" style="--accent:#f2a93b">
+                            <div class="thumb"><span class="glyph">⚡</span></div>
+                            <div class="info"><span class="tag">مفاهیم پایه</span><b>تابع فعال‌سازی و بایاس</b></div>
+                        </a>
+                        <a href="#" style="--accent:#46d6c6">
+                            <div class="thumb"><span class="glyph">↺</span></div>
+                            <div class="info"><span class="tag">یادگیری عمیق</span><b>پس‌انتشار خطا به زبان ساده</b>
+                            </div>
+                        </a>
+                    </div>
+                </section>
+
+                <section class="art-comments">
+                    <h2>نظرات (<bdi class="num">۰</bdi>)</h2>
+                    <form id="commentForm">
+                        <textarea id="commentInput" placeholder="نظر خود را بنویسید…" required></textarea>
+                        <button type="submit">ارسال نظر</button>
+                    </form>
+                    <div class="comment-list" id="commentList"></div>
+                </section>
+            </main>
+
+            <aside class="art-toc-side">
+                <details class="art-toc" open>
+                    <summary>فهرست مطالب <span class="chev">›</span></summary>
+                    <ul>
+                        <li><a href="#sec1">گرادیان نزولی چیست؟</a></li>
+                        <li><a href="#sec2">نرخ یادگیری و اهمیت آن</a></li>
+                        <li><a href="#sec3">انواع گرادیان نزولی</a></li>
+                    </ul>
+                </details>
+
+                <div class="art-tags">
+                    <a href="#">#گرادیان_نزولی</a>
+                    <a href="#">#یادگیری_ماشین</a>
+                    <a href="#">#شبکه_عصبی</a>
+                    <a href="#">#بهینه‌سازی</a>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <button class="a11y-fab" id="a11yFab" aria-label="تنظیمات دسترسی‌پذیری" aria-expanded="false">
+        <svg viewBox="0 0 100 100" fill="currentColor" aria-hidden="true">
+            <circle cx="50" cy="18" r="10" />
+            <path d="M50 32c-16 0-29 3-29 10 0 5 6 8 15 9l3 34h8l2-24h2l2 24h8l3-34c9-1 15-4 15-9 0-7-13-10-29-10z" />
+        </svg>
+    </button>
+    <div class="a11y-panel" id="a11yPanel">
+        <h3>تنظیمات دسترسی‌پذیری</h3>
+
+        <div class="a11y-row">
+            <div class="row-head"><label>اندازه‌ی فونت</label><span class="value" id="fontSizeVal">۱۶px</span></div>
+            <input type="range" id="fontSizeSlider" min="14" max="56" step="1" value="16">
+        </div>
+
+        <div class="a11y-row">
+            <label>نوع فونت</label>
+            <select id="fontSelect">
+                <option value="default">پیش‌فرض (وزیرمتن)</option>
+                <option value="readable">خوانای ساده</option>
+            </select>
+        </div>
+
+        <div class="a11y-row">
+            <label>رنگ متن</label>
+            <div class="a11y-color-row">
+                <input type="color" id="textColorPicker" value="#eae8e1">
+                <button id="textColorReset">بازنشانی رنگ</button>
+            </div>
+        </div>
+
+        <div class="a11y-row">
+            <label>رنگ پس‌زمینه</label>
+            <div class="a11y-color-row">
+                <input type="color" id="bgColorPicker" value="#12141a">
+                <button id="bgColorReset">بازنشانی پس‌زمینه</button>
+            </div>
+        </div>
+
+        <div class="a11y-row">
+            <div class="a11y-hc-toggle">
+                <label>کنتراست بالا</label>
+                <button class="theme-switch" id="hcToggle" aria-pressed="false"></button>
+            </div>
+        </div>
+
+        <button class="a11y-reset" id="a11yReset">بازنشانی همه‌ی تنظیمات</button>
+    </div>
+
+    <button class="scroll-top" id="scrollTopBtn" aria-label="بازگشت به بالا">↑</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const contentEl = document.getElementById('articleContent');
+            const charCount = contentEl.textContent.replace(/\s+/g, ' ').trim().length;
+            const CHARS_PER_MINUTE = 900;
+            const minutes = Math.max(1, Math.round(charCount / CHARS_PER_MINUTE));
+            document.getElementById('readTime').textContent = minutes.toLocaleString('fa-IR');
+
+            const progressBar = document.getElementById('progressBar');
+            function updateProgress() {
+                const h = document.documentElement;
+                const scrolled = h.scrollTop;
+                const height = h.scrollHeight - h.clientHeight;
+                progressBar.style.width = height > 0 ? (scrolled / height * 100) + '%' : '0%';
+            }
+            document.addEventListener('scroll', updateProgress);
+            updateProgress();
+
+
+            const themeSwitch = document.getElementById('themeSwitch');
+            const savedTheme = localStorage.getItem('ai-mag-theme');
+            if (savedTheme) { document.documentElement.setAttribute('data-theme', savedTheme); }
+            themeSwitch.setAttribute('aria-pressed', document.documentElement.getAttribute('data-theme') === 'light');
+            themeSwitch.addEventListener('click', () => {
+                const next = document.documentElement.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+                document.documentElement.setAttribute('data-theme', next);
+                localStorage.setItem('ai-mag-theme', next);
+                themeSwitch.setAttribute('aria-pressed', next === 'light');
+            });
+
+
+            document.querySelectorAll('.sec-toggle').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const open = btn.getAttribute('aria-expanded') === 'true';
+                    btn.setAttribute('aria-expanded', String(!open));
+                });
+            });
+
+
+            const AI_BASE = {
+                deepseek: 'https://chat.deepseek.com/',
+                chatgpt: 'https://chat.openai.com/',
+                grok: 'https://grok.com/',
+                gemini: 'https://gemini.google.com/app',
+            };
+            document.querySelectorAll('.ai-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const pageUrl = window.location.href;
+                    const prompt = `این صفحه را خلاصه کن: ${pageUrl}`;
+                    const base = AI_BASE[btn.dataset.ai];
+                    window.open(base + '?q=' + encodeURIComponent(prompt), '_blank', 'noopener');
+                });
+            });
+
+
+            const root = document.documentElement;
+            const a11yFab = document.getElementById('a11yFab');
+            const a11yPanel = document.getElementById('a11yPanel');
+            const fontSizeSlider = document.getElementById('fontSizeSlider');
+            const fontSizeVal = document.getElementById('fontSizeVal');
+            const fontSelect = document.getElementById('fontSelect');
+            const textColorPicker = document.getElementById('textColorPicker');
+            const bgColorPicker = document.getElementById('bgColorPicker');
+            const hcToggle = document.getElementById('hcToggle');
+
+            a11yFab.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const open = a11yPanel.classList.toggle('open');
+                a11yFab.setAttribute('aria-expanded', open);
+            });
+            a11yPanel.addEventListener('click', (e) => e.stopPropagation());
+            document.addEventListener('click', () => {
+                if (a11yPanel.classList.contains('open')) {
+                    a11yPanel.classList.remove('open');
+                    a11yFab.setAttribute('aria-expanded', false);
+                }
+            });
+
+            function applyFontSize(px) {
+                px = Math.min(56, Math.max(14, px));
+                root.style.setProperty('--reader-scale', px / 16);
+                fontSizeSlider.value = px;
+                fontSizeVal.textContent = px.toLocaleString('fa-IR') + 'px';
+                localStorage.setItem('art-font-px', px);
+            }
+            function applyFontFamily(f) {
+                document.body.setAttribute('data-reader-font', f);
+                fontSelect.value = f;
+                localStorage.setItem('art-font-family', f);
+            }
+            function applyTextColor(hex) {
+                root.style.setProperty('--reader-text', hex);
+                textColorPicker.value = hex;
+                localStorage.setItem('art-text-color', hex);
+            }
+            function clearTextColor() {
+                root.style.removeProperty('--reader-text');
+                localStorage.removeItem('art-text-color');
+            }
+            function applyBgColor(hex) {
+                document.body.style.setProperty('--reader-bg-custom', hex);
+                document.body.classList.add('reader-bg-custom');
+                bgColorPicker.value = hex;
+                localStorage.setItem('art-bg-color', hex);
+            }
+            function clearBgColor() {
+                document.body.classList.remove('reader-bg-custom');
+                document.body.style.removeProperty('--reader-bg-custom');
+                localStorage.removeItem('art-bg-color');
+            }
+            function applyHC(on) {
+                document.body.classList.toggle('hc-mode', on);
+                hcToggle.setAttribute('aria-pressed', on);
+                localStorage.setItem('art-hc', on ? '1' : '0');
+            }
+
+            fontSizeSlider.addEventListener('input', () => applyFontSize(parseInt(fontSizeSlider.value)));
+            fontSelect.addEventListener('change', () => applyFontFamily(fontSelect.value));
+            textColorPicker.addEventListener('input', () => applyTextColor(textColorPicker.value));
+            document.getElementById('textColorReset').addEventListener('click', clearTextColor);
+            bgColorPicker.addEventListener('input', () => applyBgColor(bgColorPicker.value));
+            document.getElementById('bgColorReset').addEventListener('click', clearBgColor);
+            hcToggle.addEventListener('click', () => applyHC(!document.body.classList.contains('hc-mode')));
+
+            document.getElementById('a11yReset').addEventListener('click', () => {
+                localStorage.removeItem('art-font-px');
+                localStorage.removeItem('art-font-family');
+                localStorage.removeItem('art-text-color');
+                localStorage.removeItem('art-bg-color');
+                localStorage.removeItem('art-hc');
+                applyFontSize(16); applyFontFamily('default'); clearTextColor(); clearBgColor(); applyHC(false);
+            });
+
+
+            applyFontSize(parseInt(localStorage.getItem('art-font-px')) || 16);
+            applyFontFamily(localStorage.getItem('art-font-family') || 'default');
+            if (localStorage.getItem('art-text-color')) applyTextColor(localStorage.getItem('art-text-color'));
+            if (localStorage.getItem('art-bg-color')) applyBgColor(localStorage.getItem('art-bg-color'));
+            applyHC(localStorage.getItem('art-hc') === '1');
+
+
+            const likeBtn = document.getElementById('likeBtn');
+            const likeCount = document.getElementById('likeCount');
+            let liked = false, baseLikes = 128;
+            likeBtn.addEventListener('click', () => {
+                liked = !liked;
+                likeBtn.classList.toggle('liked', liked);
+                likeBtn.firstChild.textContent = liked ? '❤️ ' : '🤍 ';
+                likeCount.textContent = (baseLikes + (liked ? 1 : 0)).toLocaleString('fa-IR');
+            });
+
+            document.getElementById('shareBtn').addEventListener('click', async () => {
+                const shareData = { title: document.title, url: window.location.href };
+                if (navigator.share) { try { await navigator.share(shareData); } catch (e) { } }
+                else { await navigator.clipboard.writeText(window.location.href); alert('لینک مقاله کپی شد.'); }
+            });
+
+            const tgBtn = document.getElementById('telegramBtn');
+            tgBtn.href = 'https://t.me/share/url?url=' + encodeURIComponent(window.location.href) + '&text=' + encodeURIComponent(document.title);
+
+
+            document.getElementById('commentForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const input = document.getElementById('commentInput');
+                if (!input.value.trim()) return;
+                const item = document.createElement('div');
+                item.className = 'comment-item';
+                item.innerHTML = `<div class="avatar"></div><div class="bubble"><b>شما</b><p></p></div>`;
+                item.querySelector('p').textContent = input.value.trim();
+                document.getElementById('commentList').prepend(item);
+                input.value = '';
+            });
+
+
+            const scrollTopBtn = document.getElementById('scrollTopBtn');
+            window.addEventListener('scroll', () => {
+                scrollTopBtn.classList.toggle('show', window.scrollY > 500);
+            });
+            scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        });
+
+
+    </script>
+</body>
+
+</html>

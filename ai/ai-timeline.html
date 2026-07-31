@@ -442,12 +442,12 @@
     </div>
 
     <script>
-        // باز و بسته کردن جزئیات هر رویداد
+
         document.querySelectorAll('.tl-card').forEach(card => {
             card.addEventListener('click', () => card.classList.toggle('open'));
         });
 
-        // فیلتر بر اساس دوره
+
         const filterButtons = document.querySelectorAll('.tl-filters button');
         const items = document.querySelectorAll('.tl-item');
         filterButtons.forEach(btn => {

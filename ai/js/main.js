@@ -1,5 +1,3 @@
-
-// ---------- سوئیچ تم تاریک/روشن ----------
 const root = document.documentElement;
 const themeSwitch = document.getElementById('themeSwitch');
 const savedTheme = localStorage.getItem('ai-mag-theme');
@@ -13,7 +11,6 @@ themeSwitch.addEventListener('click', () => {
     themeSwitch.setAttribute('aria-pressed', next === 'light');
 });
 
-// ---------- جست‌وجو ----------
 const searchInput = document.getElementById('searchInput');
 const cards = Array.from(document.querySelectorAll('.article-card:not(.placeholder)'));
 const placeholderCard = document.querySelector('.article-card.placeholder');
@@ -43,7 +40,6 @@ searchInput.addEventListener('input', () => {
         link.classList.toggle('is-match', match);
     });
 });
-// ---------- منوی همبرگری موبایل ----------
 const hamburgerBtn = document.getElementById('hamburgerBtn');
 const sidebar = document.querySelector('.mag-sidebar');
 const overlay = document.getElementById('sidebarOverlay');
@@ -56,6 +52,3 @@ function toggleSidebar(open) {
 }
 hamburgerBtn.addEventListener('click', () => toggleSidebar(!sidebar.classList.contains('open')));
 overlay.addEventListener('click', () => toggleSidebar(false));
-
-// ---------- اسلایدر پیوسته‌ی تاریخچه (Swiper) ----------
-

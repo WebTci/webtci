@@ -1,12 +1,7 @@
-/* ==========================================================================
-   مجله تخصصی هوش مصنوعی — سیستم طراحی مشترک
-   پالت: زغالی-آبی تاریک + کهربایی سیگنال + فیروزه‌ای داده
-   ========================================================================== */
-
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 :root {
-    /* --- پالت اصلی (تیره / پیش‌فرض ابزارهای فنی) --- */
+
     --ink: #12141a;
     --surface: #191c24;
     --surface-2: #21252f;
@@ -42,9 +37,7 @@
     --shadow-2: 0 12px 32px -12px rgba(0, 0, 0, .55);
 }
 
-/* ---------------------------------------------------------------------- */
-/* پایه                                                                    */
-/* ---------------------------------------------------------------------- */
+
 *,
 *::before,
 *::after {
@@ -71,7 +64,7 @@ body {
     overflow-x: hidden;
 }
 
-/* بلاب‌های نوری بلورشده — پس‌زمینه‌ی متحرک بیانگر AI */
+
 body::before,
 body::after {
     content: "";
@@ -111,7 +104,6 @@ body::after {
     }
 }
 
-/* در تم روشن، بلاب‌ها کم‌رنگ‌تر تا خوانایی حفظ شود */
 html[data-theme="light"] body::before {
     opacity: .16;
 }
@@ -181,7 +173,6 @@ bdi.num,
     }
 }
 
-/* focus ring */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -191,9 +182,6 @@ input:focus-visible,
     border-radius: 4px;
 }
 
-/* ---------------------------------------------------------------------- */
-/* دکمه‌ی سوئیچ تم — قابل استفاده در همه صفحات                             */
-/* ---------------------------------------------------------------------- */
 .theme-switch {
     position: relative;
     width: 52px;
@@ -235,7 +223,6 @@ input:focus-visible,
     opacity: .65;
 }
 
-/* ===================== همبرگری موبایل ===================== */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -318,8 +305,6 @@ body.no-scroll {
     height: 100vh;
 }
 
-/* ===================== نوار جست‌وجو در هیرو ===================== */
-/* ===================== نوار جست‌وجو در هیرو ===================== */
 .hero-search {
     position: relative;
     width: 70%;
@@ -328,7 +313,6 @@ body.no-scroll {
     isolation: isolate;
 }
 
-/* نور دنباله‌دار که دقیقاً دور تا دور لبه‌ی نوار می‌چرخد */
 .hero-search-glow {
     position: absolute;
     inset: -5px;
@@ -345,13 +329,11 @@ body.no-scroll {
 .hero-search-glow::before {
     content: "";
     position: absolute;
-    /* بزرگ‌تر از خودِ باکس تا وقتی می‌چرخه گوشه خالی نمونه */
     inset: -75%;
     background: conic-gradient(from 0deg,
             transparent 0deg, transparent 250deg,
             var(--cyan) 292deg, var(--amber) 322deg, var(--cyan) 345deg, transparent 360deg);
     animation: heroGlowSpin 2.8s linear infinite;
-    /* rotate با transform روی همه مرورگرها از جمله موبایل کار می‌کنه (بر خلاف انیمیت‌کردن @property) */
     transform-origin: center;
 }
 
@@ -385,8 +367,6 @@ body.no-scroll {
     }
 }
 
-/* ===================== نوار افقی تاریخچه در هیرو ===================== */
-/* ===================== نوار افقی تاریخچه در هیرو ===================== */
 .hero-history-strip {
     position: relative;
     margin-top: 40px;
@@ -452,7 +432,6 @@ body.no-scroll {
     border-radius: 5px;
     transform: translateY(5px);
     background: var(--cyan);
-    /* border: 2px solid var(--cyan); */
     transition: background .2s ease, transform .2s ease;
 }
 
@@ -486,7 +465,6 @@ body.no-scroll {
     border-color: var(--amber);
 }
 
-/* ===================== دراپ‌داون سرفصل‌ها در هدر ===================== */
 .mag-navbar {
     display: flex;
     align-items: center;
@@ -571,7 +549,6 @@ body.no-scroll {
     }
 }
 
-/* ===================== ردیف بالای هیرو: متن + مدیا ===================== */
 .hero-top {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -587,11 +564,7 @@ body.no-scroll {
 .hero-media {
     position: relative;
     aspect-ratio: 4 / 3;
-    /* border-radius: var(--radius-l); */
     overflow: hidden;
-    /* border: 1px solid var(--line-soft); */
-    /* background: var(--surface-2); */
-    /* box-shadow: var(--shadow-2); */
 }
 
 .hero-media img,

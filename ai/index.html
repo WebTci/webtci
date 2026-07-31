@@ -7,11 +7,10 @@
     <title>مجله‌ی هوش مصنوعی — Magazine AI</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="./main.css">
-    <!-- cdn swiper js  برای اسلایدر ها کتابخانه -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.1.14/swiper-bundle.min.css">
     <link rel="shortcut icon" href="./photo/logo-favicon.png" type="image/x-icon">
     <style>
-        /* ===================== توکن‌های اختصاصی حالت روشن ===================== */
         [data-theme="light"] {
             --ink: var(--paper);
             --surface: #ffffff;
@@ -37,7 +36,7 @@
             margin: 0 auto;
         }
 
-        /* ===================== هدر ===================== */
+
         .mag-header {
             position: sticky;
             top: 0;
@@ -55,7 +54,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            /* margin-left: auto; */
+
             max-width: 300px;
             max-height: 50px;
 
@@ -278,7 +277,7 @@
             font-size: 12px;
         }
 
-        /* ===================== بدنه: سایدبار + مقالات ===================== */
+
         .mag-body {
             max-width: 1180px;
             margin: 40px auto 80px;
@@ -411,7 +410,7 @@
             color: var(--cyan);
         }
 
-        /* ===================== کارت‌های مقاله ===================== */
+
         .mag-main .toolbar {
             display: flex;
             align-items: baseline;
@@ -590,7 +589,7 @@
 
         }
 
-        /* ================slider */
+
         .banner-swiper {
             width: 100%;
             max-width: 1180px;
@@ -732,11 +731,7 @@
             </nav>
             <div class="mag-logo">
                 <img src="./photo/logo-header.png" alt="">
-                <!-- <div class="titles">
-                    <b>مجله‌ی هوش مصنوعی</b>
-                    <span>AI // دانش‌نامه و وبلاگ تخصصی</span>
-                </div>
-                <div class="mark">AI</div> -->
+
             </div>
         </div>
     </header>
@@ -918,7 +913,7 @@
             </div>
 
             <div class="article-grid" id="articleGrid">
-                <a href="./articles/turing.html" class="article-card"
+                <a href="./turing.html" class="article-card"
                     data-title="کنفرانس دارتموث ۱۹۵۶: لحظه‌ای که هوش مصنوعی نام گرفت" data-tags="تاریخچه دارتموث">
                     <div class="thumb" style="--accent:#f2a93b">
                         <span class="tag">تاریخچه</span>
@@ -936,7 +931,7 @@
                     </div>
                 </a>
 
-                <a href="./articles/Attention_Is_All_You_Need.html" class="article-card"
+                <a href="./Attention_Is_All_You_Need.html" class="article-card"
                     data-title="Attention Is All You Need توضیح مکانیزم توجه" data-tags="ترنسفورمر توجه attention">
                     <div class="thumb" style="--accent:#e4574c">
                         <span class="tag">ترنسفورمرها</span>
@@ -952,7 +947,7 @@
                     </div>
                 </a>
 
-                <a href="./articles/gradian.html" class="article-card" data-title="گرادیان نزولی چیست و چرا شبکه‌ها یاد می‌گیرند"
+                <a href="./gradian.html" class="article-card" data-title="گرادیان نزولی چیست و چرا شبکه‌ها یاد می‌گیرند"
                     data-tags="گرادیان یادگیری شبکه عصبی">
                     <div class="thumb" style="--accent:#46d6c6">
                         <span class="tag">مفاهیم پایه</span>
@@ -1005,10 +1000,10 @@
         new Swiper('.banner-swiper', {
             loop: true,
             // grabCursor: true,
-            slidesPerView: 1,          // یا تعداد دلخواه
-            speed: 2000,               // سرعت انتقال بین اسلایدها (میلی‌ثانیه)
+            slidesPerView: 1,
+            speed: 2000,
             autoplay: {
-                delay: 3000,           // ۳ ثانیه تاخیر
+                delay: 3000,
                 disableOnInteraction: false,
                 pauseOnMouseEnter: false,
             },
@@ -1022,7 +1017,7 @@
     <script>
         new Swiper('.strip-swiper', {
             loop: true,
-            slidesPerView: 'auto', // عرض هر اسلاید از روی CSS واقعی خودش خونده می‌شه (نه تقسیم عرض کانتینر)
+            slidesPerView: 'auto',
             spaceBetween: 36,
             speed: 6000,
             autoplay: { delay: 1, disableOnInteraction: false },
