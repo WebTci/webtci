@@ -1,0 +1,1340 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>پی‌تخت پلاس | بزرگترین فروشگاه آنلاین</title>
+<meta name="description" content="پی‌تخت پلاس، بزرگترین فروشگاه آنلاین ایران با بهترین قیمت‌ها، ارسال سریع و ضمانت اصالت کالا.">
+<link rel="canonical" href="https://paytakhtplus.example.com/">
+<meta property="og:title" content="پی‌تخت پلاس | بزرگترین فروشگاه آنلاین">
+<meta property="og:description" content="خرید آنلاین با بهترین قیمت، ارسال رایگان و ضمانت اصالت کالا.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛍️</text></svg>">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap" rel="stylesheet">
+
+<!-- Swiper -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<!-- AOS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Store",
+  "name": "پی‌تخت پلاس",
+  "description": "بزرگترین فروشگاه آنلاین ایران",
+  "url": "https://paytakhtplus.example.com/"
+}
+</script>
+
+<style>
+/* ==========================================================================
+   1. CSS VARIABLES / DESIGN TOKENS
+   ========================================================================== */
+:root{
+  --primary:#C62828;
+  --accent:#FF1744;
+  --bg:#FFFFFF;
+  --section:#F8F8F8;
+  --text:#1A1A1A;
+  --text-secondary:#6B6B6B;
+  --border:#E5E5E5;
+  --warning:#FFD600;
+  --success:#00C853;
+
+  --white:#ffffff;
+  --card-bg:#ffffff;
+
+  --radius:16px;
+  --radius-sm:10px;
+  --radius-lg:24px;
+
+  --space-1:8px;
+  --space-2:16px;
+  --space-3:24px;
+  --space-4:32px;
+  --space-5:40px;
+  --space-6:48px;
+  --space-8:64px;
+
+  --shadow-sm:0 2px 8px rgba(26,26,26,.06);
+  --shadow-md:0 8px 24px rgba(26,26,26,.08);
+  --shadow-lg:0 20px 48px rgba(26,26,26,.12);
+  --shadow-glow:0 8px 24px rgba(198,40,40,.25);
+
+  --ease:cubic-bezier(.4,0,.2,1);
+  --dur:300ms;
+
+  --header-h:76px;
+  --offer-h:38px;
+
+  --glass-bg:rgba(255,255,255,.72);
+  --glass-border:rgba(255,255,255,.4);
+}
+
+[data-theme="dark"]{
+  --bg:#121212;
+  --section:#1A1A1A;
+  --text:#F5F5F5;
+  --text-secondary:#A0A0A0;
+  --border:#2C2C2C;
+  --card-bg:#1E1E1E;
+  --glass-bg:rgba(18,18,18,.72);
+  --glass-border:rgba(255,255,255,.08);
+  --shadow-sm:0 2px 8px rgba(0,0,0,.3);
+  --shadow-md:0 8px 24px rgba(0,0,0,.4);
+  --shadow-lg:0 20px 48px rgba(0,0,0,.5);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Vazirmatn',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+  overflow-x:hidden;
+  transition:background var(--dur) var(--ease),color var(--dur) var(--ease);
+}
+img{max-width:100%;display:block;object-fit:cover}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;border:none;background:none;cursor:pointer;color:inherit}
+ul{list-style:none}
+input{font-family:inherit}
+:focus-visible{outline:2px solid var(--primary);outline-offset:3px;border-radius:4px}
+
+.container{
+  width:100%;
+  max-width:1280px;
+  margin-inline:auto;
+  padding-inline:var(--space-3);
+}
+.section-pad{padding-block:var(--space-8)}
+@media(max-width:768px){
+  .section-pad{padding-block:var(--space-6)}
+  .container{padding-inline:var(--space-2)}
+}
+
+.section-head{text-align:center;max-width:640px;margin:0 auto var(--space-5)}
+.section-eyebrow{
+  display:inline-block;color:var(--primary);font-weight:700;font-size:.8rem;
+  letter-spacing:.05em;margin-bottom:var(--space-1);
+  background:rgba(198,40,40,.08);padding:6px 16px;border-radius:100px;
+}
+.section-title{font-size:clamp(1.5rem,3vw,2.25rem);font-weight:800;margin-bottom:var(--space-1)}
+.section-desc{color:var(--text-secondary);font-size:.95rem}
+
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:14px 28px;border-radius:100px;font-weight:700;font-size:.9rem;
+  transition:transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease),background var(--dur) var(--ease);
+  position:relative;overflow:hidden;white-space:nowrap;
+}
+.btn-primary{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;box-shadow:var(--shadow-glow)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(198,40,40,.35)}
+.btn-outline{background:transparent;border:1.5px solid var(--border);color:var(--text)}
+.btn-outline:hover{border-color:var(--primary);color:var(--primary);transform:translateY(-2px)}
+.btn-white{background:#fff;color:var(--primary)}
+.btn-white:hover{transform:translateY(-3px);box-shadow:0 14px 32px rgba(0,0,0,.2)}
+.btn:active{transform:scale(.97)}
+
+/* ripple */
+.ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.5);transform:scale(0);animation:ripple-anim .6s var(--ease);pointer-events:none}
+@keyframes ripple-anim{to{transform:scale(3.5);opacity:0}}
+
+.badge{
+  display:inline-flex;align-items:center;gap:4px;font-size:.7rem;font-weight:700;
+  padding:5px 10px;border-radius:100px;color:#fff;
+}
+.badge-sale{background:var(--accent)}
+.badge-new{background:var(--success)}
+.badge-hot{background:var(--warning);color:#1A1A1A}
+
+/* ==========================================================================
+   2. LOADING SCREEN
+   ========================================================================== */
+#loading-screen{
+  position:fixed;inset:0;background:var(--bg);z-index:9999;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--space-3);
+  transition:opacity .6s var(--ease),visibility .6s var(--ease);
+}
+#loading-screen.hide{opacity:0;visibility:hidden;pointer-events:none}
+.loader-logo{font-size:2rem;font-weight:900;color:var(--primary);letter-spacing:-.02em;display:flex;align-items:center;gap:8px}
+.loader-logo span{color:var(--text)}
+.loader-bar{width:220px;height:4px;background:var(--border);border-radius:100px;overflow:hidden}
+.loader-bar-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--primary),var(--accent));border-radius:100px;transition:width .3s var(--ease)}
+
+/* ==========================================================================
+   3. SCROLL PROGRESS
+   ========================================================================== */
+#scroll-progress{
+  position:fixed;top:0;right:0;left:0;height:3px;z-index:1100;
+  background:linear-gradient(90deg,var(--primary),var(--accent));
+  width:0%;transform-origin:right;transition:width .1s linear;
+}
+
+/* ==========================================================================
+   4. STICKY OFFER BAR
+   ========================================================================== */
+.offer-bar{
+  height:var(--offer-h);background:linear-gradient(90deg,var(--primary),var(--accent));
+  color:#fff;display:flex;align-items:center;overflow:hidden;position:relative;font-size:.8rem;font-weight:600;
+}
+.offer-track{display:flex;white-space:nowrap;animation:offer-scroll 22s linear infinite}
+.offer-track span{display:inline-flex;align-items:center;gap:8px;padding-inline:var(--space-3)}
+@keyframes offer-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ==========================================================================
+   5. HEADER
+   ========================================================================== */
+header#site-header{
+  position:sticky;top:0;z-index:1000;
+  height:var(--header-h);display:flex;align-items:center;
+  background:var(--glass-bg);backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);
+  border-bottom:1px solid var(--glass-border);
+  transition:box-shadow var(--dur) var(--ease);
+}
+header#site-header.scrolled{box-shadow:var(--shadow-sm)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);width:100%}
+.logo{font-size:1.4rem;font-weight:900;color:var(--primary);display:flex;align-items:center;gap:6px}
+.logo span{color:var(--text)}
+.main-nav{display:flex;gap:var(--space-3)}
+.main-nav a{font-weight:600;font-size:.9rem;position:relative;padding:8px 0;transition:color var(--dur)}
+.main-nav a::after{content:'';position:absolute;bottom:0;right:0;width:0;height:2px;background:var(--primary);transition:width var(--dur) var(--ease)}
+.main-nav a:hover{color:var(--primary)}
+.main-nav a:hover::after{width:100%}
+.header-actions{display:flex;align-items:center;gap:var(--space-1)}
+.icon-btn{
+  position:relative;width:42px;height:42px;display:flex;align-items:center;justify-content:center;
+  border-radius:50%;transition:background var(--dur) var(--ease);color:var(--text)
+}
+.icon-btn:hover{background:var(--section)}
+.icon-btn .count{
+  position:absolute;top:-2px;left:-2px;background:var(--primary);color:#fff;font-size:.62rem;font-weight:700;
+  width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+}
+.search-wrap{position:relative;display:flex;align-items:center}
+.search-input{
+  width:0;opacity:0;padding:0;border:1px solid var(--border);border-radius:100px;height:40px;
+  background:var(--bg);color:var(--text);transition:width var(--dur) var(--ease),opacity var(--dur) var(--ease),padding var(--dur) var(--ease);
+}
+.search-wrap.active .search-input{width:220px;opacity:1;padding-inline:16px}
+.hamburger{display:none}
+
+@media(max-width:1024px){
+  .main-nav{display:none}
+  .hamburger{display:flex}
+}
+@media(max-width:480px){
+  .search-wrap.active .search-input{width:150px}
+}
+
+/* ==========================================================================
+   6. MOBILE MENU
+   ========================================================================== */
+.mobile-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1400;opacity:0;visibility:hidden;
+  transition:opacity var(--dur) var(--ease),visibility var(--dur) var(--ease);
+}
+.mobile-overlay.open{opacity:1;visibility:visible}
+.mobile-menu{
+  position:fixed;top:0;left:0;height:100%;width:82%;max-width:340px;background:var(--bg);z-index:1500;
+  transform:translateX(-100%);transition:transform .4s var(--ease);padding:var(--space-3);
+  display:flex;flex-direction:column;gap:var(--space-3);box-shadow:var(--shadow-lg);
+}
+.mobile-menu.open{transform:translateX(0)}
+.mobile-menu-close{align-self:flex-start;width:40px;height:40px;border-radius:50%;background:var(--section);display:flex;align-items:center;justify-content:center}
+.mobile-menu nav{display:flex;flex-direction:column;gap:var(--space-2)}
+.mobile-menu nav a{font-size:1.05rem;font-weight:700;padding-block:6px}
+
+/* ==========================================================================
+   7. HERO SLIDER
+   ========================================================================== */
+.hero{position:relative;height:min(640px,88vh);overflow:hidden}
+.hero .swiper-slide{position:relative;display:flex;align-items:center;color:#fff}
+.hero-slide-bg{position:absolute;inset:0;z-index:0}
+.hero-slide-bg::after{content:'';position:absolute;inset:0}
+.hero-1 .hero-slide-bg{background:linear-gradient(120deg,#1A1A1A 0%,#C62828 130%)}
+.hero-2 .hero-slide-bg{background:linear-gradient(120deg,#2b0a0a 0%,#FF1744 140%)}
+.hero-3 .hero-slide-bg{background:linear-gradient(120deg,#1A1A1A 0%,#6B6B6B 60%,#C62828 140%)}
+.hero-content{position:relative;z-index:1;max-width:560px;padding:0 var(--space-3)}
+.hero-eyebrow{display:inline-block;background:rgba(255,255,255,.15);padding:6px 16px;border-radius:100px;font-size:.78rem;font-weight:700;margin-bottom:var(--space-2);backdrop-filter:blur(6px)}
+.hero-title{font-size:clamp(2rem,5vw,3.4rem);font-weight:900;line-height:1.2;margin-bottom:var(--space-2)}
+.hero-text{font-size:1rem;opacity:.85;margin-bottom:var(--space-3);max-width:440px}
+.hero .swiper-pagination-bullet{background:#fff;opacity:.5}
+.hero .swiper-pagination-bullet-active{opacity:1;background:var(--accent)}
+.hero .swiper-button-next,.hero .swiper-button-prev{color:#fff;--swiper-navigation-size:20px;width:46px;height:46px;background:rgba(255,255,255,.12);border-radius:50%;backdrop-filter:blur(6px)}
+
+/* ==========================================================================
+   8. COUNTDOWN
+   ========================================================================== */
+.countdown-section{
+  background:linear-gradient(90deg,#1A1A1A,#2a2a2a);color:#fff;
+  padding-block:var(--space-4);
+}
+.countdown-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--space-3)}
+.countdown-text h3{font-size:1.3rem;font-weight:800;margin-bottom:4px}
+.countdown-text p{color:#bbb;font-size:.85rem}
+.countdown-timer{display:flex;gap:var(--space-2)}
+.countdown-timer .box{
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--radius-sm);width:64px;padding:10px 0;text-align:center;
+}
+.countdown-timer .box b{display:block;font-size:1.4rem;font-weight:800;color:var(--accent)}
+.countdown-timer .box span{font-size:.68rem;color:#bbb}
+
+/* ==========================================================================
+   9. CATEGORIES
+   ========================================================================== */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-2)}
+@media(max-width:900px){.cat-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.cat-grid{grid-template-columns:repeat(2,1fr)}}
+.cat-card{
+  background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);
+  padding:var(--space-3) var(--space-2);text-align:center;
+  transition:transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease),border-color var(--dur);
+  cursor:pointer;
+}
+.cat-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:transparent}
+.cat-icon{
+  width:56px;height:56px;border-radius:50%;margin:0 auto var(--space-1);
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,rgba(198,40,40,.12),rgba(255,23,68,.12));color:var(--primary);
+  transition:transform var(--dur) var(--ease);
+}
+.cat-card:hover .cat-icon{transform:scale(1.1) rotate(-6deg)}
+.cat-card p{font-weight:700;font-size:.85rem}
+
+/* ==========================================================================
+   10. BRAND LOGOS
+   ========================================================================== */
+.brands-track{display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);flex-wrap:wrap}
+.brand-logo{font-weight:800;font-size:1.1rem;color:var(--text-secondary);filter:grayscale(1);opacity:.6;transition:filter var(--dur),opacity var(--dur),color var(--dur)}
+.brand-logo:hover{filter:grayscale(0);opacity:1;color:var(--primary)}
+
+/* ==========================================================================
+   11. PRODUCT CARD / GRID
+   ========================================================================== */
+.product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-3)}
+@media(max-width:1024px){.product-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.product-grid{grid-template-columns:1fr}}
+
+.product-card{
+  background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
+  transition:transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease);
+  position:relative;display:flex;flex-direction:column;
+}
+.product-card:hover{transform:translateY(-8px);box-shadow:var(--shadow-lg)}
+.product-thumb{position:relative;aspect-ratio:1/1;overflow:hidden;background:var(--section)}
+.product-thumb img{width:100%;height:100%;transition:transform .5s var(--ease)}
+.product-card:hover .product-thumb img{transform:scale(1.08)}
+.product-thumb.skeleton{background:linear-gradient(100deg,var(--section) 30%,var(--border) 50%,var(--section) 70%);background-size:200% 100%;animation:skeleton-loading 1.4s infinite}
+@keyframes skeleton-loading{to{background-position:-200% 0}}
+.product-badges{position:absolute;top:10px;right:10px;display:flex;flex-direction:column;gap:6px;z-index:2}
+.fav-btn{
+  position:absolute;top:10px;left:10px;width:36px;height:36px;border-radius:50%;background:var(--bg);
+  display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-sm);z-index:2;
+  transition:transform var(--dur) var(--ease),color var(--dur);color:var(--text-secondary)
+}
+.fav-btn:hover{transform:scale(1.1)}
+.fav-btn.active{color:var(--accent)}
+.fav-btn.active svg{fill:var(--accent)}
+.quick-view-btn{
+  position:absolute;bottom:-50px;right:10px;left:10px;background:var(--text);color:#fff;
+  border-radius:100px;padding:10px;text-align:center;font-size:.8rem;font-weight:700;
+  transition:bottom var(--dur) var(--ease);z-index:2;
+}
+.product-card:hover .quick-view-btn{bottom:10px}
+.product-info{padding:var(--space-2);display:flex;flex-direction:column;gap:6px;flex:1}
+.product-title{font-size:.9rem;font-weight:700;line-height:1.5;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.9em}
+.product-rating{display:flex;align-items:center;gap:6px;font-size:.75rem;color:var(--text-secondary)}
+.stars{color:var(--warning);display:flex;gap:1px}
+.stock-status{font-size:.72rem;font-weight:700;display:flex;align-items:center;gap:4px}
+.stock-status.in{color:var(--success)}
+.stock-status.low{color:var(--warning)}
+.price-row{display:flex;align-items:center;gap:8px;margin-top:auto}
+.price-new{font-weight:800;color:var(--primary);font-size:1.05rem}
+.price-old{font-size:.8rem;color:var(--text-secondary);text-decoration:line-through}
+.add-cart-btn{
+  margin-top:8px;width:100%;padding:11px;border-radius:100px;background:var(--section);color:var(--text);
+  font-weight:700;font-size:.82rem;display:flex;align-items:center;justify-content:center;gap:6px;
+  transition:background var(--dur) var(--ease),color var(--dur) var(--ease);border:1px solid var(--border);
+}
+.add-cart-btn:hover{background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;border-color:transparent}
+
+/* ==========================================================================
+   12. PROMO BANNER
+   ========================================================================== */
+.promo-banner{
+  border-radius:var(--radius-lg);overflow:hidden;position:relative;
+  background:linear-gradient(120deg,#1A1A1A,var(--primary) 120%);
+  color:#fff;padding:var(--space-6) var(--space-4);text-align:center;
+}
+.promo-banner h2{font-size:clamp(1.6rem,4vw,2.6rem);font-weight:900;margin-bottom:var(--space-1)}
+.promo-banner p{opacity:.85;margin-bottom:var(--space-3)}
+
+/* ==========================================================================
+   13. WHY CHOOSE US
+   ========================================================================== */
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-3)}
+@media(max-width:900px){.why-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.why-grid{grid-template-columns:1fr}}
+.why-card{text-align:center;padding:var(--space-3)}
+.why-icon{
+  width:64px;height:64px;border-radius:20px;margin:0 auto var(--space-2);
+  display:flex;align-items:center;justify-content:center;color:#fff;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  transition:transform var(--dur) var(--ease);
+}
+.why-card:hover .why-icon{transform:scale(1.1) rotate(6deg)}
+.why-card h4{font-weight:800;margin-bottom:4px}
+.why-card p{font-size:.82rem;color:var(--text-secondary)}
+
+/* ==========================================================================
+   14. TESTIMONIALS
+   ========================================================================== */
+.testi-card{
+  background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:var(--space-3);
+  height:100%;display:flex;flex-direction:column;gap:var(--space-2);
+}
+.testi-top{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800}
+.testi-name{font-weight:700;font-size:.9rem}
+.testi-role{font-size:.75rem;color:var(--text-secondary)}
+.testi-text{font-size:.86rem;color:var(--text-secondary)}
+
+/* ==========================================================================
+   15. FAQ
+   ========================================================================== */
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:var(--space-1)}
+.faq-item{border:1px solid var(--border);border-radius:var(--radius-sm);overflow:hidden;background:var(--card-bg)}
+.faq-q{
+  width:100%;display:flex;align-items:center;justify-content:space-between;padding:18px 20px;
+  font-weight:700;font-size:.92rem;text-align:right;
+}
+.faq-q .chev{transition:transform var(--dur) var(--ease);color:var(--primary);flex-shrink:0}
+.faq-item.open .faq-q .chev{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s var(--ease)}
+.faq-a p{padding:0 20px 18px;color:var(--text-secondary);font-size:.85rem}
+
+/* ==========================================================================
+   16. NEWSLETTER
+   ========================================================================== */
+.newsletter{
+  border-radius:var(--radius-lg);background:linear-gradient(120deg,var(--primary),var(--accent));
+  color:#fff;padding:var(--space-6) var(--space-3);text-align:center;
+}
+.newsletter h2{font-size:clamp(1.4rem,3.4vw,2rem);font-weight:900;margin-bottom:8px}
+.newsletter p{opacity:.9;margin-bottom:var(--space-3)}
+.newsletter-form{display:flex;gap:8px;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center}
+.newsletter-form input{
+  flex:1;min-width:200px;padding:14px 20px;border-radius:100px;border:none;font-size:.9rem;
+}
+
+/* ==========================================================================
+   17. FOOTER
+   ========================================================================== */
+footer{background:#141414;color:#ccc;padding-top:var(--space-8)}
+[data-theme="dark"] footer{background:#0a0a0a}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:var(--space-4)}
+@media(max-width:900px){.footer-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.footer-grid{grid-template-columns:1fr}}
+.footer-logo{font-size:1.3rem;font-weight:900;color:#fff;margin-bottom:var(--space-2)}
+.footer-logo span{color:var(--primary)}
+.footer-col h5{color:#fff;font-weight:700;margin-bottom:var(--space-2);font-size:.9rem}
+.footer-col a{display:block;font-size:.84rem;color:#999;margin-bottom:10px;transition:color var(--dur)}
+.footer-col a:hover{color:#fff}
+.social-row{display:flex;gap:10px;margin-top:var(--space-2)}
+.social-row a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;transition:background var(--dur),transform var(--dur)}
+.social-row a:hover{background:var(--primary);transform:translateY(-3px)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);margin-top:var(--space-6);padding:var(--space-2) 0;text-align:center;font-size:.8rem;color:#777}
+
+/* ==========================================================================
+   18. TOAST
+   ========================================================================== */
+#toast-container{position:fixed;bottom:24px;left:24px;z-index:2000;display:flex;flex-direction:column;gap:10px}
+.toast{
+  display:flex;align-items:center;gap:10px;background:var(--card-bg);color:var(--text);
+  padding:14px 18px;border-radius:var(--radius-sm);box-shadow:var(--shadow-lg);border-inline-start:4px solid var(--success);
+  font-size:.85rem;font-weight:600;min-width:240px;animation:toast-in .35s var(--ease);
+}
+.toast.error{border-inline-start-color:var(--accent)}
+@keyframes toast-in{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+.toast.out{animation:toast-out .3s var(--ease) forwards}
+@keyframes toast-out{to{transform:translateX(-30px);opacity:0}}
+
+/* ==========================================================================
+   19. BACK TO TOP
+   ========================================================================== */
+#back-to-top{
+  position:fixed;bottom:24px;right:24px;width:46px;height:46px;border-radius:50%;
+  background:linear-gradient(135deg,var(--primary),var(--accent));color:#fff;display:flex;align-items:center;justify-content:center;
+  box-shadow:var(--shadow-glow);opacity:0;visibility:hidden;transform:translateY(10px);
+  transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease),visibility var(--dur);z-index:900;
+}
+#back-to-top.show{opacity:1;visibility:visible;transform:translateY(0)}
+
+/* ==========================================================================
+   20. MISC / SWIPER OVERRIDES
+   ========================================================================== */
+.swiper-pagination-bullet{background:var(--border);opacity:1}
+.swiper-pagination-bullet-active{background:var(--primary)}
+.best-sellers-slider .swiper-button-next,.best-sellers-slider .swiper-button-prev{color:var(--primary);--swiper-navigation-size:18px}
+
+.dark-mode-toggle{position:relative;width:42px;height:42px}
+.dark-mode-toggle .sun{display:none}
+[data-theme="dark"] .dark-mode-toggle .sun{display:block}
+[data-theme="dark"] .dark-mode-toggle .moon{display:none}
+
+.search-panel{
+  position:fixed;top:calc(var(--header-h) + var(--offer-h));right:0;left:0;background:var(--bg);
+  border-bottom:1px solid var(--border);z-index:999;max-height:0;overflow:hidden;transition:max-height .35s var(--ease);
+  box-shadow:var(--shadow-md);
+}
+.search-panel.open{max-height:340px}
+.search-results{padding:var(--space-2) var(--space-3);display:flex;flex-direction:column;gap:8px;max-height:280px;overflow-y:auto}
+.search-result-item{display:flex;align-items:center;gap:12px;padding:8px;border-radius:var(--radius-sm);transition:background var(--dur)}
+.search-result-item:hover{background:var(--section)}
+.search-result-item img{width:44px;height:44px;border-radius:8px;background:var(--section)}
+.no-results{text-align:center;color:var(--text-secondary);padding:var(--space-3);font-size:.85rem}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001s !important;transition-duration:.001s !important}
+}
+</style>
+</head>
+<body>
+
+<!-- ==========================================================================
+     LOADING SCREEN
+     ========================================================================== -->
+<div id="loading-screen" aria-hidden="true">
+  <div class="loader-logo">پی‌تخت<span>پلاس</span></div>
+  <div class="loader-bar"><div class="loader-bar-fill" id="loader-fill"></div></div>
+</div>
+
+<!-- SCROLL PROGRESS -->
+<div id="scroll-progress"></div>
+
+<!-- TOAST CONTAINER -->
+<div id="toast-container" aria-live="polite"></div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-overlay" id="mobile-overlay"></div>
+<aside class="mobile-menu" id="mobile-menu" aria-label="منوی موبایل">
+  <button class="mobile-menu-close" id="mobile-menu-close" aria-label="بستن منو"><i data-lucide="x"></i></button>
+  <div class="logo">پی‌تخت<span>پلاس</span></div>
+  <nav>
+    <a href="#categories">دسته‌بندی‌ها</a>
+    <a href="#products">محصولات ویژه</a>
+    <a href="#bestsellers">پرفروش‌ترین‌ها</a>
+    <a href="#testimonials">نظرات مشتریان</a>
+    <a href="#faq">سوالات متداول</a>
+    <a href="#footer">تماس با ما</a>
+  </nav>
+</aside>
+
+<!-- ==========================================================================
+     STICKY OFFER BAR
+     ========================================================================== -->
+<div class="offer-bar" role="banner">
+  <div class="offer-track">
+    <span>🔥 تخفیف ویژه تا ۴۰٪ روی محصولات منتخب</span>
+    <span>🚚 ارسال رایگان برای خرید بالای ۵۰۰ هزار تومان</span>
+    <span>🎁 کد تخفیف PAYTAKHT10 برای اولین خرید</span>
+    <span>🔥 تخفیف ویژه تا ۴۰٪ روی محصولات منتخب</span>
+    <span>🚚 ارسال رایگان برای خرید بالای ۵۰۰ هزار تومان</span>
+    <span>🎁 کد تخفیف PAYTAKHT10 برای اولین خرید</span>
+  </div>
+</div>
+
+<!-- ==========================================================================
+     HEADER
+     ========================================================================== -->
+<header id="site-header">
+  <div class="container header-inner">
+    <button class="icon-btn hamburger" id="hamburger-btn" aria-label="باز کردن منو"><i data-lucide="menu"></i></button>
+    <a href="#" class="logo">پی‌تخت<span>پلاس</span></a>
+
+    <nav class="main-nav" aria-label="منوی اصلی">
+      <a href="#categories">دسته‌بندی‌ها</a>
+      <a href="#products">محصولات ویژه</a>
+      <a href="#bestsellers">پرفروش‌ترین‌ها</a>
+      <a href="#testimonials">نظرات مشتریان</a>
+      <a href="#faq">سوالات متداول</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="search-wrap" id="search-wrap">
+        <input class="search-input" id="search-input" type="search" placeholder="جستجوی محصول..." aria-label="جستجو">
+        <button class="icon-btn" id="search-toggle" aria-label="جستجو"><i data-lucide="search"></i></button>
+      </div>
+      <button class="icon-btn dark-mode-toggle" id="theme-toggle" aria-label="تغییر حالت روز و شب">
+        <i data-lucide="moon" class="moon"></i>
+        <i data-lucide="sun" class="sun"></i>
+      </button>
+      <button class="icon-btn" id="wishlist-btn" aria-label="علاقه‌مندی‌ها">
+        <i data-lucide="heart"></i>
+        <span class="count" id="wishlist-count">0</span>
+      </button>
+      <button class="icon-btn" id="cart-btn" aria-label="سبد خرید">
+        <i data-lucide="shopping-cart"></i>
+        <span class="count" id="cart-count">0</span>
+      </button>
+      <button class="icon-btn" aria-label="حساب کاربری"><i data-lucide="user"></i></button>
+    </div>
+  </div>
+
+  <div class="search-panel" id="search-panel">
+    <div class="search-results" id="search-results"></div>
+  </div>
+</header>
+
+<main>
+<!-- ==========================================================================
+     HERO SLIDER
+     ========================================================================== -->
+<section class="hero swiper" id="hero-swiper" aria-label="اسلایدر ویژه">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide hero-1">
+      <div class="hero-slide-bg"></div>
+      <div class="container hero-content">
+        <span class="hero-eyebrow">کالکشن پاییزه ۱۴۰۴</span>
+        <h1 class="hero-title">استایل امروز، انتخاب فردا</h1>
+        <p class="hero-text">جدیدترین محصولات پوشاک و لوازم جانبی با کیفیت پرمیوم و قیمت باورنکردنی.</p>
+        <a href="#products" class="btn btn-white">مشاهده محصولات</a>
+      </div>
+    </div>
+    <div class="swiper-slide hero-2">
+      <div class="hero-slide-bg"></div>
+      <div class="container hero-content">
+        <span class="hero-eyebrow">فقط تا پایان هفته</span>
+        <h1 class="hero-title">تا ۴۰٪ تخفیف شگفت‌انگیز</h1>
+        <p class="hero-text">فرصت را از دست ندهید؛ محصولات منتخب با بیشترین تخفیف فصل.</p>
+        <a href="#bestsellers" class="btn btn-white">شکار تخفیف‌ها</a>
+      </div>
+    </div>
+    <div class="swiper-slide hero-3">
+      <div class="hero-slide-bg"></div>
+      <div class="container hero-content">
+        <span class="hero-eyebrow">ارسال رایگان سراسری</span>
+        <h1 class="hero-title">خرید راحت، تحویل سریع</h1>
+        <p class="hero-text">سفارش خود را ثبت کنید و در کمتر از ۴۸ ساعت تحویل بگیرید.</p>
+        <a href="#categories" class="btn btn-white">شروع خرید</a>
+      </div>
+    </div>
+  </div>
+  <div class="swiper-pagination"></div>
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+</section>
+
+<!-- ==========================================================================
+     COUNTDOWN OFFER
+     ========================================================================== -->
+<section class="countdown-section">
+  <div class="container countdown-inner">
+    <div class="countdown-text" data-aos="fade-left">
+      <h3>جشنواره تخفیف پاییزی</h3>
+      <p>پیشنهاد شگفت‌انگیز فقط تا پایان زمان زیر</p>
+    </div>
+    <div class="countdown-timer" data-aos="fade-right" id="countdown-timer">
+      <div class="box"><b id="cd-days">00</b><span>روز</span></div>
+      <div class="box"><b id="cd-hours">00</b><span>ساعت</span></div>
+      <div class="box"><b id="cd-mins">00</b><span>دقیقه</span></div>
+      <div class="box"><b id="cd-secs">00</b><span>ثانیه</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     CATEGORIES
+     ========================================================================== -->
+<section class="section-pad" id="categories">
+  <div class="container">
+    <div class="section-head" data-aos="fade-up">
+      <span class="section-eyebrow">دسته‌بندی‌ها</span>
+      <h2 class="section-title">خرید بر اساس دسته</h2>
+      <p class="section-desc">محصول مورد نظرت رو سریع پیدا کن</p>
+    </div>
+    <div class="cat-grid" id="category-grid"></div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     BRAND LOGOS
+     ========================================================================== -->
+<section class="section-pad" style="padding-block:var(--space-5);background:var(--section)">
+  <div class="container">
+    <div class="brands-track" id="brands-track" data-aos="fade-up"></div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     FEATURED PRODUCTS
+     ========================================================================== -->
+<section class="section-pad" id="products">
+  <div class="container">
+    <div class="section-head" data-aos="fade-up">
+      <span class="section-eyebrow">محصولات ویژه</span>
+      <h2 class="section-title">پرطرفدارترین‌های فروشگاه</h2>
+      <p class="section-desc">منتخبی از بهترین کالاها با کیفیت تضمینی</p>
+    </div>
+    <div class="product-grid" id="product-grid"></div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     PROMOTIONAL BANNER
+     ========================================================================== -->
+<section class="section-pad">
+  <div class="container">
+    <div class="promo-banner" data-aos="zoom-in">
+      <h2>تخفیف ویژه اعضای پی‌تخت پلاس</h2>
+      <p>با عضویت در باشگاه مشتریان، از تخفیف‌های اختصاصی بهره‌مند شوید</p>
+      <a href="#" class="btn btn-white">عضویت رایگان</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     BEST SELLERS
+     ========================================================================== -->
+<section class="section-pad" id="bestsellers" style="background:var(--section)">
+  <div class="container">
+    <div class="section-head" data-aos="fade-up">
+      <span class="section-eyebrow">پرفروش‌ترین‌ها</span>
+      <h2 class="section-title">محبوب‌ترین انتخاب مشتریان</h2>
+    </div>
+    <div class="swiper best-sellers-slider" id="bestsellers-swiper">
+      <div class="swiper-wrapper" id="bestsellers-wrapper"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     WHY CHOOSE US
+     ========================================================================== -->
+<section class="section-pad">
+  <div class="container">
+    <div class="section-head" data-aos="fade-up">
+      <span class="section-eyebrow">چرا پی‌تخت پلاس؟</span>
+      <h2 class="section-title">تجربه خرید مطمئن</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="why-icon"><i data-lucide="truck"></i></div>
+        <h4>ارسال سریع</h4>
+        <p>تحویل کالا در کمتر از ۴۸ ساعت</p>
+      </div>
+      <div class="why-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="why-icon"><i data-lucide="shield-check"></i></div>
+        <h4>ضمانت اصالت</h4>
+        <p>۷ روز ضمانت بازگشت کالا</p>
+      </div>
+      <div class="why-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="why-icon"><i data-lucide="credit-card"></i></div>
+        <h4>پرداخت امن</h4>
+        <p>درگاه پرداخت مطمئن و رمزنگاری شده</p>
+      </div>
+      <div class="why-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="why-icon"><i data-lucide="headphones"></i></div>
+        <h4>پشتیبانی ۲۴/۷</h4>
+        <p>پاسخگویی سریع در تمام ساعات</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     TESTIMONIALS
+     ========================================================================== -->
+<section class="section-pad" id="testimonials" style="background:var(--section)">
+  <div class="container">
+    <div class="section-head" data-aos="fade-up">
+      <span class="section-eyebrow">نظرات مشتریان</span>
+      <h2 class="section-title">مشتریان ما چه می‌گویند</h2>
+    </div>
+    <div class="swiper testimonial-swiper" id="testimonial-swiper">
+      <div class="swiper-wrapper" id="testimonial-wrapper"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     FAQ
+     ========================================================================== -->
+<section class="section-pad" id="faq">
+  <div class="container">
+    <div class="section-head" data-aos="fade-up">
+      <span class="section-eyebrow">سوالات متداول</span>
+      <h2 class="section-title">پاسخ سوالات شما</h2>
+    </div>
+    <div class="faq-list" id="faq-list" data-aos="fade-up"></div>
+  </div>
+</section>
+
+<!-- ==========================================================================
+     NEWSLETTER
+     ========================================================================== -->
+<section class="section-pad">
+  <div class="container">
+    <div class="newsletter" data-aos="zoom-in">
+      <h2>از تخفیف‌ها باخبر شوید</h2>
+      <p>با عضویت در خبرنامه، اولین نفری باشید که از پیشنهادات ویژه مطلع می‌شوید</p>
+      <form class="newsletter-form" id="newsletter-form">
+        <input type="email" required placeholder="ایمیل خود را وارد کنید">
+        <button type="submit" class="btn btn-white">عضویت</button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ==========================================================================
+     FOOTER
+     ========================================================================== -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">پی‌تخت<span>پلاس</span></div>
+        <p style="font-size:.85rem;color:#999;max-width:280px">بزرگترین فروشگاه آنلاین ایران با هزاران محصول متنوع و ارسال سریع به سراسر کشور.</p>
+        <div class="social-row">
+          <a href="#" aria-label="اینستاگرام"><i data-lucide="instagram"></i></a>
+          <a href="#" aria-label="تلگرام"><i data-lucide="send"></i></a>
+          <a href="#" aria-label="واتساپ"><i data-lucide="phone"></i></a>
+          <a href="#" aria-label="توییتر"><i data-lucide="twitter"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>لینک‌های سریع</h5>
+        <a href="#categories">دسته‌بندی‌ها</a>
+        <a href="#products">محصولات ویژه</a>
+        <a href="#bestsellers">پرفروش‌ترین‌ها</a>
+        <a href="#faq">سوالات متداول</a>
+      </div>
+      <div class="footer-col">
+        <h5>خدمات مشتریان</h5>
+        <a href="#">پیگیری سفارش</a>
+        <a href="#">شرایط بازگشت کالا</a>
+        <a href="#">حریم خصوصی</a>
+        <a href="#">قوانین و مقررات</a>
+      </div>
+      <div class="footer-col">
+        <h5>تماس با ما</h5>
+        <a href="#"><i data-lucide="map-pin" style="width:14px;display:inline;vertical-align:-2px"></i> تهران، خیابان ولیعصر</a>
+        <a href="tel:02112345678"><i data-lucide="phone" style="width:14px;display:inline;vertical-align:-2px"></i> ۰۲۱-۱۲۳۴۵۶۷۸</a>
+        <a href="mailto:info@paytakhtplus.ir"><i data-lucide="mail" style="width:14px;display:inline;vertical-align:-2px"></i> info@paytakhtplus.ir</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; ۱۴۰۴ پی‌تخت پلاس. تمامی حقوق محفوظ است.
+    </div>
+  </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button id="back-to-top" aria-label="بازگشت به بالا"><i data-lucide="arrow-up"></i></button>
+
+<!-- ==========================================================================
+     LIBRARIES (CDN)
+     ========================================================================== -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+<script>
+/* ============================================================================
+   داده‌های نمونه (Mock Data)
+   ============================================================================ */
+const CATEGORIES = [
+  {name:'پوشاک مردانه', icon:'shirt'},
+  {name:'پوشاک زنانه', icon:'shopping-bag'},
+  {name:'کفش و کتونی', icon:'footprints'},
+  {name:'لوازم الکترونیک', icon:'smartphone'},
+  {name:'ساعت و اکسسوری', icon:'watch'},
+  {name:'کیف و چمدان', icon:'briefcase'},
+  {name:'زیبایی و آرایشی', icon:'sparkles'},
+  {name:'لوازم خانه', icon:'home'}
+];
+
+const BRANDS = ['نایک','آدیداس','پوما','ریباک','زارا','اچ‌اند‌ام'];
+
+const PRODUCTS = [
+  {id:1,title:'کتونی اسپرت مردانه مدل ایرمکس',price:1250000,old:1590000,rating:4.5,reviews:128,stock:'in',badge:'sale',img:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500&q=80'},
+  {id:2,title:'ساعت مچی کلاسیک چرمی',price:890000,old:0,rating:4.8,reviews:64,stock:'in',badge:'new',img:'https://images.unsplash.com/photo-1524805444758-089113d48a6d?w=500&q=80'},
+  {id:3,title:'کیف دستی زنانه چرم طبیعی',price:1450000,old:1750000,rating:4.2,reviews:37,stock:'low',badge:'sale',img:'https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=500&q=80'},
+  {id:4,title:'هدفون بی‌سیم نویز کنسلینگ',price:2100000,old:2500000,rating:4.7,reviews:210,stock:'in',badge:'hot',img:'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500&q=80'},
+  {id:5,title:'پیراهن مردانه اسلیم فیت',price:520000,old:650000,rating:4.0,reviews:52,stock:'in',badge:'sale',img:'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=500&q=80'},
+  {id:6,title:'عینک آفتابی مدل کلاسیک',price:680000,old:0,rating:4.4,reviews:19,stock:'in',badge:'new',img:'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500&q=80'},
+  {id:7,title:'کوله پشتی سفری ضدآب',price:990000,old:1190000,rating:4.6,reviews:88,stock:'low',badge:'sale',img:'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500&q=80'},
+  {id:8,title:'کفش رانینگ سبک زنانه',price:1150000,old:0,rating:4.3,reviews:41,stock:'in',badge:'hot',img:'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=500&q=80'}
+];
+
+const TESTIMONIALS = [
+  {name:'سارا محمدی',role:'مشتری وفادار',text:'کیفیت محصولات فوق‌العاده بود و ارسال هم خیلی سریع انجام شد. حتماً دوباره خرید می‌کنم.',rating:5},
+  {name:'علی رضایی',role:'خریدار جدید',text:'پشتیبانی خیلی خوبی داشتن و مشکل سفارشم رو سریع حل کردن. ممنون از تیم پی‌تخت پلاس.',rating:5},
+  {name:'مریم احمدی',role:'مشتری دائمی',text:'قیمت‌ها نسبت به جاهای دیگه خیلی مناسب‌تره و تنوع محصولات هم عالیه.',rating:4},
+  {name:'حسین کریمی',role:'خریدار',text:'بسته‌بندی محصول خیلی شیک و مرتب بود، دقیقاً همون چیزی بود که سفارش داده بودم.',rating:5}
+];
+
+const FAQS = [
+  {q:'چطور می‌توانم سفارش خود را پیگیری کنم؟',a:'پس از ثبت سفارش، کد رهگیری از طریق پیامک و ایمیل برای شما ارسال می‌شود و می‌توانید از طریق پنل کاربری وضعیت سفارش را مشاهده کنید.'},
+  {q:'آیا امکان بازگشت کالا وجود دارد؟',a:'بله، تا ۷ روز پس از دریافت کالا در صورت عدم استفاده و باز نبودن بسته‌بندی، امکان بازگشت و عودت وجه وجود دارد.'},
+  {q:'هزینه ارسال چقدر است؟',a:'برای خریدهای بالای ۵۰۰ هزار تومان ارسال کاملاً رایگان است. برای مبالغ کمتر، هزینه ارسال بر اساس مقصد محاسبه می‌شود.'},
+  {q:'روش‌های پرداخت کدام‌اند؟',a:'پرداخت از طریق درگاه بانکی آنلاین، کارت به کارت و پرداخت در محل (برای برخی مناطق) امکان‌پذیر است.'}
+];
+
+/* ============================================================================
+   وضعیت برنامه (State) + LocalStorage
+   ============================================================================ */
+const Store = {
+  cart: JSON.parse(localStorage.getItem('pt_cart') || '[]'),
+  wishlist: JSON.parse(localStorage.getItem('pt_wishlist') || '[]'),
+  theme: localStorage.getItem('pt_theme') || 'light',
+
+  saveCart(){ localStorage.setItem('pt_cart', JSON.stringify(this.cart)); this.updateCartUI(); },
+  saveWishlist(){ localStorage.setItem('pt_wishlist', JSON.stringify(this.wishlist)); this.updateWishlistUI(); },
+
+  addToCart(id){
+    this.cart.push(id);
+    this.saveCart();
+    showToast('محصول به سبد خرید اضافه شد', 'success');
+  },
+  toggleWishlist(id, btn){
+    const idx = this.wishlist.indexOf(id);
+    if(idx > -1){
+      this.wishlist.splice(idx,1);
+      btn.classList.remove('active');
+      showToast('از علاقه‌مندی‌ها حذف شد', 'error');
+    } else {
+      this.wishlist.push(id);
+      btn.classList.add('active');
+      showToast('به علاقه‌مندی‌ها اضافه شد', 'success');
+    }
+    this.saveWishlist();
+  },
+  updateCartUI(){ document.getElementById('cart-count').textContent = this.cart.length; },
+  updateWishlistUI(){ document.getElementById('wishlist-count').textContent = this.wishlist.length; }
+};
+
+/* ============================================================================
+   توابع کمکی
+   ============================================================================ */
+function formatPrice(n){ return n.toLocaleString('fa-IR') + ' تومان'; }
+
+function starsHTML(rating){
+  let html = '';
+  for(let i=1;i<=5;i++){
+    html += `<i data-lucide="star" style="width:13px;height:13px;${i<=Math.round(rating)?'fill:currentColor':''}"></i>`;
+  }
+  return html;
+}
+
+function showToast(msg, type='success'){
+  const container = document.getElementById('toast-container');
+  const toast = document.createElement('div');
+  toast.className = `toast ${type === 'error' ? 'error' : ''}`;
+  toast.innerHTML = `<i data-lucide="${type==='error'?'x-circle':'check-circle'}" style="color:${type==='error'?'var(--accent)':'var(--success)'}"></i><span>${msg}</span>`;
+  container.appendChild(toast);
+  lucide.createIcons();
+  setTimeout(()=>{
+    toast.classList.add('out');
+    setTimeout(()=>toast.remove(), 300);
+  }, 2800);
+}
+
+function debounce(fn, delay=300){
+  let timer;
+  return (...args)=>{
+    clearTimeout(timer);
+    timer = setTimeout(()=>fn(...args), delay);
+  };
+}
+
+/* ============================================================================
+   ساخت کارت محصول
+   ============================================================================ */
+function badgeLabel(b){
+  return {sale:'تخفیف',new:'جدید',hot:'پرفروش'}[b] || '';
+}
+function productCardHTML(p){
+  const discount = p.old ? Math.round((1 - p.price/p.old)*100) : 0;
+  const isFav = Store.wishlist.includes(p.id);
+  return `
+  <div class="product-card" data-aos="fade-up">
+    <div class="product-thumb">
+      <div class="product-badges">
+        ${p.badge ? `<span class="badge badge-${p.badge}">${badgeLabel(p.badge)}</span>` : ''}
+        ${discount ? `<span class="badge badge-sale">${discount}%-</span>` : ''}
+      </div>
+      <button class="fav-btn ${isFav?'active':''}" data-id="${p.id}" aria-label="افزودن به علاقه‌مندی">
+        <i data-lucide="heart" style="width:17px;height:17px"></i>
+      </button>
+      <img src="${p.img}" alt="${p.title}" loading="lazy">
+      <div class="quick-view-btn">مشاهده سریع</div>
+    </div>
+    <div class="product-info">
+      <h3 class="product-title">${p.title}</h3>
+      <div class="product-rating">
+        <span class="stars">${starsHTML(p.rating)}</span>
+        <span>(${p.reviews} نظر)</span>
+      </div>
+      <span class="stock-status ${p.stock}">
+        <i data-lucide="${p.stock==='in'?'check-circle':'alert-circle'}" style="width:12px;height:12px"></i>
+        ${p.stock==='in' ? 'موجود در انبار' : 'تعداد محدود'}
+      </span>
+      <div class="price-row">
+        <span class="price-new">${formatPrice(p.price)}</span>
+        ${p.old ? `<span class="price-old">${formatPrice(p.old)}</span>` : ''}
+      </div>
+      <button class="add-cart-btn" data-id="${p.id}">
+        <i data-lucide="shopping-cart" style="width:15px;height:15px"></i> افزودن به سبد
+      </button>
+    </div>
+  </div>`;
+}
+
+/* ============================================================================
+   رندر بخش‌ها
+   ============================================================================ */
+function renderCategories(){
+  const grid = document.getElementById('category-grid');
+  grid.innerHTML = CATEGORIES.map((c,i)=>`
+    <div class="cat-card" data-aos="zoom-in" data-aos-delay="${i*50}">
+      <div class="cat-icon"><i data-lucide="${c.icon}"></i></div>
+      <p>${c.name}</p>
+    </div>`).join('');
+}
+
+function renderBrands(){
+  document.getElementById('brands-track').innerHTML =
+    BRANDS.map(b=>`<span class="brand-logo">${b}</span>`).join('');
+}
+
+function renderProducts(){
+  document.getElementById('product-grid').innerHTML =
+    PRODUCTS.map(productCardHTML).join('');
+}
+
+function renderBestSellers(){
+  const wrapper = document.getElementById('bestsellers-wrapper');
+  wrapper.innerHTML = [...PRODUCTS].reverse().map(p=>
+    `<div class="swiper-slide" style="height:auto">${productCardHTML(p)}</div>`
+  ).join('');
+}
+
+function renderTestimonials(){
+  const wrapper = document.getElementById('testimonial-wrapper');
+  wrapper.innerHTML = TESTIMONIALS.map(t=>`
+    <div class="swiper-slide" style="height:auto">
+      <div class="testi-card">
+        <div class="testi-top">
+          <div class="testi-avatar">${t.name[0]}</div>
+          <div>
+            <div class="testi-name">${t.name}</div>
+            <div class="testi-role">${t.role}</div>
+          </div>
+        </div>
+        <span class="stars">${starsHTML(t.rating)}</span>
+        <p class="testi-text">${t.text}</p>
+      </div>
+    </div>`).join('');
+}
+
+function renderFAQ(){
+  document.getElementById('faq-list').innerHTML = FAQS.map((f,i)=>`
+    <div class="faq-item">
+      <button class="faq-q" data-index="${i}">
+        ${f.q}
+        <i data-lucide="chevron-down" class="chev"></i>
+      </button>
+      <div class="faq-a"><p>${f.a}</p></div>
+    </div>`).join('');
+}
+
+/* ============================================================================
+   رویدادها بعد از رندر (Event Delegation)
+   ============================================================================ */
+document.addEventListener('click', (e)=>{
+  const favBtn = e.target.closest('.fav-btn');
+  if(favBtn){ Store.toggleWishlist(Number(favBtn.dataset.id), favBtn); return; }
+
+  const cartBtn = e.target.closest('.add-cart-btn');
+  if(cartBtn){ Store.addToCart(Number(cartBtn.dataset.id)); return; }
+
+  const faqQ = e.target.closest('.faq-q');
+  if(faqQ){
+    const item = faqQ.closest('.faq-item');
+    const answer = item.querySelector('.faq-a');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i=>{
+      i.classList.remove('open');
+      i.querySelector('.faq-a').style.maxHeight = null;
+    });
+    if(!wasOpen){
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+    return;
+  }
+});
+
+/* Ripple effect on all buttons */
+document.addEventListener('click', (e)=>{
+  const btn = e.target.closest('.btn, .add-cart-btn, .icon-btn');
+  if(!btn) return;
+  const rect = btn.getBoundingClientRect();
+  const ripple = document.createElement('span');
+  ripple.className = 'ripple';
+  const size = Math.max(rect.width, rect.height);
+  ripple.style.width = ripple.style.height = size + 'px';
+  ripple.style.left = (e.clientX - rect.left - size/2) + 'px';
+  ripple.style.top = (e.clientY - rect.top - size/2) + 'px';
+  btn.style.position = btn.style.position || 'relative';
+  btn.style.overflow = 'hidden';
+  btn.appendChild(ripple);
+  setTimeout(()=>ripple.remove(), 600);
+});
+
+/* ============================================================================
+   هدر / اسکرول
+   ============================================================================ */
+const header = document.getElementById('site-header');
+const progressBar = document.getElementById('scroll-progress');
+const backToTop = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', ()=>{
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = (scrollTop / docHeight) * 100;
+  progressBar.style.width = progress + '%';
+
+  header.classList.toggle('scrolled', scrollTop > 10);
+  backToTop.classList.toggle('show', scrollTop > 500);
+});
+
+backToTop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+
+/* ============================================================================
+   منوی موبایل
+   ============================================================================ */
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+const mobileOverlay = document.getElementById('mobile-overlay');
+const mobileMenuClose = document.getElementById('mobile-menu-close');
+
+function openMobileMenu(){
+  mobileMenu.classList.add('open');
+  mobileOverlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMobileMenu(){
+  mobileMenu.classList.remove('open');
+  mobileOverlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+hamburgerBtn.addEventListener('click', openMobileMenu);
+mobileMenuClose.addEventListener('click', closeMobileMenu);
+mobileOverlay.addEventListener('click', closeMobileMenu);
+mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMobileMenu));
+
+/* ============================================================================
+   دارک مود
+   ============================================================================ */
+const themeToggle = document.getElementById('theme-toggle');
+function applyTheme(theme){
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('pt_theme', theme);
+}
+applyTheme(Store.theme);
+themeToggle.addEventListener('click', ()=>{
+  const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  applyTheme(current);
+});
+
+/* ============================================================================
+   جستجو (Realtime + Debounce)
+   ============================================================================ */
+const searchToggle = document.getElementById('search-toggle');
+const searchWrap = document.getElementById('search-wrap');
+const searchInput = document.getElementById('search-input');
+const searchPanel = document.getElementById('search-panel');
+const searchResults = document.getElementById('search-results');
+
+searchToggle.addEventListener('click', ()=>{
+  searchWrap.classList.toggle('active');
+  if(searchWrap.classList.contains('active')) searchInput.focus();
+  else { searchPanel.classList.remove('open'); searchInput.value=''; }
+});
+
+const doSearch = debounce((val)=>{
+  if(!val.trim()){ searchPanel.classList.remove('open'); return; }
+  const filtered = PRODUCTS.filter(p=> p.title.includes(val));
+  if(filtered.length === 0){
+    searchResults.innerHTML = `<div class="no-results">محصولی با این عنوان یافت نشد</div>`;
+  } else {
+    searchResults.innerHTML = filtered.map(p=>`
+      <a href="#products" class="search-result-item">
+        <img src="${p.img}" alt="${p.title}" loading="lazy">
+        <div>
+          <div style="font-size:.85rem;font-weight:600">${p.title}</div>
+          <div style="font-size:.78rem;color:var(--primary);font-weight:700">${formatPrice(p.price)}</div>
+        </div>
+      </a>`).join('');
+  }
+  searchPanel.classList.add('open');
+}, 300);
+
+searchInput.addEventListener('input', (e)=> doSearch(e.target.value));
+
+/* ============================================================================
+   خبرنامه
+   ============================================================================ */
+document.getElementById('newsletter-form').addEventListener('submit', (e)=>{
+  e.preventDefault();
+  showToast('با موفقیت در خبرنامه عضو شدید 🎉', 'success');
+  e.target.reset();
+});
+
+/* ============================================================================
+   شمارش معکوس (Countdown - Realtime)
+   ============================================================================ */
+function startCountdown(){
+  const target = new Date().getTime() + (2*24*60*60*1000) + (14*60*60*1000) + (32*60*1000);
+  function tick(){
+    const now = new Date().getTime();
+    let diff = target - now;
+    if(diff < 0) diff = 0;
+    const d = Math.floor(diff/(1000*60*60*24));
+    const h = Math.floor((diff%(1000*60*60*24))/(1000*60*60));
+    const m = Math.floor((diff%(1000*60*60))/(1000*60));
+    const s = Math.floor((diff%(1000*60))/1000);
+    document.getElementById('cd-days').textContent = String(d).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+    document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick, 1000);
+}
+
+/* ============================================================================
+   Intersection Observer برای Skeleton Loading تصاویر
+   ============================================================================ */
+function initLazyLoadObserver(){
+  const imgs = document.querySelectorAll('img[loading="lazy"]');
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.style.opacity = '1';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:.1});
+  imgs.forEach(img=>{
+    img.style.opacity = '0';
+    img.style.transition = 'opacity .4s ease';
+    observer.observe(img);
+  });
+}
+
+/* ============================================================================
+   راه‌اندازی اسلایدرها (Swiper)
+   ============================================================================ */
+function initSwipers(){
+  new Swiper('#hero-swiper', {
+    effect: 'fade',
+    loop: true,
+    autoplay: { delay: 5000, disableOnInteraction:false },
+    pagination: { el: '.hero .swiper-pagination', clickable: true },
+    navigation: { nextEl: '.hero .swiper-button-next', prevEl: '.hero .swiper-button-prev' }
+  });
+
+  new Swiper('#bestsellers-swiper', {
+    slidesPerView: 1.15,
+    spaceBetween: 20,
+    navigation: { nextEl: '.best-sellers-slider .swiper-button-next', prevEl: '.best-sellers-slider .swiper-button-prev' },
+    breakpoints: {
+      560:{ slidesPerView: 2.2 },
+      900:{ slidesPerView: 3.2 },
+      1200:{ slidesPerView: 4 }
+    }
+  });
+
+  new Swiper('#testimonial-swiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    pagination: { el: '.testimonial-swiper .swiper-pagination', clickable: true },
+    breakpoints: {
+      768:{ slidesPerView: 2 },
+      1100:{ slidesPerView: 3 }
+    }
+  });
+}
+
+/* ============================================================================
+   Loading Screen
+   ============================================================================ */
+function runLoadingScreen(){
+  const fill = document.getElementById('loader-fill');
+  const screen = document.getElementById('loading-screen');
+  let progress = 0;
+  const interval = setInterval(()=>{
+    progress += Math.random()*22;
+    if(progress >= 100){
+      progress = 100;
+      clearInterval(interval);
+      fill.style.width = '100%';
+      setTimeout(()=>{
+        screen.classList.add('hide');
+        document.body.style.overflow = '';
+      }, 350);
+    } else {
+      fill.style.width = progress + '%';
+    }
+  }, 180);
+}
+
+/* ============================================================================
+   INIT
+   ============================================================================ */
+document.body.style.overflow = 'hidden';
+
+renderCategories();
+renderBrands();
+renderProducts();
+renderBestSellers();
+renderTestimonials();
+renderFAQ();
+Store.updateCartUI();
+Store.updateWishlistUI();
+startCountdown();
+
+window.addEventListener('load', ()=>{
+  runLoadingScreen();
+  initSwipers();
+  initLazyLoadObserver();
+  if(window.lucide) lucide.createIcons();
+  if(window.AOS) AOS.init({ duration: 700, once: true, offset: 60 });
+});
+
+/* در صورتی که رویداد load دیر اجرا شود، آیکون‌ها را زودتر هم رندر کن */
+document.addEventListener('DOMContentLoaded', ()=>{
+  if(window.lucide) lucide.createIcons();
+});
+</script>
+</body>
+</html>
