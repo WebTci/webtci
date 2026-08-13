@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>۴۰۴ — این نقطه روی نقشه نیست</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ocean-1:#0c2733;
+    --ocean-2:#153c4c;
+    --parchment:#e4d3aa;
+    --parchment-dark:#d3bd88;
+    --ink:#22303a;
+    --seal:#a83f28;
+    --seal-dark:#7c2c1b;
+    --gold:#c79a2f;
+    --mist:#9fb8bf;
+  }
+
+  *{box-sizing:border-box;}
+
+  html,body{
+    margin:0;
+    padding:0;
+    min-height:100vh;
+    background:
+      radial-gradient(ellipse 120% 80% at 50% -10%, #1c4a5c 0%, transparent 60%),
+      linear-gradient(180deg, var(--ocean-1) 0%, var(--ocean-2) 100%);
+    font-family:'Vazirmatn', sans-serif;
+    color:var(--mist);
+    overflow-x:hidden;
+  }
+
+  /* ambient depth contours */
+  .contours{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    opacity:.16;
+    pointer-events:none;
+    mix-blend-mode:screen;
+  }
+  .contours svg{
+    width:140%;
+    height:140%;
+    position:absolute;
+    top:-20%;
+    right:-20%;
+    animation:driftContours 60s linear infinite;
+  }
+  @keyframes driftContours{
+    0%{ transform:translate(0,0); }
+    100%{ transform:translate(-40px,30px); }
+  }
+
+  .stage{
+    position:relative;
+    z-index:2;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:8vh 20px 10vh;
+  }
+
+  /* ---- the map card ---- */
+  .map-wrap{
+    position:relative;
+    width:min(560px, 92vw);
+  }
+
+  .pin{
+    position:absolute;
+    top:-22px;
+    right:calc(50% - 3px);
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, #e8836a, var(--seal) 60%, var(--seal-dark));
+    box-shadow:0 4px 8px rgba(0,0,0,.4);
+    z-index:4;
+  }
+  .pin::after{
+    content:'';
+    position:absolute;
+    top:12px;
+    right:6px;
+    width:2px;
+    height:26px;
+    background:linear-gradient(#8a8a8a, #444);
+    transform:rotate(4deg);
+  }
+
+  .map-card{
+    position:relative;
+    padding:56px 40px 44px;
+    transform:rotate(-1.4deg);
+  }
+
+  .map-card::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(ellipse at 20% 15%, rgba(255,255,255,.25), transparent 40%),
+      linear-gradient(135deg, var(--parchment) 0%, var(--parchment-dark) 100%);
+    box-shadow:0 30px 60px -15px rgba(0,0,0,.55), 0 10px 20px rgba(0,0,0,.3);
+    filter:url(#tornEdge);
+  }
+
+  .card-inner{
+    position:relative;
+    z-index:1;
+    text-align:center;
+  }
+
+  .compass{
+    width:74px;
+    height:74px;
+    margin:0 auto 18px;
+  }
+  .compass .needle{
+    transform-origin:50% 50%;
+    animation:seek 5.5s ease-in-out infinite alternate;
+  }
+  @keyframes seek{
+    0%{ transform:rotate(-24deg); }
+    50%{ transform:rotate(10deg); }
+    100%{ transform:rotate(-14deg); }
+  }
+
+  .kicker{
+    display:block;
+    font-size:12px;
+    letter-spacing:.12em;
+    color:var(--ink);
+    opacity:.55;
+    font-weight:600;
+    margin-bottom:10px;
+  }
+
+  .headline{
+    font-size:clamp(26px, 4.4vw, 34px);
+    font-weight:800;
+    color:var(--ink);
+    line-height:1.55;
+    margin:0 0 14px;
+  }
+
+  .subtext{
+    font-size:15px;
+    color:var(--ink);
+    opacity:.72;
+    line-height:1.9;
+    max-width:38ch;
+    margin:0 auto 26px;
+    font-weight:400;
+  }
+
+  .coords{
+    display:inline-block;
+    font-size:12.5px;
+    letter-spacing:.03em;
+    color:var(--ink);
+    opacity:.5;
+    border-top:1px dashed rgba(34,48,58,.35);
+    border-bottom:1px dashed rgba(34,48,58,.35);
+    padding:8px 4px;
+    margin-bottom:30px;
+    font-weight:500;
+  }
+
+  .cta{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:transparent;
+    border:2px solid var(--seal);
+    color:var(--seal-dark);
+    font-family:inherit;
+    font-size:15px;
+    font-weight:700;
+    padding:12px 26px;
+    border-radius:3px;
+    text-decoration:none;
+    position:relative;
+    transition:transform .18s ease, background .18s ease, color .18s ease;
+  }
+  .cta:hover{
+    background:var(--seal);
+    color:#fbeee7;
+    transform:scale(1.04) rotate(-.6deg);
+  }
+  .cta:active{
+    transform:scale(.97) rotate(0deg);
+  }
+
+  /* wax seal stamp with 404 */
+  .seal{
+    position:absolute;
+    left:-30px;
+    bottom:-24px;
+    width:118px;
+    height:118px;
+    z-index:3;
+    transform:rotate(-9deg);
+    filter:drop-shadow(0 8px 10px rgba(0,0,0,.4));
+  }
+
+  .route{
+    max-width:min(560px, 92vw);
+    margin:26px auto 0;
+    text-align:center;
+    font-size:12.5px;
+    color:var(--mist);
+    opacity:.55;
+    letter-spacing:.02em;
+  }
+
+  @media (max-width:480px){
+    .map-card{ padding:48px 22px 40px; }
+    .seal{ width:96px; height:96px; left:-14px; bottom:-18px; }
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .compass .needle, .contours svg{ animation:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <filter id="tornEdge" x="-20%" y="-20%" width="140%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.012 0.035" numOctaves="3" seed="7" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="14" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<div class="contours" aria-hidden="true">
+  <svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+    <g fill="none" stroke="#7fb3c2" stroke-width="1">
+      <path d="M20,60 C200,20 400,100 600,50 C700,25 780,60 800,50" opacity="0.5"/>
+      <path d="M0,140 C180,180 380,110 560,150 C680,175 760,130 800,150" opacity="0.45"/>
+      <path d="M-10,230 C150,270 360,190 540,240 C670,275 760,220 800,240" opacity="0.4"/>
+      <path d="M0,330 C200,290 420,370 600,320 C700,295 770,340 800,325" opacity="0.35"/>
+      <path d="M-20,420 C160,460 380,390 560,430 C680,455 760,410 800,430" opacity="0.3"/>
+      <path d="M0,510 C220,470 400,540 620,500 C710,483 770,520 800,505" opacity="0.25"/>
+    </g>
+  </svg>
+</div>
+
+<div class="stage">
+  <div>
+    <div class="map-wrap">
+      <div class="pin" aria-hidden="true"></div>
+
+      <div class="map-card">
+        <div class="card-inner">
+
+          <svg class="compass" viewBox="0 0 100 100" aria-hidden="true">
+            <circle cx="50" cy="50" r="44" fill="none" stroke="#5b4a2c" stroke-width="1.5" opacity="0.55"/>
+            <circle cx="50" cy="50" r="3" fill="#5b4a2c"/>
+            <g font-size="8" fill="#5b4a2c" font-family="Vazirmatn, sans-serif" opacity="0.7" text-anchor="middle">
+              <text x="50" y="14">ش</text>
+              <text x="50" y="93">ج</text>
+              <text x="10" y="53">غ</text>
+              <text x="90" y="53">ش‌ق</text>
+            </g>
+            <g class="needle">
+              <polygon points="50,14 44,50 50,50" fill="#a83f28"/>
+              <polygon points="50,86 56,50 50,50" fill="#5b4a2c"/>
+            </g>
+          </svg>
+
+          <span class="kicker">مسیر پیدا نشد</span>
+          <h1 class="headline">این نقطه روی نقشه وجود نداره</h1>
+          <p class="subtext">
+            یا نشونی رو اشتباه نوشتی، یا این جزیره هیچ‌وقت کشف نشده.
+            نقشه‌بردارها هنوز دنبالشن.
+          </p>
+          <span class="coords">۳۵° نه پیدا شد، ۵۱° نه پیدا شد</span>
+          <br>
+          <a href="/" class="cta">بازگشت به خشکی</a>
+
+        </div>
+      </div>
+
+      <svg class="seal" viewBox="0 0 120 120" aria-hidden="true">
+        <defs>
+          <path id="ring" d="M 60,60 m -46,0 a 46,46 0 1,1 92,0 a 46,46 0 1,1 -92,0"/>
+        </defs>
+        <circle cx="60" cy="60" r="52" fill="#a83f28"/>
+        <circle cx="60" cy="60" r="52" fill="none" stroke="#7c2c1b" stroke-width="2"/>
+        <circle cx="60" cy="60" r="41" fill="none" stroke="#e8b79a" stroke-width="1" opacity="0.5"/>
+        <text font-size="9.5" fill="#f0d3c2" font-family="Vazirmatn, sans-serif" font-weight="600" letter-spacing="1">
+          <textPath href="#ring" startOffset="2%">یافت نشد · یافت نشد ·</textPath>
+        </text>
+        <text x="60" y="70" text-anchor="middle" font-size="30" font-weight="800" fill="#f7e4d8" font-family="Vazirmatn, sans-serif">۴۰۴</text>
+      </svg>
+
+    </div>
+
+    <p class="route">اگه فکر می‌کنی این یه اشتباهه، به ناخدا (پشتیبانی) خبر بده.</p>
+  </div>
+</div>
+
+</body>
+</html>
