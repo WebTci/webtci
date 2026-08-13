@@ -1,5 +1,4 @@
 
-اینو با ایموجی و جذابترش کن:
 🌐 WebTci — Personal Portfolio
 <p align="center"> <strong>✨ Personal Website & Web Projects ✨</strong> </p><p align="center"> 🚀 A creative space for building, testing, and showcasing web experiments, interfaces, and digital solutions. </p>
 👨‍💻 About Me
