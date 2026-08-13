@@ -11,11 +11,11 @@
   {
     "contact_id": 2,
     "first_call": "answered",
-    "first_result": "willing",
+    "first_result": "not_needed",
     "second_call": null,
     "second_result": null,
     "appointment_note": null,
-    "updated_at": "2026-08-13T08:30:40.990Z"
+    "updated_at": "2026-08-13T08:31:51.445Z"
   },
   {
     "contact_id": 3,
