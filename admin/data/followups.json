@@ -28,12 +28,12 @@
   },
   {
     "contact_id": 4,
-    "first_call": null,
-    "first_result": null,
+    "first_call": "answered",
+    "first_result": "not_needed",
     "second_call": null,
     "second_result": null,
     "appointment_note": null,
-    "updated_at": null
+    "updated_at": "2026-08-13T08:37:59.958Z"
   },
   {
     "contact_id": 5,
