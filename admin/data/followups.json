@@ -1,0 +1,74 @@
+[
+  {
+    "contact_id": 1,
+    "first_call": null,
+    "first_result": null,
+    "second_call": null,
+    "second_result": null,
+    "appointment_note": null,
+    "updated_at": null
+  },
+  {
+    "contact_id": 2,
+    "first_call": null,
+    "first_result": null,
+    "second_call": null,
+    "second_result": null,
+    "appointment_note": null,
+    "updated_at": null
+  },
+  {
+    "contact_id": 3,
+    "first_call": null,
+    "first_result": null,
+    "second_call": null,
+    "second_result": null,
+    "appointment_note": null,
+    "updated_at": null
+  },
+  {
+    "contact_id": 4,
+    "first_call": null,
+    "first_result": null,
+    "second_call": null,
+    "second_result": null,
+    "appointment_note": null,
+    "updated_at": null
+  },
+  {
+    "contact_id": 5,
+    "first_call": null,
+    "first_result": null,
+    "second_call": null,
+    "second_result": null,
+    "appointment_note": null,
+    "updated_at": null
+  },
+  {
+    "contact_id": 6,
+    "first_call": null,
+    "first_result": null,
+    "second_call": null,
+    "second_result": null,
+    "appointment_note": null,
+    "updated_at": null
+  },
+  {
+    "contact_id": 7,
+    "first_call": null,
+    "first_result": null,
+    "second_call": null,
+    "second_result": null,
+    "appointment_note": null,
+    "updated_at": null
+  },
+  {
+    "contact_id": 8,
+    "first_call": null,
+    "first_result": null,
+    "second_call": null,
+    "second_result": null,
+    "appointment_note": null,
+    "updated_at": null
+  }
+]

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+<title>پشتیبانی ماهریاب</title>
+<meta name="description" content="پیگیری تماس‌های پشتیبانی مخاطبان ماهریاب" />
+<meta name="theme-color" content="#1d4ed8" />
+<link rel="manifest" href="manifest.json" />
+<link rel="icon" href="icons/icon-192.png" />
+<link rel="apple-touch-icon" href="icons/icon-192.png" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="ماهریاب" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { vazir: ['Vazirmatn', 'sans-serif'] },
+        colors: {
+          brand: {
+            50: '#eff6ff', 100: '#dbeafe', 200: '#bfdbfe', 300: '#93c5fd',
+            400: '#60a5fa', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8',
+            800: '#1e40af', 900: '#1e3a8a'
+          }
+        }
+      }
+    }
+  };
+</script>
+
+<style>
+  html, body { font-family: 'Vazirmatn', sans-serif; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-thumb { background: #bfdbfe; border-radius: 999px; }
+  .tab-scroll::-webkit-scrollbar { display: none; }
+  .tab-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+  .pill { transition: all .15s ease; }
+  .pill[data-selected="true"] { background: #1d4ed8; color: #fff; border-color: #1d4ed8; }
+  .card-enter { animation: cardIn .25s ease both; }
+  @keyframes cardIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  .toast-enter { animation: toastIn .2s ease both; }
+  @keyframes toastIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+  .spinner { border: 2px solid rgba(255,255,255,.4); border-top-color: #fff; border-radius: 50%; width: 16px; height: 16px; animation: spin .7s linear infinite; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  input[type="checkbox"].chk { accent-color: #1d4ed8; }
+</style>
+</head>
+<body class="bg-brand-50 text-slate-800 min-h-screen">
+
+<div id="toast-root" class="fixed top-3 inset-x-0 z-[80] flex flex-col items-center gap-2 px-4 pointer-events-none"></div>
+
+<div class="max-w-md mx-auto min-h-screen bg-white shadow-sm flex flex-col relative">
+
+  <!-- نوار بالای برنامه -->
+  <header class="sticky top-0 z-30 bg-brand-700 text-white">
+    <div class="flex items-center justify-between px-4 pt-4 pb-3">
+      <div class="flex items-center gap-2">
+        <div class="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center font-extrabold text-lg">م</div>
+        <div>
+          <h1 class="font-bold text-base leading-tight">پشتیبانی ماهریاب</h1>
+          <p id="conn-status" class="text-[11px] text-brand-100 leading-tight">در حال بررسی اتصال…</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-1">
+        <button id="btn-refresh" title="به‌روزرسانی" class="w-9 h-9 rounded-full hover:bg-white/10 active:bg-white/20 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.64-6.36" /><path d="M21 3v6h-6" /></svg>
+        </button>
+        <button id="btn-settings" title="تنظیمات اتصال" class="w-9 h-9 rounded-full hover:bg-white/10 active:bg-white/20 flex items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" /></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- نوار جستجو -->
+    <div class="px-4 pb-3">
+      <div class="relative">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 text-brand-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" /></svg>
+        <input id="search-input" type="text" placeholder="جستجوی نام، شماره یا حیطه فعالیت…"
+          class="w-full bg-white/10 placeholder-brand-100 text-white text-sm rounded-xl pr-9 pl-3 py-2.5 outline-none focus:bg-white/20 transition" />
+      </div>
+    </div>
+
+    <!-- تب‌ها -->
+    <nav id="tabs" class="tab-scroll flex gap-2 px-4 pb-3 overflow-x-auto"></nav>
+  </header>
+
+  <!-- محتوای اصلی -->
+  <main id="list-root" class="flex-1 px-3 py-3 space-y-3 pb-24"></main>
+
+  <!-- وضعیت خالی / بارگذاری -->
+  <div id="empty-state" class="hidden flex-1 flex flex-col items-center justify-center px-8 py-16 text-center text-slate-400 gap-2">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-brand-200" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6M4 6h16v14H4z" /></svg>
+    <p id="empty-state-text" class="text-sm">موردی برای نمایش نیست</p>
+  </div>
+
+  <div id="loading-state" class="flex-1 flex flex-col items-center justify-center px-8 py-16 gap-3">
+    <div class="w-8 h-8 border-4 border-brand-100 border-t-brand-600 rounded-full animate-spin"></div>
+    <p class="text-sm text-slate-400">در حال دریافت اطلاعات…</p>
+  </div>
+
+</div>
+
+<!-- مودال تنظیمات اتصال گیت‌هاب -->
+<div id="settings-modal" class="hidden fixed inset-0 z-[90] bg-black/40 flex items-end sm:items-center justify-center">
+  <div class="bg-white w-full sm:max-w-md sm:rounded-3xl rounded-t-3xl max-h-[92vh] overflow-y-auto">
+    <div class="sticky top-0 bg-white px-5 pt-5 pb-3 border-b border-slate-100 flex items-center justify-between">
+      <h2 class="font-bold text-slate-800">اتصال به گیت‌هاب</h2>
+      <button id="settings-close" class="w-8 h-8 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-400">✕</button>
+    </div>
+    <form id="settings-form" class="px-5 py-4 space-y-4">
+      <p class="text-xs leading-6 text-slate-500 bg-brand-50 rounded-xl p-3">
+        اطلاعات این فرم فقط داخل همین گوشی (localStorage مرورگر) ذخیره می‌شود و هیچ‌گاه داخل کد برنامه قرار نمی‌گیرد.
+        توکن باید دسترسی <b>Contents: Read & Write</b> روی همین مخزن را داشته باشد.
+      </p>
+
+      <div>
+        <label class="block text-xs font-medium text-slate-600 mb-1">نام کاربری / سازمان در گیت‌هاب</label>
+        <input name="owner" required placeholder="مثلاً mahiyab-team" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm outline-none focus:border-brand-500" />
+      </div>
+      <div>
+        <label class="block text-xs font-medium text-slate-600 mb-1">نام مخزن (Repository)</label>
+        <input name="repo" required placeholder="مثلاً mahiyab-support-data" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm outline-none focus:border-brand-500" />
+      </div>
+      <div>
+        <label class="block text-xs font-medium text-slate-600 mb-1">شاخه (Branch)</label>
+        <input name="branch" placeholder="main" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm outline-none focus:border-brand-500" />
+      </div>
+      <div>
+        <label class="block text-xs font-medium text-slate-600 mb-1">توکن دسترسی (Personal Access Token)</label>
+        <input name="token" required type="password" placeholder="ghp_xxxxxxxxxxxx" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm outline-none focus:border-brand-500" />
+      </div>
+
+      <label class="flex items-center gap-2 text-sm text-slate-600">
+        <input type="checkbox" name="isPrivate" class="chk w-4 h-4 rounded" />
+        این مخزن خصوصی (Private) است
+      </label>
+
+      <details class="text-sm">
+        <summary class="text-brand-700 cursor-pointer select-none">تنظیمات پیشرفته (مسیر فایل‌ها)</summary>
+        <div class="mt-3 space-y-3">
+          <div>
+            <label class="block text-xs font-medium text-slate-600 mb-1">مسیر فایل مخاطبان</label>
+            <input name="contactsPath" placeholder="data/contacts.json" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm outline-none focus:border-brand-500" />
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-600 mb-1">مسیر فایل پیگیری‌ها</label>
+            <input name="followupsPath" placeholder="data/followups.json" class="w-full border border-slate-200 rounded-xl px-3 py-2.5 text-sm outline-none focus:border-brand-500" />
+          </div>
+        </div>
+      </details>
+
+      <div class="flex gap-2 pt-2">
+        <button type="submit" class="flex-1 bg-brand-700 hover:bg-brand-800 text-white rounded-xl py-3 text-sm font-bold">ذخیره و اتصال</button>
+      </div>
+      <button type="button" id="settings-disconnect" class="w-full text-red-500 text-xs py-1">قطع اتصال و پاک‌کردن اطلاعات ذخیره‌شده</button>
+    </form>
+  </div>
+</div>
+
+<script src="js/github.js"></script>
+<script src="js/app.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('service-worker.js').catch(() => {});
+    });
+  }
+</script>
+</body>
+</html>
