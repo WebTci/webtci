@@ -1,21 +1,21 @@
 [
   {
     "contact_id": 1,
+    "first_call": "no_answer",
+    "first_result": null,
+    "second_call": "no_answer",
+    "second_result": null,
+    "appointment_note": null,
+    "updated_at": "2026-08-13T08:27:44.299Z"
+  },
+  {
+    "contact_id": 2,
     "first_call": null,
     "first_result": null,
     "second_call": null,
     "second_result": null,
     "appointment_note": null,
     "updated_at": null
-  },
-  {
-    "contact_id": 2,
-    "first_call": null,
-    "first_result": null,
-    "second_call": "answered",
-    "second_result": "no_money",
-    "appointment_note": null,
-    "updated_at": "2026-08-13T08:26:43.388Z"
   },
   {
     "contact_id": 3,
