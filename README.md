@@ -23,19 +23,19 @@ Project	Description
 📁 Repository Structure
 text
 webtci/
-├── Admin/            🧑‍💼
-├── ai/               🤖
-├── coffee/           ☕
-├── maheryab/         🛠️
-├── najafabad24/      📰
-├── njf/              🌆
-├── photo/            📸
-├── shine/            ✨
-├── 404.html          ❌
-├── CNAME             🌍
-├── atosa.html        🏷️
-├── index.html        🏠
-└── paytakht-plus.html 🛒
+├── Admin/            🧑‍💼                                                                                                                                           
+├── ai/               🤖                                                                                                                                          
+├── coffee/           ☕                                                                                                                                          
+├── maheryab/         🛠️                                                                                                                                          
+├── najafabad24/      📰                                                                                                                                          
+├── njf/              🌆                                                                                                                                          
+├── photo/            📸                                                                                                                                          
+├── shine/            ✨                                                                                                                                          
+├── 404.html          ❌                                                                                                                                          
+├── CNAME             🌍                                                                                                                                          
+├── atosa.html        🏷️                                                                                                                                          
+├── index.html        🏠                                                                                                                                          
+└── paytakht-plus.html 🛒                                                                                                                                          
 🧰 Technologies I Use
 Depending on the project, I work with:
 
