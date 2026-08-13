@@ -39,10 +39,10 @@
     "contact_id": 5,
     "first_call": null,
     "first_result": null,
-    "second_call": "no_answer",
+    "second_call": null,
     "second_result": null,
     "appointment_note": null,
-    "updated_at": "2026-08-13T08:39:14.283Z"
+    "updated_at": null
   },
   {
     "contact_id": 6,
@@ -55,12 +55,12 @@
   },
   {
     "contact_id": 7,
-    "first_call": null,
-    "first_result": null,
+    "first_call": "answered",
+    "first_result": "appointment",
     "second_call": null,
     "second_result": null,
-    "appointment_note": null,
-    "updated_at": null
+    "appointment_note": "10 مباد",
+    "updated_at": "2026-08-13T08:41:54.026Z"
   },
   {
     "contact_id": 8,
