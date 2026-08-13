@@ -28,21 +28,21 @@
   },
   {
     "contact_id": 4,
-    "first_call": "answered",
-    "first_result": "not_needed",
-    "second_call": null,
-    "second_result": null,
-    "appointment_note": null,
-    "updated_at": "2026-08-13T08:37:59.958Z"
-  },
-  {
-    "contact_id": 5,
     "first_call": null,
     "first_result": null,
     "second_call": null,
     "second_result": null,
     "appointment_note": null,
     "updated_at": null
+  },
+  {
+    "contact_id": 5,
+    "first_call": null,
+    "first_result": null,
+    "second_call": "no_answer",
+    "second_result": null,
+    "appointment_note": null,
+    "updated_at": "2026-08-13T08:39:14.283Z"
   },
   {
     "contact_id": 6,
