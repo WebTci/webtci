@@ -1,93 +1,378 @@
+````markdown
+<!-- ========================================================= -->
+<!--                      WebTci README                         -->
+<!-- ========================================================= -->
 
-🌐 WebTci — Personal Portfolio
-<p align="center"> <strong>✨ Personal Website & Web Projects ✨</strong> </p><p align="center"> 🚀 A creative space for building, testing, and showcasing web experiments, interfaces, and digital solutions. </p>
-👨‍💻 About Me
-Hey there! I'm WebTci — a passionate web developer constantly exploring the art of building digital experiences.
-This repository is my playground 🎯 where ideas turn into real-world projects, from simple interfaces to full-fledged platforms.
+<div align="center">
 
-📂 Projects
-Here are some of the cool projects you'll find here:
+```text
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║   ██╗    ██╗███████╗██████╗ ████████╗ ██████╗██╗           ║
+║   ██║    ██║██╔════╝██╔══██╗╚══██╔══╝██╔════╝██║           ║
+║   ██║ █╗ ██║█████╗  ██████╔╝   ██║   ██║     ██║           ║
+║   ██║███╗██║██╔══╝  ██╔══██╗   ██║   ██║     ██║           ║
+║   ╚███╔███╔╝███████╗██████╔╝   ██║   ╚██████╗███████╗      ║
+║    ╚══╝╚══╝ ╚══════╝╚═════╝    ╚═╝    ╚═════╝╚══════╝      ║
+║                                                              ║
+║                  PERSONAL WEB UNIVERSE                       ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+````
 
-Project	Description
-🛠️ MaherYab	Connect with local skilled professionals effortlessly.
-📰 Najafabad24	A local digital media hub.
-🛒 Paytakht Plus	A sleek e-commerce web interface.
-🤖 AI	AI-powered experiments and web tools.
-☕ Coffee	A cozy little web experiment.
-✨ Shine	A shiny UI project.
-🌆 NJ	A creative web exploration.
-📸 Photo	Photography and image-related projects.
-🧑‍💼 Admin	Administrative dashboards and pages.
-⚡ The collection is always growing — new ideas, new code, new vibes!
+### `</> Code • 🎨 Design • ⚡ Experiments • 🚀 Ideas`
 
-📁 Repository Structure
-text
+**Personal website & collection of web projects**
+
+<br>
+
+<a href="https://github.com/WebTci/webtci">
+<img src="https://img.shields.io/github/last-commit/WebTci/webtci?style=for-the-badge&logo=github&label=LAST%20COMMIT">
+</a>
+<a href="https://github.com/WebTci/webtci">
+<img src="https://img.shields.io/github/repo-size/WebTci/webtci?style=for-the-badge&logo=github&label=REPO%20SIZE">
+</a>
+<a href="https://github.com/WebTci/webtci">
+<img src="https://img.shields.io/github/languages/count/WebTci/webtci?style=for-the-badge&logo=github&label=LANGUAGES">
+</a>
+<a href="https://github.com/WebTci/webtci">
+<img src="https://img.shields.io/github/stars/WebTci/webtci?style=for-the-badge&logo=github&label=STARS">
+</a>
+
+<br><br>
+
+</div>
+
+---
+
+## ╔═ `01` · ABOUT ═╗
+
+> **WebTci** is my personal development space.
+> This repository is where I build, test, experiment and showcase different web projects.
+> Each folder represents a project, idea or digital experiment.
+> Some projects are practical.
+> Some are experimental.
+> Some are simply built to explore a new idea. ✨
+
+<br>
+
+```text
+             ┌───────────────────────────────┐
+             │                               │
+             │       💡 IDEA                 │
+             │          │                    │
+             │          ▼                    │
+             │       🧠 BUILD                │
+             │          │                    │
+             │          ▼                    │
+             │       🎨 DESIGN               │
+             │          │                    │
+             │          ▼                    │
+             │       ⚡ EXPERIMENT            │
+             │          │                    │
+             │          ▼                    │
+             │       🚀 SHIP                 │
+             │                               │
+             └───────────────────────────────┘
+```
+
+---
+
+## ╔═ `02` · PROJECTS ═╗
+
+### 🔎 MaherYab
+
+**A web project focused on connecting people with skilled professionals.**
+**Built around a practical local-service concept.**
+`🛠️ Platform` · `🌐 Web` · `📍 Local`
+
+<br>
+
+### 📰 Najafabad24
+
+**A local digital project focused on information and media.**
+**Designed around a modern and accessible web experience.**
+`📰 Media` · `📍 Local` · `🌐 Web`
+
+<br>
+
+### 🛒 Paytakht Plus
+
+**A modern e-commerce interface and shopping experience.**
+**Focused on clean UI, product presentation and usability.**
+`🛍️ E-Commerce` · `🎨 UI/UX` · `⚡ Frontend`
+
+<br>
+
+### 🤖 AI
+
+**A collection of AI-related experiments and web ideas.**
+**Used as a playground for testing new concepts and interfaces.**
+`🤖 AI` · `🧪 Experiments` · `💡 Concepts`
+
+<br>
+
+### ☕ Coffee
+
+**A cozy little web experiment. ✨**
+**Built as a small creative exploration of web design and interaction.**
+`☕ Creative` · `🎨 UI` · `🧪 Experiment`
+
+<br>
+
+### ✨ Shine
+
+**A shiny UI project.**
+**Focused on visual details, interactions and interface experimentation.**
+`✨ UI` · `🎨 Design` · `⚡ Frontend`
+
+<br>
+
+### 🌆 NJ
+
+**A creative web exploration.**
+**An experimental project built around ideas, visuals and interaction.**
+`🌆 Creative` · `🧪 Experiment` · `🌐 Web`
+
+<br>
+
+### 📸 Photo
+
+**Photography and image-related projects.**
+**A collection of visual experiments and image-focused interfaces.**
+`📸 Photography` · `🖼️ Visual` · `🎨 Design`
+
+<br>
+
+### 🧑‍💼 Admin
+
+**Administrative dashboards and pages.**
+**Focused on practical interfaces, layouts and management experiences.**
+`🧑‍💼 Dashboard` · `📊 Admin` · `⚙️ Interface`
+
+---
+
+## ╔═ `03` · PROJECT MAP ═╗
+
+```text
+                    ┌─────────────────┐
+                    │    🌐 WebTci    │
+                    └────────┬────────┘
+                             │
+          ┌──────────────────┼──────────────────┐
+          │                  │                  │
+          ▼                  ▼                  ▼
+      🛠️ Projects        🎨 Design         🧪 Experiments
+          │                  │                  │
+    ┌─────┼─────┐       ┌────┼────┐       ┌────┼────┐
+    │     │     │       │    │    │       │    │    │
+    ▼     ▼     ▼       ▼    ▼    ▼       ▼    ▼    ▼
+  Maher   NJ   Admin   Shine Photo AI   Coffee NJF etc.
+  Yab           │
+    │           │
+    └──────┬────┘
+           ▼
+      🚀 Web Projects
+```
+
+---
+
+## ╔═ `04` · TECH STACK ═╗
+
+```text
+┌────────────────────────────────────────────────────────────┐
+│                        TECHNOLOGY                           │
+├────────────────────────────────────────────────────────────┤
+│                                                            │
+│  🌐 HTML5          → Structure & semantic markup            │
+│  🎨 CSS3           → Styling & responsive interfaces        │
+│  ⚡ JavaScript     → Interactions & functionality           │
+│  🧩 Web APIs       → Browser-based functionality            │
+│  🖥️ Responsive UI  → Desktop / Tablet / Mobile             │
+│  🔧 Git            → Version control                        │
+│  🐙 GitHub         → Code hosting & project management      │
+│                                                            │
+└────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## ╔═ `05` · REPOSITORY STRUCTURE ═╗
+
+```text
 webtci/
-├── Admin/            🧑‍💼                                                                                                                                           
-├── ai/               🤖                                                                                                                                          
-├── coffee/           ☕                                                                                                                                          
-├── maheryab/         🛠️                                                                                                                                          
-├── najafabad24/      📰                                                                                                                                          
-├── njf/              🌆                                                                                                                                          
-├── photo/            📸                                                                                                                                          
-├── shine/            ✨                                                                                                                                          
-├── 404.html          ❌                                                                                                                                          
-├── CNAME             🌍                                                                                                                                          
-├── atosa.html        🏷️                                                                                                                                          
-├── index.html        🏠                                                                                                                                          
-└── paytakht-plus.html 🛒                                                                                                                                          
-🧰 Technologies I Use
-Depending on the project, I work with:
+│
+├── 📁 Admin/
+├── 📁 ai/
+├── 📁 coffee/
+├── 📁 maheryab/
+├── 📁 najafabad24/
+├── 📁 njf/
+├── 📁 photo/
+├── 📁 shine/
+│
+├── 📄 404.html
+├── 📄 CNAME
+├── 📄 atosa.html
+├── 📄 index.html
+├── 📄 paytakht-plus.html
+│
+└── 📄 README.md
+```
 
-🌐 HTML5
+---
 
-🎨 CSS3
+## ╔═ `06` · DEVELOPMENT FLOW ═╗
 
-⚡ JavaScript
+```text
+       ┌───────────┐
+       │   💡 IDEA │
+       └─────┬─────┘
+             │
+             ▼
+       ┌───────────┐
+       │   📝 PLAN │
+       └─────┬─────┘
+             │
+             ▼
+       ┌───────────┐
+       │   💻 CODE │
+       └─────┬─────┘
+             │
+             ▼
+       ┌───────────┐
+       │  🎨 STYLE │
+       └─────┬─────┘
+             │
+             ▼
+       ┌───────────┐
+       │   🧪 TEST │
+       └─────┬─────┘
+             │
+             ▼
+       ┌───────────┐
+       │ 🚀 DEPLOY │
+       └─────┬─────┘
+             │
+             ▼
+       ┌───────────┐
+       │   🔄 ITERATE
+       └───────────┘
+```
 
-📱 Responsive Design
+---
 
-🧩 Modern UI/UX
+## ╔═ `07` · GET STARTED ═╗
 
-🔧 Git & GitHub
+### 📥 Clone
 
-🌍 Web APIs
-
-📦 Third-party libraries & tools
-
-🎯 My Goals
-🧪 Build real-world web projects
-
-🔬 Experiment with modern tech
-
-🎨 Level up my UI/UX skills
-
-♻️ Create reusable components
-
-📝 Document and share my journey
-
-💡 Explore new ideas and digital products
-
-🌍 Live Demo
-Check out my personal web presence:
-🔗 WebTci
-
-⚠️ The live URL may change as the project evolves.
-
-🛠️ Development
-Wanna run it locally? Easy:
-
-bash
+```bash
 git clone https://github.com/WebTci/webtci.git
+```
+
+### 📂 Enter the repository
+
+```bash
 cd webtci
-Most projects are static — just open index.html in your browser or fire up a local server. 🔥
+```
 
-📊 Repository Status
-📌 This is a living portfolio — always evolving, always improving.
-Projects may be added, redesigned, or reorganized over time. Stay tuned! 🚀
+### 🚀 Run
 
-👤 Author
-WebTci — a developer, designer, and digital dreamer.
-Building the web, one project at a time. 🌟
+**Most projects in this repository are web-based and can be opened directly in a browser.**
+**For projects requiring a local server, use your preferred development server.**
 
-⭐ If you find something cool here, don't forget to star the repo and explore the code!
+---
+
+## ╔═ `08` · LIVE ═╗
+
+<div align="center">
+
+### 🌐 Visit WebTci
+
+<a href="https://github.com/WebTci/webtci">
+<img src="https://img.shields.io/badge/VIEW%20REPOSITORY-181717?style=for-the-badge&logo=github&logoColor=white">
+</a>
+
+</div>
+
+---
+
+## ╔═ `09` · PHILOSOPHY ═╗
+
+```text
+╭──────────────────────────────────────────────────────╮
+│                                                      │
+│   💡 Think                                           │
+│   ├── Ask questions                                  │
+│   └── Find ideas                                     │
+│                                                      │
+│   💻 Build                                           │
+│   ├── Write code                                     │
+│   └── Turn ideas into reality                        │
+│                                                      │
+│   🎨 Create                                          │
+│   ├── Design                                         │
+│   └── Experiment                                     │
+│                                                      │
+│   ⚡ Improve                                          │
+│   ├── Test                                           │
+│   └── Iterate                                        │
+│                                                      │
+│   🚀 Ship                                            │
+│   └── Put it into the world                          │
+│                                                      │
+╰──────────────────────────────────────────────────────╯
+```
+
+---
+
+## ╔═ `10` · STATUS ═╗
+
+**This repository is continuously evolving.**
+**Projects may be redesigned, expanded, reorganized or replaced over time.**
+**New ideas and experiments are added as they are created.**
+
+<br>
+
+```text
++------------------------------------------------------+
+|                                                      |
+|   ⚡ CURRENT STATUS                                  |
+|                                                      |
+|   [+] Building                                       |
+|   [+] Experimenting                                  |
+|   [+] Learning                                       |
+|   [+] Improving                                      |
+|   [+] Creating                                       |
+|                                                      |
++------------------------------------------------------+
+```
+
+---
+
+## ╔═ `11` · CLOSING ═╗
+
+<div align="center">
+
+```text
+╔══════════════════════════════════════════════════════╗
+║                                                      ║
+║    ⚡ The collection is always growing.              ║
+║                                                      ║
+║    💡 New ideas.                                     ║
+║    💻 New code.                                      ║
+║    🎨 New designs.                                   ║
+║    🚀 New projects.                                  ║
+║    ✨ New vibes.                                     ║
+║                                                      ║
+╚══════════════════════════════════════════════════════╝
+```
+
+### `</> Built with curiosity + code + creativity`
+
+**WebTci © 2026**
+
+</div>
+
+
+
