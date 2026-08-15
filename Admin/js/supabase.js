@@ -16,7 +16,7 @@ const SB = (() => {
 
   function saveConfig(cfg) {
     localStorage.setItem(CONFIG_KEY, JSON.stringify(cfg));
-    client = null; // اتصال قبلی باطل می‌شود تا با تنظیمات جدید دوباره ساخته شود
+    client = null; 
   }
 
   function clearConfig() {
@@ -71,19 +71,25 @@ const SB = (() => {
     return data;
   }
 
+  // افزودن مخاطب جدید
+  async function createContact(patch) {
+    const { data, error } = await getClient().from('contacts').insert(patch).select().single();
+    if (error) throw new Error(`خطا در افزودن مخاطب: ${error.message}`);
+    return data;
+  }
+
   // بررسی اینکه آیا یک تاریخ/ساعت مشخص قبلاً برای مخاطب دیگری رزرو شده یا نه
+  // (فیلتر meeting_result روی سرور انجام نمی‌شود چون ردیف‌های NULL با neq نادیده گرفته می‌شوند؛ اینجا در کلاینت فیلتر می‌کنیم)
   async function checkSlotConflict(date, time, excludeContactId) {
     const { data, error } = await getClient()
       .from('followups')
-      .select('contact_id')
+      .select('contact_id, meeting_result')
       .eq('appointment_date', date)
       .eq('appointment_time', time)
-      .eq('no_show', false)
-      .neq('contact_id', excludeContactId)
-      .limit(1);
+      .neq('contact_id', excludeContactId);
     if (error) throw new Error(`خطا در بررسی تداخل ساعت: ${error.message}`);
-    return !!(data && data.length > 0);
+    return (data || []).some((r) => r.meeting_result !== 'no_show');
   }
 
-  return { getConfig, saveConfig, clearConfig, isConfigured, fetchContacts, fetchFollowups, upsertFollowup, updateContact, checkSlotConflict };
+  return { getConfig, saveConfig, clearConfig, isConfigured, fetchContacts, fetchFollowups, upsertFollowup, updateContact, createContact, checkSlotConflict };
 })();
