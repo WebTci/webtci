@@ -247,6 +247,20 @@ function renderList() {
   empty.classList.add('hidden');
   empty.classList.remove('flex');
   root.innerHTML = list.map(renderCard).join('');
+  observeListCards();
+}
+
+// اسکیل/محو‌شدن کارت‌ها هنگام ورود و خروج از صفحه نمایش هنگام اسکرول
+let cardObserver = null;
+function observeListCards() {
+  if (!('IntersectionObserver' in window)) return;
+  if (cardObserver) cardObserver.disconnect();
+  cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      entry.target.classList.toggle('io-hidden', entry.intersectionRatio < 0.55);
+    });
+  }, { threshold: [0, 0.15, 0.3, 0.45, 0.55, 0.7, 0.85, 1] });
+  document.querySelectorAll('#list-root .list-card').forEach((el) => cardObserver.observe(el));
 }
 
 function pillsHtml(contactId, groupKey, options, selected) {
@@ -262,9 +276,9 @@ function smsHref(phone) {
   return isIOS ? `sms:${phone || ''}&body=${body}` : `sms:${phone || ''}?body=${body}`;
 }
 
-function dateFieldHtml(contactId, field, value) {
-  return `<input type="date" data-datefield="${field}" data-contact="${contactId}" value="${value || ''}"
-    class="text-[11px] border border-slate-200 rounded-lg px-1.5 py-1 text-slate-500 w-[124px] outline-none focus:border-brand-400" />`;
+function dateFieldHtml(value) {
+  // فقط نمایشی — تاریخ به‌صورت خودکار (روز ثبت) ذخیره می‌شود و قابل انتخاب/ویرایش نیست
+  return `<span class="text-[11px] text-slate-400 font-bold">${value ? formatJalaliDate(value) : '—/—/—'}</span>`;
 }
 
 function renderCard(c) {
@@ -324,7 +338,7 @@ function renderCard(c) {
   `;
 
   return `
-  <div class="card-enter rounded-2xl border border-slate-100 shadow-sm bg-white overflow-hidden ${bucket === 'archive' ? 'opacity-80' : ''}">
+  <div class="list-card card-enter rounded-2xl border border-slate-100 shadow-sm bg-white overflow-hidden ${bucket === 'archive' ? 'opacity-80' : ''}">
     <div class="px-4 pt-3.5 pb-2 flex items-start justify-between gap-2">
       <div class="shrink-0 pt-0.5">${bucketBadge}</div>
       <div class="flex-1 min-w-0 text-right">
@@ -354,7 +368,7 @@ function renderCard(c) {
       <div class="flex items-stretch gap-2">
         <div class="flex-1 rounded-2xl border border-slate-100 p-3">
           <div class="flex items-center justify-between">
-            ${dateFieldHtml(c.id, 'first_call_date', edit.first_call_date)}
+            ${dateFieldHtml(edit.first_call_date)}
             <label class="flex items-center gap-2 text-sm text-slate-700 font-bold">
               پیگیری اول
               <input type="checkbox" class="chk w-4 h-4 rounded" data-check="first_call" data-contact="${c.id}" ${edit.first_call === 'answered' ? 'checked' : ''}>
@@ -375,7 +389,7 @@ function renderCard(c) {
       <div class="flex items-stretch gap-2 mt-2 ${secondGated ? 'gated' : ''}">
         <div class="flex-1 rounded-2xl border border-slate-100 p-3">
           <div class="flex items-center justify-between">
-            ${dateFieldHtml(c.id, 'second_call_date', edit.second_call_date)}
+            ${dateFieldHtml(edit.second_call_date)}
             <label class="flex items-center gap-2 text-sm text-slate-700 font-bold">
               پیگیری دوم
               <input type="checkbox" class="chk w-4 h-4 rounded" data-check="second_call" data-contact="${c.id}" ${edit.second_call === 'answered' ? 'checked' : ''} ${secondGated ? 'disabled' : ''}>
@@ -669,13 +683,6 @@ function buildTimeSlotHtml(m) {
 
 // ---------- Interaction handlers (event delegation) ----------
 document.addEventListener('change', (e) => {
-  const dateEl = e.target.closest('[data-datefield]');
-  if (dateEl) {
-    const contactId = Number(dateEl.dataset.contact);
-    state.edits[contactId][dateEl.dataset.datefield] = dateEl.value || null;
-    return;
-  }
-
   const checkEl = e.target.closest('[data-check]');
   if (checkEl) {
     const contactId = Number(checkEl.dataset.contact);
