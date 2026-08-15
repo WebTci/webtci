@@ -47,6 +47,10 @@
   .pill[data-selected="true"] { background: #1d4ed8; color: #fff; border-color: #1d4ed8; }
   .card-enter { animation: cardIn .25s ease both; }
   @keyframes cardIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+  .list-card { transition: transform .35s ease, opacity .35s ease; transform: scale(1); opacity: 1; }
+  .list-card.io-hidden { transform: scale(.92); opacity: .35; }
+  *, *::before, *::after { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+  input, textarea { -webkit-user-select: text; user-select: text; }
   .toast-enter { animation: toastIn .2s ease both; }
   @keyframes toastIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
   .spinner { border: 2px solid rgba(255,255,255,.4); border-top-color: #fff; border-radius: 50%; width: 16px; height: 16px; animation: spin .7s linear infinite; }
