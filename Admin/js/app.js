@@ -21,7 +21,16 @@ const ARCHIVE_SUBTABS = [
     { key: 'not_registered', label: 'عدم ثبت‌نامی' },
     { key: 'registered', label: 'ثبت‌نام‌شده' }
 ];
+const PENDING_SUBTABS = [
+    { key: 'urgent', label: 'فوری' },
+    { key: 'new', label: 'پیگیری' },
+    { key: 'no_answer', label: 'جواب‌نداده' }
+];
 
+const FIRST_SUBTABS = [
+    { key: 'willing', label: 'مایل به ثبت‌نام' },
+    { key: 'call_again', label: 'تماس مجدد' }
+];
 const FIRST_RESULT_OPTIONS = [
     { key: 'willing', label: 'مایل به ثبت‌نام' },
     { key: 'not_needed', label: 'نیاز نداشت' },
@@ -51,6 +60,8 @@ const state = {
     activeTab: 'pending',
     apptSub: 'today',
     archiveSub: 'not_needed',
+    pendingSub: 'urgent',
+    firstSub: 'willing',
     calView: 'list',
     calWeekOffset: 0,
     statsRange: 'today',
@@ -129,6 +140,16 @@ function archiveReason(f) {
     if (f.second_call === 'no_answer') return 'no_answer';
     if (f.second_result === 'no_money') return 'no_money';
     return null;
+}
+function pendingReason(c, f) {
+    if (f.first_call === 'no_answer') return 'no_answer';
+    if (c.is_urgent) return 'urgent';
+    return 'new';
+}
+
+function firstReason(f) {
+    if (f.second_result === 'call_again' || f.first_result === 'call_again') return 'call_again';
+    return 'willing';
 }
 
 function emptyFollowup(contactId) {
@@ -226,9 +247,15 @@ function renderTabs() {
 
 function renderSubTabs() {
     const root = $('#subtabs');
-    root.innerHTML = state.activeTab === 'archive'
-        ? ARCHIVE_SUBTABS.map((t) => subtabBtn(t, state.archiveSub, 'archiveSub')).join('')
-        : '';
+    if (state.activeTab === 'archive') {
+        root.innerHTML = ARCHIVE_SUBTABS.map((t) => subtabBtn(t, state.archiveSub, 'archiveSub')).join('');
+    } else if (state.activeTab === 'pending') {
+        root.innerHTML = PENDING_SUBTABS.map((t) => subtabBtn(t, state.pendingSub, 'pendingSub')).join('');
+    } else if (state.activeTab === 'first') {
+        root.innerHTML = FIRST_SUBTABS.map((t) => subtabBtn(t, state.firstSub, 'firstSub')).join('');
+    } else {
+        root.innerHTML = '';
+    }
 }
 function subtabBtn(t, activeKey, kind) {
     const active = t.key === activeKey;
@@ -243,12 +270,15 @@ function filteredContacts() {
         const edit = state.edits[c.id] || f;
         if (computeBucket(f) !== state.activeTab) return false;
         if (state.activeTab === 'archive' && archiveReason(f) !== state.archiveSub) return false;
+        if (state.activeTab === 'pending' && pendingReason(c, f) !== state.pendingSub) return false;
+        if (state.activeTab === 'first' && firstReason(f) !== state.firstSub) return false;
         if (!term) return true;
-        const hay = `${edit.name || ''} ${edit.phone || ''} ${edit.field || ''}`.toLowerCase();
-        return hay.includes(term);
+        const cleanTerm = term.replace(/^#/, '');
+        const hay = `${edit.name || ''} ${edit.phone || ''} ${edit.field || ''} ${edit.notes || ''} #${c.id}`.toLowerCase();
+        return hay.includes(term) || String(c.id) === cleanTerm;
     });
     if (state.activeTab === 'pending') {
-        list = [...list].sort((a, b) => (b.is_urgent ? 1 : 0) - (a.is_urgent ? 1 : 0));
+        list = [...list].sort((a, b) => b.id - a.id);
     }
     return list;
 }
@@ -630,12 +660,21 @@ function renderStatsPage() {
 
     if (state.statsRange === 'all') {
         const counts = bucketCounts();
+        const pendingBreak = { urgent: 0, new: 0, no_answer: 0 };
+        const firstBreak = { willing: 0, call_again: 0 };
         const archiveBreak = {};
         ARCHIVE_SUBTABS.forEach((t) => { archiveBreak[t.key] = 0; });
-        state.contacts.forEach((c) => { const r = archiveReason(state.followups[c.id]); if (r) archiveBreak[r] += 1; });
+        state.contacts.forEach((c) => {
+            const f = state.followups[c.id];
+            const b = computeBucket(f);
+            if (b === 'pending') pendingBreak[pendingReason(c, f)] += 1;
+            if (b === 'first') firstBreak[firstReason(f)] += 1;
+            const r = archiveReason(f);
+            if (r) archiveBreak[r] += 1;
+        });
 
         $('#page-stats').innerHTML = rangeToggle + `
-      <p class="text-sm font-bold text-slate-500 mb-3">نمای کلی</p>
+      <p class="text-sm font-bold text-slate-500 mb-3">کلیت</p>
       <div class="grid grid-cols-2 gap-3">
         ${statCard('کل مخاطبان', state.contacts.length, 'brand')}
         ${statCard('پیگیری‌نشده', counts.pending, 'slate')}
@@ -643,6 +682,20 @@ function renderStatsPage() {
         ${statCard('تعیین‌وقت‌شده', counts.appointment, 'emerald')}
         ${statCard('کل بایگانی', counts.archive, 'slate')}
       </div>
+
+      <p class="text-sm font-bold text-slate-500 mt-5 mb-3">جزئیات پیگیری‌نشده‌ها</p>
+      <div class="grid grid-cols-3 gap-3">
+        ${statCard('فوری', pendingBreak.urgent, 'red')}
+        ${statCard('پیگیری', pendingBreak.new, 'slate')}
+        ${statCard('جواب‌نداده', pendingBreak.no_answer, 'amber')}
+      </div>
+
+      <p class="text-sm font-bold text-slate-500 mt-5 mb-3">جزئیات در حال پیگیری</p>
+      <div class="grid grid-cols-2 gap-3">
+        ${statCard('مایل به ثبت‌نام', firstBreak.willing, 'brand')}
+        ${statCard('تماس مجدد', firstBreak.call_again, 'amber')}
+      </div>
+
       <p class="text-sm font-bold text-slate-500 mt-5 mb-3">جزئیات بایگانی</p>
       <div class="grid grid-cols-2 gap-3">
         ${ARCHIVE_SUBTABS.map((t) => statCard(t.label, archiveBreak[t.key], 'slate')).join('')}
@@ -662,24 +715,34 @@ function renderStatsPage() {
         title = 'این هفته';
     }
 
-    let firstCalls = 0, secondCalls = 0, appointmentsSet = 0, archived = 0;
+    let firstAnswered = 0, secondAnswered = 0, noAnswer = 0, appointmentsSet = 0, archived = 0;
     state.contacts.forEach((c) => {
         const f = state.followups[c.id];
-        if (f.first_call_date && inRange(f.first_call_date)) firstCalls += 1;
-        if (f.second_call_date && inRange(f.second_call_date)) secondCalls += 1;
+        if (f.first_call_date && inRange(f.first_call_date)) {
+            if (f.first_call === 'answered') firstAnswered += 1;
+            if (f.first_call === 'no_answer') noAnswer += 1;
+        }
+        if (f.second_call_date && inRange(f.second_call_date)) {
+            if (f.second_call === 'answered') secondAnswered += 1;
+            if (f.second_call === 'no_answer') noAnswer += 1;
+        }
         if (f.appointment_date && inRange(f.appointment_date)) appointmentsSet += 1;
         if (f.updated_at && archiveReason(f) && inRange(f.updated_at.slice(0, 10))) archived += 1;
     });
+    const total = firstAnswered + secondAnswered + noAnswer;
 
     $('#page-stats').innerHTML = rangeToggle + `
     <p class="text-sm font-bold text-slate-500 mb-3">گزارش ${title}</p>
     <div class="grid grid-cols-2 gap-3">
-      ${statCard('تماس‌های پیگیری اول', firstCalls, 'brand')}
-      ${statCard('تماس‌های پیگیری دوم', secondCalls, 'brand')}
+      ${statCard('کل پیگیری‌ها', total, 'brand')}
+      ${statCard('جواب‌نداده‌ها', noAnswer, 'amber')}
+    </div>
+    <div class="grid grid-cols-2 gap-3 mt-3">
+      ${statCard('پیگیری اول', firstAnswered, 'brand')}
+      ${statCard('پیگیری دوم', secondAnswered, 'brand')}
       ${statCard('قرار ثبت‌شده', appointmentsSet, 'emerald')}
       ${statCard('بایگانی‌شده', archived, 'slate')}
-    </div>
-    <p class="text-[11px] text-slate-400 mt-3">مجموع تماس‌ها: ${toPersianDigits(firstCalls + secondCalls)}</p>`;
+    </div>`;
 }
 
 function renderSettingsPage() {
@@ -961,6 +1024,12 @@ document.addEventListener('click', async (e) => {
 
     const archiveSubBtn = e.target.closest('[data-archiveSub]');
     if (archiveSubBtn) { state.archiveSub = archiveSubBtn.dataset.archivesub; renderSubTabs(); renderList(); return; }
+
+    const pendingSubBtn = e.target.closest('[data-pendingSub]');
+    if (pendingSubBtn) { state.pendingSub = pendingSubBtn.dataset.pendingsub; renderSubTabs(); renderList(); return; }
+
+    const firstSubBtn = e.target.closest('[data-firstSub]');
+    if (firstSubBtn) { state.firstSub = firstSubBtn.dataset.firstsub; renderSubTabs(); renderList(); return; }
 
     const calViewBtn = e.target.closest('[data-calview]');
     if (calViewBtn) { state.calView = calViewBtn.dataset.calview; renderCalendarPage(); return; }
