@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>پرامپت‌ساز حرفه‌ای</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'Vazirmatn', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f8fafc 100%);
+      min-height: 100vh;
+      padding: 20px;
+      direction: rtl;
+      color: #0f172a;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      background: linear-gradient(to left, #0284c7, #7c3aed);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+      letter-spacing: -0.5px;
+    }
+
+    header p {
+      color: #475569;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+
+    .main-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border: 1px solid #cbd5e1;
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .field.col-span-2 {
+      grid-column: span 2;
+    }
+
+    .field.col-span-3 {
+      grid-column: span 3;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #1e293b;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px 14px;
+      background: #ffffff;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 12px;
+      color: #0f172a;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+      font-family: inherit;
+      resize: vertical;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    }
+
+    textarea {
+      min-height: 90px;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: #3b82f6;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: #94a3b8;
+      font-style: italic;
+      font-size: 0.9rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 32px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 12px 32px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-generate {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: white;
+      box-shadow: 0 8px 18px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-generate:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn-copy {
+      background: #f1f5f9;
+      color: #1e293b;
+      border: 1px solid #cbd5e1;
+    }
+
+    .btn-copy:hover {
+      background: #e2e8f0;
+    }
+
+    .btn-clear {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .btn-clear:hover {
+      background: #fecaca;
+    }
+
+    .output-area {
+      margin-top: 28px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 20px;
+      font-family: 'Courier New', monospace;
+      white-space: pre-wrap;
+      color: #0f172a;
+      direction: ltr;
+      text-align: left;
+      line-height: 1.7;
+      font-size: 0.95rem;
+      min-height: 120px;
+    }
+
+    .copy-status {
+      text-align: center;
+      margin-top: 10px;
+      color: #059669;
+      font-weight: 500;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .copy-status.visible {
+      opacity: 1;
+    }
+
+    /* Responsive */
+    @media (max-width: 850px) {
+      .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .field.col-span-2,
+      .field.col-span-3 {
+        grid-column: span 2;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .field.col-span-2,
+      .field.col-span-3 {
+        grid-column: span 1;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>✨ پرامپت‌ساز هوشمند</h1>
+      <p>پرامپتی دقیق و نزدیک به خواستهٔ ذهنی خود بسازید – با پیشنهادهای راهگشا</p>
+    </header>
+
+    <div class="main-card">
+      <div class="form-grid">
+        <!-- نقش -->
+        <div class="field">
+          <label>🎭 نقش (Persona)</label>
+          <input type="text" id="role"
+            placeholder="مثال: یک استراتژیست ارشد بازاریابی / یک ویراستار ادبی / یک برنامه‌نویس پایتون...">
+        </div>
+
+        <!-- هدف اصلی -->
+        <div class="field col-span-2">
+          <label>🎯 هدف و وظیفه اصلی (Goal)</label>
+          <textarea id="goal"
+            placeholder="مثال: یک ایمیل فروش برای معرفی محصول جدید بنویس که نرخ تبدیل را افزایش دهد. / یک تحلیل رقابتی از بازار ارائه بده. / یک شعر طنز درباره هوش مصنوعی بگو."></textarea>
+        </div>
+
+        <!-- زمینه و بستر -->
+        <div class="field col-span-3">
+          <label>🌍 زمینه و اطلاعات پس‌زمینه (Context)</label>
+          <textarea id="context"
+            placeholder="مثال: محصول ما اپلیکیشن مدیتیشن برای مدیران پرمشغله است. مخاطب ما ۳۰ تا ۴۵ ساله و عاشق سادگی. رقبا روی کاهش استرس تمرکز دارند، ما روی افزایش تمرکز در جلسات کاری. بودجه بازاریابی محدود است و باید از کانال‌های ارگانیک استفاده کنیم."></textarea>
+        </div>
+
+        <!-- قالب خروجی -->
+        <div class="field col-span-2">
+          <label>📋 قالب و ساختار خروجی (Format)</label>
+          <textarea id="format"
+            placeholder="مثال: یک جدول مارک‌دون با ستون‌های مشکل، علت، راهکار. / یک JSON با کلیدهای title و summary. / فقط کد پایتون با توضیح کامنت. / یک پاراگراف مقدمه + سه پیشنهاد گلوله‌ای + نتیجه‌گیری."></textarea>
+        </div>
+
+        <!-- محدودیت‌ها -->
+        <div class="field">
+          <label>🚫 محدودیت‌ها و نبایدها (Constraints)</label>
+          <textarea id="constraints"
+            placeholder="مثال: حداکثر ۱۵۰ کلمه. از کلمه «راهکار» استفاده نکن. فقط گزینه‌های رایگان. بدون توضیح تاریخچه. اگر جواب قطعی نیست بگو «اطلاعات کافی ندارم»."></textarea>
+        </div>
+
+        <!-- مثال نمونه -->
+        <div class="field col-span-2">
+          <label>📝 مثال و نمونهٔ مرجع (Few-shot)</label>
+          <textarea id="example"
+            placeholder="سبک دلخواه خود را نشان دهید: «همان‌طور که در این نمونه می‌بینید، لحن خودمانی و پر از استعاره است...» یا یک متن کوتاه از خروجی ایده‌آل خود بچسبانید."></textarea>
+        </div>
+
+        <!-- لحن و مخاطب -->
+        <div class="field">
+          <label>🗣️ لحن (Tone)</label>
+          <input type="text" id="tone" placeholder="مثال: رسمی ولی گرم / خودمانی و طنزآمیز / علمی ساده / خشک و حقوقی">
+        </div>
+        <div class="field">
+          <label>👥 مخاطب (Audience)</label>
+          <input type="text" id="audience"
+            placeholder="مثال: نوجوانان ۱۵-۱۷ سال / مدیران ارشد / برنامه‌نویسان تازه‌کار">
+        </div>
+        <div class="field">
+          <label>💬 ضمیر خطاب</label>
+          <select id="pronoun">
+            <option value="">انتخاب کنید...</option>
+            <option value="تو">تو (صمیمی)</option>
+            <option value="شما">شما (رسمی/جمع)</option>
+            <option value="مخاطب">بی‌طرف (مخاطب)</option>
+          </select>
+        </div>
+
+        <!-- مسیر فکری -->
+        <div class="field col-span-3">
+          <label>🧠 مسیر فکری و استدلال (Chain of Thought)</label>
+          <textarea id="thought"
+            placeholder="مثال: قدم‌به‌قدم پیش برو: اول مسئله را تعریف کن، سپس معیارها را فهرست کن، بعد هر گزینه را ارزیابی کن. / قبل از نوشتن کد، الگوریتم را در چند جمله توضیح بده. / اگر نیاز به فرضیات داری، آنها را صریحاً بیان کن."></textarea>
+        </div>
+
+        <!-- دانش و ابزار مفروض -->
+        <div class="field col-span-2">
+          <label>🛠️ دانش و چارچوب‌های مفروض (Assumed Knowledge)</label>
+          <textarea id="tools"
+            placeholder="مثال: از چارچوب AIDA برای کپی تبلیغاتی استفاده کن. / بر اساس استاندارد ISO 31000 تحلیل کن. / با کتابخانه pandas و matplotlib در پایتون کار کن. / از رویکرد درمان مبتنی بر شفقت (CFT) بهره ببر."></textarea>
+        </div>
+
+        <!-- خلاقیت -->
+        <div class="field">
+          <label>🎨 سطح خلاقیت</label>
+          <select id="creativity">
+            <option value="">پیش‌فرض</option>
+            <option value="خلاقانه و خارج از چارچوب">خلاقانه و ایده‌های نامتعارف</option>
+            <option value="محافظه‌کارانه و مستند">محافظه‌کارانه و مبتنی بر شواهد</option>
+            <option value="ترکیبی (دو نسخه)">ترکیبی (یک نسخه خلاقانه + یک نسخه رسمی)</option>
+          </select>
+        </div>
+
+        <!-- بازخورد -->
+        <div class="field col-span-2">
+          <label>🔄 درخواست بازخورد از مدل</label>
+          <textarea id="feedback"
+            placeholder="مثال: پس از پاسخ، سه سؤال برای شفاف‌سازی بپرس. / اگر در جایی ابهام داری، قبل از ادامه تأیید بگیر. / این اولین نسخه است، من بازخورد می‌دهم تا اصلاح کنی."></textarea>
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn-generate" onclick="generatePrompt()">✨ ساخت پرامپت نهایی</button>
+        <button class="btn-clear" onclick="clearFields()">🗑️ پاک کردن همه</button>
+      </div>
+
+      <div id="outputCard" style="display: none;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <h3 style="color:#1e293b; margin:0;">📋 پرامپت ساخته‌شده</h3>
+          <button class="btn-copy" onclick="copyPrompt()">📋 کپی کردن</button>
+        </div>
+        <div class="output-area" id="finalPrompt"></div>
+        <div class="copy-status" id="copyStatus">✓ در کلیپ‌بورد ذخیره شد!</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function generatePrompt() {
+      const get = id => document.getElementById(id).value.trim();
+      const fields = {
+        role: get('role'),
+        goal: get('goal'),
+        context: get('context'),
+        format: get('format'),
+        constraints: get('constraints'),
+        example: get('example'),
+        tone: get('tone'),
+        audience: get('audience'),
+        pronoun: document.getElementById('pronoun').value,
+        thought: get('thought'),
+        tools: get('tools'),
+        creativity: document.getElementById('creativity').value,
+        feedback: get('feedback')
+      };
+
+      let promptParts = [];
+
+      if (fields.role) promptParts.push(`نقش: ${fields.role}`);
+      if (fields.goal) promptParts.push(`هدف و وظیفه اصلی: ${fields.goal}`);
+      if (fields.context) promptParts.push(`زمینه و اطلاعات پس‌زمینه:\n${fields.context}`);
+      if (fields.format) promptParts.push(`قالب و ساختار خروجی: ${fields.format}`);
+      if (fields.constraints) promptParts.push(`محدودیت‌ها و نبایدها:\n${fields.constraints}`);
+      if (fields.example) promptParts.push(`مثال نمونه:\n${fields.example}`);
+
+      let toneAudience = [];
+      if (fields.tone) toneAudience.push(`لحن: ${fields.tone}`);
+      if (fields.audience) toneAudience.push(`مخاطب: ${fields.audience}`);
+      if (fields.pronoun) toneAudience.push(`ضمیر خطاب: ${fields.pronoun}`);
+      if (toneAudience.length) promptParts.push(`لحن، مخاطب و شیوه خطاب:\n${toneAudience.join('، ')}`);
+
+      if (fields.thought) promptParts.push(`مسیر فکری و استدلال:\n${fields.thought}`);
+      if (fields.tools) promptParts.push(`دانش و ابزارهای مفروض:\n${fields.tools}`);
+      if (fields.creativity) promptParts.push(`سطح خلاقیت: ${fields.creativity}`);
+      if (fields.feedback) promptParts.push(`درخواست بازخورد:\n${fields.feedback}`);
+
+      if (promptParts.length === 0) {
+        alert('لطفاً حداقل یک بخش را پر کنید.');
+        return;
+      }
+
+      const finalPrompt = promptParts.join('\n\n---\n\n');
+      document.getElementById('finalPrompt').textContent = finalPrompt;
+      document.getElementById('outputCard').style.display = 'block';
+      document.getElementById('copyStatus').classList.remove('visible');
+    }
+
+    function copyPrompt() {
+      const text = document.getElementById('finalPrompt').textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        const status = document.getElementById('copyStatus');
+        status.classList.add('visible');
+        setTimeout(() => status.classList.remove('visible'), 2000);
+      }).catch(err => {
+        alert('خطا در کپی کردن: ' + err);
+      });
+    }
+
+    function clearFields() {
+      document.querySelectorAll('input, textarea').forEach(el => el.value = '');
+      document.getElementById('pronoun').value = '';
+      document.getElementById('creativity').value = '';
+      document.getElementById('outputCard').style.display = 'none';
+      document.getElementById('finalPrompt').textContent = '';
+    }
+  </script>
+</body>
+
+</html>
