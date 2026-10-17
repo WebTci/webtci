@@ -1,352 +1,988 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>مجتمع تجاری اداری تیتان | نجف‌آباد</title>
-<meta name="description" content="مجتمع تجاری اداری تیتان؛ واحدهای اداری هوشمند، هایپرمارکت، رستوران روف‌گاردن و پارکینگ سرپوشیده در نجف‌آباد.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --brown-900:#1e1612; --brown-700:#3b2a22; --cream:#f5f0e8; --white:#fff;
-    --gold:#c8a165; --text:#2a211c; --muted:#7a6a60; --radius:16px;
-    --shadow:0 10px 30px rgba(30,22,18,.12);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-  body{font-family:"Vazirmatn",Tahoma,sans-serif;background:var(--cream);color:var(--text);line-height:1.9;font-size:16px;overflow-x:hidden;padding-bottom:70px}
-  img{max-width:100%;display:block}
-  a{color:inherit;text-decoration:none}
-  .container{width:100%;padding:0 18px;margin:0 auto}
-  section{padding:56px 0}
-  .eyebrow{color:var(--gold);font-weight:600;font-size:14px}
-  h2{font-size:24px;font-weight:800;color:var(--brown-900);margin:6px 0 14px;line-height:1.5}
-  .lead{color:var(--muted);font-size:15px}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مجتمع تجاری اداری تیتان | نجف‌آباد</title>
+    <meta name="description"
+        content="مجتمع تجاری اداری تیتان؛ واحدهای اداری هوشمند، هایپرمارکت، رستوران روف‌گاردن و پارکینگ سرپوشیده در نجف‌آباد.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --brown-900: #1e1612;
+            --brown-700: #3b2a22;
+            --cream: #f5f0e8;
+            --white: #fff;
+            --gold: #c8a165;
+            --text: #2a211c;
+            --muted: #7a6a60;
+            --radius: 16px;
+            --shadow: 0 10px 30px rgba(30, 22, 18, .12);
+        }
 
-  header{position:fixed;inset:0 0 auto 0;z-index:50;background:rgba(30,22,18,.92);backdrop-filter:blur(8px);color:#fff}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-  .logo{font-weight:800;font-size:18px}
-  .logo span{color:var(--gold)}
-  .menu-btn{width:44px;height:44px;border:0;background:transparent;cursor:pointer;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:6px}
-  .menu-btn i{display:block;width:24px;height:2px;background:#fff;border-radius:2px;transition:.3s}
-  .menu-open .menu-btn i:nth-child(1){transform:translateY(8px) rotate(45deg)}
-  .menu-open .menu-btn i:nth-child(2){opacity:0}
-  .menu-open .menu-btn i:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
-  .drawer{position:fixed;top:64px;right:0;left:0;background:var(--brown-900);padding:10px 18px 24px;transform:translateY(-120%);transition:transform .35s ease;z-index:49}
-  .menu-open .drawer{transform:translateY(0)}
-  .drawer a{display:block;padding:14px 4px;border-bottom:1px solid rgba(255,255,255,.08);color:#fff}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
 
-  .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--brown-900)}
-  .hero .bg{position:absolute;inset:0;background:url("titan.jpg") center/cover no-repeat}
-  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(20,14,11,.95) 10%,rgba(20,14,11,.35) 60%,rgba(20,14,11,.2))}
-  .hero-content{position:relative;z-index:2;padding:0 18px 90px;width:100%}
-  .hero h1{font-size:32px;font-weight:800;line-height:1.5;margin:8px 0 12px}
-  .hero p{color:#e8dccd;font-size:15px}
-  .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
-  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 22px;border-radius:999px;font-weight:600;font-size:15px;min-height:48px;border:1px solid transparent;cursor:pointer}
-  .btn-gold{background:var(--gold);color:var(--brown-900)}
-  .btn-ghost{border-color:rgba(255,255,255,.5);color:#fff;background:rgba(255,255,255,.06)}
-  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:30px}
-  .stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:12px 8px;text-align:center}
-  .stat b{display:block;font-size:20px;color:var(--gold)}
-  .stat small{font-size:12px;color:#e8dccd}
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%
+        }
 
-  .about{background:#fff}
-  .points{display:grid;gap:14px;margin-top:22px}
-  .point{display:flex;gap:14px;align-items:flex-start;background:var(--cream);padding:16px;border-radius:var(--radius)}
-  .point .ic{flex:0 0 44px;height:44px;border-radius:12px;background:var(--brown-700);color:var(--gold);display:flex;align-items:center;justify-content:center;font-size:20px}
-  .point h3{font-size:16px;font-weight:700;color:var(--brown-900)}
-  .point p{font-size:14px;color:var(--muted)}
+        body {
+            font-family: "Vazirmatn", Tahoma, sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.9;
+            font-size: 16px;
+            overflow-x: hidden;
+            padding-bottom: 70px
+        }
 
-  .units-grid{display:grid;gap:14px;margin-top:22px}
-  .unit{background:var(--brown-700);color:#f3e9dc;border-radius:var(--radius);padding:22px}
-  .unit .tag{font-size:12px;color:var(--gold);border:1px solid rgba(200,161,101,.5);display:inline-block;padding:2px 10px;border-radius:999px}
-  .unit h3{font-size:19px;margin:10px 0 6px;color:#fff}
-  .unit p{font-size:14px;color:#d8c8b6}
+        img {
+            max-width: 100%;
+            display: block
+        }
 
-  .reel{background:var(--brown-900);color:#fff}
-  .reel-box{position:relative;border-radius:var(--radius);overflow:hidden;margin-top:22px;aspect-ratio:9/16;max-height:620px;background:#000;box-shadow:var(--shadow)}
-  .reel-box video{width:100%;height:100%;object-fit:cover}
-  .reel-box .play{position:absolute;inset:0;margin:auto;width:70px;height:70px;border-radius:50%;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.6);color:#fff;font-size:24px;cursor:pointer;display:flex;align-items:center;justify-content:center}
-  .reel-box.playing .play{display:none}
+        a {
+            color: inherit;
+            text-decoration: none
+        }
 
-  .fac-list{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:20px}
-  .fac{background:#fff;border-radius:14px;padding:16px 12px;text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.05)}
-  .fac .ic{width:44px;height:44px;margin:0 auto 10px;border-radius:12px;background:var(--brown-700);display:flex;align-items:center;justify-content:center}
-  .fac .ic svg,.point .ic svg{width:22px;height:22px;stroke:var(--gold);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-  .fac h4{font-size:14px;font-weight:600;color:var(--brown-900)}
+        .container {
+            width: 100%;
+            padding: 0 18px;
+            margin: 0 auto
+        }
 
-  .loc{background:#fff}
-  .loc-card{background:var(--cream);border-radius:var(--radius);padding:20px;margin-top:20px}
-  .loc-card p{font-size:14px;color:var(--muted)}
+        section {
+            padding: 56px 0
+        }
 
-  form{display:grid;gap:12px;margin-top:20px}
-  input,textarea,select{width:100%;padding:14px 16px;border-radius:12px;border:1px solid #d9cfc2;background:#fff;font:inherit;color:var(--text);font-size:15px}
-  textarea{min-height:110px;resize:vertical}
-  .contact{background:var(--brown-900);color:#fff}
-  .contact .lead{color:#cdbfae}
-  .contact input,.contact textarea,.contact select{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.15);color:#fff}
-  .contact input::placeholder,.contact textarea::placeholder{color:#a79685}
-  .contact .btn-gold{width:100%}
+        .eyebrow {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 14px
+        }
 
-  footer{background:#130e0b;color:#a79685;padding:34px 0 40px;font-size:14px;text-align:center}
+        h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--brown-900);
+            margin: 6px 0 14px;
+            line-height: 1.5
+        }
 
-  .bottom-bar{position:fixed;bottom:0;left:0;right:0;z-index:60;display:grid;grid-template-columns:1fr 1fr 1fr;background:var(--brown-900);box-shadow:0 -6px 20px rgba(0,0,0,.25)}
-  .bottom-bar a{color:#fff;text-align:center;padding:12px 4px;font-size:13px;display:flex;flex-direction:column;gap:2px;align-items:center}
-  .bottom-bar a span.i{font-size:18px;color:var(--gold)}
+        .lead {
+            color: var(--muted);
+            font-size: 15px
+        }
 
-  .tabs{display:flex;gap:8px;overflow-x:auto;margin-top:20px;padding-bottom:6px;scrollbar-width:none}
-  .tabs::-webkit-scrollbar{display:none}
-  .tab-btn{flex:0 0 auto;padding:10px 16px;border-radius:999px;border:1px solid #d9cfc2;background:#fff;font:inherit;font-size:14px;cursor:pointer;color:var(--brown-900)}
-  .tab-btn.active{background:var(--brown-900);color:#fff;border-color:var(--brown-900)}
-  .tab-panel{display:none;background:#fff;border-radius:var(--radius);padding:20px;margin-top:14px;box-shadow:0 4px 14px rgba(0,0,0,.05)}
-  .tab-panel.active{display:block}
-  .tab-panel h3{font-size:17px;color:var(--brown-900);margin-bottom:8px}
-  .tab-panel ul{list-style:none;display:grid;gap:10px}
-  .tab-panel li{padding-right:18px;position:relative;font-size:15px}
-  .tab-panel li::before{content:"";position:absolute;right:0;top:12px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
-  .reveal{opacity:0;transform:translateY(18px);transition:all .7s ease}
-  .reveal.in{opacity:1;transform:none}
+        header {
+            position: fixed;
+            inset: 0 0 auto 0;
+            z-index: 50;
+            background: rgba(30, 22, 18, .92);
+            backdrop-filter: blur(8px);
+            color: #fff
+        }
 
-  @media (min-width:768px){
-    .container{max-width:900px}
-    h2{font-size:30px}
-    .hero h1{font-size:50px}
-    .units-grid{grid-template-columns:1fr 1fr}
-    .fac-list{grid-template-columns:repeat(4,1fr)}
-    .points{grid-template-columns:1fr 1fr}
-    .bottom-bar{display:none}
-    body{padding-bottom:0}
-  }
-  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
-</style>
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 18px
+        }
+
+        .logo span {
+            color: var(--gold)
+        }
+
+        .menu-btn {
+            width: 44px;
+            height: 44px;
+            border: 0;
+            background: transparent;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 6px
+        }
+
+        .menu-btn i {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: #fff;
+            border-radius: 2px;
+            transition: .3s
+        }
+
+        .menu-open .menu-btn i:nth-child(1) {
+            transform: translateY(8px) rotate(45deg)
+        }
+
+        .menu-open .menu-btn i:nth-child(2) {
+            opacity: 0
+        }
+
+        .menu-open .menu-btn i:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg)
+        }
+
+        .drawer {
+            position: fixed;
+            top: 64px;
+            right: 0;
+            left: 0;
+            background: var(--brown-900);
+            padding: 10px 18px 24px;
+            transform: translateY(-120%);
+            transition: transform .35s ease;
+            z-index: 49
+        }
+
+        .menu-open .drawer {
+            transform: translateY(0)
+        }
+
+        .drawer a {
+            display: block;
+            padding: 14px 4px;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+            color: #fff
+        }
+
+        .hero {
+            position: relative;
+            min-height: 100svh;
+            display: flex;
+            align-items: flex-end;
+            color: #fff;
+            overflow: hidden;
+            background: var(--brown-900)
+        }
+
+        .hero .bg {
+            position: absolute;
+            inset: 0;
+            background: url("front.webp") center/cover no-repeat
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(20, 14, 11, .95) 10%, rgba(20, 14, 11, .35) 60%, rgba(20, 14, 11, .2))
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 18px 90px;
+            width: 100%
+        }
+
+        .hero h1 {
+            font-size: 80px;
+            font-weight: 800;
+            line-height: 1.5;
+            margin: 8px 0 12px
+        }
+
+        .hero p {
+            color: #e8dccd;
+            font-size: 15px
+        }
+
+        .btns {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 22px
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 22px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 15px;
+            min-height: 48px;
+            border: 1px solid transparent;
+            cursor: pointer
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--brown-900)
+        }
+
+        .btn-ghost {
+            border-color: rgba(255, 255, 255, .5);
+            color: #fff;
+            background: rgba(255, 255, 255, .06)
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 30px
+        }
+
+        .stat {
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid rgba(255, 255, 255, .12);
+            border-radius: 14px;
+            padding: 12px 8px;
+            text-align: center
+        }
+
+        .stat b {
+            display: block;
+            font-size: 20px;
+            color: var(--gold)
+        }
+
+        .stat small {
+            font-size: 12px;
+            color: #e8dccd
+        }
+
+        .about {
+            background: #fff
+        }
+
+        .points {
+            display: grid;
+            gap: 14px;
+            margin-top: 22px
+        }
+
+        .point {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            background: var(--cream);
+            padding: 16px;
+            border-radius: var(--radius)
+        }
+
+        .point .ic {
+            flex: 0 0 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--brown-700);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px
+        }
+
+        .point h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--brown-900)
+        }
+
+        .point p {
+            font-size: 14px;
+            color: var(--muted)
+        }
+
+        .units-grid {
+            display: grid;
+            gap: 14px;
+            margin-top: 22px
+        }
+
+        .unit {
+            background: var(--brown-700);
+            color: #f3e9dc;
+            border-radius: var(--radius);
+            padding: 22px
+        }
+
+        .unit .tag {
+            font-size: 12px;
+            color: var(--gold);
+            border: 1px solid rgba(200, 161, 101, .5);
+            display: inline-block;
+            padding: 2px 10px;
+            border-radius: 999px
+        }
+
+        .unit h3 {
+            font-size: 19px;
+            margin: 10px 0 6px;
+            color: #fff
+        }
+
+        .unit p {
+            font-size: 14px;
+            color: #d8c8b6
+        }
+
+        .reel {
+            background: var(--brown-900);
+            color: #fff
+        }
+
+        .reel-box {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-top: 22px;
+            aspect-ratio: 9/16;
+            max-height: 620px;
+            background: #000;
+            box-shadow: var(--shadow)
+        }
+
+        .reel-box video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .reel-box .play {
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .2);
+            border: 1px solid rgba(255, 255, 255, .6);
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .reel-box.playing .play {
+            display: none
+        }
+
+        .fac-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 20px
+        }
+
+        .fac {
+            background: #fff;
+            border-radius: 14px;
+            padding: 16px 12px;
+            text-align: center;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, .05)
+        }
+
+        .fac .ic {
+            width: 44px;
+            height: 44px;
+            margin: 0 auto 10px;
+            border-radius: 12px;
+            background: var(--brown-700);
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .fac .ic svg,
+        .point .ic svg {
+            width: 22px;
+            height: 22px;
+            stroke: var(--gold);
+            fill: none;
+            stroke-width: 1.6;
+            stroke-linecap: round;
+            stroke-linejoin: round
+        }
+
+        .fac h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--brown-900)
+        }
+
+        .loc {
+            background: #fff
+        }
+
+        .loc-card {
+            background: var(--cream);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-top: 20px
+        }
+
+        .loc-card p {
+            font-size: 14px;
+            color: var(--muted)
+        }
+
+        form {
+            display: grid;
+            gap: 12px;
+            margin-top: 20px
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: 1px solid #d9cfc2;
+            background: #fff;
+            font: inherit;
+            color: var(--text);
+            font-size: 15px
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical
+        }
+
+        .contact {
+            background: var(--brown-900);
+            color: #fff
+        }
+
+        .contact .lead {
+            color: #cdbfae
+        }
+
+        .contact input,
+        .contact textarea,
+        .contact select {
+            background: rgba(255, 255, 255, .06);
+            border-color: rgba(255, 255, 255, .15);
+            color: #fff
+        }
+
+        .contact input::placeholder,
+        .contact textarea::placeholder {
+            color: #a79685
+        }
+
+        .contact .btn-gold {
+            width: 100%
+        }
+
+        footer {
+            background: #130e0b;
+            color: #a79685;
+            padding: 34px 0 40px;
+            font-size: 14px;
+            text-align: center
+        }
+
+        .bottom-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 60;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            background: var(--brown-900);
+            box-shadow: 0 -6px 20px rgba(0, 0, 0, .25)
+        }
+
+        .bottom-bar a {
+            color: #fff;
+            text-align: center;
+            padding: 12px 4px;
+            font-size: 13px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            align-items: center
+        }
+
+        .bottom-bar a span.i {
+            font-size: 18px;
+            color: var(--gold)
+        }
+
+        .tabs {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            margin-top: 20px;
+            padding-bottom: 6px;
+            scrollbar-width: none
+        }
+
+        .tabs::-webkit-scrollbar {
+            display: none
+        }
+
+        .tab-btn {
+            flex: 0 0 auto;
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid #d9cfc2;
+            background: #fff;
+            font: inherit;
+            font-size: 14px;
+            cursor: pointer;
+            color: var(--brown-900)
+        }
+
+        .tab-btn.active {
+            background: var(--brown-900);
+            color: #fff;
+            border-color: var(--brown-900)
+        }
+
+        .tab-panel {
+            display: none;
+            background: #fff;
+            border-radius: var(--radius);
+            padding: 20px;
+            margin-top: 14px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, .05)
+        }
+
+        .tab-panel.active {
+            display: block
+        }
+
+        .tab-panel h3 {
+            font-size: 17px;
+            color: var(--brown-900);
+            margin-bottom: 8px
+        }
+
+        .tab-panel ul {
+            list-style: none;
+            display: grid;
+            gap: 10px
+        }
+
+        .tab-panel li {
+            padding-right: 18px;
+            position: relative;
+            font-size: 15px
+        }
+
+        .tab-panel li::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            top: 12px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--gold)
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: all .7s ease
+        }
+
+        .reveal.in {
+            opacity: 1;
+            transform: none
+        }
+
+        @media (min-width:768px) {
+            .container {
+                max-width: 900px
+            }
+
+            h2 {
+                font-size: 30px
+            }
+
+            .hero h1 {
+                font-size: 120px
+            }
+
+            .units-grid {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .fac-list {
+                grid-template-columns: repeat(4, 1fr)
+            }
+
+            .points {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .bottom-bar {
+                display: none
+            }
+
+            body {
+                padding-bottom: 0
+            }
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            * {
+                transition: none !important;
+                scroll-behavior: auto !important
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<header>
-  <div class="container nav">
-    <a href="#" class="logo">تیتان<span>.</span> مجتمع اداری</a>
-    <button class="menu-btn" aria-label="منو" onclick="document.body.classList.toggle('menu-open')"><i></i><i></i><i></i></button>
-  </div>
-  <nav class="drawer">
-    <a href="#about" onclick="closeMenu()">درباره پروژه</a>
-    <a href="#units" onclick="closeMenu()">واحدهای اداری</a>
-    <a href="#reel" onclick="closeMenu()">ویدیو پروژه</a>
-    <a href="#facilities" onclick="closeMenu()">امکانات</a>
-    <a href="#location" onclick="closeMenu()">موقعیت</a>
-    <a href="#contact" onclick="closeMenu()">تماس با ما</a>
-  </nav>
-</header>
+    <header>
+        <div class="container nav">
+            <a href="#" class="logo">تیتان<span>.</span> مجتمع اداری</a>
+            <button class="menu-btn" aria-label="منو"
+                onclick="document.body.classList.toggle('menu-open')"><i></i><i></i><i></i></button>
+        </div>
+        <nav class="drawer">
+            <a href="#about" onclick="closeMenu()">درباره پروژه</a>
+            <a href="#units" onclick="closeMenu()">واحدهای اداری</a>
+            <a href="#reel" onclick="closeMenu()">ویدیو پروژه</a>
+            <a href="#facilities" onclick="closeMenu()">امکانات</a>
+            <a href="#location" onclick="closeMenu()">موقعیت</a>
+            <a href="#contact" onclick="closeMenu()">تماس با ما</a>
+        </nav>
+    </header>
 
-<section class="hero" style="padding:0">
-  <div class="bg" aria-hidden="true"></div>
-  <div class="hero-content">
-    <span class="eyebrow">نجف‌آباد · مجتمع تجاری و اداری</span>
-    <h1>تیتان؛ معماری تازه برای کار، تجارت و زندگی در نجف‌آباد</h1>
-    <p>مجتمعی با نور طبیعی در تمام طبقات، فضاهای مشاعی متصل و امکانات هوشمند؛ از دفاتر اداری تا هایپرمارکت و روف‌گاردن.</p>
-    <div class="btns">
-      <a href="#contact" class="btn btn-gold">درخواست مشاوره</a>
-      <a href="#units" class="btn btn-ghost">مشاهده واحدها</a>
-      <a href="titan-brochure.pdf" class="btn btn-ghost" download>دانلود کتابچه معرفی</a>
-    </div>
-    <div class="stats">
-      <div class="stat"><b>۳</b><small>دستگاه آسانسور</small></div>
-      <div class="stat"><b>۲</b><small>بلوک مجزا</small></div>
-      <div class="stat"><b>۱</b><small>روف‌گاردن</small></div>
-    </div>
-  </div>
-</section>
+    <section class="hero" style="padding:0">
+        <div class="bg" aria-hidden="true"></div>
+        <div class="hero-content">
+            <h1 class="h1-hero">تیتان</h1>
+            <p>مجتمعی اداری تجاری با نور طبیعی در تمام طبقات، فضاهای مشاعی متصل و امکانات هوشمند؛ از دفاتر اداری تا
+                هایپرمارکت و روف‌گاردن.</p>
+            <div class="btns">
+                <a href="tel:+989130840913" class="btn btn-gold">درخواست مشاوره</a>
+                <a href="#units" class="btn btn-ghost">مشاهده واحدها</a>
+                <a href="#" class="btn btn-ghost" download>دانلود کتابچه معرفی</a>
+            </div>
+            <div class="stats">
+                <div class="stat"><b>۳</b><small>طبقه </small></div>
+                <div class="stat"><b>۲</b><small>بلوک مجزا</small></div>
+                <div class="stat"><b> 1</b><small>روف‌گاردن</small></div>
+            </div>
+        </div>
+    </section>
 
-<section id="about" class="about">
-  <div class="container reveal">
-    <span class="eyebrow">درباره پروژه</span>
-    <h2>ساختاری متصل با یک ووید مرکزی</h2>
-    <p class="lead">مجتمع تیتان از دو بلوک و یک ووید مرکزی ساخته شده است. ایده اصلی طراحی، افزایش ارتباط کاربران با یکدیگر و تأمین بالاترین سطح نور طبیعی بوده است.</p>
-    <div class="points">
-      <div class="point"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></div><div><h3>ووید مرکزی</h3><p>فضای باز میانی برای نور، تهویه و تعامل میان کاربران.</p></div></div>
-      <div class="point"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="18" rx="1"/><rect x="13" y="3" width="8" height="18" rx="1"/></svg></div><div><h3>دو بلوک هماهنگ</h3><p>نمای متمایز با ترکیب رنگ تیره و خطوط عمودی روشن.</p></div></div>
-      <div class="point"><div class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M9 1v4M15 1v4M9 19v4M15 19v4M1 9h4M1 15h4M19 9h4M19 15h4"/></svg></div><div><h3>زیرساخت هوشمند</h3><p>پیش‌بینی هوشمندسازی و زیرساخت لازم در تمام واحدها.</p></div></div>
-      <div class="point"><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-14 0 8-5 14-13 14z"/><path d="M5 19l7-7"/></svg></div><div><h3>فضای سبز</h3><p>دیوار سبز مرکزی و تراس‌های مجهز به گیاهان.</p></div></div>
-    </div>
-  </div>
-</section>
+    <section id="about" class="about">
+        <div class="container reveal">
+            <span class="eyebrow">درباره پروژه</span>
+            <h2>ساختاری متصل با یک ووید مرکزی</h2>
+            <p class="lead">مجتمع تیتان از دو بلوک و یک ووید مرکزی ساخته شده است. ایده اصلی طراحی، افزایش ارتباط کاربران
+                با یکدیگر و تأمین بالاترین سطح نور طبیعی بوده است.</p>
+            <div class="points">
+                <div class="point">
+                    <div class="ic"><svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="8" />
+                            <circle cx="12" cy="12" r="3" />
+                        </svg></div>
+                    <div>
+                        <h3>ووید مرکزی</h3>
+                        <p>فضای باز میانی برای نور، تهویه و تعامل میان کاربران.</p>
+                    </div>
+                </div>
+                <div class="point">
+                    <div class="ic"><svg viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="8" height="18" rx="1" />
+                            <rect x="13" y="3" width="8" height="18" rx="1" />
+                        </svg></div>
+                    <div>
+                        <h3>دو بلوک هماهنگ</h3>
+                        <p>نمای متمایز با ترکیب رنگ تیره و خطوط عمودی روشن.</p>
+                    </div>
+                </div>
+                <div class="point">
+                    <div class="ic"><svg viewBox="0 0 24 24">
+                            <rect x="5" y="5" width="14" height="14" rx="2" />
+                            <circle cx="12" cy="12" r="2" />
+                            <path d="M9 1v4M15 1v4M9 19v4M15 19v4M1 9h4M1 15h4M19 9h4M19 15h4" />
+                        </svg></div>
+                    <div>
+                        <h3>زیرساخت هوشمند</h3>
+                        <p>پیش‌بینی هوشمندسازی و زیرساخت لازم در تمام واحدها.</p>
+                    </div>
+                </div>
+                <div class="point">
+                    <div class="ic"><svg viewBox="0 0 24 24">
+                            <path d="M5 19c0-8 6-13 14-14 0 8-5 14-13 14z" />
+                            <path d="M5 19l7-7" />
+                        </svg></div>
+                    <div>
+                        <h3>فضای سبز</h3>
+                        <p>دیوار سبز مرکزی و تراس‌های مجهز به گیاهان.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="units">
-  <div class="container reveal">
-    <span class="eyebrow">فضاهای قابل سرمایه‌گذاری</span>
-    <h2>واحدهای اداری و تجاری</h2>
-    <p class="lead">واحدهای اداری با امکان افزایش اتاق‌ها مطابق با نیاز هر کاربر طراحی شده‌اند.</p>
-    <div class="units-grid">
-      <div class="unit"><span class="tag">اداری</span><h3>واحدهای اداری</h3><p>متراژهای متنوع، قابل تفکیک و توسعه، با هوشمندسازی و سیستم تفکیکی مستقل.</p></div>
-      <div class="unit"><span class="tag">تجاری</span><h3>هایپرمارکت</h3><p>واحد تجاری بزرگ در دو طبقه همکف و منفی یک.</p></div>
-      <div class="unit"><span class="tag">پذیرایی</span><h3>رستوران روف‌گاردن</h3><p>رستوران حرفه‌ای با فضای باز و منظره شهر در بام سبز.</p></div>
-      <div class="unit"><span class="tag">خدمات</span><h3>پارکینگ و لابی</h3><p>پارکینگ سرپوشیده، لابی‌های متعدد و فضاهای مشاعی متنوع.</p></div>
-    </div>
-  </div>
-</section>
+    <section id="units">
+        <div class="container reveal">
+            <span class="eyebrow">فضاهای قابل سرمایه‌گذاری</span>
+            <h2>واحدهای اداری و تجاری</h2>
+            <p class="lead">واحدهای اداری با امکان افزایش اتاق‌ها مطابق با نیاز هر کاربر طراحی شده‌اند.</p>
+            <div class="units-grid">
+                <div class="unit"><span class="tag">اداری</span>
+                    <h3>واحدهای اداری</h3>
+                    <p>متراژهای متنوع، قابل تفکیک و توسعه، با هوشمندسازی و سیستم تفکیکی مستقل.</p>
+                </div>
+                <div class="unit"><span class="tag">تجاری</span>
+                    <h3>هایپرمارکت</h3>
+                    <p>واحد تجاری بزرگ در دو طبقه همکف و منفی یک.</p>
+                </div>
+                <div class="unit"><span class="tag">پذیرایی</span>
+                    <h3>رستوران روف‌گاردن</h3>
+                    <p>رستوران حرفه‌ای با فضای باز و منظره شهر در بام سبز.</p>
+                </div>
+                <div class="unit"><span class="tag">خدمات</span>
+                    <h3>پارکینگ و لابی</h3>
+                    <p>پارکینگ سرپوشیده، لابی‌های متعدد و فضاهای مشاعی متنوع.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="reel" class="reel">
-  <div class="container reveal">
-    <span class="eyebrow">نگاهی به پروژه</span>
-    <h2>تیتان را در حرکت ببینید</h2>
-    <div class="reel-box" id="reelBox">
-      <video id="reelVideo" playsinline controls preload="metadata" poster="titan.jpg">
-        <source src="titan-reel.mp4" type="video/mp4">
-      </video>
-      <button class="play" aria-label="پخش" onclick="playReel()">▶</button>
-    </div>
-  </div>
-</section>
+    <section id="reel" class="reel">
+        <div class="container reveal">
+            <span class="eyebrow">نگاهی به پروژه</span>
+            <h2>تیتان را در حرکت ببینید</h2>
+            <div class="reel-box" id="reelBox">
+                <video id="reelVideo" playsinline controls preload="metadata" poster="titan.jpg">
+                    <source src="titan-reel.mp4" type="video/mp4">
+                </video>
+                <button class="play" aria-label="پخش" onclick="playReel()">▶</button>
+            </div>
+        </div>
+    </section>
 
-<section id="facilities">
-  <div class="container reveal">
-    <span class="eyebrow">تأسیسات و امکانات</span>
-    <h2>استانداردهای کیفی روز</h2>
-    <div class="fac-list">
-      <div class="fac"><div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M12 3v18M9 9l3-3 3 3M9 15l3 3 3-3"/></svg></div><h4>۳ آسانسور نفربر و بارکش</h4></div>
-      <div class="fac"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M9 17V7h3.5a3 3 0 0 1 0 6H9"/></svg></div><h4>پارکینگ سرپوشیده</h4></div>
-      <div class="fac"><div class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M9 1v4M15 1v4M9 19v4M15 19v4M1 9h4M1 15h4M19 9h4M19 15h4"/></svg></div><h4>سیستم هوشمند مشاعات</h4></div>
-      <div class="fac"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3c1 3 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5 0 2 1 3 2 3 0-3-1-5 1-8.5z"/></svg></div><h4>موتورخانه مرکزی</h4></div>
-      <div class="fac"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2v20M3.5 7l17 10M3.5 17l17-10"/></svg></div><h4>چیلر و فن‌کویل</h4></div>
-      <div class="fac"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></div><h4>سوپرپایپ</h4></div>
-      <div class="fac"><div class="ic"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div><h4>برق اضطراری</h4></div>
-      <div class="fac"><div class="ic"><svg viewBox="0 0 24 24"><path d="M5 19c0-8 6-13 14-14 0 8-5 14-13 14z"/><path d="M5 19l7-7"/></svg></div><h4>دیوار سبز مرکزی</h4></div>
-    </div>
-  </div>
-</section>
+    <section id="facilities">
+        <div class="container reveal">
+            <span class="eyebrow">تأسیسات و امکانات</span>
+            <h2>استانداردهای کیفی روز</h2>
+            <div class="fac-list">
+                <div class="fac">
+                    <div class="ic"><svg viewBox="0 0 24 24">
+                            <rect x="4" y="3" width="16" height="18" rx="2" />
+                            <path d="M12 3v18M9 9l3-3 3 3M9 15l3 3 3-3" />
+                        </svg></div>
+                    <h4>۳ آسانسور نفربر و بارکش</h4>
+                </div>
+                <div class="fac">
+                    <div class="ic"><svg viewBox="0 0 24 24">
+                            <rect x="3" y="3" width="18" height="18" rx="4" />
+                            <path d="M9 17V7h3.5a3 3 0 0 1 0 6H9" />
+                        </svg></div>
+                    <h4>پارکینگ سرپوشیده</h4>
+                </div>
+                <div class="fac">
+                    <div class="ic"><svg viewBox="0 0 24 24">
+                            <rect x="5" y="5" width="14" height="14" rx="2" />
+                            <circle cx="12" cy="12" r="2" />
+                            <path d="M9 1v4M15 1v4M9 19v4M15 19v4M1 9h4M1 15h4M19 9h4M19 15h4" />
+                        </svg></div>
+                    <h4>سیستم هوشمند مشاعات</h4>
+                </div>
+                <div class="fac">
+                    <div class="ic"><svg viewBox="0 0 24 24">
+                            <path d="M12 3c1 3 5 5 5 10a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5 0 2 1 3 2 3 0-3-1-5 1-8.5z" />
+                        </svg></div>
+                    <h4>موتورخانه مرکزی</h4>
+                </div>
+                <div class="fac">
+                    <div class="ic"><svg viewBox="0 0 24 24">
+                            <path d="M12 2v20M3.5 7l17 10M3.5 17l17-10" />
+                        </svg></div>
+                    <h4>چیلر و فن‌کویل</h4>
+                </div>
+                <div class="fac">
+                    <div class="ic"><svg viewBox="0 0 24 24">
+                            <path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z" />
+                        </svg></div>
+                    <h4>سوپرپایپ</h4>
+                </div>
+                <div class="fac">
+                    <div class="ic"><svg viewBox="0 0 24 24">
+                            <path d="M13 2L4 14h7l-1 8 9-12h-7z" />
+                        </svg></div>
+                    <h4>برق اضطراری</h4>
+                </div>
+                <div class="fac">
+                    <div class="ic"><svg viewBox="0 0 24 24">
+                            <path d="M5 19c0-8 6-13 14-14 0 8-5 14-13 14z" />
+                            <path d="M5 19l7-7" />
+                        </svg></div>
+                    <h4>دیوار سبز مرکزی</h4>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="features" class="about">
-  <div class="container reveal">
-    <span class="eyebrow">ویژگی‌های پروژه</span>
-    <h2>تیتان در یک نگاه</h2>
-    <p class="lead">مهم‌ترین مزیت‌های مجموعه را در دسته‌های زیر ببینید.</p>
-    <div class="tabs" data-group="feat">
-      <button class="tab-btn active" data-target="f1">دسترسی و پارکینگ</button>
-      <button class="tab-btn" data-target="f2">امکانات رفاهی</button>
-      <button class="tab-btn" data-target="f3">معماری</button>
-      <button class="tab-btn" data-target="f4">ایمنی و تأسیسات</button>
-    </div>
-    <div class="tab-panel active" id="f1">
-      <h3>دسترسی آسان برای همه</h3>
-      <ul><li>پارکینگ سرپوشیده برای کاربران و مراجعان</li><li>۳ دستگاه آسانسور نفربر و بارکش برای جابه‌جایی سریع میان طبقات</li><li>لابی‌ها و محورهای عبور متصل میان بلوک‌ها</li></ul>
-    </div>
-    <div class="tab-panel" id="f2">
-      <h3>فضاهای مشاعی و رستوران</h3>
-      <ul><li>فضاهای مشاعی متعدد و متنوع</li><li>رستوران حرفه‌ای با فضای باز در روف‌گاردن</li><li>تراس‌های مجهز به سبزینگی</li></ul>
-    </div>
-    <div class="tab-panel" id="f3">
-      <h3>معماری متمایز</h3>
-      <ul><li>ووید مرکزی برای ارتباط کاربران و نور طبیعی</li><li>نمای ترکیبی از رنگ تیره و خطوط عمودی روشن</li><li>دیوار سبز مرکزی و گیاهان در ارتفاع</li></ul>
-    </div>
-    <div class="tab-panel" id="f4">
-      <h3>ایمنی و استانداردهای روز</h3>
-      <ul><li>سیستم برق اضطراری و سوپرپایپ</li><li>موتورخانه مرکزی، چیلر و فن‌کویل</li><li>هوشمندسازی مشاعات و فضاهای تجاری</li></ul>
-    </div>
-  </div>
-</section>
+    <section id="features" class="about">
+        <div class="container reveal">
+            <span class="eyebrow">ویژگی‌های پروژه</span>
+            <h2>تیتان در یک نگاه</h2>
+            <p class="lead">مهم‌ترین مزیت‌های مجموعه را در دسته‌های زیر ببینید.</p>
+            <div class="tabs" data-group="feat">
+                <button class="tab-btn active" data-target="f1">دسترسی و پارکینگ</button>
+                <button class="tab-btn" data-target="f2">امکانات رفاهی</button>
+                <button class="tab-btn" data-target="f3">معماری</button>
+                <button class="tab-btn" data-target="f4">ایمنی و تأسیسات</button>
+            </div>
+            <div class="tab-panel active" id="f1">
+                <h3>دسترسی آسان برای همه</h3>
+                <ul>
+                    <li>پارکینگ سرپوشیده برای کاربران و مراجعان</li>
+                    <li>۳ دستگاه آسانسور نفربر و بارکش برای جابه‌جایی سریع میان طبقات</li>
+                    <li>لابی‌ها و محورهای عبور متصل میان بلوک‌ها</li>
+                </ul>
+            </div>
+            <div class="tab-panel" id="f2">
+                <h3>فضاهای مشاعی و رستوران</h3>
+                <ul>
+                    <li>فضاهای مشاعی متعدد و متنوع</li>
+                    <li>رستوران حرفه‌ای با فضای باز در روف‌گاردن</li>
+                    <li>تراس‌های مجهز به سبزینگی</li>
+                </ul>
+            </div>
+            <div class="tab-panel" id="f3">
+                <h3>معماری متمایز</h3>
+                <ul>
+                    <li>ووید مرکزی برای ارتباط کاربران و نور طبیعی</li>
+                    <li>نمای ترکیبی از رنگ تیره و خطوط عمودی روشن</li>
+                    <li>دیوار سبز مرکزی و گیاهان در ارتفاع</li>
+                </ul>
+            </div>
+            <div class="tab-panel" id="f4">
+                <h3>ایمنی و استانداردهای روز</h3>
+                <ul>
+                    <li>سیستم برق اضطراری و سوپرپایپ</li>
+                    <li>موتورخانه مرکزی، چیلر و فن‌کویل</li>
+                    <li>هوشمندسازی مشاعات و فضاهای تجاری</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-<section id="floors">
-  <div class="container reveal">
-    <span class="eyebrow">نقشه طبقات</span>
-    <h2>فضاها طبقه به طبقه</h2>
-    <div class="tabs" data-group="floor">
-      <button class="tab-btn active" data-target="fl1">منفی یک</button>
-      <button class="tab-btn" data-target="fl2">همکف</button>
-      <button class="tab-btn" data-target="fl3">طبقات اداری</button>
-      <button class="tab-btn" data-target="fl4">روف‌گاردن</button>
-    </div>
-    <div class="tab-panel active" id="fl1">
-      <h3>هایپرمارکت و پارکینگ</h3>
-      <ul><li>بخشی از واحد تجاری بزرگ هایپرمارکت</li><li>پارکینگ سرپوشیده</li></ul>
-    </div>
-    <div class="tab-panel" id="fl2">
-      <h3>هایپرمارکت و لابی اصلی</h3>
-      <ul><li>ادامه واحد هایپرمارکت در دو طبقه</li><li>لابی و ورودی اصلی مجموعه</li></ul>
-    </div>
-    <div class="tab-panel" id="fl3">
-      <h3>واحدهای اداری</h3>
-      <ul><li>متراژهای متنوع با امکان افزایش اتاق</li><li>زیرساخت هوشمندسازی در هر واحد</li></ul>
-    </div>
-    <div class="tab-panel" id="fl4">
-      <h3>رستوران و فضای باز</h3>
-      <ul><li>رستوران حرفه‌ای با منظره شهر</li><li>دیوار و گیاهان سبز در بام</li></ul>
-    </div>
-  </div>
-</section>
+    <section id="floors">
+        <div class="container reveal">
+            <span class="eyebrow">نقشه طبقات</span>
+            <h2>فضاها طبقه به طبقه</h2>
+            <div class="tabs" data-group="floor">
+                <button class="tab-btn active" data-target="fl1">منفی یک</button>
+                <button class="tab-btn" data-target="fl2">همکف</button>
+                <button class="tab-btn" data-target="fl3">طبقات اداری</button>
+                <button class="tab-btn" data-target="fl4">روف‌گاردن</button>
+            </div>
+            <div class="tab-panel active" id="fl1">
+                <h3>هایپرمارکت و پارکینگ</h3>
+                <ul>
+                    <li>بخشی از واحد تجاری بزرگ هایپرمارکت</li>
+                    <li>پارکینگ سرپوشیده</li>
+                </ul>
+            </div>
+            <div class="tab-panel" id="fl2">
+                <h3>هایپرمارکت و لابی اصلی</h3>
+                <ul>
+                    <li>ادامه واحد هایپرمارکت در دو طبقه</li>
+                    <li>لابی و ورودی اصلی مجموعه</li>
+                </ul>
+            </div>
+            <div class="tab-panel" id="fl3">
+                <h3>واحدهای اداری</h3>
+                <ul>
+                    <li>متراژهای متنوع با امکان افزایش اتاق</li>
+                    <li>زیرساخت هوشمندسازی در هر واحد</li>
+                </ul>
+            </div>
+            <div class="tab-panel" id="fl4">
+                <h3>رستوران و فضای باز</h3>
+                <ul>
+                    <li>رستوران حرفه‌ای با منظره شهر</li>
+                    <li>دیوار و گیاهان سبز در بام</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
-<section id="location" class="loc">
-  <div class="container reveal">
-    <span class="eyebrow">موقعیت</span>
-    <h2>نجف‌آباد، در قلب شهر</h2>
-    <div class="loc-card">
-      <p><b>نشانی:</b> نجف‌آباد، [آدرس دقیق پروژه]</p>
-      <div class="btns" style="margin-top:14px">
-        <a href="https://maps.google.com/?q=Najafabad+Titan" target="_blank" rel="noopener" class="btn btn-gold">مسیریابی</a>
-      </div>
-    </div>
-  </div>
-</section>
+    <section id="location" class="loc">
+        <div class="container reveal">
+            <span class="eyebrow">موقعیت</span>
+            <h2>نجف‌آباد، در قلب شهر</h2>
+            <div class="loc-card">
+                <p><b>نشانی:</b> نجف‌آباد، بلوار دانشگاه</p>
+                <div class="btns" style="margin-top:14px">
+                    <a href="https://maps.google.com/?q=Najafabad" target="_blank" rel="noopener"
+                        class="btn btn-gold">مسیریابی</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section id="contact" class="contact">
-  <div class="container reveal">
-    <span class="eyebrow">تماس با ما</span>
-    <h2 style="color:#fff">برای رزرو واحد یا مشاوره، پیام بگذارید</h2>
-    <p class="lead">کارشناسان ما در کوتاه‌ترین زمان با شما تماس خواهند گرفت.</p>
-    <form onsubmit="event.preventDefault();alert('پیام شما ثبت شد. ممنون از اعتمادتان.');this.reset();">
-      <input type="text" name="name" placeholder="نام و نام خانوادگی" required>
-      <input type="tel" name="phone" placeholder="شماره تماس" inputmode="tel" required>
-      <select name="type" required>
-        <option value="">نوع واحد مورد نظر</option>
-        <option>واحد اداری</option>
-        <option>واحد تجاری / هایپرمارکت</option>
-        <option>رستوران روف‌گاردن</option>
-        <option>سایر</option>
-      </select>
-      <textarea name="msg" placeholder="توضیحات (متراژ، بودجه، زمان مراجعه)"></textarea>
-      <button class="btn btn-gold" type="submit">ثبت درخواست</button>
-    </form>
-  </div>
-</section>
 
-<footer>
-  <span class="logo">تیتان<span>.</span></span>
-  <p style="margin-top:8px">مجتمع تجاری اداری تیتان · نجف‌آباد</p>
-  <p style="margin-top:8px">© ۱۴۰۵ تمامی حقوق محفوظ است.</p>
-</footer>
 
-<div class="bottom-bar" role="navigation" aria-label="دسترسی سریع">
-  <a href="tel:+98913XXXXXXX"><span class="i">📞</span>تماس</a>
-  <a href="https://wa.me/98913XXXXXXX" target="_blank" rel="noopener"><span class="i">💬</span>واتساپ</a>
-  <a href="#units"><span class="i">🏢</span>واحدها</a>
-</div>
+    <footer>
+        <span class="logo">تیتان<span>.</span></span>
+        <p style="margin-top:8px">طراحی شده توسط <a href="https://bioolink.ir"
+                style="color: rgb(238, 238, 241);">بایولینک </a></p>
+        <p style="margin-top:8px">© ۱۴۰۵ تمامی حقوق محفوظ است.</p>
+    </footer>
 
-<script>
-  function closeMenu(){ document.body.classList.remove('menu-open'); }
-  function playReel(){
-    const v = document.getElementById('reelVideo');
-    document.getElementById('reelBox').classList.add('playing');
-    v.play();
-  }
-  document.getElementById('reelVideo').addEventListener('pause', ()=>{
-    document.getElementById('reelBox').classList.remove('playing');
-  });
-  document.querySelectorAll('.tabs').forEach(group=>{
-    group.querySelectorAll('.tab-btn').forEach(btn=>{
-      btn.addEventListener('click', ()=>{
-        group.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-        btn.classList.add('active');
-        group.parentElement.querySelectorAll('.tab-panel').forEach(p=>{
-          p.classList.toggle('active', p.id === btn.dataset.target);
+
+
+    <script>
+        function closeMenu() { document.body.classList.remove('menu-open'); }
+        function playReel() {
+            const v = document.getElementById('reelVideo');
+            document.getElementById('reelBox').classList.add('playing');
+            v.play();
+        }
+        document.getElementById('reelVideo').addEventListener('pause', () => {
+            document.getElementById('reelBox').classList.remove('playing');
         });
-      });
-    });
-  });
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  },{threshold:.12});
-  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-</script>
+        document.querySelectorAll('.tabs').forEach(group => {
+            group.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    group.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    group.parentElement.querySelectorAll('.tab-panel').forEach(p => {
+                        p.classList.toggle('active', p.id === btn.dataset.target);
+                    });
+                });
+            });
+        });
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: .12 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    </script>
 </body>
+
 </html>
