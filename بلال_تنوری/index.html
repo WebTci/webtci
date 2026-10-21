@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>بلال تنوری | طعم واقعی، تازه، داغ و لذیذ</title>
+<meta name="description" content="بلال تنوری نجف‌آباد - پخت سنتی و ذغالی بهترین بلال‌های تازه با کره و ادویه مخصوص">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   BILAL TANOORI — Single-File Stylesheet
+   ============================================================ */
+:root{
+  --bg-dark:#141414; --deep-dark:#0D0D0C; --charcoal:#1B1A17;
+  --brand-yellow:#FFC21C; --yellow-light:#FFD34B; --gold-dark:#E6A900;
+  --paper-bg:#F3EBDD; --paper-secondary:#E9DDC7;
+  --text-white:#F8F5EE; --text-dark:#171511; --text-secondary:#D2CCC1;
+  --divider:#8D7752;
+  --font-sans:'Vazirmatn',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{font-family:var(--font-sans);scroll-behavior:smooth;background:var(--bg-dark);color:var(--text-white);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{margin:0;padding:0;overflow-x:clip;width:100%;min-height:100vh;background:var(--bg-dark);color:var(--text-white);display:flex;flex-direction:column}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+::selection{background:var(--brand-yellow);color:var(--bg-dark)}
+.container{width:100%;max-width:1240px;margin-inline:auto;padding-inline:16px}
+@media(min-width:640px){.container{padding-inline:24px}}
+@media(min-width:1024px){.container{padding-inline:32px}}
+.no-scrollbar::-webkit-scrollbar{display:none}
+.no-scrollbar{-ms-overflow-style:none;scrollbar-width:none}
+
+/* Parchment texture */
+.paper-texture{
+  background-color:var(--paper-bg);
+  background-image:
+    radial-gradient(#d3c3a9 .75px,transparent .75px),
+    radial-gradient(#dfcfb5 .75px,var(--paper-bg) .75px);
+  background-size:30px 30px;background-position:0 0,15px 15px;
+}
+.food-tray-shadow{filter:drop-shadow(0 20px 25px rgba(25,14,5,.35)) drop-shadow(0 8px 10px rgba(0,0,0,.2))}
+
+/* Animations */
+@keyframes floatGentle{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes steamRise{0%{opacity:.2;transform:translateY(0) scale(1)}50%{opacity:.6;transform:translateY(-8px) scale(1.04)}100%{opacity:.2;transform:translateY(-16px) scale(1.08)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes scaleUp{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+.animate-gentle-float{animation:floatGentle 4s ease-in-out infinite}
+.animate-steam{animation:steamRise 3.5s ease-in-out infinite}
+
+/* App shell */
+.app{min-height:100vh;background:var(--bg-dark);color:var(--text-white);display:flex;flex-direction:column}
+.app-main{flex:1;display:flex;flex-direction:column;width:100%}
+
+/* Floating actions */
+.floating-actions{position:fixed;bottom:20px;left:20px;z-index:40;display:flex;flex-direction:column;gap:10px}
+.scroll-top-btn{padding:12px;border-radius:999px;background:rgba(27,26,23,.9);color:var(--brand-yellow);border:1px solid rgba(255,194,28,.4);backdrop-filter:blur(12px);box-shadow:0 4px 12px rgba(0,0,0,.4);transition:all .2s;display:inline-flex;align-items:center;justify-content:center}
+.scroll-top-btn:hover{background:var(--brand-yellow);color:var(--bg-dark)}
+.scroll-top-btn:active{transform:scale(.95)}
+.scroll-top-btn[hidden]{display:none}
+.quick-call-btn{display:flex;align-items:center;justify-content:center;padding:12px;border-radius:999px;background:var(--brand-yellow);color:var(--bg-dark);box-shadow:0 6px 20px rgba(255,194,28,.45);transition:all .2s}
+.quick-call-btn:hover{background:var(--yellow-light)}
+.quick-call-btn:active{transform:scale(.95)}
+@media(min-width:768px){.quick-call-btn{display:none}}
+
+/* ============ HEADER ============ */
+.site-header{position:sticky;top:0;z-index:50;width:100%;transition:all .3s;background:rgba(13,13,12,.95);backdrop-filter:blur(12px)}
+.site-header--scrolled{border-bottom:1px solid rgba(42,38,31,.6);box-shadow:0 4px 16px rgba(0,0,0,.4)}
+.header-inner{max-width:1240px;margin-inline:auto;padding-inline:16px;height:74px;display:flex;align-items:center;justify-content:space-between}
+@media(min-width:640px){.header-inner{height:84px;padding-inline:24px}}
+@media(min-width:1024px){.header-inner{padding-inline:32px}}
+.header-logo{display:flex;align-items:center;gap:8px;transition:transform .2s}
+.header-logo:hover{transform:scale(1.02)}
+.header-logo:focus{outline:none}
+
+/* Brand logo */
+.brand-logo{display:inline-flex;align-items:center;gap:12px;user-select:none}
+.brand-logo__emblem{width:36px;height:44px;flex-shrink:0}
+@media(min-width:640px){.brand-logo__emblem{width:40px;height:48px}}
+.brand-logo__text-wrap{display:flex;flex-direction:column}
+.brand-logo__title{font-weight:900;font-size:24px;letter-spacing:-.02em;line-height:1;font-family:var(--font-sans)}
+@media(min-width:640px){.brand-logo__title{font-size:28px}}
+.brand-logo__tagline{font-size:11px;font-weight:500;letter-spacing:.05em;margin-top:4px;text-align:center}
+@media(min-width:640px){.brand-logo__tagline{font-size:12px}}
+
+/* Desktop nav */
+.header-nav{display:none;align-items:center;gap:28px;font-size:16px}
+@media(min-width:768px){.header-nav{display:flex}}
+@media(min-width:1024px){.header-nav{gap:36px}}
+.header-nav-link{position:relative;padding-block:4px;font-weight:500;font-size:14px;transition:color .15s;color:rgba(248,245,238,.85)}
+.header-nav-link:hover{color:var(--brand-yellow)}
+.header-nav-link--active{color:var(--brand-yellow);font-weight:600}
+.header-nav-link--active::after{content:'';position:absolute;bottom:-4px;right:0;left:0;height:2.5px;background:var(--brand-yellow);border-radius:999px}
+@media(min-width:1024px){.header-nav-link{font-size:16px}}
+
+.header-actions{display:flex;align-items:center;gap:12px}
+.header-phone{display:none;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;font-size:12px;font-weight:600;color:var(--brand-yellow);border:1px solid rgba(255,194,28,.3);transition:background .2s}
+.header-phone:hover{background:rgba(255,194,28,.1)}
+@media(min-width:1024px){.header-phone{display:inline-flex}}
+.header-menu-btn{display:inline-flex;padding:8px;color:var(--brand-yellow);border-radius:8px;transition:all .15s}
+.header-menu-btn:hover{color:var(--yellow-light)}
+.header-menu-btn:active{transform:scale(.95)}
+.header-menu-btn:focus{outline:2px solid rgba(255,194,28,.5);outline-offset:2px}
+@media(min-width:768px){.header-menu-btn{display:none}}
+
+/* Mobile drawer */
+.mobile-drawer{display:flex;flex-direction:column;justify-content:space-between;position:fixed;inset-inline:0;top:74px;bottom:0;z-index:40;background:rgba(13,13,12,.95);backdrop-filter:blur(20px);padding:32px 24px;transition:opacity .3s,transform .3s;opacity:0;pointer-events:none;transform:translateY(-16px)}
+.mobile-drawer--open{opacity:1;pointer-events:auto;transform:translateY(0)}
+@media(min-width:768px){.mobile-drawer{display:none}}
+.mobile-nav{display:flex;flex-direction:column;gap:16px;text-align:right}
+.mobile-nav-link{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;font-size:18px;font-weight:700;color:var(--text-white);border-bottom:1px solid #26241E;border-radius:8px;transition:all .15s}
+.mobile-nav-link:hover{color:var(--brand-yellow);background:rgba(27,26,23,.6)}
+.mobile-nav-link__arrow{color:var(--brand-yellow);font-size:14px}
+.mobile-drawer-footer{padding-top:24px;border-top:1px solid #26241E;display:flex;flex-direction:column;gap:12px}
+.mobile-call-btn{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;padding:14px 16px;border-radius:12px;background:var(--brand-yellow);color:var(--bg-dark);font-weight:700;font-size:16px;box-shadow:0 4px 12px rgba(0,0,0,.3);transition:background .2s}
+.mobile-call-btn:hover{background:var(--yellow-light)}
+.mobile-map-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px 16px;border-radius:12px;border:1px solid rgba(255,194,28,.4);color:var(--brand-yellow);font-weight:600;font-size:14px;transition:background .2s}
+.mobile-map-btn:hover{background:rgba(255,194,28,.1)}
+.mobile-address{text-align:center;font-size:12px;color:rgba(210,204,193,.6);margin-top:8px}
+
+/* ============ HERO ============ */
+.hero{position:relative;overflow:hidden;background:var(--bg-dark);min-height:480px;display:flex;align-items:center;isolation:isolate}
+@media(min-width:640px){.hero{min-height:540px}}
+@media(min-width:768px){.hero{min-height:580px}}
+@media(min-width:1024px){.hero{min-height:640px}}
+.hero__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:70% center;z-index:-2;transition:transform .7s}
+.hero__bg:hover{transform:scale(1.05)}
+@media(min-width:640px){.hero__bg{object-position:65% center}}
+@media(min-width:768px){.hero__bg{object-position:60% center}}
+.hero__overlay{position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(13,13,12,.95) 0%,rgba(13,13,12,.88) 36%,rgba(13,13,12,.55) 60%,rgba(13,13,12,.15) 100%),linear-gradient(0deg,rgba(13,13,12,.9) 0%,transparent 35%,rgba(13,13,12,.4) 100%)}
+.hero__steam{position:absolute;right:5%;top:15%;width:192px;height:256px;pointer-events:none;opacity:.4;mix-blend-mode:screen}
+@media(min-width:640px){.hero__steam{right:15%}}
+.hero__steam-inner{width:100%;height:100%;background:linear-gradient(to top,transparent,rgba(255,194,28,.1),transparent);filter:blur(40px);border-radius:999px}
+.hero__inner{width:100%;max-width:1240px;margin-inline:auto;padding:40px 20px;display:flex;justify-content:flex-end}
+@media(min-width:640px){.hero__inner{padding:64px 32px}}
+@media(min-width:768px){.hero__inner{padding:80px 48px}}
+.hero__content{max-width:310px;display:flex;flex-direction:column;align-items:flex-start;text-align:right}
+@media(min-width:420px){.hero__content{max-width:350px}}
+@media(min-width:640px){.hero__content{max-width:420px}}
+@media(min-width:768px){.hero__content{max-width:480px}}
+@media(min-width:1024px){.hero__content{max-width:520px}}
+.hero__eyebrow-wrap{position:relative;margin-bottom:4px}
+@media(min-width:640px){.hero__eyebrow-wrap{margin-bottom:8px}}
+.hero__eyebrow{color:var(--text-white);font-size:18px;font-weight:300;letter-spacing:.02em;display:inline-block;transform:rotate(-3deg);user-select:none;text-shadow:0 2px 8px rgba(0,0,0,.8);font-family:var(--font-sans)}
+@media(min-width:640px){.hero__eyebrow{font-size:20px}}
+@media(min-width:768px){.hero__eyebrow{font-size:24px}}
+.hero__title-wrap{position:relative;margin-bottom:4px}
+@media(min-width:640px){.hero__title-wrap{margin-bottom:8px}}
+.hero__title{color:var(--brand-yellow);font-size:42px;font-weight:900;line-height:1.02;letter-spacing:-.02em;filter:drop-shadow(0 4px 20px rgba(255,194,28,.35));margin:0;font-family:var(--font-sans)}
+@media(min-width:640px){.hero__title{font-size:54px}}
+@media(min-width:768px){.hero__title{font-size:66px}}
+@media(min-width:1024px){.hero__title{font-size:74px}}
+.hero__title-underline{width:192px;height:12px;margin-top:-4px;color:var(--brand-yellow);user-select:none;pointer-events:none}
+@media(min-width:640px){.hero__title-underline{width:240px;height:16px;margin-top:-8px}}
+.hero__subtitle{color:var(--text-white);font-size:20px;font-weight:800;letter-spacing:-.02em;margin:0 0 12px;filter:drop-shadow(0 2px 4px rgba(0,0,0,.5));font-family:var(--font-sans)}
+@media(min-width:640px){.hero__subtitle{font-size:24px;margin-bottom:16px}}
+@media(min-width:768px){.hero__subtitle{font-size:30px}}
+.hero__description{color:var(--text-secondary);font-size:12px;line-height:1.6;font-weight:400;max-width:320px;text-align:justify;margin:0 0 24px;filter:drop-shadow(0 1px 2px rgba(0,0,0,.5))}
+@media(min-width:640px){.hero__description{font-size:14px;line-height:1.9;margin-bottom:32px;max-width:380px}}
+@media(min-width:768px){.hero__description{font-size:16px;max-width:440px}}
+.hero__cta-group{display:flex;align-items:center;flex-wrap:wrap;gap:12px}
+@media(min-width:640px){.hero__cta-group{gap:16px}}
+.hero__cta-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;height:50px;padding-inline:24px;border-radius:999px;background:var(--brand-yellow);color:var(--bg-dark);font-weight:900;font-size:14px;box-shadow:0 6px 20px rgba(255,194,28,.35);transition:all .2s}
+@media(min-width:640px){.hero__cta-btn{height:54px;padding-inline:28px;font-size:16px}}
+.hero__cta-btn:hover{background:var(--yellow-light);box-shadow:0 8px 25px rgba(255,194,28,.5)}
+.hero__cta-btn:active{transform:scale(.95)}
+.hero__cta-btn:focus{outline:2px solid var(--yellow-light);outline-offset:2px}
+.hero__cta-icon{width:24px;height:24px;border-radius:999px;background:var(--bg-dark);color:var(--brand-yellow);display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.hero__cta-btn:hover .hero__cta-icon{transform:scale(1.1)}
+.hero__arrow-wrap{display:none;transform:translateY(2px) rotate(-6deg);animation:pulse 2s infinite}
+@media(min-width:420px){.hero__arrow-wrap{display:block}}
+
+/* ============ FEATURES ============ */
+.features{position:relative;background:var(--bg-dark);padding-top:32px;padding-bottom:0}
+@media(min-width:640px){.features{padding-top:40px}}
+.features__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px 8px}
+@media(min-width:640px){.features__grid{gap:24px 16px}}
+@media(min-width:768px){.features__grid{grid-template-columns:repeat(4,1fr)}}
+.feature{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:8px}
+@media(min-width:640px){.feature{padding:8px 16px}}
+@media(min-width:768px){.feature:not(.feature--last){border-left:1px solid rgba(141,119,82,.5)}}
+@media(max-width:767px){.feature--even{border-left:1px solid rgba(141,119,82,.3)}}
+.feature__icon-wrap{margin-bottom:8px;height:48px;width:48px;display:flex;align-items:center;justify-content:center;transition:transform .2s}
+.feature__icon-wrap:hover{transform:scale(1.1)}
+@media(min-width:640px){.feature__icon-wrap{margin-bottom:12px}}
+.feature__icon{width:32px;height:32px;color:var(--brand-yellow)}
+@media(min-width:640px){.feature__icon{width:40px;height:40px}}
+.feature__title{color:var(--text-white);font-weight:700;font-size:12px;margin:0 0 4px;letter-spacing:-.02em}
+@media(min-width:640px){.feature__title{font-size:14px}}
+@media(min-width:768px){.feature__title{font-size:16px}}
+.feature__subtitle{color:rgba(210,204,193,.85);font-size:11px;font-weight:400;max-width:140px;line-height:1.3;margin:0}
+@media(min-width:640px){.feature__subtitle{font-size:12px}}
+.features__wave-wrap{margin-top:32px;margin-bottom:-1px}
+@media(min-width:640px){.features__wave-wrap{margin-top:40px}}
+.features__wave-wrap svg{width:100%;display:block;height:40px}
+@media(min-width:640px){.features__wave-wrap svg{height:56px}}
+@media(min-width:768px){.features__wave-wrap svg{height:64px}}
+
+/* ============ ABOUT ============ */
+.about{position:relative;color:var(--text-dark);padding-top:24px;padding-bottom:0;overflow:hidden;isolation:isolate}
+@media(min-width:640px){.about{padding-top:40px}}
+.about__botanical{position:absolute;right:-40px;top:50%;transform:translateY(-50%);width:192px;height:100%;max-height:460px;pointer-events:none;opacity:.3;user-select:none;z-index:0;mix-blend-mode:multiply}
+@media(min-width:640px){.about__botanical{right:-24px;width:256px;opacity:.38}}
+@media(min-width:768px){.about__botanical{right:8px;width:288px}}
+@media(min-width:1024px){.about__botanical{right:24px}}
+.about__botanical-img{width:100%;height:100%;object-fit:contain;object-position:right}
+.about__inner{max-width:1240px;margin-inline:auto;padding:16px 20px;position:relative;z-index:1}
+@media(min-width:640px){.about__inner{padding:32px 32px}}
+@media(min-width:1024px){.about__inner{padding:32px 48px}}
+.about__grid{display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:32px}
+@media(min-width:640px){.about__grid{gap:48px}}
+@media(min-width:1024px){.about__grid{flex-direction:row;gap:64px}}
+.about__visual{order:1;position:relative;width:100%;max-width:330px;flex-shrink:0;display:flex;align-items:center;justify-content:center}
+@media(min-width:420px){.about__visual{max-width:370px}}
+@media(min-width:640px){.about__visual{max-width:420px}}
+@media(min-width:1024px){.about__visual{order:2;max-width:460px}}
+.about__brush-ring{position:absolute;inset:-8%;z-index:-1;transform:rotate(-12deg) scale(1.05);pointer-events:none}
+@media(min-width:640px){.about__brush-ring{inset:-10%}}
+.about__brush-ring svg{width:100%;height:100%;display:block}
+.about__tray-wrap{position:relative;z-index:1;width:100%}
+.about__tray-img{width:100%;height:auto;object-fit:contain}
+.about__text{order:2;width:100%;max-width:540px;display:flex;flex-direction:column;align-items:flex-start;text-align:right;z-index:1}
+@media(min-width:1024px){.about__text{order:1}}
+.about__badge{color:#594F3B;font-size:14px;font-weight:500;margin-bottom:6px;display:inline-block;transform:rotate(-1deg);user-select:none;font-family:var(--font-sans)}
+@media(min-width:640px){.about__badge{font-size:16px}}
+@media(min-width:768px){.about__badge{font-size:18px}}
+.about__title{color:var(--text-dark);font-size:24px;font-weight:900;letter-spacing:-.02em;margin:0 0 16px;line-height:1.3;font-family:var(--font-sans)}
+@media(min-width:640px){.about__title{font-size:30px;margin-bottom:20px}}
+@media(min-width:768px){.about__title{font-size:36px}}
+.about__paragraph{color:#363024;font-size:12px;line-height:2;font-weight:400;text-align:justify;margin:0}
+@media(min-width:640px){.about__paragraph{font-size:14px;line-height:2.2}}
+@media(min-width:768px){.about__paragraph{font-size:16px}}
+.about__quote-badge{margin-top:20px;display:flex;align-items:center;gap:12px;padding:8px 14px;background:rgba(233,221,199,.6);border:1px solid rgba(213,196,166,.4);border-radius:12px}
+@media(min-width:640px){.about__quote-badge{margin-top:24px}}
+.about__quote-dot{width:10px;height:10px;border-radius:999px;background:var(--brand-yellow);flex-shrink:0}
+.about__quote-text{font-size:12px;font-weight:600;color:#423927}
+@media(min-width:640px){.about__quote-text{font-size:14px}}
+.about__torn-edge-wrap{width:100%;margin-top:24px;margin-bottom:-1px}
+@media(min-width:640px){.about__torn-edge-wrap{margin-top:40px}}
+.about__torn-edge-wrap svg{width:100%;display:block;height:40px}
+@media(min-width:640px){.about__torn-edge-wrap svg{height:56px}}
+@media(min-width:768px){.about__torn-edge-wrap svg{height:64px}}
+
+/* ============ PRODUCTS ============ */
+.products{position:relative;background:var(--bg-dark);padding:40px 0;overflow:hidden}
+@media(min-width:640px){.products{padding:64px 0}}
+.products__header{text-align:center;margin-bottom:32px;display:flex;flex-direction:column;align-items:center}
+@media(min-width:640px){.products__header{margin-bottom:48px}}
+.products__eyebrow{color:var(--text-secondary);font-size:14px;font-weight:300;margin-bottom:4px;letter-spacing:.02em;font-family:var(--font-sans)}
+@media(min-width:640px){.products__eyebrow{font-size:16px}}
+.products__title-wrap{display:flex;align-items:center;justify-content:center;gap:12px}
+@media(min-width:640px){.products__title-wrap{gap:20px}}
+.products__dash{width:32px;height:10px;color:var(--brand-yellow)}
+@media(min-width:640px){.products__dash{width:48px}}
+.products__title{color:var(--text-white);font-size:24px;font-weight:900;letter-spacing:-.02em;margin:0;font-family:var(--font-sans)}
+@media(min-width:640px){.products__title{font-size:30px}}
+@media(min-width:768px){.products__title{font-size:36px}}
+.products__container{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:16px 16px;margin-inline:-16px}
+@media(min-width:640px){.products__container{gap:24px}}
+@media(min-width:768px){.products__container{display:grid;grid-template-columns:repeat(3,1fr);overflow:visible;padding:16px 0;margin-inline:0;gap:32px}}
+.product-card{position:relative;flex-shrink:0;width:78%;scroll-snap-align:center;cursor:pointer;transition:transform .3s}
+@media(min-width:420px){.product-card{width:72%}}
+@media(min-width:640px){.product-card{width:65%}}
+@media(min-width:768px){.product-card{width:auto}}
+.product-card:hover{transform:translateY(-6px)}
+.product-card:focus{outline:none}
+.product-card__image-frame{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:1.4/1;background:var(--charcoal);border:1px solid rgba(43,39,32,.8);box-shadow:0 10px 25px rgba(0,0,0,.6);transition:border-color .3s}
+@media(min-width:640px){.product-card__image-frame{aspect-ratio:1.35/1;border-radius:20px}}
+.product-card:hover .product-card__image-frame{border-color:rgba(255,194,28,.5)}
+.product-card__image{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.product-card:hover .product-card__image{transform:scale(1.08)}
+.product-card__vignette{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7),transparent,rgba(0,0,0,.2));pointer-events:none}
+.product-card__badge{position:absolute;top:12px;right:12px;background:rgba(20,20,20,.8);backdrop-filter:blur(8px);border:1px solid rgba(255,194,28,.4);color:var(--brand-yellow);font-size:10px;font-weight:700;padding:4px 10px;border-radius:999px;display:flex;align-items:center;gap:4px;box-shadow:0 2px 6px rgba(0,0,0,.3)}
+@media(min-width:640px){.product-card__badge{font-size:12px}}
+.product-card__info-hint{position:absolute;top:12px;left:12px;opacity:0;transition:opacity .2s;background:rgba(0,0,0,.6);border-radius:999px;padding:4px;color:#fff;display:flex}
+.product-card:hover .product-card__info-hint{opacity:1}
+.product-card__badge-wrap{position:relative;margin-top:-20px;display:flex;justify-content:center;z-index:2}
+@media(min-width:640px){.product-card__badge-wrap{margin-top:-24px}}
+.product-card__price{text-align:center;margin-top:12px;font-size:12px;color:rgba(210,204,193,.8)}
+@media(min-width:640px){.product-card__price{font-size:14px}}
+
+/* Brush badge */
+.brush-badge{position:relative;display:inline-flex;align-items:center;justify-content:center;padding:8px 24px;user-select:none}
+.brush-badge__svg{position:absolute;inset:0;width:100%;height:100%;z-index:1;filter:drop-shadow(0 1px 2px rgba(0,0,0,.15))}
+.brush-badge__text{position:relative;z-index:10;font-weight:800;font-size:14px;color:#171511;white-space:nowrap;letter-spacing:-.02em;font-family:var(--font-sans)}
+@media(min-width:640px){.brush-badge__text{font-size:16px}}
+
+/* Dots */
+.products__dots{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:24px}
+@media(min-width:768px){.products__dots{display:none}}
+.products__dot{height:10px;width:10px;border-radius:999px;background:#38342C;transition:all .3s;padding:0}
+.products__dot:hover{background:#524B3F}
+.products__dot--active{width:28px;background:var(--brand-yellow)}
+
+/* ============ CONTACT / FOOTER ============ */
+.contact{position:relative;background:var(--deep-dark);color:var(--text-white);padding-top:48px;padding-bottom:0;overflow:hidden;isolation:isolate}
+@media(min-width:640px){.contact{padding-top:64px}}
+.contact__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:-2;opacity:.3;mix-blend-mode:luminosity}
+.contact__overlay{position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle at 50% 30%,rgba(255,194,28,.08) 0%,transparent 70%),linear-gradient(180deg,#141414 0%,rgba(13,13,12,.94) 30%,rgba(13,13,12,.98) 100%)}
+.contact__inner{max-width:1240px;margin-inline:auto;padding:0 20px 48px}
+@media(min-width:640px){.contact__inner{padding:0 32px 64px}}
+@media(min-width:1024px){.contact__inner{padding:0 48px 64px}}
+.contact__quote{display:flex;flex-direction:column;align-items:center;justify-content:center;margin-bottom:32px;text-align:center}
+@media(min-width:640px){.contact__quote{margin-bottom:40px}}
+.contact__quote-top{display:block;color:var(--text-white);font-size:20px;font-weight:300;letter-spacing:.02em;margin-bottom:4px;user-select:none;font-family:var(--font-sans)}
+@media(min-width:640px){.contact__quote-top{font-size:24px}}
+@media(min-width:768px){.contact__quote-top{font-size:30px}}
+.contact__quote-bottom{display:block;color:var(--brand-yellow);font-size:24px;font-weight:900;letter-spacing:-.02em;user-select:none;font-family:var(--font-sans)}
+@media(min-width:640px){.contact__quote-bottom{font-size:30px}}
+@media(min-width:768px){.contact__quote-bottom{font-size:36px}}
+.contact__underline-wrap{margin-top:4px;display:flex;justify-content:center}
+.contact__grid{display:flex;flex-direction:column;align-items:center;justify-content:space-between;gap:24px;max-width:900px;margin-inline:auto}
+@media(min-width:640px){.contact__grid{flex-direction:row;gap:32px}}
+.contact__call{width:100%;display:flex;flex-direction:column;align-items:center;text-align:center}
+@media(min-width:640px){.contact__call{width:auto;align-items:flex-start;text-align:right}}
+.contact__call-btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;padding:14px 32px;border-radius:12px;color:var(--bg-dark);font-weight:900;font-size:16px;transition:transform .2s}
+@media(min-width:640px){.contact__call-btn{padding:14px 36px}}
+.contact__call-btn:hover{transform:scale(1.05)}
+.contact__call-btn:active{transform:scale(.95)}
+.contact__call-btn:focus{outline:none}
+.contact__call-bg{position:absolute;inset:0;width:100%;height:100%;z-index:1;filter:drop-shadow(0 4px 15px rgba(255,194,28,.3))}
+.contact__call-btn:hover .contact__call-bg{filter:brightness(1.05) drop-shadow(0 4px 15px rgba(255,194,28,.3))}
+.contact__call-label{position:relative;z-index:10;font-family:var(--font-sans);font-weight:900}
+.contact__call-icon{position:relative;z-index:10;width:24px;height:24px;border-radius:999px;background:var(--bg-dark);color:var(--brand-yellow);display:flex;align-items:center;justify-content:center}
+.contact__hours{margin-top:10px;font-size:12px;color:rgba(210,204,193,.75);display:flex;align-items:center;justify-content:center;gap:6px}
+@media(min-width:640px){.contact__hours{justify-content:flex-start}}
+.contact__location{width:100%;display:flex;flex-direction:column;align-items:center;text-align:center}
+@media(min-width:640px){.contact__location{width:auto;align-items:flex-end;text-align:left}}
+.contact__location-label{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:4px}
+@media(min-width:640px){.contact__location-label{justify-content:flex-end}}
+.contact__location-text{font-size:12px;font-weight:600;color:var(--text-secondary)}
+@media(min-width:640px){.contact__location-text{font-size:14px}}
+.contact__address{font-size:14px;font-weight:700;color:var(--text-white);margin:0 0 12px}
+@media(min-width:640px){.contact__address{font-size:16px}}
+.contact__actions{display:flex;align-items:center;flex-wrap:wrap;gap:8px;justify-content:center}
+@media(min-width:640px){.contact__actions{justify-content:flex-end}}
+.contact__map-btn{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;border:1px solid rgba(255,194,28,.6);color:var(--brand-yellow);font-weight:700;font-size:12px;transition:all .2s;box-shadow:0 1px 2px rgba(0,0,0,.3)}
+.contact__map-btn:hover{background:var(--brand-yellow);color:var(--bg-dark)}
+.contact__map-btn:active{transform:scale(.95)}
+@media(min-width:640px){.contact__map-btn{font-size:14px}}
+.contact__directions-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border-radius:999px;background:var(--charcoal);color:var(--text-secondary);border:1px solid #332E24;font-size:12px;transition:color .2s}
+.contact__directions-btn:hover{color:var(--brand-yellow)}
+.contact__corner-wrap{position:relative;max-width:1240px;margin-inline:auto;padding-inline:16px;margin-bottom:-32px;pointer-events:none;z-index:10;display:flex;justify-content:flex-end}
+@media(min-width:640px){.contact__corner-wrap{margin-bottom:-48px}}
+.contact__corner-img{width:96px;aspect-ratio:1;border-radius:999px;overflow:hidden;border:2px solid rgba(255,194,28,.3);box-shadow:0 8px 24px rgba(0,0,0,.5);transform:rotate(12deg) translateY(16px);opacity:.9}
+@media(min-width:640px){.contact__corner-img{width:128px}}
+@media(min-width:768px){.contact__corner-img{width:160px}}
+.contact__corner-img img{width:100%;height:100%;object-fit:cover}
+.contact__wave-area{position:relative;width:100%}
+.contact__wave{width:100%;height:112px;display:block}
+@media(min-width:640px){.contact__wave{height:144px}}
+@media(min-width:768px){.contact__wave{height:176px}}
+.contact__brand{position:absolute;left:0;right:0;bottom:12px;z-index:20;display:flex;flex-direction:column;align-items:center;justify-content:center;pointer-events:auto}
+@media(min-width:640px){.contact__brand{bottom:24px}}
+@media(min-width:768px){.contact__brand{bottom:32px}}
+.contact__brand-link{display:flex;flex-direction:column;align-items:center;transition:transform .2s}
+.contact__brand-link:hover{transform:scale(1.05)}
+.contact__brand-link:focus{outline:none}
+.contact__copyright{margin-top:12px;font-size:10px;color:rgba(20,20,20,.7);font-weight:500;letter-spacing:.02em}
+@media(min-width:640px){.contact__copyright{font-size:12px}}
+
+/* ============ MODALS ============ */
+.modal-overlay{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:16px;background:rgba(0,0,0,.8);backdrop-filter:blur(4px);animation:fadeIn .2s ease-out}
+.modal-overlay--open{display:flex}
+.modal-overlay__backdrop{position:absolute;inset:0}
+.modal-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid #2C271F;background:var(--bg-dark)}
+.modal-header__title-wrap{display:flex;align-items:center;gap:10px;color:var(--brand-yellow)}
+.modal-header__title{font-weight:800;font-size:16px;margin:0}
+@media(min-width:640px){.modal-header__title{font-size:18px}}
+.modal-header__close{padding:6px;border-radius:8px;color:var(--text-secondary);transition:all .15s;display:inline-flex}
+.modal-header__close:hover{color:#fff;background:rgba(255,255,255,.1)}
+.modal-body{padding:20px;display:flex;flex-direction:column;gap:20px}
+@media(min-width:640px){.modal-body{padding:24px}}
+
+/* MAP MODAL */
+.map-modal{position:relative;width:100%;max-width:512px;background:var(--charcoal);border:1px solid #3A3428;border-radius:16px;box-shadow:0 25px 50px rgba(0,0,0,.5);overflow:hidden;z-index:10;color:var(--text-white);animation:scaleUp .2s ease-out}
+.map-modal__address-box{background:var(--bg-dark);border:1px solid #2B2720;border-radius:12px;padding:16px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.map-modal__address-label{font-size:12px;color:rgba(210,204,193,.7);display:block;margin-bottom:4px}
+.map-modal__address-text{font-size:14px;font-weight:700;color:var(--text-white);line-height:1.6;margin:0}
+@media(min-width:640px){.map-modal__address-text{font-size:16px}}
+.map-modal__hours{font-size:12px;color:var(--brand-yellow);margin-top:8px;font-weight:500}
+.map-modal__copy-btn{flex-shrink:0;padding:8px;border-radius:8px;background:#25221B;color:var(--brand-yellow);transition:background .2s;display:inline-flex}
+.map-modal__copy-btn:hover{background:#342F25}
+.map-modal__apps-label{font-size:12px;color:rgba(210,204,193,.8);display:block;font-weight:600;margin-bottom:8px}
+.map-modal__apps{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.map-modal__app{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px;border-radius:12px;background:#221F19;border:1px solid #3A3326;color:var(--text-white);font-size:12px;font-weight:700;transition:all .2s}
+.map-modal__app:hover{background:#2C271F;color:var(--brand-yellow)}
+.map-modal__app-icon{width:20px;height:20px;margin-bottom:6px;color:var(--brand-yellow);transition:transform .2s}
+.map-modal__app:hover .map-modal__app-icon{transform:scale(1.1)}
+.map-modal__call{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:14px 16px;border-radius:12px;background:var(--brand-yellow);color:var(--bg-dark);font-weight:900;font-size:14px;transition:all .2s;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+.map-modal__call:hover{background:var(--yellow-light)}
+.map-modal__call:active{transform:scale(.98)}
+
+/* ORDER MODAL */
+.order-modal{position:relative;width:100%;max-width:448px;background:var(--charcoal);border:1px solid #3A3428;border-radius:16px;box-shadow:0 25px 50px rgba(0,0,0,.5);overflow:hidden;z-index:10;color:var(--text-white);max-height:90vh;display:flex;flex-direction:column;animation:scaleUp .2s ease-out}
+.order-modal__hero{position:relative;height:176px;width:100%;flex-shrink:0;background:var(--bg-dark)}
+@media(min-width:640px){.order-modal__hero{height:208px}}
+.order-modal__hero-img{width:100%;height:100%;object-fit:cover}
+.order-modal__hero-gradient{position:absolute;inset:0;background:linear-gradient(to top,var(--charcoal),transparent 50%,rgba(0,0,0,.6))}
+.order-modal__close{position:absolute;top:12px;left:12px;z-index:20;padding:6px;border-radius:999px;background:rgba(0,0,0,.6);color:var(--text-white);transition:background .2s;display:inline-flex}
+.order-modal__close:hover{background:rgba(0,0,0,.8)}
+.order-modal__title-area{position:absolute;bottom:12px;right:16px;left:16px;display:flex;align-items:flex-end;justify-content:space-between}
+.order-modal__title{font-size:20px;font-weight:900;color:var(--brand-yellow);margin:0}
+@media(min-width:640px){.order-modal__title{font-size:24px}}
+.order-modal__subtitle{font-size:12px;color:var(--text-secondary);margin:2px 0 0}
+.order-modal__price{font-size:14px;font-weight:800;color:var(--text-white);background:rgba(20,20,20,.9);padding:4px 12px;border-radius:8px;border:1px solid rgba(255,194,28,.3)}
+@media(min-width:640px){.order-modal__price{font-size:16px}}
+.order-modal__body{padding:20px;display:flex;flex-direction:column;gap:16px;overflow-y:auto;flex:1}
+.order-modal__body::-webkit-scrollbar{display:none}
+.order-modal__body{scrollbar-width:none}
+.order-modal__description{font-size:12px;color:var(--text-secondary);line-height:1.7;margin:0}
+@media(min-width:640px){.order-modal__description{font-size:14px}}
+.order-modal__tags{display:flex;flex-wrap:wrap;gap:6px}
+.order-modal__tag{font-size:11px;padding:2px 10px;border-radius:999px;background:#27231C;color:var(--brand-yellow);border:1px solid #3C3529}
+.order-modal__divider{border:none;border-top:1px solid #2E281F;margin:0}
+.order-modal__section{display:flex;flex-direction:column;gap:6px}
+.order-modal__label{font-size:12px;font-weight:700;color:var(--text-white);display:block}
+.order-modal__options{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;font-size:12px}
+.order-modal__option{padding:8px;border-radius:12px;text-align:right;border:1px solid #332C22;background:var(--bg-dark);color:var(--text-secondary);transition:all .2s;font-size:12px}
+.order-modal__option:hover{border-color:#4B4232}
+.order-modal__option--active{border-color:var(--brand-yellow);background:rgba(255,194,28,.15);color:var(--brand-yellow);font-weight:700}
+.order-modal__quantity{display:flex;align-items:center;justify-content:space-between;padding-top:8px}
+.order-modal__qty-label{font-size:12px;font-weight:700;color:var(--text-white)}
+.order-modal__qty-control{display:flex;align-items:center;gap:12px;background:var(--bg-dark);border:1px solid #332C22;padding:6px 12px;border-radius:12px}
+.order-modal__qty-btn{padding:4px;border-radius:4px;color:var(--text-secondary);transition:all .15s;display:inline-flex}
+.order-modal__qty-btn:hover:not(:disabled){color:var(--brand-yellow)}
+.order-modal__qty-btn:active{transform:scale(.95)}
+.order-modal__qty-btn:disabled{opacity:.4;cursor:not-allowed}
+.order-modal__qty-value{font-weight:800;font-size:14px;color:var(--brand-yellow);min-width:20px;text-align:center}
+.order-modal__footer{padding:16px;background:var(--bg-dark);border-top:1px solid #2C271F;display:flex;align-items:center;justify-content:space-between;gap:12px}
+@media(min-width:640px){.order-modal__footer{padding:20px}}
+.order-modal__total-label{font-size:11px;color:rgba(210,204,193,.7);display:block}
+.order-modal__total-value{font-size:16px;font-weight:900;color:var(--brand-yellow)}
+@media(min-width:640px){.order-modal__total-value{font-size:18px}}
+.order-modal__actions{display:flex;align-items:center;gap:8px}
+.order-modal__phone-btn{padding:12px;border-radius:12px;border:1px solid rgba(255,194,28,.4);color:var(--brand-yellow);transition:background .2s;display:inline-flex}
+.order-modal__phone-btn:hover{background:rgba(255,194,28,.1)}
+.order-modal__submit{display:flex;align-items:center;gap:8px;padding:12px 20px;border-radius:12px;background:var(--brand-yellow);color:var(--bg-dark);font-weight:900;font-size:12px;transition:all .2s;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+.order-modal__submit:hover{background:var(--yellow-light)}
+.order-modal__submit:active{transform:scale(.98)}
+.order-modal__submit--success{background:#16a34a;color:#fff}
+@media(min-width:640px){.order-modal__submit{font-size:14px}}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- ==================== HEADER ==================== -->
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="#home" class="header-logo" aria-label="بلال تنوری - بازگشت به صفحه اصلی">
+      <div class="brand-logo">
+        <svg viewBox="0 0 48 56" class="brand-logo__emblem" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M14 48C10 38 8 28 15 16C16 23 20 28 24 32C19 36 15 42 14 48Z" fill="#E6A900" opacity=".9"/>
+          <path d="M34 48C38 38 40 28 33 16C32 23 28 28 24 32C29 36 33 42 34 48Z" fill="#E6A900" opacity=".9"/>
+          <path d="M24 6C19 6 16 12 16 22C16 34 19 44 24 48C29 44 32 34 32 22C32 12 29 6 24 6Z" fill="#FFC21C"/>
+          <g stroke="#FFD34B" stroke-width="1.2" stroke-linecap="round">
+            <path d="M21 14H27"/><path d="M19 20H29"/><path d="M18 26H30"/><path d="M19 32H29"/><path d="M20 38H28"/>
+            <path d="M24 10V44" stroke-width="1.4"/>
+            <path d="M21 16V38" stroke-width=".8" opacity=".6"/>
+            <path d="M27 16V38" stroke-width=".8" opacity=".6"/>
+          </g>
+          <path d="M24 6C23 3 21 2 19 1" stroke="#FFC21C" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M24 6C25 3 28 2 30 1" stroke="#FFC21C" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M24 6V2" stroke="#FFC21C" stroke-width="1.4" stroke-linecap="round"/>
+          <circle cx="37" cy="12" r="1.5" fill="#FFC21C"/>
+          <circle cx="11" cy="14" r="1.2" fill="#E6A900"/>
+        </svg>
+        <div class="brand-logo__text-wrap">
+          <span class="brand-logo__title" style="color:#FFC21C">بلال تنوری</span>
+        </div>
+      </div>
+    </a>
+
+    <nav class="header-nav" aria-label="منوی اصلی">
+      <a href="#home" class="header-nav-link header-nav-link--active" data-nav="home">خانه</a>
+      <a href="#products" class="header-nav-link" data-nav="menu">منو</a>
+      <a href="#about" class="header-nav-link" data-nav="about">درباره ما</a>
+      <a href="#contact" class="header-nav-link" data-nav="contact">تماس با ما</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="tel:09131234567" class="header-phone">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>۰۹۱۳ ۱۲۳ ۴۵۶۷</span>
+      </a>
+      <button type="button" class="header-menu-btn" id="menuToggle" aria-expanded="false" aria-label="باز کردن منو">
+        <svg id="menuIcon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <nav class="mobile-nav" aria-label="منوی موبایل">
+      <a href="#home" class="mobile-nav-link" data-nav-link><span>خانه</span><span class="mobile-nav-link__arrow">←</span></a>
+      <a href="#products" class="mobile-nav-link" data-nav-link><span>منو</span><span class="mobile-nav-link__arrow">←</span></a>
+      <a href="#about" class="mobile-nav-link" data-nav-link><span>درباره ما</span><span class="mobile-nav-link__arrow">←</span></a>
+      <a href="#contact" class="mobile-nav-link" data-nav-link><span>تماس با ما</span><span class="mobile-nav-link__arrow">←</span></a>
+    </nav>
+    <div class="mobile-drawer-footer">
+      <a href="tel:09131234567" class="mobile-call-btn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>تماس سریع: ۰۹۱۳ ۱۲۳ ۴۵۶۷</span>
+      </a>
+      <button type="button" class="mobile-map-btn" id="mobileMapBtn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>مشاهده موقعیت روی نقشه</span>
+      </button>
+      <p class="mobile-address">نجف‌آباد – میدان بسیج، نبش بلوار</p>
+    </div>
+  </div>
+</header>
+
+<main class="app-main">
+
+<!-- ==================== HERO ==================== -->
+<section id="home" class="hero">
+  <img src="images/corn-hero.jpg" alt="بلال تنوری تازه و داغ ذغالی" class="hero__bg" loading="eager" fetchpriority="high">
+  <div class="hero__overlay"></div>
+  <div class="hero__steam animate-steam"><div class="hero__steam-inner"></div></div>
+  <div class="hero__inner">
+    <div class="hero__content">
+      <div class="hero__eyebrow-wrap"><span class="hero__eyebrow">طعم واقعی</span></div>
+      <div class="hero__title-wrap">
+        <h1 class="hero__title">بلال تنوری</h1>
+        <svg viewBox="0 0 240 22" fill="none" xmlns="http://www.w3.org/2000/svg" class="hero__title-underline">
+          <path d="M10 12C60 6 150 4 230 11C180 18 90 19 25 18" fill="#FFC21C"/>
+        </svg>
+      </div>
+      <h2 class="hero__subtitle">تازه، داغ، لذیذ</h2>
+      <p class="hero__description">با بهترین بلال‌های تازه و روش سنتی تنوری، تجربه‌ای متفاوت از یک میان‌وعده سالم و خوشمزه را بچشید.</p>
+      <div class="hero__cta-group">
+        <button type="button" class="hero__cta-btn" id="heroMapBtn" aria-label="مشاهده موقعیت روی نقشه">
+          <div class="hero__cta-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3" fill="#FFC21C"/></svg>
+          </div>
+          <span>موقعیت ما را ببینید</span>
+        </button>
+        <div class="hero__arrow-wrap">
+          <svg viewBox="0 0 60 30" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:48px;height:24px">
+            <path d="M54 16C42 15 28 14 10 16" stroke="#FFC21C" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M20 7L8 16L20 24" stroke="#FFC21C" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FEATURES ==================== -->
+<section id="features" class="features">
+  <div class="container">
+    <div class="features__grid">
+      <div class="feature feature--even">
+        <div class="feature__icon-wrap">
+          <svg class="feature__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+        </div>
+        <h3 class="feature__title">سالم و مقوی</h3>
+        <p class="feature__subtitle">سرشار از فیبر و ویتامین</p>
+      </div>
+      <div class="feature">
+        <div class="feature__icon-wrap">
+          <svg class="feature__icon" viewBox="0 0 36 44" fill="none" stroke="#FFC21C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:32px;height:40px">
+            <path d="M9 36C6 28 5 20 11 12C12 17 15 21 18 24C14 27 10 32 9 36Z"/>
+            <path d="M27 36C30 28 31 20 25 12C24 17 21 21 18 24C22 27 26 32 27 36Z"/>
+            <path d="M18 5C14 5 12 10 12 18C12 28 14 36 18 39C22 36 24 28 24 18C24 10 22 5 18 5Z"/>
+            <path d="M15 12H21" stroke-width="1.4"/><path d="M14 18H22" stroke-width="1.4"/>
+            <path d="M14 24H22" stroke-width="1.4"/><path d="M15 30H21" stroke-width="1.4"/>
+            <path d="M18 8V36" stroke-width="1.4"/>
+          </svg>
+        </div>
+        <h3 class="feature__title">بلال تازه و مرغوب</h3>
+        <p class="feature__subtitle">انتخاب روزانه</p>
+      </div>
+      <div class="feature feature--even">
+        <div class="feature__icon-wrap">
+          <svg class="feature__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+        </div>
+        <h3 class="feature__title">پخت سنتی تنوری</h3>
+        <p class="feature__subtitle">با طعم و عطر خاص</p>
+      </div>
+      <div class="feature feature--last">
+        <div class="feature__icon-wrap">
+          <svg class="feature__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+        </div>
+        <h3 class="feature__title">کاملاً طبیعی</h3>
+        <p class="feature__subtitle">بدون مواد نگهدارنده</p>
+      </div>
+    </div>
+  </div>
+  <div class="features__wave-wrap">
+    <svg viewBox="0 0 1440 90" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0H1440V30C1360 48 1285 24 1200 42C1120 60 1050 78 960 62C870 46 805 18 720 32C640 46 580 82 480 72C380 62 310 28 220 38C140 48 70 70 0 45V0Z" fill="#141414"/>
+      <path d="M0 45C70 70 140 48 220 38C310 28 380 62 480 72C580 82 640 46 720 32C805 18 870 46 960 62C1050 78 1120 60 1200 42C1285 24 1360 48 1440 30" stroke="#0D0D0C" stroke-width="2.5"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ==================== ABOUT ==================== -->
+<section id="about" class="about paper-texture">
+  <div class="about__botanical" aria-hidden="true">
+    <img src="images/corn-botanical-sketch.svg" alt="" class="about__botanical-img">
+  </div>
+  <div class="about__inner">
+    <div class="about__grid">
+      <div class="about__visual">
+        <div class="about__brush-ring">
+          <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%">
+            <path d="M260 35C380 30 465 115 470 240C475 365 385 460 255 465C125 470 30 380 35 250C40 120 135 40 260 35Z" stroke="#FFC21C" stroke-width="24" stroke-linecap="round" stroke-dasharray="14 10 32 14 50 18" opacity=".88"/>
+            <path d="M245 55C355 50 440 135 445 245C450 355 365 440 245 445C130 450 55 365 50 245C45 130 135 60 245 55Z" stroke="#FFD34B" stroke-width="16" stroke-linecap="round" stroke-dasharray="25 15 40 20" opacity=".9"/>
+            <path d="M100 160 C 140 100, 240 70, 360 110 C 420 130, 445 180, 440 250 C 435 320, 390 400, 300 430 C 200 455, 120 400, 80 320 C 60 270, 70 200, 100 160" stroke="#FFC21C" stroke-width="38" stroke-linecap="round" opacity=".5"/>
+            <circle cx="80" cy="110" r="7" fill="#FFC21C"/><circle cx="60" cy="140" r="4" fill="#FFD34B"/>
+            <circle cx="440" cy="90" r="6" fill="#FFC21C"/><circle cx="465" cy="120" r="3.5" fill="#FFC21C"/>
+            <circle cx="430" cy="400" r="5" fill="#FFD34B"/><circle cx="95" cy="410" r="6.5" fill="#FFC21C"/>
+            <circle cx="120" cy="445" r="4" fill="#FFC21C"/>
+          </svg>
+        </div>
+        <div class="about__tray-wrap animate-gentle-float">
+          <img src="images/corn-serving-tray.png" alt="سینی بلال تنوری طلایی با ادویه‌های مخصوص" class="about__tray-img food-tray-shadow" loading="lazy">
+        </div>
+      </div>
+      <div class="about__text">
+        <span class="about__badge">یک سنّت قدیمی</span>
+        <h2 class="about__title">با طعمی همیشه تازه</h2>
+        <p class="about__paragraph">بلال تنوری فقط یک خوراکی نیست، یک خاطره است: طعم تابستان، گرمای تنور و لذت سادگی. با هر لقمه، با عشق و احترام به ذائقه شما، بهترین بلال‌ها را به صورت روزانه و تازه آماده می‌کنیم.</p>
+        <div class="about__quote-badge">
+          <span class="about__quote-dot"></span>
+          <span class="about__quote-text">پخت روزانه با کره محلی و ادویه‌های سنتی</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="about__torn-edge-wrap">
+    <svg viewBox="0 0 1440 70" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0 L0 35 Q30 42 60 30 Q100 22 140 38 Q190 50 240 32 Q290 20 340 42 Q400 52 460 30 Q520 18 580 40 Q640 54 700 35 Q760 22 820 44 Q880 52 940 32 Q1000 18 1060 42 Q1120 54 1180 34 Q1240 22 1300 42 Q1360 48 1400 32 L1440 38 L1440 0 Z" fill="#F3EBDD"/>
+      <path d="M0 35 Q30 42 60 30 Q100 22 140 38 Q190 50 240 32 Q290 20 340 42 Q400 52 460 30 Q520 18 580 40 Q640 54 700 35 Q760 22 820 44 Q880 52 940 32 Q1000 18 1060 42 Q1120 54 1180 34 Q1240 22 1300 42 Q1360 48 1400 32 L1440 38" stroke="#DFD1B8" stroke-width="2" opacity=".8"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ==================== PRODUCTS ==================== -->
+<section id="products" class="products">
+  <div class="container">
+    <div class="products__header">
+      <span class="products__eyebrow">محصولات ما</span>
+      <div class="products__title-wrap">
+        <svg viewBox="0 0 60 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="products__dash">
+          <path d="M4 6C18 3 42 4 56 6" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+        <h2 class="products__title">انواع بلال تنوری</h2>
+        <svg viewBox="0 0 60 12" fill="none" xmlns="http://www.w3.org/2000/svg" class="products__dash">
+          <path d="M4 6C18 3 42 4 56 6" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="products__container no-scrollbar" id="productsContainer">
+      <!-- Card 1 -->
+      <div class="product-card" data-product-id="simple" tabindex="0" role="button" aria-label="مشاهده جزئیات بلال ساده">
+        <div class="product-card__image-frame">
+          <img src="images/corn-simple.jpg" alt="بلال ساده" class="product-card__image" loading="lazy">
+          <div class="product-card__vignette"></div>
+          <div class="product-card__info-hint"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div>
+        </div>
+        <div class="product-card__badge-wrap">
+          <div class="brush-badge">
+            <svg viewBox="0 0 220 54" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" class="brush-badge__svg">
+              <path d="M8 26C12 14 26 8 45 8C85 6 145 7 195 9C208 10 216 16 214 28C212 40 204 46 186 46C140 47 70 48 30 46C14 45 6 38 8 26Z" fill="#FFC21C"/>
+              <path d="M4 28C8 18 20 12 38 11C78 9 140 10 188 12C200 13 208 19 206 30C204 39 196 44 180 44C136 45 65 46 25 44C11 43 3 37 4 28Z" fill="#FFD34B" opacity=".5"/>
+              <path d="M5 24L1 28L5 32" stroke="#FFC21C" stroke-width="2" stroke-linecap="round"/>
+              <path d="M215 22L219 27L215 31" stroke="#FFC21C" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span class="brush-badge__text">بلال ساده</span>
+          </div>
+        </div>
+        <div class="product-card__price">۴۵,۰۰۰ تومان</div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="product-card" data-product-id="butter" tabindex="0" role="button" aria-label="مشاهده جزئیات بلال کره‌ای">
+        <div class="product-card__image-frame">
+          <img src="images/corn-cheese.jpg" alt="بلال کره‌ای" class="product-card__image" loading="lazy">
+          <div class="product-card__vignette"></div>
+          <div class="product-card__badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+            <span>ویژه</span>
+          </div>
+          <div class="product-card__info-hint"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div>
+        </div>
+        <div class="product-card__badge-wrap">
+          <div class="brush-badge">
+            <svg viewBox="0 0 220 54" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" class="brush-badge__svg">
+              <path d="M8 26C12 14 26 8 45 8C85 6 145 7 195 9C208 10 216 16 214 28C212 40 204 46 186 46C140 47 70 48 30 46C14 45 6 38 8 26Z" fill="#FFC21C"/>
+              <path d="M4 28C8 18 20 12 38 11C78 9 140 10 188 12C200 13 208 19 206 30C204 39 196 44 180 44C136 45 65 46 25 44C11 43 3 37 4 28Z" fill="#FFD34B" opacity=".5"/>
+              <path d="M5 24L1 28L5 32" stroke="#FFC21C" stroke-width="2" stroke-linecap="round"/>
+              <path d="M215 22L219 27L215 31" stroke="#FFC21C" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span class="brush-badge__text">بلال کره‌ای</span>
+          </div>
+        </div>
+        <div class="product-card__price">۵۵,۰۰۰ تومان</div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="product-card" data-product-id="special" tabindex="0" role="button" aria-label="مشاهده جزئیات بلال ویژه">
+        <div class="product-card__image-frame">
+          <img src="images/corn-special.jpg" alt="بلال ویژه" class="product-card__image" loading="lazy">
+          <div class="product-card__vignette"></div>
+          <div class="product-card__badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+            <span>ویژه</span>
+          </div>
+          <div class="product-card__info-hint"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></div>
+        </div>
+        <div class="product-card__badge-wrap">
+          <div class="brush-badge">
+            <svg viewBox="0 0 220 54" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" class="brush-badge__svg">
+              <path d="M8 26C12 14 26 8 45 8C85 6 145 7 195 9C208 10 216 16 214 28C212 40 204 46 186 46C140 47 70 48 30 46C14 45 6 38 8 26Z" fill="#FFC21C"/>
+              <path d="M4 28C8 18 20 12 38 11C78 9 140 10 188 12C200 13 208 19 206 30C204 39 196 44 180 44C136 45 65 46 25 44C11 43 3 37 4 28Z" fill="#FFD34B" opacity=".5"/>
+              <path d="M5 24L1 28L5 32" stroke="#FFC21C" stroke-width="2" stroke-linecap="round"/>
+              <path d="M215 22L219 27L215 31" stroke="#FFC21C" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span class="brush-badge__text">بلال ویژه</span>
+          </div>
+        </div>
+        <div class="product-card__price">۶۵,۰۰۰ تومان</div>
+      </div>
+    </div>
+
+    <div class="products__dots" id="productsDots">
+      <button type="button" class="products__dot products__dot--active" data-dot="0" aria-label="رفتن به اسلاید ۱"></button>
+      <button type="button" class="products__dot" data-dot="1" aria-label="رفتن به اسلاید ۲"></button>
+      <button type="button" class="products__dot" data-dot="2" aria-label="رفتن به اسلاید ۳"></button>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== CONTACT / FOOTER ==================== -->
+<footer id="contact" class="contact">
+  <img src="images/warm-shop-background.jpg" alt="فضای گرم و سنتی بلال تنوری" class="contact__bg" loading="lazy">
+  <div class="contact__overlay"></div>
+
+  <div class="contact__inner">
+    <div class="contact__quote">
+      <span class="contact__quote-top">یک بلال داغ</span>
+      <span class="contact__quote-bottom">حال خوب میاره :)</span>
+      <div class="contact__underline-wrap">
+        <svg viewBox="0 0 200 18" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" style="width:144px;height:14px">
+          <path d="M4 8C45 4 120 5 194 9C150 14 80 13 25 15" stroke="#FFC21C" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="contact__grid">
+      <div class="contact__call">
+        <a href="tel:09131234567" class="contact__call-btn" aria-label="تماس با ما">
+          <svg viewBox="0 0 240 60" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" class="contact__call-bg">
+            <path d="M12 28C16 14 32 8 60 7C115 5 175 6 218 10C232 12 238 20 236 32C233 46 220 52 195 53C145 54 75 55 35 52C16 51 8 42 12 28Z" fill="#FFC21C"/>
+            <path d="M8 30C12 18 28 12 55 11C108 9 168 10 210 13C224 15 229 22 227 33C225 43 214 49 190 50C142 51 72 52 32 49C15 48 6 41 8 30Z" fill="#FFD34B" opacity=".4"/>
+          </svg>
+          <span class="contact__call-label">تماس با ما</span>
+          <div class="contact__call-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none" style="transform:rotate(15deg)"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+        </a>
+        <div class="contact__hours">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFC21C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>همه‌روزه از ساعت ۱۶:۰۰ الی ۲۴:۰۰</span>
+        </div>
+      </div>
+
+      <div class="contact__location">
+        <div class="contact__location-label">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="rgba(255,194,28,.2)" stroke="#FFC21C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3" fill="#FFC21C"/></svg>
+          <span class="contact__location-text">مکان ما</span>
+        </div>
+        <p class="contact__address">نجف‌آباد – میدان بسیج</p>
+        <div class="contact__actions">
+          <button type="button" class="contact__map-btn" id="footerMapBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+            <span>مسیر در گوگل‌مپ</span>
+          </button>
+          <a href="https://maps.google.com/?q=32.6341,51.3668" target="_blank" rel="noopener noreferrer" class="contact__directions-btn" title="مسیریابی مستقیم در گوگل‌مپ">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+            <span>مسیریابی</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact__corner-wrap">
+    <div class="contact__corner-img">
+      <img src="images/corn-simple.jpg" alt="بلال تنوری" loading="lazy">
+    </div>
+  </div>
+
+  <div class="contact__wave-area">
+    <svg viewBox="0 0 1440 240" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" class="contact__wave">
+      <path d="M0 80 C140 120 280 65 430 85 C560 102 640 40 740 28 C860 22 930 105 1060 82 C1190 62 1310 25 1440 55 L1440 240 L0 240 Z" fill="#FFC21C"/>
+      <path d="M0 80 C140 120 280 65 430 85 C560 102 640 40 740 28 C860 22 930 105 1060 82 C1190 62 1310 25 1440 55" stroke="#FFD34B" stroke-width="3" opacity=".6"/>
+    </svg>
+
+    <div class="contact__brand">
+      <a href="#home" class="contact__brand-link" aria-label="بلال تنوری - بازگشت به بالای صفحه">
+        <div class="brand-logo">
+          <svg viewBox="0 0 48 56" class="brand-logo__emblem" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 48C10 38 8 28 15 16C16 23 20 28 24 32C19 36 15 42 14 48Z" fill="#8D7752" opacity=".9"/>
+            <path d="M34 48C38 38 40 28 33 16C32 23 28 28 24 32C29 36 33 42 34 48Z" fill="#8D7752" opacity=".9"/>
+            <path d="M24 6C19 6 16 12 16 22C16 34 19 44 24 48C29 44 32 34 32 22C32 12 29 6 24 6Z" fill="#141414"/>
+            <g stroke="#2A2721" stroke-width="1.2" stroke-linecap="round">
+              <path d="M21 14H27"/><path d="M19 20H29"/><path d="M18 26H30"/><path d="M19 32H29"/><path d="M20 38H28"/>
+              <path d="M24 10V44" stroke-width="1.4"/>
+            </g>
+            <path d="M24 6C23 3 21 2 19 1" stroke="#141414" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M24 6C25 3 28 2 30 1" stroke="#141414" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M24 6V2" stroke="#141414" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+          <div class="brand-logo__text-wrap">
+            <span class="brand-logo__title" style="color:#141414">بلال تنوری</span>
+            <span class="brand-logo__tagline" style="color:#3D382E">تازه . سالم . خوشمزه</span>
+          </div>
+        </div>
+      </a>
+      <div class="contact__copyright">تمامی حقوق محفوظ است © ۱۴۰۳ بلال تنوری</div>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<!-- ==================== FLOATING ACTIONS ==================== -->
+<div class="floating-actions">
+  <button type="button" class="scroll-top-btn" id="scrollTopBtn" hidden aria-label="بازگشت به ابتدای صفحه">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+  </button>
+  <a href="tel:09131234567" class="quick-call-btn" aria-label="تماس تلفنی سریع" title="تماس تلفنی سریع">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+  </a>
+</div>
+
+<!-- ==================== MAP MODAL ==================== -->
+<div class="modal-overlay" id="mapModal" role="dialog" aria-modal="true" aria-labelledby="mapModalTitle">
+  <div class="modal-overlay__backdrop" data-close="map"></div>
+  <div class="map-modal">
+    <div class="modal-header">
+      <div class="modal-header__title-wrap">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3" fill="#141414"/></svg>
+        <h3 id="mapModalTitle" class="modal-header__title">موقعیت مکانی بلال تنوری</h3>
+      </div>
+      <button type="button" class="modal-header__close" data-close="map" aria-label="بستن">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="map-modal__address-box">
+        <div>
+          <span class="map-modal__address-label">آدرس دقیق:</span>
+          <p class="map-modal__address-text">نجف‌آباد – میدان بسیج، نبش بلوار</p>
+          <p class="map-modal__hours">ساعت کاری: همه‌روزه از ساعت ۱۶:۰۰ الی ۲۴:۰۰</p>
+        </div>
+        <button type="button" class="map-modal__copy-btn" id="copyAddressBtn" title="کپی آدرس">
+          <svg id="copyIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+        </button>
+      </div>
+      <div>
+        <span class="map-modal__apps-label">مسیریابی با اپلیکیشن دلخواه:</span>
+        <div class="map-modal__apps">
+          <a href="https://maps.google.com/?q=32.6341,51.3668" target="_blank" rel="noopener noreferrer" class="map-modal__app">
+            <svg class="map-modal__app-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+            <span>گوگل‌مپ</span>
+          </a>
+          <a href="https://neshan.org/maps/@32.6341,51.3668,16z" target="_blank" rel="noopener noreferrer" class="map-modal__app">
+            <svg class="map-modal__app-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+            <span>نشان</span>
+          </a>
+          <a href="https://balad.ir/location?lat=32.6341&lng=51.3668" target="_blank" rel="noopener noreferrer" class="map-modal__app">
+            <svg class="map-modal__app-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>بلد</span>
+          </a>
+        </div>
+      </div>
+      <a href="tel:09131234567" class="map-modal__call">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>تماس مستقیم: ۰۹۱۳ ۱۲۳ ۴۵۶۷</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ==================== ORDER MODAL ==================== -->
+<div class="modal-overlay" id="orderModal" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
+  <div class="modal-overlay__backdrop" data-close="order"></div>
+  <div class="order-modal">
+    <div class="order-modal__hero">
+      <img id="orderHeroImg" src="" alt="" class="order-modal__hero-img">
+      <div class="order-modal__hero-gradient"></div>
+      <button type="button" class="order-modal__close" data-close="order" aria-label="بستن">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+      <div class="order-modal__title-area">
+        <div>
+          <h3 id="orderModalTitle" class="order-modal__title">—</h3>
+          <p id="orderSubtitle" class="order-modal__subtitle">—</p>
+        </div>
+        <div><span id="orderUnitPrice" class="order-modal__price">—</span></div>
+      </div>
+    </div>
+    <div class="order-modal__body">
+      <p id="orderDescription" class="order-modal__description"></p>
+      <div id="orderTags" class="order-modal__tags"></div>
+      <hr class="order-modal__divider">
+      <div class="order-modal__section">
+        <label class="order-modal__label">چاشنی و طعم دلخواه:</label>
+        <div class="order-modal__options" id="flavorOptions">
+          <button type="button" class="order-modal__option order-modal__option--active" data-flavor="آب‌نمک سنتی و کره محلی">آب‌نمک سنتی و کره محلی</button>
+          <button type="button" class="order-modal__option" data-flavor="ادویه تند و فلفل قرمز">ادویه تند و فلفل قرمز</button>
+          <button type="button" class="order-modal__option" data-flavor="سماق و آبلیمو طبیعی">سماق و آبلیمو طبیعی</button>
+          <button type="button" class="order-modal__option" data-flavor="ادویه مخصوص سرآشپز">ادویه مخصوص سرآشپز</button>
+        </div>
+      </div>
+      <div class="order-modal__section">
+        <label class="order-modal__label">میزان کباب‌شدن:</label>
+        <div class="order-modal__options" id="donenessOptions">
+          <button type="button" class="order-modal__option order-modal__option--active" data-doneness="برشته و طلایی">برشته و طلایی</button>
+          <button type="button" class="order-modal__option" data-doneness="ذغالی و دودی (سوخته‌نما)">ذغالی و دودی (سوخته‌نما)</button>
+          <button type="button" class="order-modal__option" data-doneness="آبدار و ملایم">آبدار و ملایم</button>
+        </div>
+      </div>
+      <div class="order-modal__quantity">
+        <span class="order-modal__qty-label">تعداد بلال:</span>
+        <div class="order-modal__qty-control">
+          <button type="button" class="order-modal__qty-btn" id="qtyMinus" aria-label="کاهش تعداد">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+          </button>
+          <span class="order-modal__qty-value" id="qtyValue">۱</span>
+          <button type="button" class="order-modal__qty-btn" id="qtyPlus" aria-label="افزایش تعداد">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="order-modal__footer">
+      <div>
+        <span class="order-modal__total-label">مبلغ کل:</span>
+        <span class="order-modal__total-value" id="orderTotal">—</span>
+      </div>
+      <div class="order-modal__actions">
+        <button type="button" class="order-modal__phone-btn" id="orderPhoneBtn" title="سفارش تلفنی مستقیم">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </button>
+        <button type="button" class="order-modal__submit" id="orderSubmitBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
+          <span id="orderSubmitLabel">ثبت سفارش داغ</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- DATA ---------- */
+  const SITE = {
+    phone: '09131234567',
+    address: 'نجف‌آباد – میدان بسیج، نبش بلوار',
+  };
+
+  const PRODUCTS = {
+    simple: {
+      id: 'simple', name: 'بلال ساده',
+      subtitle: 'پخت سنتی در تنور ذغالی',
+      price: 45000, formattedPrice: '۴۵,۰۰۰ تومان',
+      image: 'images/corn-simple.jpg',
+      description: 'بلال دست‌چین درجه‌یک، پخته‌شده روی زغال طبیعی با چاشنی آب‌نمک سنتی و عطر اصیل دودی.',
+      tags: ['سنتی', 'کم‌کالری', 'بدون چربی'],
+    },
+    butter: {
+      id: 'butter', name: 'بلال کره‌ای',
+      subtitle: 'همراه با کره داغ محلی و سبزیجات معطر',
+      price: 55000, formattedPrice: '۵۵,۰۰۰ تومان',
+      image: 'images/corn-cheese.jpg',
+      description: 'بلال آبدار و برشته تنوری، پوشیده با لایه‌ای از کره حیوانی آب‌شده، آویشن کوهی و نمک دریایی.',
+      tags: ['پرطرفدار', 'بسیار لذیذ', 'کره محلی'],
+    },
+    special: {
+      id: 'special', name: 'بلال ویژه (ادویه مخصوص)',
+      subtitle: 'مخلوط ۷ ادویه سرآشپز و سس انار ترش',
+      price: 65000, formattedPrice: '۶۵,۰۰۰ تومان',
+      image: 'images/corn-special.jpg',
+      description: 'ترکیب اعجاب‌انگیز دانه‌های ذرت شیرین و برشته با ترکیب مخفی ادویه‌های معطر، سماق و گلپر دست‌ساز.',
+      tags: ['ویژه', 'تند و ملس', 'ادویه اختصاصی'],
+    },
+  };
+
+  /* ---------- HELPERS ---------- */
+  const $ = (sel, ctx) => (ctx || document).querySelector(sel);
+  const $$ = (sel, ctx) => Array.from((ctx || document).querySelectorAll(sel));
+  const faNum = (n) => new Intl.NumberFormat('fa-IR').format(n);
+
+  /* ---------- STATE ---------- */
+  const state = {
+    selectedProduct: null,
+    quantity: 1,
+    flavor: 'آب‌نمک سنتی و کره محلی',
+    doneness: 'برشته و طلایی',
+    isOrdered: false,
+  };
+
+  /* ==========================================================
+     1. HEADER — sticky shadow + active nav + mobile drawer
+     ========================================================== */
+  const header = $('#siteHeader');
+  const menuToggle = $('#menuToggle');
+  const menuIcon = $('#menuIcon');
+  const mobileDrawer = $('#mobileDrawer');
+  const desktopNavLinks = $$('[data-nav]');
+  const mobileNavLinks = $$('[data-nav-link]');
+
+  const MENU_SVG = '<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>';
+  const X_SVG = '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>';
+
+  function setMenuOpen(open) {
+    mobileDrawer.classList.toggle('mobile-drawer--open', open);
+    menuToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    menuToggle.setAttribute('aria-label', open ? 'بستن منو' : 'باز کردن منو');
+    menuIcon.innerHTML = open ? X_SVG : MENU_SVG;
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+
+  menuToggle.addEventListener('click', () => setMenuOpen(!mobileDrawer.classList.contains('mobile-drawer--open')));
+
+  // Smooth scroll for nav links
+  function smoothScrollTo(id) {
+    const target = document.getElementById(id);
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  }
+  $$('a[href^="#"]').forEach((a) => {
+    a.addEventListener('click', (e) => {
+      const href = a.getAttribute('href');
+      if (href && href.length > 1) {
+        e.preventDefault();
+        setMenuOpen(false);
+        smoothScrollTo(href.slice(1));
+      }
+    });
+  });
+
+  // Active nav tracking on scroll
+  const SECTION_IDS = ['home', 'features', 'about', 'products', 'contact'];
+  const NAV_MAP = { home: 'home', features: 'home', about: 'about', products: 'menu', contact: 'contact' };
+
+  function updateActiveNav() {
+    const scrollPos = window.scrollY + 100;
+    let current = 'home';
+    for (const id of SECTION_IDS) {
+      const el = document.getElementById(id);
+      if (!el) continue;
+      const top = el.offsetTop;
+      const height = el.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) { current = NAV_MAP[id]; break; }
+    }
+    desktopNavLinks.forEach((link) => {
+      link.classList.toggle('header-nav-link--active', link.dataset.nav === current);
+    });
+  }
+
+  // Scroll: header shadow + scroll-top visibility + active nav
+  const scrollTopBtn = $('#scrollTopBtn');
+  let scrollTick = false;
+  window.addEventListener('scroll', () => {
+    if (scrollTick) return;
+    scrollTick = true;
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      header.classList.toggle('site-header--scrolled', y > 20);
+      scrollTopBtn.hidden = y <= 400;
+      updateActiveNav();
+      updateProductsDot();
+      scrollTick = false;
+    });
+  }, { passive: true });
+
+  scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Resize: close mobile menu on desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 768) setMenuOpen(false);
+  });
+
+  /* ==========================================================
+     2. PRODUCTS CAROUSEL — dots
+     ========================================================== */
+  const productsContainer = $('#productsContainer');
+  const productDots = $$('[data-dot]');
+
+  function updateProductsDot() {
+    if (!productsContainer || window.innerWidth >= 768) return;
+    const rect = productsContainer.getBoundingClientRect();
+    const center = rect.left + rect.width / 2;
+    const cards = $$('.product-card', productsContainer);
+    let closest = 0, minDist = Infinity;
+    cards.forEach((card, i) => {
+      const r = card.getBoundingClientRect();
+      const cardCenter = r.left + r.width / 2;
+      const dist = Math.abs(center - cardCenter);
+      if (dist < minDist) { minDist = dist; closest = i; }
+    });
+    productDots.forEach((dot, i) => dot.classList.toggle('products__dot--active', i === closest));
+  }
+
+  productsContainer.addEventListener('scroll', updateProductsDot, { passive: true });
+
+  productDots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      const cards = $$('.product-card', productsContainer);
+      if (cards[i]) cards[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    });
+  });
+
+  /* ==========================================================
+     3. ORDER MODAL
+     ========================================================== */
+  const orderModal = $('#orderModal');
+  const orderHeroImg = $('#orderHeroImg');
+  const orderTitle = $('#orderModalTitle');
+  const orderSubtitle = $('#orderSubtitle');
+  const orderUnitPrice = $('#orderUnitPrice');
+  const orderDescription = $('#orderDescription');
+  const orderTags = $('#orderTags');
+  const qtyValue = $('#qtyValue');
+  const qtyMinus = $('#qtyMinus');
+  const qtyPlus = $('#qtyPlus');
+  const orderTotal = $('#orderTotal');
+  const orderSubmitBtn = $('#orderSubmitBtn');
+  const orderSubmitLabel = $('#orderSubmitLabel');
+  const orderPhoneBtn = $('#orderPhoneBtn');
+
+  function updateOrderTotal() {
+    if (!state.selectedProduct) return;
+    const total = state.selectedProduct.price * state.quantity;
+    orderTotal.textContent = faNum(total) + ' تومان';
+    qtyValue.textContent = faNum(state.quantity);
+    qtyMinus.disabled = state.quantity <= 1;
+  }
+
+  function openOrderModal(productId) {
+    const product = PRODUCTS[productId];
+    if (!product) return;
+    state.selectedProduct = product;
+    state.quantity = 1;
+    state.isOrdered = false;
+    state.flavor = 'آب‌نمک سنتی و کره محلی';
+    state.doneness = 'برشته و طلایی';
+
+    orderHeroImg.src = product.image;
+    orderHeroImg.alt = product.name;
+    orderTitle.textContent = product.name;
+    orderSubtitle.textContent = product.subtitle;
+    orderUnitPrice.textContent = product.formattedPrice;
+    orderDescription.textContent = product.description;
+
+    orderTags.innerHTML = product.tags.map((t) => `<span class="order-modal__tag">#${t}</span>`).join('');
+
+    // reset flavor
+    $$('#flavorOptions .order-modal__option').forEach((b) => {
+      b.classList.toggle('order-modal__option--active', b.dataset.flavor === state.flavor);
+    });
+    $$('#donenessOptions .order-modal__option').forEach((b) => {
+      b.classList.toggle('order-modal__option--active', b.dataset.doneness === state.doneness);
+    });
+
+    orderSubmitBtn.classList.remove('order-modal__submit--success');
+    orderSubmitLabel.textContent = 'ثبت سفارش داغ';
+    updateOrderTotal();
+    orderModal.classList.add('modal-overlay--open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeOrderModal() {
+    orderModal.classList.remove('modal-overlay--open');
+    document.body.style.overflow = '';
+    state.selectedProduct = null;
+  }
+
+  // Product cards -> open order modal
+  $$('.product-card').forEach((card) => {
+    const id = card.dataset.productId;
+    card.addEventListener('click', () => openOrderModal(id));
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openOrderModal(id); }
+    });
+  });
+
+  // Quantity
+  qtyMinus.addEventListener('click', () => {
+    if (state.quantity > 1) { state.quantity--; updateOrderTotal(); }
+  });
+  qtyPlus.addEventListener('click', () => { state.quantity++; updateOrderTotal(); });
+
+  // Flavor / doneness
+  $$('#flavorOptions .order-modal__option').forEach((b) => {
+    b.addEventListener('click', () => {
+      state.flavor = b.dataset.flavor;
+      $$('#flavorOptions .order-modal__option').forEach((x) => x.classList.toggle('order-modal__option--active', x === b));
+    });
+  });
+  $$('#donenessOptions .order-modal__option').forEach((b) => {
+    b.addEventListener('click', () => {
+      state.doneness = b.dataset.doneness;
+      $$('#donenessOptions .order-modal__option').forEach((x) => x.classList.toggle('order-modal__option--active', x === b));
+    });
+  });
+
+  // Phone / submit
+  orderPhoneBtn.addEventListener('click', () => { window.location.href = 'tel:' + SITE.phone; });
+  orderSubmitBtn.addEventListener('click', () => {
+    if (state.isOrdered) return;
+    state.isOrdered = true;
+    orderSubmitBtn.classList.add('order-modal__submit--success');
+    orderSubmitLabel.textContent = 'ثبت شد! آماده‌سازی...';
+    setTimeout(() => {
+      state.isOrdered = false;
+      orderSubmitBtn.classList.remove('order-modal__submit--success');
+      orderSubmitLabel.textContent = 'ثبت سفارش داغ';
+      closeOrderModal();
+    }, 2500);
+  });
+
+  /* ==========================================================
+     4. MAP MODAL
+     ========================================================== */
+  const mapModal = $('#mapModal');
+  const copyAddressBtn = $('#copyAddressBtn');
+  const copyIcon = $('#copyIcon');
+  const CHECK_SVG = '<polyline points="20 6 9 17 4 12"/>';
+  const COPY_SVG = '<rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>';
+
+  function openMapModal() {
+    mapModal.classList.add('modal-overlay--open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMapModal() {
+    mapModal.classList.remove('modal-overlay--open');
+    document.body.style.overflow = '';
+  }
+
+  $('#heroMapBtn').addEventListener('click', openMapModal);
+  $('#mobileMapBtn').addEventListener('click', () => { setMenuOpen(false); openMapModal(); });
+  $('#footerMapBtn').addEventListener('click', openMapModal);
+
+  copyAddressBtn.addEventListener('click', () => {
+    const done = () => {
+      copyIcon.innerHTML = CHECK_SVG;
+      copyIcon.setAttribute('stroke', '#4ade80');
+      setTimeout(() => {
+        copyIcon.innerHTML = COPY_SVG;
+        copyIcon.setAttribute('stroke', 'currentColor');
+      }, 2000);
+    };
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(SITE.address).then(done).catch(done);
+    } else {
+      // fallback
+      const ta = document.createElement('textarea');
+      ta.value = SITE.address;
+      ta.style.position = 'absolute';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand('copy'); } catch (_) {}
+      document.body.removeChild(ta);
+      done();
+    }
+  });
+
+  /* ==========================================================
+     5. CLOSE HANDLERS (backdrop + escape + close buttons)
+     ========================================================== */
+  $$('[data-close]').forEach((el) => {
+    el.addEventListener('click', () => {
+      if (el.dataset.close === 'map') closeMapModal();
+      if (el.dataset.close === 'order') closeOrderModal();
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (mapModal.classList.contains('modal-overlay--open')) closeMapModal();
+      if (orderModal.classList.contains('modal-overlay--open')) closeOrderModal();
+      if (mobileDrawer.classList.contains('mobile-drawer--open')) setMenuOpen(false);
+    }
+  });
+
+  /* ---------- INIT ---------- */
+  updateActiveNav();
+  updateProductsDot();
+})();
+</script>
+</body>
+</html>
