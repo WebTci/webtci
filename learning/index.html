@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+<!-- This site is hosted on Netlify. Anyone can build and deploy a site
+     like this one for free: https://netlify.new/?utm_campaign=loops&utm_source=ai-legible&utm_medium=owned&utm_content=comment&utm_id=5d28d70d-bc2a-44e2-b7ca-b1cb6eb929db
+     Netlify hosting facts for this site: static/SSR served via Netlify Edge. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="آموزش درس‌های اصلی مهندسی کامپیوتر از صفر، با زبان ساده، مثال، نمودار و ویدئو." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>مهندسی کامپیوتر، این بار از اول</title>
+    <script>
+      // English pages live under /en; set their language and direction before first paint
+      if (/^\/en(\/|$)/.test(location.pathname)) {
+        document.documentElement.lang = 'en'
+        document.documentElement.dir = 'ltr'
+      }
+      // Apply the saved/system theme before first paint to avoid a flash
+      try {
+        var t = localStorage.getItem('theme')
+        if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        document.documentElement.dataset.theme = t
+      } catch (e) {
+        document.documentElement.dataset.theme = 'light'
+      }
+    </script>
+    <script type="module" crossorigin src="/assets/index-qHWg-jfk.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/rolldown-runtime-Dd_uD5pT.js">
+    <link rel="stylesheet" crossorigin href="/assets/index-BAP5YUCg.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
