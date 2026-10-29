@@ -4,12 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بایولینک — هویت دیجیتال شما، یک لمس فاصله دارد</title>
+
+
+
+    <title>بایولینک | طراحی سایت، ثبت لوکیشن روی نقشه </title>
+    <meta name="description"
+        content="بایولینک؛ خدمات دیجیتال مارکتینگ: طراحی سایت شرکتی و فروشگاهی، ساخت نرم‌افزار و اپلیکیشن، ثبت لوکیشن روی گوگل‌مپ، نشان و بلد و استند NFC. مشاوره رایگان.">
+    <meta name="keywords"
+        content="بایولینک, طراحی سایت, طراحی سایت شرکتی, طراحی سایت فروشگاهی, ثبت لوکیشن, ثبت لوکیشن گوگل مپ, نشان, بلد, استند NFC, ساخت نرم افزار, ساخت اپلیکیشن, دیجیتال مارکتینگ, اصفهان">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <link rel="canonical" href="https://bioolink.ir/">
+    <meta name="author" content="بایولینک">
+    <meta name="theme-color" content="#0F0E24">
+    <meta name="google-site-verification" content="33R1VRTSoblHxOCSyamiX38aB4Gs5pOMoZj3vS0ICW0" />
+
+    <link rel="icon" href="/photo/logo.jpg" sizes="48x48">
+    <link rel="icon" href="/photo/logo.jpg" type="image/png" sizes="192x192">
+
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="fa_IR">
+    <meta property="og:site_name" content="بایولینک">
+    <meta property="og:url" content="https://bioolink.ir/">
+    <meta property="og:title" content="بایولینک | طراحی سایت، ثبت لوکیشن روی نقشه و استند NFC">
+    <meta property="og:description"
+        content="طراحی سایت شرکتی و فروشگاهی، ساخت نرم‌افزار و اپلیکیشن، ثبت لوکیشن روی نقشه‌ها و استند هوشمند NFC؛ همه در یک مجموعه.">
+    <meta property="og:image" content="https://bioolink.ir/photo/logo.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="بایولینک؛ طراحی سایت و نرم افزار  ثبت لوکیشن و استند NFC">
+
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="بایولینک | طراحی سایت و نرم افزار ، ثبت لوکیشن روی نقشه و استند NFC">
+    <meta name="twitter:description"
+        content="طراحی سایت شرکتی و فروشگاهی، ساخت نرم‌افزار و اپلیکیشن، ثبت لوکیشن روی نقشه‌ها و استند هوشمند NFC.">
+    <meta name="twitter:image" content="https://bioolink.ir/photo/logo.jpg">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link rel="shortcut icon" href="./photo/logo.jpg" type="image/x-icon">
+
     <link
         href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.js"></script>
+
     <style>
         :root {
             --bg: #0F0E24;
@@ -296,14 +338,18 @@
         }
 
         .logo-mark {
-            width: 38px;
+            width: 150px;
             height: 38px;
             border-radius: 11px;
             background: linear-gradient(140deg, var(--panel-2), var(--panel));
-            border: 1px solid var(--line-strong);
+
             display: flex;
             align-items: center;
             justify-content: center;
+
+            img {
+                width: 100%;
+            }
         }
 
 
@@ -675,7 +721,7 @@
 
         /* ---------- section heading ---------- */
         .section-head {
-            max-width: 620px;
+
             margin-bottom: 46px;
         }
 
@@ -1533,9 +1579,9 @@
             background-clip: text;
             color: transparent;
             text-stroke: .5px black;
-            /* برای پشتیبانی بیشتر */
+
             -webkit-text-stroke: .5px rgb(17, 3, 3);
-            /* ضخامت و رنگ خط دور */
+
 
         }
 
@@ -1547,10 +1593,10 @@
             background: linear-gradient(135deg, #FFE9AE, #D9A441);
             background-clip: text;
             color: transparent;
-            text-stroke: 0.5px black;
-            /* برای پشتیبانی بیشتر */
+
             -webkit-text-stroke: .5px rgb(17, 3, 3);
-            /* ضخامت و رنگ خط دور */
+            text-stroke: 0.5px black;
+
 
         }
 
@@ -1563,9 +1609,9 @@
             background-clip: text;
             color: transparent;
             text-stroke: .5px black;
-            /* برای پشتیبانی بیشتر */
+
             -webkit-text-stroke: .5px rgb(17, 3, 3);
-            /* ضخامت و رنگ خط دور */
+
 
         }
 
@@ -2568,6 +2614,110 @@
                 transform: none;
             }
         }
+
+        .contact {
+            display: flex;
+            justify-self: center;
+        }
+
+
+
+        .ef-slider-wrap {
+            margin-top: 56px;
+        }
+
+        .ef-slider {
+            /* محو شدن لبه‌های راست و چپ تا کارت‌ها ناگهانی بریده نشوند */
+            -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+        }
+
+        .ef-swiper {
+            overflow: hidden;
+            padding: 6px 0;
+        }
+
+        /* حرکت یکنواخت و خطی (لازم برای افکت پشت‌سرهم) */
+        .ef-swiper .swiper-wrapper {
+            transition-timing-function: linear !important;
+        }
+
+        .ef-swiper .swiper-slide {
+            width: 300px;
+            height: auto;
+            /* همه‌ی کارت‌ها هم‌قد می‌شوند */
+            display: flex;
+        }
+
+        .ef-card {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 18px;
+            padding: 26px 24px;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md, 18px);
+            transition: border-color .3s ease, transform .3s ease, background .3s ease;
+        }
+
+        .ef-card:hover {
+            border-color: var(--line-strong);
+            transform: translateY(-4px);
+        }
+
+        /* رنگ آیکون هر کارت با data-tone (به‌جای nth-child که با کپی‌های Swiper به‌هم می‌خورد) */
+        .ef-card[data-tone="signal"] .ef-icon {
+            background: rgba(123, 110, 246, 0.14);
+            color: var(--signal);
+        }
+
+        .ef-card[data-tone="teal"] .ef-icon {
+            background: rgba(69, 230, 196, 0.14);
+            color: var(--teal);
+        }
+
+        .ef-card[data-tone="amber"] .ef-icon {
+            background: rgba(255, 178, 56, 0.14);
+            color: var(--amber);
+        }
+
+        .ef-card .ef-text h4 {
+            font-size: 16px;
+        }
+
+        .ef-card .ef-text p {
+            font-size: 13.5px;
+            line-height: 1.8;
+        }
+
+        @media (max-width:640px) {
+            .ef-slider-wrap {
+                margin-top: 40px;
+            }
+
+            .ef-swiper .swiper-slide {
+                width: 252px;
+            }
+
+            .ef-card {
+                padding: 22px 20px;
+            }
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            .ef-card {
+                transition: none;
+            }
+
+            .ef-card:hover {
+                transform: none;
+            }
+
+            /* بدون حرکت خودکار: کاربر دستی می‌کشد */
+            .ef-swiper .swiper-wrapper {
+                transition-timing-function: ease !important;
+            }
+        }
     </style>
 </head>
 
@@ -2577,9 +2727,9 @@
         <div class="container header-inner">
             <a class="logo" href="#top">
                 <span class="logo-mark">
-                    <span class="signal-bars"><span></span><span></span><span></span><span></span></span>
+                    <img src="./photo/logo.webp" alt="logo" srcset="">
                 </span>
-                بایولینک
+
             </a>
 
 
@@ -2596,24 +2746,74 @@
         <section class="hero" id="top">
             <div class="container hero-inner">
                 <div class="hero-copy reveal">
-                    <span class="eyebrow"><span class="dot-live"></span> هم‌اکنون در حال ساخت هویت‌های تازه</span>
-                    <h1>هویت دیجیتال شما <br><span class="accent-text"> بایولینک | BioLink</span></h1>
+                    <span class="eyebrow"><span class="dot-live"></span> تیم خدمات دیجیتال مارکتینگ</span>
+                    <h1> <br><span class="accent-text"> بایولینک | BioLink</span></h1>
                     <p class="hero-desc">
-                        بایولینک برند شما را از نقشه تا صفحه‌ی لینک، از کارت ویزیت تا استند NFC، یکپارچه می‌کند —
-                        <span class="badge-inline">تا هرجا دیده می‌شوید</span> همان برندی باشید که ساخته‌اید.
+                        بایولینک ارائه دهنده خدمات یکپارچه سیستم سازی بیزینس
+                        <span class="badge-inline">افزایش راندمان کسب و کار </span>
+
                     </p>
                     <div class="hero-actions">
                         <!-- <a class="btn btn-primary btn-lg" href="#cta">درخواست طراحی</a> -->
                         <a class="btn btn-ghost btn-lg" href="#services">دیدن خدمات ←</a>
                     </div>
                 </div>
+                <div class="o">
 
-              
+                    <img src="./photo/logo.webp" alt="" srcset="" class="phot-logo">
+                </div>
+
+
             </div>
 
         </section>
         <section class="photo">
             <div class="container logo-flex ">
+                <div class="o">
+
+                    <img src="./photo/weblogo.webp" alt="لوگو خدمات سایت و وردپرس" srcset="" class="phot-logo">
+                </div>
+                <div class="f">
+                    <h2 class="center">طراحی سایت اختصاصی
+                        <span class="badge-inline">فروشگاهی ، شرکتی ،لندینگ پیج </span>
+
+                    </h2>
+                    <h3 class=" center" style="font-size: 2rem;">
+                        <span class="accent-text">اتصال به ترب ،دیجی کالا ،با سلام</span>
+                    </h3>
+
+                </div>
+
+            </div>
+        </section>
+        <section class="photo">
+            <div class="container logo-flex ">
+
+
+                <div class="f">
+                    <h2 class="center">طراحی و ساخت نرم افزار و اپلیکیشن
+
+                        <span class="badge-inline">OS : windows ، Android </span>
+
+                    </h2>
+                    <h3 class=" center" style="font-size: 2rem;">
+                        <span class="accent-text">
+                            CRM ، CMS ، ERP ، BI
+                        </span>
+
+                    </h3>
+                    <div class="contact"><a class="btn btn-ghost btn-lg" href="#cta">مشاوره رایگان ←</a></div>
+
+                </div>
+                <div class="o">
+
+                    <img src="./photo/softlogo.webp" alt="" srcset="" class="phot-logo">
+                </div>
+            </div>
+        </section>
+        <section class="photo">
+            <div class="container logo-flex ">
+
                 <div class="o">
 
                     <img src="./photo/map.webp" alt="" srcset="" class="phot-logo">
@@ -2697,8 +2897,10 @@
                         <span class="trust-logo">استودیو نرگس</span>
                         <span class="trust-logo"> اپلیکیشن ماهریاب</span>
                         <span class="trust-logo">دندانپزشکی دکتر غریبی</span>
-                        <span class="trust-logo">دویست تجهیز طب</span>
+                        <span class="trust-logo">شرکت دویست تجهیز طب</span>
                         <span class="trust-logo">لوازم یدکی زرین سیکلت</span>
+                        <span class="trust-logo"> کافه بلال تنوری </span>
+
 
                     </div>
 
@@ -2710,7 +2912,7 @@
                     <div class="trust-track" id="trustTrack2A">
                         <span class="trust-logo"> اپلیکیشن ماهریاب</span>
                         <span class="trust-logo">دندانپزشکی دکتر غریبی</span>
-                        <span class="trust-logo">دویست تجهیز طب</span>
+                        <span class="trust-logo">شرکت دویست تجهیز طب</span>
                         <span class="trust-logo">لوازم یدکی زرین سیکلت</span>
                         <span class="trust-logo">مجموعه تخصصی لوازم خانگی یمانی</span>
                         <span class="trust-logo">مجموعه ماساژ آسمان</span>
@@ -2718,6 +2920,7 @@
                         <span class="trust-logo">سیسمونی دنیای کودک</span>
                         <span class="trust-logo">آکادمی کسب و کار وب</span>
                         <span class="trust-logo">استودیو نرگس</span>
+                        <span class="trust-logo"> کافه بلال تنوری </span>
 
                     </div>
 
@@ -2730,8 +2933,9 @@
             <div class="container">
                 <div class="section-head reveal">
                     <span class="section-tag"><span class="dot-live"></span> خدمات</span>
-                    <h2>یک برند، چهار جبهه‌ی دیده‌شدن</h2>
-                    <p>از تصمیم‌های هویتی تا اجرای فیزیکی؛ هر بخش را جدا اجرا می‌کنیم یا یک‌جا، به‌عنوان یک سیستم کامل.
+                    <h2>یک برند، چهار اقدام تخصصی افزایش بازده</h2>
+                    <p>
+                        بررسی و تحلیل اولیه ،اجرای راهکار های توسعه و پیاده سازی سیستم نهایی
                     </p>
                 </div>
                 <div class="services-grid">
@@ -2760,9 +2964,11 @@
                                 <circle cx="12" cy="10" r="2.4" />
                             </svg>
                         </div>
-                        <h3>ثبت لوکیشن روی نقشه</h3>
-                        <p>ثبت و بهینه‌سازی کسب‌وکار شما روی گوگل‌مپ و نقشه‌های محلی، برای دیده‌شدن دقیق‌تر توسط
-                            مشتری‌های اطراف.</p>
+                        <h3>ثبت لوکیشن </h3>
+                        <p>ثبت و بهینه‌سازی کسب‌وکار شما روی گوگل‌مپ و نقشه‌های محلی، برای دیده‌شدن دقیق‌تر و طراحی
+                            لندینگ پیج
+
+                        </p>
                         <span class="service-link">جزئیات بیشتر ←</span>
                     </div>
 
@@ -2775,9 +2981,10 @@
                                 <path d="M8 12h8" />
                             </svg>
                         </div>
-                        <h3>طراحی بایولینک</h3>
-                        <p>صفحه‌ی اختصاصی تجمیع لینک‌ها با طراحی متناسب با برند شما، آماده و آنلاین در کمتر از ۴۸ ساعت.
-                        </p>
+                        <h3>طراحی سایت</h3>
+                        <p>
+                            ارائه انواع راهکاری های طراحی سایت جهت افزایش فروش و سئو پذیری و اتصال به پلیس مارکت های ترب
+                            و... </p>
                         <span class="service-link">جزئیات بیشتر ←</span>
                     </div>
 
@@ -2790,9 +2997,10 @@
                                 <path d="M8 3a5 5 0 0 1 8 0" opacity="0.55" />
                             </svg>
                         </div>
-                        <h3>استند هوشمند NFC</h3>
-                        <p>کارت و استند NFC اختصاصی؛ با یک لمس، پروفایل کامل شما باز می‌شود — بدون نصب هیچ اپلیکیشنی.
-                        </p>
+                        <h3> طراحی نرم افزار </h3>
+                        <p>
+                            طراحی و ساخت نرم افزار ویندوز یا اندروید جهت اتوماسیون کردن فرآیند های زمانبر و افزایش
+                            راندمان مدیریت </p>
                         <span class="service-link">جزئیات بیشتر ←</span>
                     </div>
 
@@ -2800,158 +3008,122 @@
             </div>
         </section>
         <section class="explainer" id="what-is-biolink">
-            <div class="container explainer-inner">
+            <div class="container">
+                <h3><span class="accent-text">امکانات بایولینک برای لندینگ پیج:<span></h3>
+                <div class="container explainer-inner">
 
-                <div class="explainer-copy reveal">
-                    <span class="section-tag">بایولینک چیست؟</span>
-                    <h2 class="explainer-title">یک صفحه، تمام مسیرهای ارتباطی با کسب‌وکار شما</h2>
-                    <p class="explainer-lead">
-                        بایولینک یک صفحه‌ی هوشمند و اختصاصی‌ست که با یک لینک یا اسکن، همه‌چیزِ کسب‌وکارتان
-                        رو جلوی چشم مخاطب می‌ذاره — بدون نیاز به وب‌سایت جداگانه یا نصب اپلیکیشن.
-                    </p>
+                    <div class="container ef-slider-wrap">
+                        <div class="ef-slider reveal" role="region" aria-label="امکانات صفحه‌ی بایولینک">
+                            <div class="swiper ef-swiper" dir="rtl">
+                                <div class="swiper-wrapper">
 
-                    <ul class="explainer-features">
-                        <li>
-                            <span class="ef-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path
-                                        d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z" />
-                                </svg>
-                            </span>
-                            <div class="ef-text">
-                                <h4>اطلاعات تماس</h4>
-                                <p>شماره تماس، ایمیل و شبکه‌های اجتماعی، همه در یک‌جا و همیشه به‌روز.</p>
-                            </div>
-                        </li>
+                                    <article class="swiper-slide ef-card" data-tone="signal">
+                                        <span class="ef-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                                                <path
+                                                    d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2Z" />
+                                            </svg>
+                                        </span>
+                                        <div class="ef-text">
+                                            <h4>اطلاعات تماس</h4>
+                                            <p>شماره تماس، ایمیل و شبکه‌های اجتماعی، همه در یک‌جا و همیشه به‌روز.</p>
+                                        </div>
+                                    </article>
 
-                        <li>
-                            <span class="ef-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="12" cy="12" r="10" />
-                                    <path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20" />
-                                </svg>
-                            </span>
-                            <div class="ef-text">
-                                <h4>آدرس وب‌سایت</h4>
-                                <p>لینک مستقیم به سایت رسمی کسب‌وکارتان، اگر داشته باشید.</p>
-                            </div>
-                        </li>
+                                    <article class="swiper-slide ef-card" data-tone="teal">
+                                        <span class="ef-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10" />
+                                                <path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20" />
+                                            </svg>
+                                        </span>
+                                        <div class="ef-text">
+                                            <h4>آدرس وب‌سایت</h4>
+                                            <p>لینک مستقیم به سایت رسمی کسب‌وکارتان، اگر داشته باشید.</p>
+                                        </div>
+                                    </article>
 
-                        <li>
-                            <span class="ef-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="3" y="5" width="18" height="14" rx="2.5" />
-                                    <circle cx="9" cy="10.5" r="1.6" />
-                                    <path d="m5 17 4.5-4.5a2 2 0 0 1 2.8 0L17 17" />
-                                </svg>
-                            </span>
-                            <div class="ef-text">
-                                <h4>بنر و پوستر</h4>
-                                <p>نمایش بنر تبلیغاتی، پوستر رویداد یا تخفیف ویژه، درست بالای صفحه.</p>
-                            </div>
-                        </li>
+                                    <article class="swiper-slide ef-card" data-tone="amber">
+                                        <span class="ef-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                                                <rect x="3" y="5" width="18" height="14" rx="2.5" />
+                                                <circle cx="9" cy="10.5" r="1.6" />
+                                                <path d="m5 17 4.5-4.5a2 2 0 0 1 2.8 0L17 17" />
+                                            </svg>
+                                        </span>
+                                        <div class="ef-text">
+                                            <h4>بنر و پوستر</h4>
+                                            <p>نمایش بنر تبلیغاتی، پوستر رویداد یا تخفیف ویژه، درست بالای صفحه.</p>
+                                        </div>
+                                    </article>
 
-                        <li>
-                            <span class="ef-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 22s7-6.2 7-12A7 7 0 0 0 5 10c0 5.8 7 12 7 12Z" />
-                                    <circle cx="12" cy="10" r="2.4" />
-                                </svg>
-                            </span>
-                            <div class="ef-text">
-                                <h4>مسیریابی سه‌گانه</h4>
-                                <p>دکمه‌ی مسیریابی گوگل‌مپ، نشان و بلد؛ هرکدوم روی گوشی مخاطب نصب باشه، همون‌رو می‌زنه.
-                                </p>
-                            </div>
-                        </li>
+                                    <article class="swiper-slide ef-card" data-tone="signal">
+                                        <span class="ef-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M12 22s7-6.2 7-12A7 7 0 0 0 5 10c0 5.8 7 12 7 12Z" />
+                                                <circle cx="12" cy="10" r="2.4" />
+                                            </svg>
+                                        </span>
+                                        <div class="ef-text">
+                                            <h4>مسیریابی سه‌گانه</h4>
+                                            <p>دکمه‌ی مسیریابی گوگل‌مپ، نشان و بلد؛ هرکدام روی گوشی مخاطب نصب باشد، همان
+                                                را
+                                                می‌زند.</p>
+                                        </div>
+                                    </article>
 
-                        <li>
-                            <span class="ef-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M4 6h16M4 12h16M4 18h10" />
-                                </svg>
-                            </span>
-                            <div class="ef-text">
-                                <h4>منو و قیمت خدمات</h4>
-                                <p>لیست محصولات یا خدمات به‌همراه قیمت، قابل ویرایش هر زمان که بخواهید.</p>
-                            </div>
-                        </li>
+                                    <article class="swiper-slide ef-card" data-tone="teal">
+                                        <span class="ef-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M4 6h16M4 12h16M4 18h10" />
+                                            </svg>
+                                        </span>
+                                        <div class="ef-text">
+                                            <h4>منو و قیمت خدمات</h4>
+                                            <p>لیست محصولات یا خدمات به‌همراه قیمت، قابل ویرایش هر زمان که بخواهید.</p>
+                                        </div>
+                                    </article>
 
-                        <li>
-                            <span class="ef-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"
-                                    stroke-linecap="round" stroke-linejoin="round">
-                                    <path d="M12 5v14M5 12h14" />
-                                </svg>
-                            </span>
-                            <div class="ef-text">
-                                <h4>و هر بخش دلخواه دیگر</h4>
-                                <p>نظرات مشتریان، گالری تصاویر، فرم تماس، ساعت کاری و هر چیزی که کسب‌وکارتان نیاز دارد.
-                                </p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                                    <article class="swiper-slide ef-card" data-tone="amber">
+                                        <span class="ef-icon">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M12 5v14M5 12h14" />
+                                            </svg>
+                                        </span>
+                                        <div class="ef-text">
+                                            <h4>و هر بخش دلخواه دیگر</h4>
+                                            <p>نظرات مشتریان، گالری تصاویر، فرم تماس، ساعت کاری و هر چیزی که کسب‌وکارتان
+                                                نیاز دارد.</p>
+                                        </div>
+                                    </article>
 
-
-                <div class="hero-visual reveal">
-                    <div class="pulse-ring r1"></div>
-                    <div class="pulse-ring r2"></div>
-                    <div class="pulse-ring r3"></div>
-                    <div class="nfc-card-wrap" id="nfcCardWrap">
-                        <div class="nfc-card" id="nfcCard" role="button" tabindex="0" aria-label="نمایش پشت کارت">
-                            <div class="card-face card-front">
-                                <div class="card-top">
-                                    <div class="card-avatar">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                            stroke-linecap="round" stroke-linejoin="round">
-                                            <circle cx="12" cy="8" r="4" />
-                                            <path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7" />
-                                        </svg>
-                                    </div>
-                                    <span class="card-chip"></span>
-                                </div>
-                                <div class="card-ig-stats">
-                                    <div class="ig-stat"><span class="num">2.4M</span><span>دنبال‌کننده</span></div>
-                                    <div class="ig-stat"><span class="num">186</span><span>دنبال‌شونده</span></div>
-                                    <div class="ig-stat"><span class="num">342</span><span>پست</span></div>
-                                </div>
-                                <div class="card-mid">
-                                    <span class="card-name">نام کسب‌وکار شما</span>
-                                    <span class="card-tag">شعار برند شما، همین‌جا</span>
-                                </div>
-                            </div>
-                            <div class="card-face card-back">
-                                <div class="barcode"></div>
-                                <div class="back-nfc">
-                                    <svg class="nfc-wave" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                        stroke-width="2" stroke-linecap="round">
-                                        <path d="M4 12a8 8 0 0 1 8-8" />
-                                        <path d="M4 12a8 8 0 0 0 8 8" opacity="0.4" />
-                                        <path d="M8 12a4 4 0 0 1 4-4" />
-                                        <circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none" />
-                                    </svg>
-                                    <span>با بایولینک دیده‌تر شوید</span>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
+
+
+
                 </div>
             </div>
+
         </section>
-        
+
         <!-- ======add========= -->
         <section class="portfolio" id="works">
             <div class="container">
 
                 <div class="section-head reveal">
                     <span class="section-tag">نمونه‌کارها</span>
-                    <h2>پروژه‌هایی که ساخته‌ایم</h2>
+                    <h2>آخرین پروژه ها</h2>
                     <p>از سایت‌های شرکتی و فروشگاهی تا بایولینک‌های و طراحی‌شده؛ روی هر نمونه بزنید و نسخه‌ی زنده‌اش را
                         ببینید.</p>
                 </div>
@@ -2970,7 +3142,6 @@
 
                 <div class="pf-grid" id="pfGrid">
 
-                    <!-- ============ سایت‌های شرکتی ============ -->
                     <article class="pf-card" data-cat="corporate">
                         <a class="pf-thumb" href="https://bioolink.ir/maheryab" target="_blank"
                             rel="noopener noreferrer" aria-label="مشاهده نمونه‌کار ماهریاب">
@@ -3085,7 +3256,6 @@
                         </div>
                     </article>
 
-                    <!-- ============ سایت‌های فروشگاهی ============ -->
                     <article class="pf-card" data-cat="store">
                         <a class="pf-thumb" href="https://zarin-cyclet.ir/" target="_blank" rel="noopener noreferrer"
                             aria-label="مشاهده نمونه‌کار لوازم یدکی زرین سیکلت">
@@ -3110,7 +3280,6 @@
 
 
 
-                    <!-- ============ بایولینک‌های  ============ -->
                     <article class="pf-card" data-cat="simple">
                         <a class="pf-thumb" href="https://takl.ink/yamanishop" target="_blank" rel="noopener noreferrer"
                             aria-label="مشاهده نمونه‌کار مجموعه لوازم خانگی یمانی">
@@ -3233,9 +3402,9 @@
             <div class="container">
 
                 <div class="section-head reveal">
-                    <span class="section-tag">تعرفه‌ها</span>
-                    <h2>پکیج مناسب برندتون رو انتخاب کنید</h2>
-                    <p>از حضور پایه‌ی دیجیتال تا هویت کامل و لوکس؛ هر پکیج با پشتیبانی کامل تحویل داده می‌شود.</p>
+                    <span class="section-tag">تعرفه‌های لندینگ پیج</span>
+                    <h2>پکیج لندینگ پیج مناسب بیزینس خود انتخاب کنید</h2>
+                    <p>از لندینگ پیج های پایه‌ی تا هویت کامل و هر پکیج با پشتیبانی کامل تحویل داده می‌شود.</p>
                 </div>
 
                 <div class="pricing-grid" id="pricingGrid">
@@ -3364,15 +3533,18 @@
         </section>
         <section class="cta" id="cta">
             <div class="container">
+
                 <div class="cta-inner reveal">
-                    <h2>آماده‌اید برند شما همه‌جا دیده شود؟</h2>
-                    <p>از اولین جلسه‌ی طراحی تا تحویل استند NFC روی میز شما، کل مسیر را با هم می‌سازیم.</p>
+                    <h2> جهت مشاوره رایگان و همکاری </h2>
+                    <p>با ما در تماس باشید</p>
+
                     <div class="cta-actions">
-                        <a class="btn btn-primary btn-lg" href="tel:+989019476548">درخواست طراحی</a>
+                        <a class="btn btn-primary btn-lg" href="tel:+989019476548"> تماس</a>
 
                         <a class="btn btn-ghost btn-lg" href="#portfolio">مشاهده نمونه‌کارها</a>
                     </div>
                 </div>
+
             </div>
         </section>
     </main>
@@ -3387,7 +3559,7 @@
                                 class="signal-bars"><span></span><span></span><span></span><span></span></span></span>
                         بایولینک
                     </a>
-                    <p>آژانس هویت دیجیتال — از نقشه تا لینک، از کارت تا استند، همه‌جا با یک ظاهر.</p>
+                    <p>تیم دیجیتال مارکتینگ</p>
                     <div class="footer-social">
                         <a href="#" aria-label="اینستاگرام">◎</a>
                         <a href="#" aria-label="تلگرام">✈</a>
@@ -3755,7 +3927,71 @@
             updateUI();
         })();
     </script>
+    <script>
+        (function () {
+            var el = document.querySelector('.ef-swiper');
+            if (!el || typeof Swiper === 'undefined') return;
 
+            var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            var wrapper = el.querySelector('.swiper-wrapper');
+            Array.prototype.slice.call(wrapper.children).forEach(function (n) {
+                var c = n.cloneNode(true);
+                c.setAttribute('aria-hidden', 'true');
+                wrapper.appendChild(c);
+            });
+
+            var swiper = new Swiper(el, {
+                loop: true,
+                slidesPerView: 'auto',
+                spaceBetween: 18,
+                speed: 7000,
+                grabCursor: true,
+                allowTouchMove: true,
+                autoplay: reduce ? false : {
+                    delay: 0,
+                    disableOnInteraction: false
+                },
+                a11y: false,
+                on: {
+                    init: function (s) {
+                        s.el.querySelectorAll('.swiper-slide-duplicate').forEach(function (n) {
+                            n.setAttribute('aria-hidden', 'true');
+                        });
+                    }
+                }
+            });
+
+            if (!reduce) {
+                var resumeTimer = null;
+
+                var freeze = function () {
+                    clearTimeout(resumeTimer);
+                    var t = swiper.getTranslate();
+                    swiper.autoplay.stop();
+                    swiper.setTransition(0);
+                    swiper.setTranslate(t);
+                };
+
+                var unfreeze = function () {
+                    clearTimeout(resumeTimer);
+                    swiper.animating = false;
+                    var step = swiper.slides[swiper.activeIndex].swiperSlideSize + swiper.params.spaceBetween;
+                    var target = -swiper.snapGrid[swiper.activeIndex];
+                    var remaining = Math.abs(swiper.getTranslate() - target);
+                    var ms = Math.round(swiper.params.speed * remaining / step);
+                    if (ms > 30) swiper.slideTo(swiper.activeIndex, ms, false);
+                    resumeTimer = setTimeout(function () { swiper.autoplay.start(); }, ms > 30 ? ms : 0);
+                };
+
+                el.addEventListener('mouseenter', freeze);
+                el.addEventListener('mouseleave', unfreeze);
+                el.addEventListener('focusin', freeze);
+                el.addEventListener('focusout', unfreeze);
+            }
+
+        })();
+    </script>
 </body>
 
 </html>
